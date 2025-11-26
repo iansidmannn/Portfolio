@@ -5,16 +5,18 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
 
+interface FavoriteVideo {
+  video?: string
+  thumbnail?: string
+  title: string
+  url: string
+}
+
 export default function FavoriteVideosAndAds() {
   const [activeTab, setActiveTab] = useState<'videos' | 'ads'>('ads')
 
   // Favorite Videos from Charity Impact
-  const favoriteVideos: Array<{
-    video?: string
-    thumbnail?: string
-    title: string
-    url: string
-  }> = [
+  const favoriteVideos: FavoriteVideo[] = [
     {
       video: '/Instagram (2).mp4',
       title: 'My Favorite Series Idea Ever!',
