@@ -190,7 +190,7 @@ export default function FavoriteVideosAndAds() {
                       src={ad.video}
                       controls
                       className="w-full h-full object-contain"
-                      preload="none"
+                      preload="metadata"
                     >
                       Your browser does not support the video tag.
                     </video>
