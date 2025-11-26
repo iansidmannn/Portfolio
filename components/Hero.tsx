@@ -94,7 +94,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-28 flex flex-wrap items-center justify-center gap-8 opacity-50 hover:opacity-80 transition-opacity"
+          className="mt-28 mb-20 sm:mb-0 flex flex-wrap items-center justify-center gap-8 opacity-50 hover:opacity-80 transition-opacity"
         >
           {['/f19 logo.png', '/brick logo.png', '/smylelabs logo.png', '/shp logo.png', '/ck logo.png'].map((src, index) => (
             <motion.div
@@ -123,7 +123,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, repeat: Infinity, repeatType: 'reverse', duration: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <motion.div
