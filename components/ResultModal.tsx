@@ -195,7 +195,7 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-purple-400 hover:text-purple-300 transition-colors text-sm"
-s                              >
+                              >
                                 {getVideoLinkText(result.videoUrl)}
                               </a>
                             </div>

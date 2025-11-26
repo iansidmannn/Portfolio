@@ -49,7 +49,14 @@ export const results: Result[] = [
     learnMore: 'Giving back to the community that\'s given me so much as I\'ve grown up is very important to me. I\'ve been very blessed to get to be a "face" for multiple local charities and to be able to contribute to my community! I love everyone I work with, and I enjoy playing a role in helping people.\n\nAnd when I\'ve been given the chance, my suggested strategies have led to higher contributions everywhere I\'ve been!',
     videos: ['/Better Edit.mp4', '/Charity Karaoke Sing For A Cause on Instagram 40000 Raised.mp4', '/NO KID SLEEPS ON THE FLOOR IN OUR TOWN on Instagram With our bed.mp4', '/Instagram (1).mp4', '/Instagram (2).mp4'],
     videoUrl: 'https://www.instagram.com/reel/DF8OjWsJlIE/',
-    videoUrl: 'https://www.instagram.com/reel/DF8OjWsJlIE/',
+    videoUrls: [
+      'https://www.instagram.com/p/DFIsQcyPCq1/',
+      'https://www.instagram.com/p/DEdXd_0TLjh/',
+    ],
+    videoThumbnails: [
+      '/Instagram (1).mp4',
+      '/Instagram (2).mp4',
+    ],
   },
   {
     id: '8',

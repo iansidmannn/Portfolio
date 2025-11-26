@@ -57,6 +57,7 @@ export interface Experience {
   workType?: string; // Short label like "Personal Brand", "Clothing Brand", etc.
   followers?: number; // Follower count for sorting (in actual numbers, e.g., 1200000 for 1.2M)
   category?: 'mine' | 'consulting'; // Category for section separation
+  commitment?: string; // Optional commitment description (e.g., "Ongoing consulting", "Volunteer content creation")
 }
 
 export const experiences: Experience[] = [
