@@ -3,9 +3,9 @@ import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Ian's Portfolio | Content Creator & Social Media Strategist",
-  description: '150M+ views. Viral content creator, brand strategist, and social media consultant.',
-  keywords: ['content creator', 'viral marketing', 'social media strategist', 'brand consultant'],
+  title: "Ian's Portfolio | Growth & Viral Marketer With 150M Views",
+  description: '150M+ views. Viral content creator, brand strategist, and growth marketer.',
+  keywords: ['content creator', 'viral marketing', 'growth marketing', 'brand consultant'],
   authors: [{ name: 'Ian Sidman' }],
   openGraph: {
     title: "Ian's Portfolio | Growth & Viral Marketer With 150M Views",
