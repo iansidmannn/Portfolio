@@ -320,7 +320,7 @@ export const experiences: Experience[] = [
     commitment: 'Dedicated project (cancelled $2000 Europe trip)',
     approach: 'How do you market a karaoke event you have no in person footage of that has never properly been on social media before?\n\nThis is what I was tasked with and I had to get pretty clever in order to make it work.\n\nI had a bunch of my friends helping with filming and acting and we actually got a few videos to 10-30k views on youtube and instagram.\n\nYou can find em on the charitykaroake instagram or my personal youtube.\n\nAnother way we got clever was doing collabs with local business owners, influencers, and the news to share the event to a wide local audience, that strategy paid off and got us a lot of new attention and played a role to us having our biggest year yet of $54,000 raised.\n\nDuring event day I made sure to get real footage of the event and make real content of the event that I felt did a good job capturing the essence of what it was about in an engaging way\n\nMy amazing friend laura & the event creator was nervous at an event of 100+ people and asked me to freestyle public speak HAHA, I was super nervous but I\'ll put the full video below cuz its funny\n\n\n\nYah I love working here, I\'ve been able to make some meaningful contributions in terms of ideas and donations. I hope to do so in the future.',
     approachVideo: {
-      video: '/Pub speaking.MOV',
+      video: '/Pub speaking.mp4',
     },
     achievements: [
       'Raised $94,000 for charities',

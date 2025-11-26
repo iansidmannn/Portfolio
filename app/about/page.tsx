@@ -95,7 +95,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden order-2 md:order-1"
                 >
                   <Image
-                    src="/gym.png"
+                    src="/gymphoto.png"
                     alt="Lifting weights"
                     width={600}
                     height={600}
@@ -130,7 +130,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden"
                 >
                   <Image
-                    src="/fam.png"
+                    src="/famphoto.png"
                     alt="Family"
                     width={600}
                     height={600}

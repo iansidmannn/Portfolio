@@ -82,6 +82,7 @@ export default function VideoModal({ video, isOpen, onClose }: VideoModalProps) 
                         src={video.video}
                         controls
                         className="w-full h-full object-contain"
+                        playsInline
                       >
                         Your browser does not support the video tag.
                       </video>

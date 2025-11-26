@@ -327,7 +327,6 @@ export default function Experiences() {
                                                     src={video.video}
                                                     controls
                                                     className="w-full h-full object-contain"
-                                                    preload="metadata"
                                                     playsInline
                                                   >
                                                     Your browser does not support the video tag.
@@ -419,9 +418,10 @@ export default function Experiences() {
                                                   src={deal.video}
                                                   controls
                                                   className="w-full h-full object-contain"
-                                                  preload="metadata"
                                                   playsInline
                                                   webkit-playsinline="true"
+                                                  loading="lazy"
+                                                  muted
                                                 >
                                                   Your browser does not support the video tag.
                                                 </video>
@@ -433,6 +433,8 @@ export default function Experiences() {
                                                   alt={deal.brand}
                                                   fill
                                                   className="object-cover"
+                                                  loading="lazy"
+                                                  sizes="(max-width: 768px) 100vw, 50vw"
                                                 />
                                               </div>
                                             ) : null}
@@ -482,7 +484,6 @@ export default function Experiences() {
                                                     src={memory.video}
                                                     controls
                                                     className="w-full h-auto"
-                                                    preload="metadata"
                                                     playsInline
                                                   >
                                                     Your browser does not support the video tag.
@@ -685,7 +686,6 @@ export default function Experiences() {
                                           src={experience.approachVideo.video}
                                           controls
                                           className="w-full h-full object-contain"
-                                          preload="metadata"
                                           playsInline
                                           webkit-playsinline="true"
                                         >
