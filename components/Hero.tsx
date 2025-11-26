@@ -41,7 +41,7 @@ export default function Hero() {
             className="relative w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 mx-auto mb-6 rounded-full overflow-hidden border-2 border-white/20 shadow-[0_10px_50px_rgba(0,0,0,0.4)]"
           >
             <Image
-              src="/profile.jpg"
+              src="/Profile.jpg"
               alt="IanTheViralGuy"
               fill
               className="object-cover"
