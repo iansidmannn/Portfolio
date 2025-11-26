@@ -70,7 +70,7 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 max-w-2xl mx-auto"
         >
-          Growth & Viral Marketer
+          Viral & Growth Marketer
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
