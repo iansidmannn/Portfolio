@@ -9,7 +9,12 @@ export default function FavoriteVideosAndAds() {
   const [activeTab, setActiveTab] = useState<'videos' | 'ads'>('ads')
 
   // Favorite Videos from Charity Impact
-  const favoriteVideos = [
+  const favoriteVideos: Array<{
+    video?: string
+    thumbnail?: string
+    title: string
+    url: string
+  }> = [
     {
       video: '/Instagram (2).mp4',
       title: 'My Favorite Series Idea Ever!',
