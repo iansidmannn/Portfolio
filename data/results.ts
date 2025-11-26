@@ -30,18 +30,6 @@ export const results: Result[] = [
     images: ['/views2.png', '/One Viral Post Dozen Other (1).png'],
   },
   {
-    id: '3',
-    title: 'Single Video Revenue',
-    metric: '$5,000',
-    description: 'One video generated 5.8M views, 282K shares, and 193 new customers',
-    account: '@goofygarmentshop',
-    accountUrl: 'https://www.instagram.com/goofygarmentshop/',
-    showAccountLink: false, // Don't show separate link, include in description
-    learnMore: 'This is what most people don\'t understand about content creation. I refilmed this video 8 different times to get this take, subtly improving my own and my camera movements each time. Energy is super important when going for a viral video. If your video doesn\'t embody the audio, and the things in the video don\'t keep your target audiences attention by being relevant and presented in the right way, the odds people swipe is a lot higher.\n\nThere is so much depth to virality the trained eye doesn\'t see, it\'s not needed to go viral, but understanding it & wielding that knowledge is extremely powerful.\n\nThat\'s part of why when I find a working format, I can rip it so consitently and continue to get views.',
-    videos: ['/GOOFY GARMENTS on Instagram Guess I wont be getting bullied anym.mp4'],
-    videoUrl: 'https://www.instagram.com/reel/CoIZkTfLkIP/',
-  },
-  {
     id: '7',
     title: 'Charity Impact',
     metric: '$94K Raised',
@@ -68,6 +56,18 @@ export const results: Result[] = [
     showAccountLink: false,
     learnMore: 'The owner approached me and asked me to leave a review & being friends with her I asked If I could help. I created a tappable NFC card that automatically brought people to the review page (reducing friction), and then told her to tell everyone they get a free snack if they do it. (reducing friction even more and adding incentive)\n\nThis led to her getting 30+ reviews in one day, now being 254 total reviews, and recieving recgonition from the executive team.',
     images: ['/f19 logo.png', '/Screenshot 2025-11-24 133137.png'],
+  },
+  {
+    id: '3',
+    title: 'Single Video Revenue',
+    metric: '$5,000',
+    description: 'One video generated 5.8M views, 282K shares, and 193 new customers',
+    account: '@goofygarmentshop',
+    accountUrl: 'https://www.instagram.com/goofygarmentshop/',
+    showAccountLink: false, // Don't show separate link, include in description
+    learnMore: 'This is what most people don\'t understand about content creation. I refilmed this video 8 different times to get this take, subtly improving my own and my camera movements each time. Energy is super important when going for a viral video. If your video doesn\'t embody the audio, and the things in the video don\'t keep your target audiences attention by being relevant and presented in the right way, the odds people swipe is a lot higher.\n\nThere is so much depth to virality the trained eye doesn\'t see, it\'s not needed to go viral, but understanding it & wielding that knowledge is extremely powerful.\n\nThat\'s part of why when I find a working format, I can rip it so consitently and continue to get views.',
+    videos: ['/GOOFY GARMENTS on Instagram Guess I wont be getting bullied anym.mp4'],
+    videoUrl: 'https://www.instagram.com/reel/CoIZkTfLkIP/',
   },
 ];
 
