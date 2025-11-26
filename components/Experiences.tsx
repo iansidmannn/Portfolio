@@ -202,7 +202,8 @@ export default function Experiences() {
                                             const isStrategy = /^strategy$/i.test(part);
                                             const isThisAccount = /^this account$/i.test(part);
                                             
-                                            if (isStrategy) {
+                                            // Only make "strategy" a link for the iansidmann experience specifically
+                                            if (isStrategy && experience.account === '@iansidmann') {
                                               return (
                                                 <a
                                                   key={i}
@@ -257,6 +258,7 @@ export default function Experiences() {
                                               width={200}
                                               height={200}
                                               className="w-full h-auto object-cover"
+                                              loading="lazy"
                                             />
                                           </div>
                                           {img.label && (
@@ -325,6 +327,7 @@ export default function Experiences() {
                                                     src={video.video}
                                                     controls
                                                     className="w-full h-full object-contain"
+                                                    preload="none"
                                                   >
                                                     Your browser does not support the video tag.
                                                   </video>
@@ -357,6 +360,7 @@ export default function Experiences() {
                                                       alt={video.title || 'Video thumbnail'}
                                                       fill
                                                       className="object-cover"
+                                                      loading="lazy"
                                                     />
                                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                                                       <ExternalLink className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -414,6 +418,7 @@ export default function Experiences() {
                                                   src={deal.video}
                                                   controls
                                                   className="w-full h-full object-contain"
+                                                  preload="none"
                                                 >
                                                   Your browser does not support the video tag.
                                                 </video>
@@ -474,6 +479,7 @@ export default function Experiences() {
                                                     src={memory.video}
                                                     controls
                                                     className="w-full h-auto"
+                                                    preload="none"
                                                   >
                                                     Your browser does not support the video tag.
                                                   </video>
@@ -498,6 +504,7 @@ export default function Experiences() {
                                                     width={800}
                                                     height={800}
                                                     className="w-full h-auto object-contain"
+                                                    loading="lazy"
                                                   />
                                                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center pointer-events-none">
                                                     <ExternalLink className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -518,6 +525,7 @@ export default function Experiences() {
                                                     width={800}
                                                     height={800}
                                                     className="w-full h-auto object-contain"
+                                                    loading="lazy"
                                                   />
                                                 </div>
                                                 {memory.caption && (
@@ -673,6 +681,7 @@ export default function Experiences() {
                                           src={experience.approachVideo.video}
                                           controls
                                           className="w-full h-full object-contain"
+                                          preload="none"
                                         >
                                           Your browser does not support the video tag.
                                         </video>
@@ -773,6 +782,7 @@ export default function Experiences() {
                                             width={800}
                                             height={600}
                                             className="w-full h-auto object-contain"
+                                            loading="lazy"
                                           />
                                         </div>
                                       ))}

@@ -115,7 +115,7 @@ export default function SocialFooter() {
         </motion.div>
 
         {/* Social Links */}
-        <div className="flex gap-3 md:grid md:grid-cols-4 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {socials.map((social, index) => (
             <motion.a
               key={social.id}
@@ -126,15 +126,19 @@ export default function SocialFooter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`group rounded-2xl md:rounded-3xl border border-white/10 bg-gradient-to-br ${social.accent} backdrop-blur-xl p-4 md:p-8 flex flex-col items-center gap-2 md:gap-4 hover:border-white/30 hover:-translate-y-2 transition-all flex-1 md:flex-none`}
+              className={`group rounded-2xl md:rounded-3xl border border-white/10 bg-gradient-to-br ${social.accent} backdrop-blur-xl p-4 md:p-8 flex flex-col items-center gap-2 md:gap-4 hover:border-white/30 hover:-translate-y-2 transition-all`}
             >
-              <div className="w-10 h-10 md:w-16 md:h-16 relative">
-                <Image
-                  src={social.icon}
-                  alt={`${social.name} logo`}
-                  fill
-                  className="object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
-                />
+              <div className="w-10 h-10 md:w-16 md:h-16 relative flex items-center justify-center">
+                {social.id === 'linkedin' ? (
+                  <Linkedin className="w-10 h-10 md:w-16 md:h-16 text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]" />
+                ) : (
+                  <Image
+                    src={social.icon}
+                    alt={`${social.name} logo`}
+                    fill
+                    className="object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+                  />
+                )}
               </div>
               <div className="space-y-0.5 md:space-y-1 text-center">
                 <p className="text-white text-sm md:text-2xl font-semibold">{social.name}</p>

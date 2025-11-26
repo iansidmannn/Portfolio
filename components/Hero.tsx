@@ -110,6 +110,8 @@ export default function Hero() {
                 fill
                 sizes="120px"
                 className="object-contain opacity-70"
+                loading="lazy"
+                fetchPriority="low"
               />
             </motion.div>
           ))}

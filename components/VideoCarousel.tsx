@@ -324,7 +324,7 @@ export default function VideoCarousel() {
                       className="w-full h-full object-cover"
                       muted
                       playsInline
-                      preload="metadata"
+                      preload="none"
                     />
                     {/* Play button overlay */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">

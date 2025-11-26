@@ -95,6 +95,7 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                                 controls
                                 className="w-full h-auto"
                                 playsInline
+                                preload="none"
                               >
                                 Your browser does not support the video tag.
                               </video>
@@ -183,6 +184,7 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                                 controls
                                 className="w-full h-auto"
                                 playsInline
+                                preload="none"
                               >
                                 Your browser does not support the video tag.
                               </video>
