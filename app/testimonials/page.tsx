@@ -98,6 +98,7 @@ export default function TestimonialsPage() {
                     src="/IMG_3001.mov"
                     controls
                     className="w-full h-auto"
+                    preload="metadata"
                     playsInline
                   >
                     Your browser does not support the video tag.
@@ -130,6 +131,7 @@ export default function TestimonialsPage() {
                     src="/1124(1).mp4"
                     controls
                     className="w-full h-auto"
+                    preload="metadata"
                     playsInline
                   >
                     Your browser does not support the video tag.

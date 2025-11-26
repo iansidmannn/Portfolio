@@ -112,7 +112,8 @@ export default function FavoriteVideosAndAds() {
                         src={video.video}
                         controls
                         className="w-full h-full object-contain"
-                        preload="none"
+                        preload="metadata"
+                        playsInline
                       >
                         Your browser does not support the video tag.
                       </video>
@@ -191,6 +192,8 @@ export default function FavoriteVideosAndAds() {
                       controls
                       className="w-full h-full object-contain"
                       preload="metadata"
+                      playsInline
+                      webkit-playsinline="true"
                     >
                       Your browser does not support the video tag.
                     </video>
