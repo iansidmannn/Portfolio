@@ -8,15 +8,10 @@ const nextConfig = {
   // For Cloudflare Pages static deployment
   output: 'export',
   trailingSlash: true,
-  // Compression and optimization
-  compress: true,
+  // Optimization
   poweredByHeader: false,
   // Optimize production builds
   swcMinify: true,
-  // Reduce bundle size
-  experimental: {
-    optimizeCss: true,
-  },
 }
 
 module.exports = nextConfig
