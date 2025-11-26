@@ -113,7 +113,6 @@ export default function FavoriteVideosAndAds() {
                         controls
                         className="w-full h-full object-contain"
                         playsInline
-                        loading="lazy"
                         muted
                       >
                         Your browser does not support the video tag.

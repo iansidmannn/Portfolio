@@ -420,7 +420,6 @@ export default function Experiences() {
                                                   className="w-full h-full object-contain"
                                                   playsInline
                                                   webkit-playsinline="true"
-                                                  loading="lazy"
                                                   muted
                                                 >
                                                   Your browser does not support the video tag.
