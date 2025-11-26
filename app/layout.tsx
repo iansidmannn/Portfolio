@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/Profile.jpg',
+        url: '/coverimg.png',
         width: 1200,
-        height: 1200,
+        height: 630,
         alt: "Ian's Portfolio",
       },
     ],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Ian's Portfolio | Growth & Viral Marketer With 150M Views",
     description: "Ian's Portfolio | Growth & Viral Marketer With 150M Views",
-    images: ['/Profile.jpg'],
+    images: ['/coverimg.png'],
   },
   robots: {
     index: true,
