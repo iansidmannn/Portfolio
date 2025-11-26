@@ -22,12 +22,12 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-8 sm:py-12">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-8 sm:py-12">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
       
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center w-full max-w-5xl -mt-16">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center w-full max-w-5xl sm:-mt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ export default function Hero() {
               key={src}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 + index * 0.05, duration: 0.4 }}
+              transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
               className="relative h-9 w-28 sm:h-10 sm:w-32 md:h-11 md:w-36"
             >
               <Image
@@ -110,8 +110,8 @@ export default function Hero() {
                 fill
                 sizes="120px"
                 className="object-contain opacity-70"
-                loading="lazy"
-                fetchPriority="low"
+                priority
+                fetchPriority="high"
               />
             </motion.div>
           ))}

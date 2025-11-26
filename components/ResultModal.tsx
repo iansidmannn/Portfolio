@@ -80,8 +80,19 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                   
                   if (videos.length > 0 && result.learnMore) {
                     return (
-                      <div className="mb-6 grid md:grid-cols-2 gap-6">
-                        <div className="space-y-4">
+                      <div className="mb-6 flex flex-col md:grid md:grid-cols-2 gap-6">
+                        {/* Mobile: Text first, then videos. Desktop: Videos left, text right */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2, duration: 0.5 }}
+                          className="prose prose-invert max-w-none order-1 md:order-2"
+                        >
+                          <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                            {result.learnMore}
+                          </p>
+                        </motion.div>
+                        <div className="space-y-4 order-2 md:order-1">
                           {videos.map((video, index) => (
                             <motion.div
                               key={index}
@@ -153,16 +164,6 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                             </div>
                           )}
                         </div>
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.2, duration: 0.5 }}
-                          className="prose prose-invert max-w-none"
-                        >
-                          <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                            {result.learnMore}
-                          </p>
-                        </motion.div>
                       </div>
                     );
                   }
