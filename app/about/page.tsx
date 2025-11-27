@@ -104,7 +104,7 @@ export default function AboutPage() {
                 </motion.div>
                 <div className="space-y-4 text-lg text-gray-300 leading-relaxed order-1 md:order-2">
                   <p>
-                    Lifting weights with my friends has always been one of my favorite parts of my life, me and my bestfriend both got a national record when I was 17, pretty cool hehe.
+                    Lifting weights with my friends has always been a favorite part of my life, me and my bestfriend both got a national record when I was 17, pretty cool hehe.
                   </p>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                   <p>
-                    My relationship with my family is very important to me, they can be a pain in the BOOTY sometimes, but I can't imagine life without them HAHA. They're one of the biggest sources of love/energy I can draw on when I'm in need.
+                    My relationship with my family is very important to me, they can be a pain in the BOOTY sometimes, but I can't imagine life without them. They're one of the biggest sources of love/energy I can draw on when I'm in need.
                   </p>
                 </div>
                 <motion.div

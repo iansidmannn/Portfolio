@@ -622,7 +622,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     title: 'Get Brick',
     account: '@getbrick',
     accountUrl: 'https://getbrick.app/',
-    summary: ['I was making charity content and I also publicly used this product cuz I love it, they ended up reaching out to me and contracted me for an ad'],
+    summary: ['Brick is an industry leading productivty device that I use all the time. They liked my energy/content & contracted me for an ad'],
     workType: 'Product Brand',
     followers: 120000,
     image: '/Worked With 2/IMG_3067.PNG', // spot 5: image 17
