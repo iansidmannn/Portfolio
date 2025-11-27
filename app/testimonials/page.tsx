@@ -95,7 +95,7 @@ export default function TestimonialsPage() {
                 </div>
                 <div className="relative w-full max-w-xs rounded-lg overflow-hidden border border-white/10 mb-3">
                   <video
-                    src="/IMG_3001.mp4"
+                    src="/IMG_3001_compressed.mp4"
                     controls
                     className="w-full h-auto"
                     preload="metadata"

@@ -206,6 +206,7 @@ export const videos: Video[] = [
     account: '@iantheviralguy',
     accountUrl: 'https://www.tiktok.com/@gymjunkie69_',
     video: '/protein.mp4',
+    thumbnail: '/Screenshot 2025-11-27 092524.png',
   },
 ];
 

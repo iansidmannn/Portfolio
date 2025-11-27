@@ -79,7 +79,7 @@ For example, with charity karoake I suggested doing giveaways with local busines
     showAccountLink: false,
     learnMore: 'Human psychology is second nature to me, in the enviornment I grew up in I\'ve lived in depravitiy for a long time. And in that state of mind I learned what adds friction or reduces friction. Wielding this knowledge like a sword, and being the most creative beasts that I am, I can easily find little details that most people miss on reducing friction for purchasing decisions, whether it be psycholgoy in the content itself or the wording, design, and layout of the actual storefront.',
     images: ['/Screenshot 2025-11-26 152947.png', '/Atom Clothes.png'],
-    videos: ['/IMG_3001.mp4'],
+    videos: ['/IMG_3001_compressed.mp4'],
   },
   {
     id: '10',

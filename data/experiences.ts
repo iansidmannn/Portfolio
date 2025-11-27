@@ -537,7 +537,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     ],
     pictureMemories: [
       {
-        video: '/IMG_3001.mp4',
+        video: '/IMG_3001_compressed.mp4',
         caption: 'Launch day went crazy.',
       },
       {
