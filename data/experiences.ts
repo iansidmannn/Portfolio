@@ -486,6 +486,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     approach: 'Content creation and social media strategy for nonprofit organization.',
     videos: [
       {
+        url: '#',
         video: '/Better Edit.mp4',
       },
     ],

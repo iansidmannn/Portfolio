@@ -337,14 +337,20 @@ export default function Experiences() {
                                                     {video.title}
                                                   </p>
                                                 )}
-                                                <a
-                                                  href={video.url}
-                                                  target="_blank"
-                                                  rel="noopener noreferrer"
-                                                  className="text-xs text-purple-400 hover:text-purple-300 transition-colors text-center block mt-1"
-                                                >
-                                                  {video.url.includes('instagram.com') ? 'View on Instagram' : 'View on website (It\'s their #1 ad)'}
-                                                </a>
+                                                {video.url && video.url !== '#' && (
+                                                  <a
+                                                    href={video.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-xs text-purple-400 hover:text-purple-300 transition-colors text-center block mt-1"
+                                                  >
+                                                    {video.url.includes('instagram.com') 
+                                                      ? 'View on Instagram' 
+                                                      : experience.id === 'get-brick' 
+                                                        ? 'View on website (It\'s their #1 ad)' 
+                                                        : 'View on website'}
+                                                  </a>
+                                                )}
                                               </div>
                                             ) : (
                                               <a
@@ -370,7 +376,11 @@ export default function Experiences() {
                                                   <div className="w-full aspect-[4/5] rounded-lg border border-white/10 bg-gradient-to-br from-purple-500/10 to-blue-500/10 flex flex-col items-center justify-center group-hover:border-white/30 transition-colors space-y-2">
                                                     <ExternalLink className="w-8 h-8 text-purple-400 group-hover:text-purple-300 transition-colors" />
                                                     <p className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors px-4 text-center">
-                                                      {video.url.includes('instagram.com') ? 'View on Instagram' : 'View on website'}
+                                                      {video.url.includes('instagram.com') 
+                                                        ? 'View on Instagram' 
+                                                        : experience.id === 'get-brick' 
+                                                          ? 'View on website (It\'s their #1 ad)' 
+                                                          : 'View on website'}
                                                     </p>
                                                   </div>
                                                 )}
