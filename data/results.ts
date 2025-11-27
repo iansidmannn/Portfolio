@@ -24,7 +24,7 @@ export const results: Result[] = [
     account: '@iansidmann',
     accountUrl: 'https://www.tiktok.com/@gymjunkie69_',
     showAccountLink: false, // Don't show separate link, include in description
-    learnMore: 'Honestly this experience taught me so much of what I know about virality.\n\nI saw other videos like this going viral and I was like hmmm, I guess I\'ll give it a go. Funny story, I had to use my dads phone to film the intro and after 2 takes he got pissed, and said you only have one more. This video almost didn\'t happen haha. Anyways.\n\nAfter it blew up a lot of what was grey become clear to me. I learned that theres different demographics on Titktok have unique appetites. Through observing what\'s working, you can find these different demographics and tap into their psyche, what energy is being looked for. You can game the market. \n\nDoing this allowed me to create 2 seperate series ideas in the span of one week that pulled consitently 100k-5m views on average. One viral post leads to a dozen others.\n\nKeep in mind this is only helpful for coming up with viral engines, but as an account wide strategy it would destroy a brand.',
+    learnMore: 'Honestly this experience taught me so much of what I know about virality.\n\nI saw other videos like this going viral and I was like hmmm, I guess I\'ll give it a go. Funny story, I had to use my dads phone to film the intro and after 2 takes he got pissed, and said you only have one more. This video almost didn\'t happen haha. Anyways.\n\nAfter it blew up a lot of what was grey become clear to me. I learned that theres different demographics and psychographics on Tiktok that have unique appetites. Through observing what\'s working, you can find these different groups and tap into their psyche, what energy is being looked for. You can game the market. \n\nDoing this allowed me to create 2 seperate series ideas in the span of one week that pulled consitently 100k-5m views on average. One viral post leads to a dozen others.\n\nKeep in mind this is only helpful for coming up with viral engines, but as an account wide strategy it would destroy a brand.',
     videos: ['/gymjunkie69_ on TikTok.mp4'],
     videoUrl: 'https://www.tiktok.com/@gymjunkie69_/video/6941544620442602757?_r=1&_t=ZP-91g71kbm698',
     images: ['/views2.png', '/One Viral Post Dozen Other (1).png'],
@@ -34,8 +34,18 @@ export const results: Result[] = [
     title: 'Charity Impact',
     metric: '$94K Raised',
     description: 'Raised $94,000 for charities through content creation',
-    learnMore: 'Giving back to the community that\'s given me so much as I\'ve grown up is very important to me. I\'ve been very blessed to get to be a "face" for multiple local charities and to be able to contribute to my community! I love everyone I work with, and I enjoy playing a role in helping people.\n\nAnd when I\'ve been given the chance, my suggested strategies have led to higher contributions everywhere I\'ve been!',
-    videos: ['/Better Edit.mp4', '/Charity Karaoke Sing For A Cause on Instagram 40000 Raised.mp4', '/NO KID SLEEPS ON THE FLOOR IN OUR TOWN on Instagram With our bed.mp4', '/Instagram (1).mp4', '/Instagram (2).mp4'],
+    learnMore: `Giving back to the community that's given me so much as I've grown up is very important to me. I've been very blessed to get to be a "face" for multiple local charities and to be able to contribute to my community! I love everyone I work with, and I enjoy playing a role in helping people.
+
+And when I've been given the chance, my suggested strategies have led to higher contributions everywhere I've been!
+
+For example, with charity karoake I suggested doing giveaways with local businesses & building mutually beneficial relationships with them, this got us more sponsors & 100 extra local followers with minimal effort. I also suggested that instead of only allowing "sponsors" we also let everyday people contribute to the event which raised an additional $5,000. That on top of my basic content strategy helped pushed them to a record high of 54,000 dollars raised, and 200 followers gained from simple giveaway collabs.`,
+    videos: [
+      '/Better Edit.mp4',
+      '/Charity Karaoke Sing For A Cause on Instagram 40000 Raised.mp4',
+      '/NO KID SLEEPS ON THE FLOOR IN OUR TOWN on Instagram With our bed.mp4',
+      '/Instagram (1).mp4',
+      '/Instagram (2).mp4',
+    ],
     videoUrl: 'https://www.instagram.com/reel/DF8OjWsJlIE/',
     videoUrls: [
       'https://www.instagram.com/p/DFIsQcyPCq1/',

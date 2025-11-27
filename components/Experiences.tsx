@@ -555,70 +555,20 @@ export default function Experiences() {
                                         const isLastParagraph = paraIdx === paragraphs.length - 1;
                                         const hasAccountLink = isLastParagraph && experience.approachAccount;
                                         
+                                        // Skip empty paragraphs to preserve exact spacing
+                                        if (!paragraph.trim() && !hasAccountLink) {
+                                          return <br key={paraIdx} />;
+                                        }
+                                        
                                         return (
-                                          <p key={paraIdx} className="mb-6 last:mb-0">
-                                            {paragraph.split(/\b(charitykaroake instagram|my personal youtube)\b/i).map((part, i, arr) => {
-                                              if (i === 0) {
-                                                // Check for links in the first part
-                                                const parts = [];
-                                                let remaining = part;
-                                                
-                                                // Check for "charitykaroake instagram"
-                                                const charityMatch = remaining.match(/\b(charitykaroake instagram)\b/i);
-                                                if (charityMatch) {
-                                                  const before = remaining.substring(0, charityMatch.index);
-                                                  const after = remaining.substring(charityMatch.index! + charityMatch[0].length);
-                                                  parts.push(<span key={`before-${i}`}>{before}</span>);
-                                                  parts.push(
-                                                    <a
-                                                      key={`charity-${i}`}
-                                                      href="https://www.instagram.com/charitykaraoke/"
-                                                      target="_blank"
-                                                      rel="noopener noreferrer"
-                                                      className="text-purple-400 hover:text-purple-300 underline"
-                                                    >
-                                                      {charityMatch[0]}
-                                                    </a>
-                                                  );
-                                                  remaining = after;
-                                                }
-                                                
-                                                // Check for "my personal youtube"
-                                                const youtubeMatch = remaining.match(/\b(my personal youtube)\b/i);
-                                                if (youtubeMatch) {
-                                                  const before = remaining.substring(0, youtubeMatch.index);
-                                                  const after = remaining.substring(youtubeMatch.index! + youtubeMatch[0].length);
-                                                  parts.push(<span key={`before-youtube-${i}`}>{before}</span>);
-                                                  parts.push(
-                                                    <a
-                                                      key={`youtube-${i}`}
-                                                      href="https://www.youtube.com/@iansidmann"
-                                                      target="_blank"
-                                                      rel="noopener noreferrer"
-                                                      className="text-purple-400 hover:text-purple-300 underline"
-                                                    >
-                                                      {youtubeMatch[0]}
-                                                    </a>
-                                                  );
-                                                  remaining = after;
-                                                }
-                                                
-                                                if (parts.length > 0) {
-                                                  parts.push(<span key={`remaining-${i}`}>{remaining}</span>);
-                                                  return <>{parts}</>;
-                                                }
-                                                return <span key={i}>{part}</span>;
-                                              }
-                                              
-                                              // Check for "charitykaroake instagram" or "my personal youtube"
-                                              const isCharityLink = /^charitykaroake instagram$/i.test(part);
-                                              const isYoutubeLink = /^my personal youtube$/i.test(part);
-                                              
-                                              if (isCharityLink) {
+                                          <p key={paraIdx} className="mb-1 last:mb-0">
+                                            {paragraph.split(/(https?:\/\/[^\s]+)/).map((part, i) => {
+                                              // Check if this part is a URL
+                                              if (/^https?:\/\//.test(part)) {
                                                 return (
                                                   <a
                                                     key={i}
-                                                    href="https://www.instagram.com/charitykaraoke/"
+                                                    href={part}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="text-purple-400 hover:text-purple-300 underline"
@@ -628,21 +578,45 @@ export default function Experiences() {
                                                 );
                                               }
                                               
-                                              if (isYoutubeLink) {
-                                                return (
-                                                  <a
-                                                    key={i}
-                                                    href="https://www.youtube.com/@iansidmann"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-purple-400 hover:text-purple-300 underline"
-                                                  >
-                                                    {part}
-                                                  </a>
-                                                );
-                                              }
-                                              
-                                              return <span key={i}>{part}</span>;
+                                              // For non-URL parts, check for specific text patterns
+                                              return (
+                                                <span key={i}>
+                                                  {part.split(/\b(charitykaroake instagram|my personal youtube)\b/i).map((subPart, j, subArr) => {
+                                                    const isCharityLink = /^charitykaroake instagram$/i.test(subPart);
+                                                    const isYoutubeLink = /^my personal youtube$/i.test(subPart);
+                                                    
+                                                    if (isCharityLink) {
+                                                      return (
+                                                        <a
+                                                          key={j}
+                                                          href="https://www.instagram.com/charitykaraoke/"
+                                                          target="_blank"
+                                                          rel="noopener noreferrer"
+                                                          className="text-purple-400 hover:text-purple-300 underline"
+                                                        >
+                                                          {subPart}
+                                                        </a>
+                                                      );
+                                                    }
+                                                    
+                                                    if (isYoutubeLink) {
+                                                      return (
+                                                        <a
+                                                          key={j}
+                                                          href="https://www.youtube.com/@iansidmann"
+                                                          target="_blank"
+                                                          rel="noopener noreferrer"
+                                                          className="text-purple-400 hover:text-purple-300 underline"
+                                                        >
+                                                          {subPart}
+                                                        </a>
+                                                      );
+                                                    }
+                                                    
+                                                    return <span key={j}>{subPart}</span>;
+                                                  })}
+                                                </span>
+                                              );
                                             })}
                                             {hasAccountLink && (
                                               <>
@@ -716,6 +690,19 @@ export default function Experiences() {
                                           </div>
                                         )}
                                       </div>
+                                    </div>
+                                  )}
+                                  {experience.approachPdf && (
+                                    <div className="mt-6">
+                                      <a
+                                        href={experience.approachPdf.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium"
+                                      >
+                                        {experience.approachPdf.label}
+                                        <ExternalLink className="w-4 h-4" />
+                                      </a>
                                     </div>
                                   )}
                                 </div>

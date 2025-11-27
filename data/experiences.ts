@@ -30,7 +30,7 @@ export interface Experience {
   id: string;
   title: string;
   account: string;
-  accountUrl: string;
+  accountUrl?: string;
   summary?: string | string[]; // Summary text - can be a string or array of paragraphs for easier editing
   summaryImages?: SummaryImage[]; // Images to display alongside the summary
   videos?: ExperienceVideo[]; // Videos from the account to display
@@ -48,6 +48,10 @@ export interface Experience {
   approachVideo?: {
     video: string; // Video file path
     label?: string; // Optional label (e.g., "5.8M views @goofygarmentshop $5,000")
+  };
+  approachPdf?: {
+    url: string; // PDF file path
+    label: string; // Button label (e.g., "View Power Point")
   };
   achievements: string[];
   achievementImages?: string[]; // Images to display in the achievements section
@@ -337,15 +341,173 @@ export const experiences: Experience[] = [
     title: 'Sleep In Heavenly Peace',
     account: '@shpbeds',
     accountUrl: 'https://www.instagram.com/shpbeds/',
+    summary: ['Sleep in Heavenly Peace is an organization that builds beds for kids that sleep on the floor. I met the owner of the local chapter of SHP and they brought me on the team and I ended up creating content for the whole organization'],
     workType: 'Non-Profit',
     followers: 500, // Estimated
     image: '/Worked With 2/IMG_3077.PNG',
     category: 'consulting',
     commitment: 'Volunteer content creation',
-    approach: 'Met the owner at Starbucks and connected with the cause. Show up to bed build events and create videos for social media to increase awareness and support.',
+    approach: `The owner lets me know when they have build events and I just show up and try to think of viral content ideas, the main account has 12k followers, but you can see all the content I've made here (the older content)
+
+https://www.instagram.com/shpventuracoe/reels/`,
+    videos: [
+      {
+        url: 'https://www.instagram.com/reel/DGEUmwvz5JQ/',
+        thumbnail: '/Screenshot 2025-11-26 162010.png',
+      },
+      {
+        url: 'https://www.instagram.com/reel/DGG5akozQZN/',
+        thumbnail: '/Screenshot 2025-11-26 162159.png',
+      },
+      {
+        url: 'https://www.instagram.com/reel/DF8OjWsJlIE/',
+        thumbnail: '/Screenshot 2025-11-26 161619.png',
+      },
+      {
+        url: 'https://www.instagram.com/reel/DF_LFu_TfAZ/',
+        thumbnail: '/Screenshot 2025-11-26 161739.png',
+      },
+      {
+        url: 'https://www.instagram.com/reel/DGBv2cezFX4/',
+        thumbnail: '/Screenshot 2025-11-26 161911.png',
+      },
+      {
+        url: 'https://www.instagram.com/reel/DGJeSdeTOMW/',
+        thumbnail: '/Screenshot 2025-11-26 162240.png',
+      },
+      {
+        url: 'https://www.instagram.com/reel/DHjfNOkywGt/',
+        thumbnail: '/Screenshot 2025-11-26 162322.png',
+      },
+    ],
     achievements: [
       'Ongoing support for meaningful cause',
       'Content creation for awareness',
+    ],
+  },
+  {
+    id: 'sarah',
+    title: 'Sarah (Personal Brand)',
+    account: '@sarahfishersousa',
+    accountUrl: 'https://www.instagram.com/sarahfishersousa/',
+    workType: 'Personal Brand',
+    followers: 10000, // Estimated
+    image: '/IMG_3082.PNG', // spot 9: new file
+    category: 'consulting',
+    commitment: 'Strategy and framework',
+    summary: ['Sarah is a great friend of mine, we met at WealthCon and she\'s just one of those people you gravitate towards. I saw some of her mediocre content was pulling views, and she ended up hiring me to help take her to the next level.'],
+    approach: `Optimized page to drive traffic to women in business event. Provided viral video framework that resulted in 10M and 13.4M view videos.
+
+Among weekly calls & sharing my viral strategies with her, I created semi frequently gave advice in the form of power points`,
+    approachPdf: {
+      url: '/SarahMarch2024.pdf',
+      label: 'View Power Point',
+    },
+    videos: [
+      {
+        url: 'https://www.instagram.com/reel/C-kptyVRdZp/',
+        title: '10M views',
+        thumbnail: '/Screenshot 2025-11-23 132811.png',
+      },
+      {
+        url: 'https://www.instagram.com/reel/DKPUylRRl-J/',
+        title: '13.4M views',
+        thumbnail: '/Screenshot 2025-11-23 132933.png',
+      },
+    ],
+    achievements: [
+      'Page optimization',
+      'Viral video framework',
+      '10M and 13.4M view videos',
+    ],
+  },
+  {
+    id: 'snappy-feet',
+    title: 'Snappy Feet',
+    account: '@shopsnappyfeet',
+    accountUrl: '#',
+    workType: 'Ecommerce',
+    followers: 1000, // Estimated
+    image: '/Screenshot 2025-11-23 230855.png',
+    category: 'consulting',
+    commitment: 'Strategy consultation',
+    summary: ['The owner called me and asked for my advice on their store because they were stuck at ~1-5k views. After our call, the next video posted got 103k views and they consistently got ~10k+ views.'],
+    approach: 'Ecommerce brand. One call optimized online store and corrected social media strategy. Next video got 100K+ views (from 1k avg).',
+    pictureMemories: [
+      {
+        image: '/Screenshot 2025-11-23 230855.png',
+        caption: 'Account is now deleted',
+      },
+      {
+        image: '/testimonial.png',
+      },
+    ],
+    achievements: [
+      'Store optimization',
+      'Social media strategy correction',
+      '100K+ view video (from 1k average)',
+      '15 organic sales from one video',
+    ],
+  },
+  {
+    id: 'open-park',
+    title: 'Open Park',
+    account: '@openparkus',
+    accountUrl: 'https://www.instagram.com/openparkus/',
+    workType: 'Local Business',
+    followers: 2000, // Growing
+    image: '/Worked With 2/IMG_3071.PNG', // spot 12: image 6
+    category: 'consulting',
+    commitment: 'Strategy consultation',
+    approach: 'In-person dog park experience. Met with owners to correct social media strategy. Led from 200 views to several 100K+ view videos.',
+    videos: [
+      {
+        url: 'https://www.tiktok.com/t/ZP8Uj3sPM/',
+        title: '640K views',
+        thumbnail: '/Screenshot 2025-11-23 133348.png',
+      },
+    ],
+    achievements: [
+      'Social media strategy',
+      '200 views to 100K+ views',
+      'Multiple viral videos',
+    ],
+  },
+  {
+    id: 'tostreetfair',
+    title: 'To Street Fair',
+    account: '@thousandoaksrotarystreetfair',
+    accountUrl: 'https://www.instagram.com/thousandoaksrotarystreetfair/',
+    workType: 'Non-Profit',
+    followers: 0, // To be determined
+    image: '/Worked With 2/IMG_3078.PNG',
+    category: 'consulting',
+    commitment: 'Non-profit organization',
+    approach: 'Content creation and social media strategy for nonprofit organization.',
+    videos: [
+      {
+        video: '/Better Edit.mp4',
+      },
+    ],
+    achievements: [
+      'Social media presence development',
+    ],
+  },
+  {
+    id: 'red-as-color',
+    title: 'RedAsTheColor',
+    account: '@redasthecolor',
+    accountUrl: 'https://www.youtube.com/@redasthecolor',
+    workType: 'Creator Consulting',
+    followers: 5000, // Growing
+    image: '/Worked With 2/IMG_3080.PNG', // spot 11: image 15
+    category: 'consulting',
+    commitment: 'Content and editing support',
+    approach: 'Car social media content. Helped with video editing and content creation. Attended WealthCon in Vegas with media passes to film.',
+    achievements: [
+      'Video editing',
+      'Content creation',
+      'Event filming at WealthCon',
     ],
   },
   // Big Creator Consulting
@@ -353,17 +515,45 @@ export const experiences: Experience[] = [
     id: 'atom-williamson',
     title: 'Atom Williamson',
     account: '@atomwilliamsonn',
-    accountUrl: 'https://www.instagram.com/atomwilliamsonn/',
     workType: 'Creator Consulting',
     followers: 600000,
     image: '/Worked With 2/IMG_3066.PNG', // spot 4: image 13
     category: 'consulting',
     commitment: 'Ongoing consulting',
-    approach: 'Actively helping launch clothing brand and assisting with filming & video ideas/coordination.',
+    summary: ['Atom is a friend of long time friend of mine, I work together with him to run the business side of his account and a little bit of content here and there.'],
+    approach: `The only unique thing I have got to do for atom was optimizing his store, cleaning up the checkout ui, replacing "Pay now" with "Place Order", adding made in usa and free shipping, just optimized the heck out of atomwilliamson.com`,
+    videos: [
+      {
+        url: 'https://www.instagram.com/reel/C8H381lv3Mw/',
+        title: '350K views',
+        thumbnail: '/Screenshot 2025-11-23 132057.png',
+      },
+      {
+        url: 'https://www.instagram.com/reels/DGi_cBGyFwI/',
+        title: '145K views',
+        thumbnail: '/Screenshot 2025-11-26 154144.png',
+      },
+    ],
+    pictureMemories: [
+      {
+        video: '/IMG_3001.mp4',
+        caption: 'Launch day went crazy.',
+      },
+      {
+        image: '/Screenshot 2025-11-26 152947.png',
+        caption: 'Simple clean store, optimized for 9% conversions on launch day',
+      },
+      {
+        image: '/Atom Clothes.png',
+        caption: 'Designed & made modeling clothes/mockups',
+      },
+    ],
     achievements: [
-      'Clothing brand launch strategy',
-      'Video filming and coordination',
-      'Content ideas and planning',
+      'Built store with 9% conversion rate',
+      'Setup infrastructure for merch fufillment',
+      'Atom is a visionary, made what he had come to life',
+      'Helped with launch strategy',
+      'Content ideas, coordination, and acting',
     ],
   },
   {
@@ -378,6 +568,13 @@ export const experiences: Experience[] = [
     category: 'consulting',
     commitment: 'Content collaboration',
     approach: 'Acted for, filmed for, and helped coordinate some of his most viral videos.',
+    videos: [
+      {
+        url: 'https://www.tiktok.com/@ryanblourchi/video/7258741182447078698',
+        title: '3.2M views',
+        thumbnail: '/Screenshot 2025-11-23 125052.png',
+      },
+    ],
     achievements: [
       'Acting in viral content',
       'Video filming and production',
@@ -441,23 +638,6 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 'sarah',
-    title: 'Sarah (Personal Brand)',
-    account: '@sarahfishersousa',
-    accountUrl: 'https://www.instagram.com/sarahfishersousa/',
-    workType: 'Personal Brand',
-    followers: 10000, // Estimated
-    image: '/IMG_3082.PNG', // spot 9: new file
-    category: 'consulting',
-    commitment: 'Strategy and framework',
-    approach: 'Optimized page to drive traffic to women in business event. Provided viral video framework that resulted in 10M and 1.2M view videos.',
-    achievements: [
-      'Page optimization',
-      'Viral video framework',
-      '10M and 1.2M view videos',
-    ],
-  },
-  {
     id: 'smyle',
     title: 'Smyle',
     account: '@smylelabs',
@@ -491,58 +671,6 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 'snappy-feet',
-    title: 'Snappy Feet',
-    account: '@shopsnappyfeet',
-    accountUrl: '#',
-    workType: 'Ecommerce',
-    followers: 1000, // Estimated
-    image: '/Screenshot 2025-11-23 230855.png',
-    category: 'consulting',
-    commitment: 'Strategy consultation',
-    approach: 'Ecommerce brand. One call optimized online store and corrected social media strategy. Next video got 100K+ views (from 1k avg).',
-    achievements: [
-      'Store optimization',
-      'Social media strategy correction',
-      '100K+ view video (from 1k average)',
-      '15 organic sales from one video',
-    ],
-  },
-  {
-    id: 'red-as-color',
-    title: 'RedAsTheColor',
-    account: '@redasthecolor',
-    accountUrl: 'https://www.youtube.com/@redasthecolor',
-    workType: 'Creator Consulting',
-    followers: 5000, // Growing
-    image: '/Worked With 2/IMG_3080.PNG', // spot 11: image 15
-    category: 'consulting',
-    commitment: 'Content and editing support',
-    approach: 'Car social media content. Helped with video editing and content creation. Attended WealthCon in Vegas with media passes to film.',
-    achievements: [
-      'Video editing',
-      'Content creation',
-      'Event filming at WealthCon',
-    ],
-  },
-  {
-    id: 'open-park',
-    title: 'Open Park',
-    account: '@openparkus',
-    accountUrl: 'https://www.instagram.com/openparkus/',
-    workType: 'Local Business',
-    followers: 2000, // Growing
-    image: '/Worked With 2/IMG_3071.PNG', // spot 12: image 6
-    category: 'consulting',
-    commitment: 'Strategy consultation',
-    approach: 'In-person dog park experience. Met with owners to correct social media strategy. Led from 200 views to several 100K+ view videos.',
-    achievements: [
-      'Social media strategy',
-      '200 views to 100K+ views',
-      'Multiple viral videos',
-    ],
-  },
-  {
     id: 'conejo-awards',
     title: 'Conejo Awards',
     account: '@conejoawards',
@@ -552,7 +680,82 @@ export const experiences: Experience[] = [
     image: '/Worked With 2/IMG_3073.PNG', // spot 15: image 5
     category: 'consulting',
     commitment: 'Complete social media setup',
-    approach: 'One-stop shop for custom printed products and awards. Took from 0 to 150,000 views in first month.\n\nHow:\n\nI took a print shop with 0 online presence to 150,000 views in 1 month.\n\nWith a strategy so simple, yo mama could use it\n\nthe problem is most people think virality for a business is:\n\nHow do I make it funny? 🚫\n\nWhat\'s already working? 🚫\n\nWhat\'s trending? 🚫 \n\nHECCCCKKKK NAH, these questions almost always lead to empty views that don\'t actually mean anything for a business.\n\nHere\'s what you NEED to do instead:\n\nStart with the service delivery itself and then ask yourself how can I make this interesting to people on social media?\n\nKeep in mind you can bend the rules here a little bit ...\n\nFor the print shop to capture a lot of attention & curiosity I came up with the hook "Hey you guys can customize any product right?"\n\nBut here\'s the catch, while this statement does communicate what the business does in a very engaging way, it\'s not fully true. They customize a lot of stuff sure, but not everything. Welcome to the game.\n\nThen all you need to do is just find enjoyable ways to finish those videos after the hook & boom you\'ll print views.\n\nThis is what made two of our best performing videos this month, both following this exact format. (Each with around 30k views total)\n\nAnd all 60k of those viewers are now:\n\nAware of our brand ✅\n\nWhat our business does ✅\n\nAnd have had an enjoyable experience with it ✅\n\nSo if you want to go viral on social media, I almost ALWAYS recommend centering it around brand, not the other way around. \n\nPeace✌️',
+    summary: ['Conejo Awards is a one stop shop for businesses to print custom products, awards, or anything they need. The owner of this local print shop contracted me to make engaging content for the business'],
+    videos: [
+      {
+        url: 'https://www.youtube.com/shorts/QZTjkBif5zM',
+        title: '42K views',
+        thumbnail: '/Screenshot 2025-11-26 155459.png',
+      },
+      {
+        url: 'https://www.youtube.com/shorts/tD9kQzDbGeg',
+        title: '21K views',
+        thumbnail: '/Screenshot 2025-11-26 154857.png',
+      },
+      {
+        url: 'https://www.youtube.com/shorts/IWpCvmE0PWs',
+        title: '20K views',
+        thumbnail: '/Screenshot 2025-11-26 154904.png',
+      },
+      {
+        url: 'https://www.youtube.com/shorts/byMrakXPogQ',
+        title: '15K views',
+        thumbnail: '/Screenshot 2025-11-26 154914.png',
+      },
+      {
+        url: 'https://www.youtube.com/shorts/fu_QWl--MT4',
+        title: '12K views',
+        thumbnail: '/Screenshot 2025-11-26 154954.png',
+      },
+      {
+        url: 'https://www.youtube.com/shorts/4l0iYgljfiY',
+        title: '10K views',
+        thumbnail: '/Screenshot 2025-11-26 154932.png',
+      },
+      {
+        url: 'https://www.youtube.com/shorts/9nvU71NVa-c',
+        title: '10K views',
+        thumbnail: '/Screenshot 2025-11-26 154945.png',
+      },
+      {
+        url: 'https://www.youtube.com/shorts/4TWFdmuzx-c',
+        title: '8K views',
+        thumbnail: '/Screenshot 2025-11-26 155001.png',
+      },
+    ],
+    approach: `I took a print shop with 0 online presence to 150,000 views in 1 month.
+
+With a strategy so simple, yo mama could use it
+
+the problem is most people think virality for a business is:
+
+How do I make it funny? 🚫
+What's already working? 🚫
+What's trending? 🚫 
+
+HECCCCKKKK NAH, these questions almost always lead to empty views that don't actually mean anything for a business.
+
+Here's what you NEED to do instead:
+
+Start with the service delivery itself and then ask yourself how can I make this interesting to people on social media?
+
+For the print shop to capture a lot of attention & curiosity I came up with the hook "Hey you guys can customize any product right?"
+
+While this statement does communicate what the business does in a very engaging way, it's not fully true. They customize a lot of stuff sure, but not everything. Welcome to the game.
+
+Then all you need to do is just find enjoyable ways to finish those videos after the hook & boom you'll print views.
+
+This is what made two of our best performing videos this month, both following this exact format. (Each with around 30k views total)
+
+And all 60k of those viewers are now:
+
+Aware of our brand ✅
+What our business does ✅
+And have had an enjoyable experience with it ✅
+
+So if you want to go viral on social media, I almost ALWAYS recommend centering it around brand, not the other way around.
+
+Peace✌️`,
     achievements: [
       'Complete social media setup',
       '0 to 150K views in first month',
@@ -571,21 +774,6 @@ export const experiences: Experience[] = [
     approach: 'Friend who needed editing assistance.',
     achievements: [
       'Video editing support',
-    ],
-  },
-  {
-    id: 'tostreetfair',
-    title: 'To Street Fair',
-    account: '@thousandoaksrotarystreetfair',
-    accountUrl: 'https://www.instagram.com/thousandoaksrotarystreetfair/',
-    workType: 'Non-Profit',
-    followers: 0, // To be determined
-    image: '/Worked With 2/IMG_3078.PNG',
-    category: 'consulting',
-    commitment: 'Non-profit organization',
-    approach: 'Content creation and social media strategy for nonprofit organization.',
-    achievements: [
-      'Social media presence development',
     ],
   },
   {
@@ -641,6 +829,11 @@ export const consultingExperiences = (() => {
   const atomWilliamson = all.find(exp => exp.id === 'atom-williamson');
   const conejoAwards = all.find(exp => exp.id === 'conejo-awards');
   const sleepHeavenlyPeace = all.find(exp => exp.id === 'sleep-heavenly-peace');
+  const sarah = all.find(exp => exp.id === 'sarah');
+  const snappyFeet = all.find(exp => exp.id === 'snappy-feet');
+  const openPark = all.find(exp => exp.id === 'open-park');
+  const toStreetFair = all.find(exp => exp.id === 'tostreetfair');
+  const redAsColor = all.find(exp => exp.id === 'red-as-color');
   
   // Remove them from the sorted list
   const withoutPriority = all.filter(exp => 
@@ -648,7 +841,12 @@ export const consultingExperiences = (() => {
     exp.id !== 'charity-karaoke' &&
     exp.id !== 'atom-williamson' &&
     exp.id !== 'conejo-awards' &&
-    exp.id !== 'sleep-heavenly-peace'
+    exp.id !== 'sleep-heavenly-peace' &&
+    exp.id !== 'sarah' &&
+    exp.id !== 'snappy-feet' &&
+    exp.id !== 'open-park' &&
+    exp.id !== 'tostreetfair' &&
+    exp.id !== 'red-as-color'
   );
   
   // Build result with custom positions:
@@ -658,6 +856,11 @@ export const consultingExperiences = (() => {
   // Position 4: Atom Williamson
   // Position 5: Conejo Awards
   // Position 6: Sleep In Heavenly Peace
+  // Position 7: Sarah
+  // Position 8: Snappy Feet
+  // Position 9: Open Park
+  // Position 10: To Street Fair
+  // Position 11: RedAsTheColor
   // Rest: Other experiences sorted by followers
   const result = [...withoutPriority];
   
@@ -675,6 +878,21 @@ export const consultingExperiences = (() => {
   }
   if (sleepHeavenlyPeace) {
     result.splice(6, 0, sleepHeavenlyPeace);
+  }
+  if (sarah) {
+    result.splice(7, 0, sarah);
+  }
+  if (snappyFeet) {
+    result.splice(8, 0, snappyFeet);
+  }
+  if (openPark) {
+    result.splice(9, 0, openPark);
+  }
+  if (toStreetFair) {
+    result.splice(10, 0, toStreetFair);
+  }
+  if (redAsColor) {
+    result.splice(11, 0, redAsColor);
   }
   
   return result;
