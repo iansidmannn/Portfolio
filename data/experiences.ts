@@ -499,7 +499,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     title: 'RedAsTheColor',
     account: '@redasthecolor',
     accountUrl: 'https://www.youtube.com/@redasthecolor',
-    workType: 'Creator Consulting',
+    workType: 'Car Creator',
     followers: 5000, // Growing
     image: '/Worked With 2/IMG_3080.PNG', // spot 11: image 15
     category: 'consulting',
@@ -516,7 +516,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     id: 'atom-williamson',
     title: 'Atom Williamson',
     account: '@atomwilliamsonn',
-    workType: 'Creator Consulting',
+    workType: 'Fitness Creator',
     followers: 600000,
     image: '/Worked With 2/IMG_3066.PNG', // spot 4: image 13
     category: 'consulting',
@@ -562,7 +562,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     title: 'Ryan Blourchi',
     account: '@ryanblourchi',
     accountUrl: 'https://www.tiktok.com/@ryanblourchi',
-    workType: 'Creator Consulting',
+    workType: 'Anime Creator',
     followers: 1200000,
     image: '/IMG_3081.PNG', // spot 2: new file
     imagePosition: 'center 1%', // Adjust to show followers text
@@ -587,7 +587,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     title: 'Dr. Spice',
     account: '@drspice24',
     accountUrl: 'https://www.tiktok.com/@drspice24',
-    workType: 'Creator Consulting',
+    workType: 'Self-Improvement Creator',
     followers: 105000,
     image: '/Worked With 2/IMG_3051.PNG', // spot 6: image 4
     imagePosition: 'center 1%',
@@ -605,7 +605,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     title: 'Tommy Brown',
     account: '@tommyybrown_',
     accountUrl: 'https://www.instagram.com/tommyybrown_/',
-    workType: 'Creator Consulting',
+    workType: 'Fitness Creator',
     followers: 900000,
     image: '/Worked With 2/IMG_3064.PNG', // spot 3: image 10
     category: 'consulting',
@@ -623,7 +623,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     account: '@getbrick',
     accountUrl: 'https://getbrick.app/',
     summary: ['Brick is an industry leading productivty device that I use all the time. They liked my energy/content & contracted me for an ad'],
-    workType: 'Product Brand',
+    workType: 'Productivity Device',
     followers: 120000,
     image: '/Worked With 2/IMG_3067.PNG', // spot 5: image 17
     category: 'consulting',
@@ -767,7 +767,7 @@ Peace✌️`,
     title: 'Ivan Casiano',
     account: '@mr.ivancasiano',
     accountUrl: 'https://www.instagram.com/mr.ivancasiano/',
-    workType: 'Creator Consulting',
+    workType: 'Real Estate Creator',
     followers: 1000, // Personal
     image: '/Worked With 2/IMG_3075.PNG',
     category: 'consulting',
