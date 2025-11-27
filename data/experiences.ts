@@ -139,7 +139,7 @@ export const experiences: Experience[] = [
     image: '/garm new.png',
     category: 'mine',
     summary: [
-      'I couldn\'t find the clothes I wanted in store so I decided to figure out making them myself.',
+      'I couldn\'t find the clothes I wanted so I decided to make them myself.',
       'Learned how, and people quickly asked me to make stuff for them. I vividly remember getting $35 from my friend Nick for making a pair of overalls, and I was like holy f* this is insane money I gotta launch something.',
       'Then I learned how to build websites/do shopify & garmentgarage was born',
     ],
@@ -257,7 +257,7 @@ export const experiences: Experience[] = [
     image: '/Worked With 2/IMG_3072.PNG', // spot 13: image 3
     category: 'mine',
     summary: [
-      'I had no projects at this time and I found this account that was blowing up, reverse engineered his videos, and decided to automate it. success_archives was born',
+      'I had no projects at this time and I saw this account was blowing up, reverse engineered his videos, and decided to automate it. success_archives was born',
     ],
     videos: [
       {
@@ -648,7 +648,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     image: '/Worked With 2/IMG_3065.PNG', // spot 1: image 8
     category: 'consulting',
     summary: [
-      'Smyle is the industry leader for smoking accessories, I\'ve been employed here for two years for more then just content, one day the owner paid me extra to market our new torch product.',
+      'Smyle is the industry leader for smoking accessories, I\'ve been working here in person for two years, and every now and then the owner contracts me to help market new products.',
     ],
     videos: [
       {
