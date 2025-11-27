@@ -807,13 +807,49 @@ export const sortedExperiences = [...experiences].sort((a, b) => {
 });
 
 // Separate experiences by category
-export const myExperiences = experiences
-  .filter(exp => exp.category === 'mine')
-  .sort((a, b) => {
-    const aFollowers = a.followers ?? 0;
-    const bFollowers = b.followers ?? 0;
-    return bFollowers - aFollowers;
-  });
+export const myExperiences = (() => {
+  const all = experiences
+    .filter(exp => exp.category === 'mine')
+    .sort((a, b) => {
+      const aFollowers = a.followers ?? 0;
+      const bFollowers = b.followers ?? 0;
+      return bFollowers - aFollowers;
+    });
+  
+  // Find specific experiences for custom positioning
+  const garmentGarage = all.find(exp => exp.id === 'clothing-brand-1');
+  const goofyGarments = all.find(exp => exp.id === 'clothing-brand-2');
+  
+  // Remove them from the sorted list
+  const withoutPriority = all.filter(exp => 
+    exp.id !== 'clothing-brand-1' &&
+    exp.id !== 'clothing-brand-2'
+  );
+  
+  // Build result with custom positions:
+  // garmentgarageshop comes before goofygarmentshop
+  const result = [...withoutPriority];
+  
+  // Find insertion point: after experiences with more followers than garmentGarage
+  // but before experiences with fewer followers than goofyGarments
+  const garmentFollowers = garmentGarage?.followers ?? 0;
+  const goofyFollowers = goofyGarments?.followers ?? 0;
+  
+  // Insert both together: garmentGarage first, then goofyGarments
+  // Find where to insert (after items with more followers than goofyGarments)
+  const insertIndex = result.findIndex(exp => (exp.followers ?? 0) < goofyFollowers);
+  const finalInsertIndex = insertIndex >= 0 ? insertIndex : result.length;
+  
+  if (garmentGarage && goofyGarments) {
+    result.splice(finalInsertIndex, 0, garmentGarage, goofyGarments);
+  } else if (garmentGarage) {
+    result.splice(finalInsertIndex, 0, garmentGarage);
+  } else if (goofyGarments) {
+    result.splice(finalInsertIndex, 0, goofyGarments);
+  }
+  
+  return result;
+})();
 
 export const consultingExperiences = (() => {
   const all = experiences

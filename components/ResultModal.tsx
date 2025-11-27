@@ -80,19 +80,9 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                   
                   if (videos.length > 0 && result.learnMore) {
                     return (
-                      <div className="mb-6 flex flex-col md:grid md:grid-cols-2 gap-6">
-                        {/* Mobile: Text first, then videos. Desktop: Videos left, text right */}
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.2, duration: 0.5 }}
-                          className="prose prose-invert max-w-none order-1 md:order-2"
-                        >
-                          <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                            {result.learnMore}
-                          </p>
-                        </motion.div>
-                        <div className="space-y-4 order-2 md:order-1">
+                      <div className="mb-6 space-y-6">
+                        {/* Videos first, full width */}
+                        <div className="space-y-4">
                           {videos.map((video, index) => (
                             <motion.div
                               key={index}
@@ -124,46 +114,18 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                               </a>
                             </div>
                           )}
-                          {result.videoUrls && result.videoUrls.length > 0 && (
-                            <div className="space-y-4 mt-4">
-                              {result.videoUrls.map((videoUrl, index) => {
-                                const thumbnail = result.videoThumbnails?.[index];
-                                return (
-                                  <motion.a
-                                    key={index}
-                                    href={videoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + (videos.length + index) * 0.1, duration: 0.5 }}
-                                    className="block group relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/10 hover:border-white/30 transition-colors"
-                                  >
-                                    {thumbnail ? (
-                                      <>
-                                        <Image
-                                          src={thumbnail}
-                                          alt="Video thumbnail"
-                                          fill
-                                          className="object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                                          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <ExternalLink className="w-6 h-6 text-white" />
-                                          </div>
-                                        </div>
-                                      </>
-                                    ) : (
-                                      <div className="w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 flex items-center justify-center">
-                                        <span className="text-gray-400 text-sm">View on Instagram</span>
-                                      </div>
-                                    )}
-                                  </motion.a>
-                                );
-                              })}
-                            </div>
-                          )}
                         </div>
+                        {/* Text below videos */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 + videos.length * 0.1, duration: 0.5 }}
+                          className="prose prose-invert max-w-none"
+                        >
+                          <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                            {result.learnMore}
+                          </p>
+                        </motion.div>
                       </div>
                     );
                   }
@@ -222,23 +184,39 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                 {result.images && result.images.length > 0 && (
                   <div className="mb-6">
                     <div className="grid grid-cols-2 gap-4">
-                      {result.images.map((image, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1, duration: 0.5 }}
-                          className="relative w-full rounded-lg overflow-hidden border border-white/10"
-                        >
-                          <Image
-                            src={image}
-                            alt={`${result.title} - Image ${index + 1}`}
-                            width={400}
-                            height={300}
-                            className="w-full h-auto object-contain"
-                          />
-                        </motion.div>
-                      ))}
+                      {result.images.map((image, index) => {
+                        const isLeadsImage = image.includes('Leads To A Dozen Others');
+                        const isCoverImage = image.includes('iansidmannn.png') || image.includes('goofygarms.png');
+                        return (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                            className={`relative w-full rounded-lg border border-white/10 ${isLeadsImage ? 'overflow-visible flex items-center justify-center' : 'overflow-hidden'} ${isCoverImage ? 'aspect-[3/2] bg-white' : ''}`}
+                          >
+                            {isCoverImage ? (
+                              <Image
+                                src={image}
+                                alt={`${result.title} - Image ${index + 1}`}
+                                fill
+                                className="object-cover"
+                                style={{ objectPosition: image.includes('goofygarms.png') ? 'center top' : 'center center' }}
+                              />
+                            ) : (
+                              <div className={isLeadsImage ? 'scale-[1.2] origin-center' : 'w-full'}>
+                                <Image
+                                  src={image}
+                                  alt={`${result.title} - Image ${index + 1}`}
+                                  width={isLeadsImage ? 3600 : 800}
+                                  height={isLeadsImage ? 2700 : 600}
+                                  className="w-full h-auto object-contain"
+                                />
+                              </div>
+                            )}
+                          </motion.div>
+                        );
+                      })}
                     </div>
                   </div>
                 )}

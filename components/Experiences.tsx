@@ -776,18 +776,21 @@ export default function Experiences() {
                                   </ul>
                                   {experience.achievementImages && experience.achievementImages.length > 0 && (
                                     <div className="grid gap-4 md:grid-cols-2 mt-6">
-                                      {experience.achievementImages.map((img, i) => (
-                                        <div key={i} className="relative w-full rounded-lg overflow-hidden border border-white/10">
-                                          <Image
-                                            src={img}
-                                            alt={`Achievement ${i + 1}`}
-                                            width={800}
-                                            height={600}
-                                            className="w-full h-auto object-contain"
-                                            loading="lazy"
-                                          />
-                                        </div>
-                                      ))}
+                                      {experience.achievementImages.map((img, i) => {
+                                        const isLeadsImage = img.includes('Leads To A Dozen Others');
+                                        return (
+                                          <div key={i} className="relative w-full rounded-lg overflow-hidden border border-white/10">
+                                            <Image
+                                              src={img}
+                                              alt={`Achievement ${i + 1}`}
+                                              width={isLeadsImage ? 3600 : 800}
+                                              height={isLeadsImage ? 2700 : 600}
+                                              className="w-full h-auto object-contain"
+                                              loading="lazy"
+                                            />
+                                          </div>
+                                        );
+                                      })}
                                     </div>
                                   )}
                                 </div>

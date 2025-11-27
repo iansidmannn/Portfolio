@@ -193,17 +193,19 @@ export default function ResultsCarousel() {
 
         {/* Desktop: Horizontal Scroll/Center */}
         <div className="overflow-x-auto overflow-y-visible pb-8 -mx-6 px-6 md:pt-40 md:overflow-x-visible hidden md:block">
-          <div className="flex gap-6 min-w-max md:min-w-0 md:justify-center md:py-4">
+          <div className="flex flex-wrap gap-6 md:justify-center md:py-4">
             {results.map((result, index) => (
-              <motion.div
-                key={result.id}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group flex-shrink-0 w-72 p-6 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 md:origin-center"
-              >
+              <>
+                {index === 4 && <div className="basis-full"></div>}
+                <motion.div
+                  key={result.id}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="group flex-shrink-0 w-72 p-6 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 md:origin-center"
+                >
                 <div className="mb-3">
                   <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1.5">
                     {result.metric}
@@ -213,7 +215,22 @@ export default function ResultsCarousel() {
                   </h3>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed mb-3">
-                  {result.description}
+                  {result.description.split('atomwilliamson.com').map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && (
+                        <a
+                          href="https://atomwilliamson.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-400 hover:text-purple-300 transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          atomwilliamson.com
+                        </a>
+                      )}
+                    </span>
+                  ))}
                   {result.account && result.accountUrl && result.showAccountLink === false && (
                     <> for{' '}
                       <a
@@ -250,6 +267,7 @@ export default function ResultsCarousel() {
                   Learn More →
                 </button>
               </motion.div>
+              </>
             ))}
           </div>
         </div>
