@@ -216,7 +216,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden aspect-[4/3]"
                 >
                   <Image
-                    src="/ballerflexwithaurasauce.JPG"
+                    src="/ballerflexwithaurasauce.jpg"
                     alt="Sidequests"
                     width={600}
                     height={450}
@@ -246,7 +246,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden"
                 >
                   <Image
-                    src="/IMG_1136.JPG"
+                    src="/IMG_1136.jpg"
                     alt="Ambitious"
                     width={600}
                     height={600}
