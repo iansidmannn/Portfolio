@@ -100,5 +100,46 @@ For example, with charity karoake I suggested doing giveaways with local busines
       '/goofygarms.png',
     ],
   },
+  {
+    id: '11',
+    title: 'AI Video Automation',
+    metric: 'Automated Content',
+    description: 'Streamlined video creation with AI automation',
+    account: '@success_archives',
+    accountUrl: 'https://www.instagram.com/success_archives',
+    showAccountLink: false,
+    learnMore: `Tools: Power Automate (Comp Automation), ChatGPT, Excel, Kaiber AI (Vid Gen), Elevenlabs, and A Quote Website
+
+I created an AI agent before they were a thing that did 90% of the content creation process for me.
+
+I used chatgpt and power automate to orderly store prompts in excel, then I would use power automate to take those quotes and run it through kaiber to generate the videos, which were then ordered and stored with tags in specific files based off emotions. This made it very easy to pick which clips to use for a given quote.
+
+Then I scrapped a quote site and asked chatgpt to pick the most thought provoking ones and put them in excel as well.
+
+All I had to do was get audio for the quote from eleven labs and throw the clips together in capcut.
+
+This is what it looked like!`,
+    videos: ['/45d2de5afc7d466990c01b3691e50289_compressed.mp4'],
+  },
+  {
+    id: '12',
+    title: 'VA Editing Automation',
+    metric: 'Automated Editing',
+    description: 'Automated video editing workflows with virtual assistants',
+    learnMore: `I created a training program for VA Video Editors to recruit them into my agency.
+
+If they passed a test they were added to my discord server which was being moderated via zapier.
+
+Everytime a client uploaded a video it would automatically notify the video editor to edit it alongside notes from the client.
+
+As the editor edited I had a shared dashboard in notion to track progress (and full dashboard with other features)
+
+Once the editor edited the video zapier automatically notified the client to make any revisions if it was needed.
+
+If approved zapier would update a spreadsheet that would bill my clients on a monthly basis
+
+I was making money relatively passively with this system.`,
+    images: ['/Screenshot 2025-11-27 170806.png'],
+  },
 ];
 

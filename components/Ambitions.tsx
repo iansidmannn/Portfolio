@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
 import { useRef } from 'react'
+import Image from 'next/image'
 
 export default function Ambitions() {
   const separatorRef = useRef<HTMLDivElement>(null)
@@ -82,6 +83,72 @@ export default function Ambitions() {
 
 
           </p>
+        </motion.div>
+
+        {/* Small images with captions */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto"
+        >
+          {/* Image 1: CKImage */}
+          <div className="space-y-2">
+            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
+              <Image
+                src="/CKImage.png"
+                alt="Filming at charitykaraoke"
+                fill
+                className="object-cover opacity-80 hover:opacity-100 transition-opacity"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <p className="text-xs text-gray-400 text-center">
+              Filming at charitykaraoke
+            </p>
+          </div>
+
+          {/* Image 2: filming.jpeg */}
+          <div className="space-y-2">
+            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
+              <Image
+                src="/filming.jpeg"
+                alt="Filming for wealthcon/wealthyway staff"
+                fill
+                className="object-cover opacity-80 hover:opacity-100 transition-opacity"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <p className="text-xs text-gray-400 text-center">
+              Filming for wealthcon/wealthyway staff
+            </p>
+          </div>
+
+          {/* Image 3: wealthcon.jpeg */}
+          <div className="space-y-2">
+            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
+              <Image
+                src="/wealthcon.jpeg"
+                alt="Me in @ryanpinedas studio"
+                fill
+                className="object-cover opacity-80 hover:opacity-100 transition-opacity"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <p className="text-xs text-gray-400 text-center">
+              Me in{' '}
+              <a
+                href="https://www.instagram.com/ryanpineda/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-400 hover:text-purple-300 transition-colors"
+              >
+                @ryanpinedas
+              </a>{' '}
+              studio
+            </p>
+          </div>
         </motion.div>
       </div>
       

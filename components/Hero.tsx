@@ -96,7 +96,7 @@ export default function Hero() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-28 flex flex-wrap items-center justify-center gap-8 opacity-50 hover:opacity-80 transition-opacity"
         >
-          {['/f19 logo.png', '/brick logo.png', '/smylelabs logo.png', '/shp logo.png', '/ck logo.png'].map((src, index) => (
+          {['/f19 logo.png', '/brick logo.png', '/smylelabs logo.png', '/wealthconlogo.png', '/shp logo.png', '/ck logo.png'].map((src, index) => (
             <motion.div
               key={src}
               initial={{ opacity: 0, y: 10 }}

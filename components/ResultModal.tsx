@@ -63,7 +63,7 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                   <p className="text-gray-300 text-lg leading-relaxed mb-4">
                     {result.description}
                   </p>
-                  {result.account && result.accountUrl && (
+                  {result.account && result.accountUrl && result.showAccountLink !== false && (
                     <a
                       href={result.accountUrl}
                       target="_blank"
@@ -79,6 +79,106 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                   const videos = result.videos || (result.video ? [result.video] : []);
                   
                   if (videos.length > 0 && result.learnMore) {
+                    // Check if learnMore contains "This is what it looked like!"
+                    const videoMarker = "This is what it looked like!";
+                    const hasVideoMarker = result.learnMore.includes(videoMarker);
+                    
+                    if (hasVideoMarker) {
+                      // Split text at the marker
+                      const parts = result.learnMore.split(videoMarker);
+                      const beforeVideo = parts[0] + videoMarker;
+                      const afterVideo = parts.slice(1).join(videoMarker);
+                      
+                      return (
+                        <div className="mb-6 space-y-6">
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1, duration: 0.5 }}
+                            className="prose prose-invert max-w-none"
+                          >
+                            <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                              {beforeVideo}
+                            </p>
+                          </motion.div>
+                          
+                          {/* Video after the marker */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                            className="space-y-4"
+                          >
+                            {videos.map((video, index) => (
+                              <div
+                                key={index}
+                                className="relative w-full max-w-md mx-auto rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
+                              >
+                                <video
+                                  src={video}
+                                  controls
+                                  className="w-full h-auto"
+                                  playsInline
+                                  preload="none"
+                                >
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            ))}
+                            {result.videoUrl && (
+                              <div className="text-center">
+                                <a
+                                  href={result.videoUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-purple-400 hover:text-purple-300 transition-colors text-sm"
+                                >
+                                  {getVideoLinkText(result.videoUrl)}
+                                </a>
+                              </div>
+                            )}
+                          </motion.div>
+                          
+                          {/* Text after video */}
+                          {afterVideo.trim() && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.3, duration: 0.5 }}
+                              className="prose prose-invert max-w-none"
+                            >
+                              <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                {afterVideo}
+                              </p>
+                            </motion.div>
+                          )}
+                          
+                          {/* Account link at bottom */}
+                          {result.account && result.accountUrl && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.4, duration: 0.5 }}
+                            >
+                              <p className="text-gray-300 leading-relaxed">
+                                Account:{' '}
+                                <a
+                                  href={result.accountUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
+                                >
+                                  {result.accountUrl}
+                                  <ExternalLink className="w-4 h-4" />
+                                </a>
+                              </p>
+                            </motion.div>
+                          )}
+                        </div>
+                      );
+                    }
+                    
+                    // Fallback: show videos first, then text (original behavior)
                     return (
                       <div className="mb-6 space-y-6">
                         {/* Videos first, full width */}
@@ -125,6 +225,20 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                           <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                             {result.learnMore}
                           </p>
+                          {result.account && result.accountUrl && (
+                            <p className="text-gray-300 leading-relaxed mt-4">
+                              Account:{' '}
+                              <a
+                                href={result.accountUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
+                              >
+                                {result.accountUrl}
+                                <ExternalLink className="w-4 h-4" />
+                              </a>
+                            </p>
+                          )}
                         </motion.div>
                       </div>
                     );
@@ -177,6 +291,20 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                       <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                         {result.learnMore}
                       </p>
+                      {result.account && result.accountUrl && (
+                        <p className="text-gray-300 leading-relaxed mt-4">
+                          Account:{' '}
+                          <a
+                            href={result.accountUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
+                          >
+                            {result.accountUrl}
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </p>
+                      )}
                     </div>
                   </div>
                 )}
