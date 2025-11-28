@@ -126,7 +126,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden"
                 >
                   <Image
-                    src="/IMG_2538.JPG"
+                    src="/IMG_2538.jpg"
                     alt="Ian"
                     width={600}
                     height={600}
@@ -343,6 +343,8 @@ export default function AboutPage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-90"
                     style={{ objectPosition: story.imagePosition || 'center center' }}
+                    unoptimized
+                    priority={story.id === 'first-business'}
                     onError={(e) => {
                       console.error('Image failed to load:', story.image)
                     }}
@@ -397,6 +399,10 @@ export default function AboutPage() {
                     fill
                     className="object-cover"
                     style={{ objectPosition: selectedStory.imagePosition || 'center center' }}
+                    unoptimized
+                    onError={(e) => {
+                      console.error('Modal image failed to load:', selectedStory.image)
+                    }}
                   />
                 </div>
 
