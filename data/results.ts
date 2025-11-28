@@ -85,7 +85,7 @@ For example, with charity karoake I suggested doing giveaways with local busines
     id: '10',
     title: 'Cool Results I\'ve Gotten',
     metric: 'Graphs, Results, & Data',
-    description: 'Some of my favorite months to date!',
+    description: 'Ahhh some of my favorite memories to date!',
     learnMore: 'Here are some of the results I\'ve achieved over the years:',
     images: [
       '/unamed2 (1).png',
