@@ -22,7 +22,7 @@ const stories: Story[] = [
   {
     id: 'first-business',
     title: 'The Story Of My First Real Business',
-    image: '/ballerflexwithaurasauce.jpg',
+    image: '/baller 2.jpg',
     imagePosition: 'center 40%',
     summary: 'How I built Goofy Garments—my first time taking a bet on a business I believed in.',
     content: `A project I worked on that I'm really proud of was my clothing brand goofy garments. It was my first real attempt at building a business I believed in and I had no clue what I was doing haha. I had just arrived at college and at that time I was selling streetwear clothes as a passion project. From the ups and downs of that project I started to piece more and more of a picture how markets worked and responded to content/what current markets existed on social media.
@@ -216,7 +216,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden aspect-[4/3]"
                 >
                   <Image
-                    src="/ballerflexwithaurasauce.jpg"
+                    src="/baller 2.jpg"
                     alt="Sidequests"
                     width={600}
                     height={450}
@@ -246,7 +246,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden"
                 >
                   <Image
-                    src="/IMG_1136.jpg"
+                    src="/baller 3.jpg"
                     alt="Ambitious"
                     width={600}
                     height={600}
