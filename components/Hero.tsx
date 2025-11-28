@@ -87,7 +87,7 @@ export default function Hero() {
           className="group flex items-center gap-2 mx-auto px-9 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300"
         >
           <span className="text-white">Explore My Work</span>
-          <ArrowDown className="w-5 h-5 text-white group-hover:translate-y-1 transition-transform" />
+          <ArrowDown className="w-5 h-5 text-white translate-y-0.5" />
         </motion.button>
 
         <motion.div
