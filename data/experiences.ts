@@ -234,7 +234,7 @@ export const experiences: Experience[] = [
     achievementImages: ['/unamed2 (1).png', '/Leads To A Dozen Others.png', '/IMG_3579.PNG'],
     pictureMemories: [
       {
-        image: '/ballerflexwithaurasauce.jpg',
+        image: '/ballerflexwithaurasauce.JPG',
         caption: 'happy ian after a big weekend',
       },
       {
