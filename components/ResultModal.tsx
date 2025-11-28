@@ -139,7 +139,7 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                             )}
                           </motion.div>
                           
-                          {/* Text after video */}
+                          {/* Text after video - check for dashboard image */}
                           {afterVideo.trim() && (
                             <motion.div
                               initial={{ opacity: 0, y: 20 }}
@@ -147,9 +147,59 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                               transition={{ delay: 0.3, duration: 0.5 }}
                               className="prose prose-invert max-w-none"
                             >
-                              <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                                {afterVideo}
-                              </p>
+                              {(() => {
+                                const progressMarker = 'to track progress (and full dashboard with other features)';
+                                const hasProgressRef = afterVideo.includes(progressMarker);
+                                const hasImages = result.images && result.images.length > 0;
+                                
+                                if (hasProgressRef && hasImages) {
+                                  const parts = afterVideo.split(new RegExp(`(${progressMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
+                                  const markerIndex = parts.findIndex(part => part.toLowerCase().includes(progressMarker.toLowerCase()));
+                                  const beforeProgress = parts.slice(0, markerIndex).join('');
+                                  const progressText = parts[markerIndex];
+                                  const afterProgress = parts.slice(markerIndex + 1).join('');
+                                  
+                                  return (
+                                    <>
+                                      {beforeProgress && (
+                                        <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                          {beforeProgress}
+                                        </p>
+                                      )}
+                                      <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                        {progressText}
+                                      </p>
+                                      <div className="my-6 flex justify-center">
+                                        <motion.div
+                                          initial={{ opacity: 0, y: 20 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          transition={{ delay: 0.4, duration: 0.5 }}
+                                          className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
+                                        >
+                                          <Image
+                                            src={result.images[0]}
+                                            alt="Dashboard in Notion"
+                                            width={1200}
+                                            height={800}
+                                            className="w-full h-auto object-contain"
+                                          />
+                                        </motion.div>
+                                      </div>
+                                      {afterProgress && (
+                                        <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                          {afterProgress}
+                                        </p>
+                                      )}
+                                    </>
+                                  );
+                                }
+                                
+                                return (
+                                  <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                    {afterVideo}
+                                  </p>
+                                );
+                              })()}
                             </motion.div>
                           )}
                           
@@ -158,7 +208,7 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                             <motion.div
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.4, duration: 0.5 }}
+                              transition={{ delay: 0.5, duration: 0.5 }}
                             >
                               <p className="text-gray-300 leading-relaxed">
                                 Account:{' '}
@@ -215,30 +265,96 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                             </div>
                           )}
                         </div>
-                        {/* Text below videos */}
+                        {/* Text below videos - check for dashboard image */}
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2 + videos.length * 0.1, duration: 0.5 }}
                           className="prose prose-invert max-w-none"
                         >
-                          <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                            {result.learnMore}
-                          </p>
-                          {result.account && result.accountUrl && (
-                            <p className="text-gray-300 leading-relaxed mt-4">
-                              Account:{' '}
-                              <a
-                                href={result.accountUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
-                              >
-                                {result.accountUrl}
-                                <ExternalLink className="w-4 h-4" />
-                              </a>
-                            </p>
-                          )}
+                          {(() => {
+                            const progressMarker = 'to track progress (and full dashboard with other features)';
+                            const hasProgressRef = result.learnMore.includes(progressMarker);
+                            const hasImages = result.images && result.images.length > 0;
+                            
+                            if (hasProgressRef && hasImages) {
+                              const parts = result.learnMore.split(new RegExp(`(${progressMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
+                              const markerIndex = parts.findIndex(part => part.toLowerCase().includes(progressMarker.toLowerCase()));
+                              const beforeProgress = parts.slice(0, markerIndex).join('');
+                              const progressText = parts[markerIndex];
+                              const afterProgress = parts.slice(markerIndex + 1).join('');
+                              
+                              return (
+                                <>
+                                  {beforeProgress && (
+                                    <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                      {beforeProgress}
+                                    </p>
+                                  )}
+                                  <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                    {progressText}
+                                  </p>
+                                  <div className="my-6 flex justify-center">
+                                    <motion.div
+                                      initial={{ opacity: 0, y: 20 }}
+                                      animate={{ opacity: 1, y: 0 }}
+                                      transition={{ delay: 0.3 + videos.length * 0.1, duration: 0.5 }}
+                                      className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
+                                    >
+                                      <Image
+                                        src={result.images[0]}
+                                        alt="Dashboard in Notion"
+                                        width={1200}
+                                        height={800}
+                                        className="w-full h-auto object-contain"
+                                      />
+                                    </motion.div>
+                                  </div>
+                                  {afterProgress && (
+                                    <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                      {afterProgress}
+                                    </p>
+                                  )}
+                                  {result.account && result.accountUrl && (
+                                    <p className="text-gray-300 leading-relaxed mt-4">
+                                      Account:{' '}
+                                      <a
+                                        href={result.accountUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
+                                      >
+                                        {result.accountUrl}
+                                        <ExternalLink className="w-4 h-4" />
+                                      </a>
+                                    </p>
+                                  )}
+                                </>
+                              );
+                            }
+                            
+                            return (
+                              <>
+                                <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                  {result.learnMore}
+                                </p>
+                                {result.account && result.accountUrl && (
+                                  <p className="text-gray-300 leading-relaxed mt-4">
+                                    Account:{' '}
+                                    <a
+                                      href={result.accountUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
+                                    >
+                                      {result.accountUrl}
+                                      <ExternalLink className="w-4 h-4" />
+                                    </a>
+                                  </p>
+                                )}
+                              </>
+                            );
+                          })()}
                         </motion.div>
                       </div>
                     );
@@ -288,66 +404,147 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                 {result.learnMore && !result.videos && !result.video && (
                   <div className="mb-6">
                     <div className="prose prose-invert max-w-none">
-                      <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                        {result.learnMore}
-                      </p>
-                      {result.account && result.accountUrl && (
-                        <p className="text-gray-300 leading-relaxed mt-4">
-                          Account:{' '}
-                          <a
-                            href={result.accountUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
-                          >
-                            {result.accountUrl}
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </p>
-                      )}
+                      {(() => {
+                        // Check if this is VA Editing Automation and has images
+                        const progressMarker = 'to track progress (and full dashboard with other features)';
+                        const hasProgressRef = result.learnMore.includes(progressMarker);
+                        const hasImages = result.images && result.images.length > 0;
+                        
+                        if (hasProgressRef && hasImages) {
+                          // Split text at the marker
+                          const parts = result.learnMore.split(new RegExp(`(${progressMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
+                          const markerIndex = parts.findIndex(part => part.toLowerCase().includes(progressMarker.toLowerCase()));
+                          const beforeProgress = parts.slice(0, markerIndex).join('');
+                          const progressText = parts[markerIndex];
+                          const afterProgress = parts.slice(markerIndex + 1).join('');
+                          
+                          return (
+                            <>
+                              {beforeProgress && (
+                                <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                  {beforeProgress}
+                                </p>
+                              )}
+                              <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                {progressText}
+                              </p>
+                              <div className="my-6 flex justify-center">
+                                <motion.div
+                                  initial={{ opacity: 0, y: 20 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.2, duration: 0.5 }}
+                                  className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
+                                >
+                                  <Image
+                                    src={result.images[0]}
+                                    alt="Dashboard in Notion"
+                                    width={1200}
+                                    height={800}
+                                    className="w-full h-auto object-contain"
+                                  />
+                                </motion.div>
+                              </div>
+                              {afterProgress && (
+                                <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                                  {afterProgress}
+                                </p>
+                              )}
+                              {result.account && result.accountUrl && (
+                                <p className="text-gray-300 leading-relaxed mt-4">
+                                  Account:{' '}
+                                  <a
+                                    href={result.accountUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
+                                  >
+                                    {result.accountUrl}
+                                    <ExternalLink className="w-4 h-4" />
+                                  </a>
+                                </p>
+                              )}
+                            </>
+                          );
+                        }
+                        
+                        // Default: show text normally
+                        return (
+                          <>
+                            <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                              {result.learnMore}
+                            </p>
+                            {result.account && result.accountUrl && (
+                              <p className="text-gray-300 leading-relaxed mt-4">
+                                Account:{' '}
+                                <a
+                                  href={result.accountUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-1"
+                                >
+                                  {result.accountUrl}
+                                  <ExternalLink className="w-4 h-4" />
+                                </a>
+                              </p>
+                            )}
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
                 )}
 
-                {result.images && result.images.length > 0 && (
-                  <div className="mb-6">
-                    <div className="grid grid-cols-2 gap-4">
-                      {result.images.map((image, index) => {
-                        const isLeadsImage = image.includes('Leads To A Dozen Others');
-                        const isCoverImage = image.includes('iansidmannn.png') || image.includes('goofygarms.png');
-                        return (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className={`relative w-full rounded-lg border border-white/10 ${isLeadsImage ? 'overflow-visible flex items-center justify-center' : 'overflow-hidden'} ${isCoverImage ? 'aspect-[3/2] bg-white' : ''}`}
-                          >
-                            {isCoverImage ? (
-                              <Image
-                                src={image}
-                                alt={`${result.title} - Image ${index + 1}`}
-                                fill
-                                className="object-cover"
-                                style={{ objectPosition: image.includes('goofygarms.png') ? 'center top' : 'center center' }}
-                              />
-                            ) : (
-                              <div className={isLeadsImage ? 'scale-[1.2] origin-center' : 'w-full'}>
+                {result.images && result.images.length > 0 && (() => {
+                  // Filter out the dashboard image if it's VA Editing Automation (it's shown inline)
+                  const progressMarker = 'to track progress (and full dashboard with other features)';
+                  const isVAEditing = result.learnMore && result.learnMore.includes(progressMarker);
+                  const dashboardImage = '/Screenshot 2025-11-27 170806.png';
+                  const filteredImages = isVAEditing 
+                    ? result.images.filter(img => img !== dashboardImage)
+                    : result.images;
+                  
+                  if (filteredImages.length === 0) return null;
+                  
+                  return (
+                    <div className="mb-6">
+                      <div className="grid grid-cols-2 gap-4">
+                        {filteredImages.map((image, index) => {
+                          const isLeadsImage = image.includes('Leads To A Dozen Others');
+                          const isCoverImage = image.includes('iansidmannn.png') || image.includes('goofygarms.png');
+                          return (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: index * 0.1, duration: 0.5 }}
+                              className={`relative w-full rounded-lg border border-white/10 ${isLeadsImage ? 'overflow-visible flex items-center justify-center' : 'overflow-hidden'} ${isCoverImage ? 'aspect-[3/2] bg-white' : ''}`}
+                            >
+                              {isCoverImage ? (
                                 <Image
                                   src={image}
                                   alt={`${result.title} - Image ${index + 1}`}
-                                  width={isLeadsImage ? 3600 : 800}
-                                  height={isLeadsImage ? 2700 : 600}
-                                  className="w-full h-auto object-contain"
+                                  fill
+                                  className="object-cover"
+                                  style={{ objectPosition: image.includes('goofygarms.png') ? 'center top' : 'center center' }}
                                 />
-                              </div>
-                            )}
-                          </motion.div>
-                        );
-                      })}
+                              ) : (
+                                <div className={isLeadsImage ? 'scale-[1.2] origin-center' : 'w-full'}>
+                                  <Image
+                                    src={image}
+                                    alt={`${result.title} - Image ${index + 1}`}
+                                    width={isLeadsImage ? 3600 : 800}
+                                    height={isLeadsImage ? 2700 : 600}
+                                    className="w-full h-auto object-contain"
+                                  />
+                                </div>
+                              )}
+                            </motion.div>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  );
+                })()}
               </div>
             </div>
           </motion.div>

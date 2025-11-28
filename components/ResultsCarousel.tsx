@@ -140,10 +140,10 @@ export default function ResultsCarousel() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group p-4 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300"
+              className="group p-4 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 overflow-visible"
             >
-              <div className="mb-2">
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1">
+              <div className="mb-2 overflow-visible">
+                <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1 leading-normal pb-0.5 overflow-visible">
                   {result.metric}
                 </div>
                 <h3 className="text-sm font-semibold text-white mb-1">
@@ -204,10 +204,10 @@ export default function ResultsCarousel() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   whileHover={{ scale: 1.05, y: -10 }}
-                  className="group flex-shrink-0 w-72 p-6 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 md:origin-center"
+                  className="group flex-shrink-0 w-72 p-6 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 md:origin-center overflow-visible"
                 >
-                <div className="mb-3">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1.5">
+                <div className="mb-3 overflow-visible">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1.5 leading-normal pb-1 overflow-visible">
                     {result.metric}
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">
