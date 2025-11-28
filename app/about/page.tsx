@@ -216,7 +216,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden aspect-[4/3]"
                 >
                   <Image
-                    src="/ballerflexwithaurasauce.JPG"
+                    src="/ballerflexwithaurasauce.jpg"
                     alt="Sidequests"
                     width={600}
                     height={450}
@@ -246,7 +246,7 @@ export default function AboutPage() {
                   className="rounded-lg overflow-hidden"
                 >
                   <Image
-                    src="/IMG_1136.JPG"
+                    src="/IMG_1136.jpg"
                     alt="Ambitious"
                     width={600}
                     height={600}
@@ -335,13 +335,17 @@ export default function AboutPage() {
                 className="group relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-md"
                 onClick={() => setSelectedStory(story)}
               >
-                <div className="relative w-full h-72">
+                <div className="relative w-full h-72 bg-gray-900">
                   <Image
                     src={story.image}
                     alt={story.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-90"
                     style={{ objectPosition: story.imagePosition || 'center center' }}
+                    onError={(e) => {
+                      console.error('Image failed to load:', story.image)
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute inset-x-6 bottom-6 text-left">
