@@ -114,14 +114,14 @@ export default function Ambitions() {
             <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
               <Image
                 src="/filming.jpeg"
-                alt="Filming for wealthcon/wealthyway staff"
+                alt="Me recording for WealthCon staff"
                 fill
                 className="object-cover opacity-80 hover:opacity-100 transition-opacity"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <p className="text-xs text-gray-400 text-center">
-              Filming for wealthcon/wealthyway staff
+              Me recording for WealthCon staff
             </p>
           </div>
 
