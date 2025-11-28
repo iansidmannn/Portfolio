@@ -3,6 +3,7 @@ import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://iansidman.com'),
   title: "Ian's Portfolio | Viral & Growth Marketer With 150M Views",
   description: '150M+ views. Viral content creator, brand strategist, and growth marketer.',
   keywords: ['content creator', 'viral marketing', 'growth marketing', 'brand consultant'],

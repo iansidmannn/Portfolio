@@ -169,22 +169,24 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                                       <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                                         {progressText}
                                       </p>
-                                      <div className="my-6 flex justify-center">
-                                        <motion.div
-                                          initial={{ opacity: 0, y: 20 }}
-                                          animate={{ opacity: 1, y: 0 }}
-                                          transition={{ delay: 0.4, duration: 0.5 }}
-                                          className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
-                                        >
-                                          <Image
-                                            src={result.images[0]}
-                                            alt="Dashboard in Notion"
-                                            width={1200}
-                                            height={800}
-                                            className="w-full h-auto object-contain"
-                                          />
-                                        </motion.div>
-                                      </div>
+                                      {result.images && result.images[0] && (
+                                        <div className="my-6 flex justify-center">
+                                          <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.4, duration: 0.5 }}
+                                            className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
+                                          >
+                                            <Image
+                                              src={result.images[0]}
+                                              alt="Dashboard in Notion"
+                                              width={1200}
+                                              height={800}
+                                              className="w-full h-auto object-contain"
+                                            />
+                                          </motion.div>
+                                        </div>
+                                      )}
                                       {afterProgress && (
                                         <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                                           {afterProgress}
@@ -294,22 +296,24 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                                   <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                                     {progressText}
                                   </p>
-                                  <div className="my-6 flex justify-center">
-                                    <motion.div
-                                      initial={{ opacity: 0, y: 20 }}
-                                      animate={{ opacity: 1, y: 0 }}
-                                      transition={{ delay: 0.3 + videos.length * 0.1, duration: 0.5 }}
-                                      className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
-                                    >
-                                      <Image
-                                        src={result.images[0]}
-                                        alt="Dashboard in Notion"
-                                        width={1200}
-                                        height={800}
-                                        className="w-full h-auto object-contain"
-                                      />
-                                    </motion.div>
-                                  </div>
+                                  {result.images && result.images[0] && (
+                                    <div className="my-6 flex justify-center">
+                                      <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.3 + videos.length * 0.1, duration: 0.5 }}
+                                        className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
+                                      >
+                                        <Image
+                                          src={result.images[0]}
+                                          alt="Dashboard in Notion"
+                                          width={1200}
+                                          height={800}
+                                          className="w-full h-auto object-contain"
+                                        />
+                                      </motion.div>
+                                    </div>
+                                  )}
                                   {afterProgress && (
                                     <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                                       {afterProgress}
@@ -428,22 +432,24 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                               <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                                 {progressText}
                               </p>
-                              <div className="my-6 flex justify-center">
-                                <motion.div
-                                  initial={{ opacity: 0, y: 20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.2, duration: 0.5 }}
-                                  className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
-                                >
-                                  <Image
-                                    src={result.images[0]}
-                                    alt="Dashboard in Notion"
-                                    width={1200}
-                                    height={800}
-                                    className="w-full h-auto object-contain"
-                                  />
-                                </motion.div>
-                              </div>
+                              {result.images && result.images[0] && (
+                                <div className="my-6 flex justify-center">
+                                  <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2, duration: 0.5 }}
+                                    className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg"
+                                  >
+                                    <Image
+                                      src={result.images[0]}
+                                      alt="Dashboard in Notion"
+                                      width={1200}
+                                      height={800}
+                                      className="w-full h-auto object-contain"
+                                    />
+                                  </motion.div>
+                                </div>
+                              )}
                               {afterProgress && (
                                 <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                                   {afterProgress}
