@@ -21,7 +21,7 @@ const stats = [
     id: 'revenue',
     value: '$125,000+',
     label: 'Revenue Generated Online',
-    detail: 'Direct trackable sales from viral content systems.',
+    detail: 'Direct trackable sales from viral content systems & marketing strategies.',
   },
 ]
 
