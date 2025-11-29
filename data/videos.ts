@@ -271,5 +271,15 @@ export const videos: Video[] = [
     accountUrl: 'https://www.tiktok.com/@gymjunkie69_',
     thumbnail: '/Screenshot 2025-11-28 220427.png',
   },
+  {
+    id: '29',
+    url: 'https://www.tiktok.com/@goofygarmentshop/video/7182092184710057258',
+    views: 1000000,
+    platform: 'tiktok',
+    account: '@goofygarmentshop',
+    accountUrl: 'https://www.tiktok.com/@goofygarmentshop',
+    thumbnail: '/Screenshot 2025-11-28 224034.png',
+    takenDown: true,
+  },
 ];
 
