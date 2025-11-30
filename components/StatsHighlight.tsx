@@ -13,7 +13,7 @@ const stats = [
   },
   {
     id: 'brands',
-    value: '8',
+    value: '6',
     label: 'Stuck Brands Past 100K',
     detail: 'Low view accounts I created 100k views+ viral engines for.',
   },
