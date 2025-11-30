@@ -292,12 +292,12 @@ export default function AboutPage() {
             <div className="bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm p-8 md:p-10">
               <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                 <p>
-                  I'm obsessed with strategy, pursuing ideas and seeing them effect change is extremely satisfying to me. Even writing this right now, just thinking about effecting change is pumping me up in the middle of the library.
+                  I'm obsessed with strategy and pursuing ideas that effect change. Even writing this right now, just thinking about effecting change is pumping me up in the middle of the library.
                   I love the game, I love strategy, and I love being apart of team & creating something.
                 </p>
                 <p>
-                  On a day to day basis I live and breathe marketing, I take pictures of everything I see that captures my attention and put it in an album in my camera roll.
-                  I'm constantly thinking about attention and content, It's almost like a sport I thoroughly enjoy.
+                  On a day to day basis I live and breathe marketing, I take pictures of everything I see that captures my attention - even with the simplest things 
+                  I'm constantly thinking about attention and content, It's like a sport.
                 </p>
                 <p>
                   To me it's not just about the numbers—it's about knowing that something 
