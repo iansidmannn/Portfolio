@@ -77,7 +77,7 @@ export default function Ambitions() {
           <p className="text-lg text-gray-300 leading-relaxed">
             At this stage in my career I'm ready to move beyond being "theviralguy". I want to build a brand, community, and marketing strategy for a team I truly believe in.
             I know my past content experience might not mirror the exact things a role like that tradtionally needs. I know, I ask you look at my work as proof that
-             when something matters to me I put my all into it. I know a lot of the hard to learn pieces when it comes to comprehensive marketing, and I know if given the chance I will crush it with the rest.
+             when something matters to me I put my all into it. I know a lot of the hard to learn pieces when it comes to comprehensive marketing, and I know if given the chance I will crush it at the rest.
              On a day to day basis I live and breathe marketing, I take pictures of everything I see that captures my attention and put it in an album in my camera roll. I'm constantly thinking about attention and content, It's like a sport to me.
              To me it's not just about the numbers—it's about knowing that something you created resonated with thousands, or millions, of people. I'm obsessed with strategy, pursuing ideas and seeing them effect change is extremely satisfying to me. Even writing this right now, just thinking about effecting change is pumping me up in the middle of the library. I love the game, I love strategy, and I love being apart of team & creating something.
 
