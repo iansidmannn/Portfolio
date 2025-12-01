@@ -97,7 +97,7 @@ export default function ContactPage() {
             <FileText className="w-7 h-7 text-purple-300" />
             <div className="text-left">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-1">Resume</p>
-              <p className="text-xl font-semibold">Download My Resume</p>
+              <p className="text-xl font-semibold">View My Resume</p>
             </div>
           </motion.a>
         </motion.div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
             <Linkedin className="w-7 h-7 text-blue-300" />
             <div className="text-left">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-1">LinkedIn</p>
-              <p className="text-xl font-semibold">Connect with me</p>
+              <p className="text-xl font-semibold">Connect With Me</p>
             </div>
           </motion.a>
         </motion.div>
