@@ -16,6 +16,10 @@ interface FavoriteVideo {
 export default function FavoriteVideosAndAds() {
   const [activeTab, setActiveTab] = useState<'videos' | 'ads'>('videos')
   const [isDesktop, setIsDesktop] = useState(false)
+  const [mobileVideoIndex, setMobileVideoIndex] = useState(0)
+  const [mobileAdIndex, setMobileAdIndex] = useState(0)
+  const [desktopVideoIndex, setDesktopVideoIndex] = useState(0)
+  const [desktopAdIndex, setDesktopAdIndex] = useState(0)
   const videosCarouselRef = useRef<HTMLDivElement>(null)
   const adsCarouselRef = useRef<HTMLDivElement>(null)
   const videosX = useMotionValue(0)
@@ -88,11 +92,19 @@ export default function FavoriteVideosAndAds() {
     },
   ]
 
-  // Track desktop vs mobile for layout/interaction
+  // Track desktop vs mobile for layout/interaction and set initial tab
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768)
     }
+
+    // On first load, choose initial tab based on viewport
+    if (typeof window !== 'undefined') {
+      const isNowDesktop = window.innerWidth >= 768
+      setIsDesktop(isNowDesktop)
+      setActiveTab(isNowDesktop ? 'videos' : 'ads')
+    }
+
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
@@ -125,8 +137,7 @@ export default function FavoriteVideosAndAds() {
     
     if (!carouselRef.current) return
     
-    // For videos: scroll by exactly 2 video widths + 1 gap
-    // Each video is calc((100%-24px)/2), so 2 videos + 1 gap = container width
+    // For videos: scroll by exactly 2 card widths + 1 gap (one full \"page\")
     const containerWidth = carouselRef.current.clientWidth
     const gap = 24
     const scrollAmount = type === 'videos' 
@@ -141,13 +152,35 @@ export default function FavoriteVideosAndAds() {
       : Math.min(maxScroll, currentX + scrollAmount)
     
     xValue.set(-newX)
+
+    // Update desktop page index so we can hide arrows and map dots correctly
+    if (isDesktop) {
+      if (type === 'videos') {
+        // Number of pages = ceil(n / 2) when we show 2 cards per page
+        const pageCount = Math.max(1, Math.ceil(favoriteVideos.length / 2))
+        const maxIndex = pageCount - 1
+        setDesktopVideoIndex((prev) =>
+          direction === 'left'
+            ? Math.max(0, prev - 1)
+            : Math.min(maxIndex, prev + 1)
+        )
+      } else {
+        const pageCount = Math.max(1, Math.ceil(ads.length / 2))
+        const maxIndex = pageCount - 1
+        setDesktopAdIndex((prev) =>
+          direction === 'left'
+            ? Math.max(0, prev - 1)
+            : Math.min(maxIndex, prev + 1)
+        )
+      }
+    }
   }
 
   return (
     <section className="py-16 px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Tabs */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-center gap-4 mb-6 md:mb-8">
           <button
             onClick={() => setActiveTab('videos')}
             className={`px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-300 ${
@@ -180,45 +213,100 @@ export default function FavoriteVideosAndAds() {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              {/* Mobile: stacked cards, no carousel */}
+              {/* Mobile: 1 card at a time with arrows (video capped so captions stay in view) */}
               {!isDesktop && (
-                <div className="space-y-8">
-                  {favoriteVideos.map((video, i) => (
-                    <div key={i} className="space-y-3 max-w-sm mx-auto">
-                      {video.video && (
-                        <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 bg-black">
-                          <video
-                            src={video.video}
-                            controls
-                            className="w-full h-full object-contain"
-                            playsInline
-                            muted
-                          >
-                            Your browser does not support the video tag.
-                          </video>
+                <div className="relative w-full max-w-xs mx-auto">
+                  {/* Card track */}
+                  <div className="overflow-hidden">
+                    <div
+                      className="flex transition-transform duration-300"
+                      style={{ transform: `translateX(-${mobileVideoIndex * 100}%)` }}
+                    >
+                      {favoriteVideos.map((video, i) => (
+                        <div key={i} className="w-full flex-shrink-0 px-1">
+                          <div className="space-y-3 pb-2">
+                            {video.video && (
+                              <div className="relative w-full aspect-[9/16] max-h-[60vh] rounded-lg overflow-hidden border border-white/10 bg-black">
+                                <video
+                                  src={video.video}
+                                  controls
+                                  preload="metadata"
+                                  className="w-full h-full object-contain"
+                                  playsInline
+                                  muted
+                                >
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            )}
+                            <div>
+                              <h4 className="text-white font-semibold mb-1 text-sm">
+                                {video.title}
+                              </h4>
+                              {video.caption && (
+                                <p className="text-xs text-gray-400 mb-2">{video.caption}</p>
+                              )}
+                              {video.url && (
+                                <a
+                                  href={video.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 text-xs text-purple-400 hover:text-purple-300 transition-colors"
+                                >
+                                  {video.url.includes('youtube.com') || video.url.includes('youtu.be')
+                                    ? 'View on YouTube'
+                                    : 'View on Instagram'}
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              )}
+                            </div>
+                          </div>
                         </div>
-                      )}
-                      <div>
-                        <h4 className="text-white font-semibold mb-1">{video.title}</h4>
-                        {video.caption && (
-                          <p className="text-sm text-gray-400 mb-2">{video.caption}</p>
-                        )}
-                        {video.url && (
-                          <a
-                            href={video.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs text-purple-400 hover:text-purple-300 transition-colors"
-                          >
-                            {video.url.includes('youtube.com') || video.url.includes('youtu.be')
-                              ? 'View on YouTube'
-                              : 'View on Instagram'}
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
-                        )}
-                      </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {favoriteVideos.length > 1 && (
+                    <>
+                      {/* Arrows overlayed vertically centered beside the video */}
+                      <button
+                        type="button"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 border border-white/20 flex items-center justify-center text-white hover:bg-black/90 disabled:opacity-40 transition-colors shadow-md"
+                        onClick={() =>
+                          setMobileVideoIndex((prev) => Math.max(0, prev - 1))
+                        }
+                        disabled={mobileVideoIndex === 0}
+                        aria-label="Previous video"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <button
+                        type="button"
+                        className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 border border-white/20 flex items-center justify-center text-white hover:bg-black/90 disabled:opacity-40 transition-colors shadow-md"
+                        onClick={() =>
+                          setMobileVideoIndex((prev) =>
+                            Math.min(favoriteVideos.length - 1, prev + 1)
+                          )
+                        }
+                        disabled={mobileVideoIndex === favoriteVideos.length - 1}
+                        aria-label="Next video"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+
+                      {/* Dot indicators below */}
+                      <div className="flex justify-center gap-1.5 mt-3">
+                        {favoriteVideos.map((_, i) => (
+                          <span
+                            key={i}
+                            className={`h-1.5 w-3 rounded-full transition-colors ${
+                              i === mobileVideoIndex ? 'bg-purple-400' : 'bg-white/20'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
 
@@ -246,6 +334,7 @@ export default function FavoriteVideosAndAds() {
                             <video
                               src={video.video}
                               controls
+                              preload="metadata"
                               className="w-full h-full object-contain"
                               playsInline
                               muted
@@ -277,21 +366,39 @@ export default function FavoriteVideosAndAds() {
                     ))}
                   </motion.div>
 
-                  {/* Navigation arrows */}
-                  <button
-                    onClick={() => scrollCarousel('left', 'videos')}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-colors shadow-lg"
-                    aria-label="Previous videos"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={() => scrollCarousel('right', 'videos')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-colors shadow-lg"
-                    aria-label="Next videos"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
+                  {/* Desktop navigation arrows + page dots */}
+                  {desktopVideoIndex > 0 && (
+                    <button
+                      onClick={() => scrollCarousel('left', 'videos')}
+                      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black border border-white/30 flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                      aria-label="Previous videos"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                  )}
+                  {desktopVideoIndex < Math.max(1, Math.ceil(favoriteVideos.length / 2)) - 1 && (
+                    <button
+                      onClick={() => scrollCarousel('right', 'videos')}
+                      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black border border-white/30 flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                      aria-label="Next videos"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  )}
+
+                  {/* Page counter dots (desktop) */}
+                  <div className="flex justify-center gap-1.5 mt-3">
+                    {Array.from({ length: Math.max(1, Math.ceil(favoriteVideos.length / 2)) }).map(
+                      (_, i) => (
+                        <span
+                          key={i}
+                          className={`h-1.5 w-3 rounded-full transition-colors ${
+                            i === desktopVideoIndex ? 'bg-purple-400' : 'bg-white/20'
+                          }`}
+                        />
+                      )
+                    )}
+                  </div>
                 </div>
               )}
             </motion.div>
@@ -305,67 +412,115 @@ export default function FavoriteVideosAndAds() {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              {/* Mobile: stacked cards, no carousel */}
+              {/* Mobile: 1 card at a time with arrows (video capped so captions stay in view) */}
               {!isDesktop && (
-                <div className="space-y-8">
-                  {ads.map((ad, i) => (
-                    <div key={i} className="space-y-3 max-w-sm mx-auto">
-                      {ad.logo && (
-                        <div className="flex items-center mb-2">
-                          <div className="relative h-8 w-auto">
-                            <Image
-                              src={ad.logo}
-                              alt={ad.brand}
-                              width={120}
-                              height={40}
-                              className="h-8 w-auto object-contain"
-                            />
+                <div className="relative w-full max-w-xs mx-auto">
+                  <div className="overflow-hidden">
+                    <div
+                      className="flex transition-transform duration-300"
+                      style={{ transform: `translateX(-${mobileAdIndex * 100}%)` }}
+                    >
+                      {ads.map((ad, i) => (
+                        <div key={i} className="w-full flex-shrink-0 px-1">
+                          <div className="space-y-3 pb-2">
+                            {ad.logo && (
+                              <div className="flex items-center mb-1">
+                                <div className="relative h-8 w-auto">
+                                  <Image
+                                    src={ad.logo}
+                                    alt={ad.brand}
+                                    width={120}
+                                    height={40}
+                                    className="h-8 w-auto object-contain"
+                                  />
+                                </div>
+                              </div>
+                            )}
+
+                            <div className="relative w-full aspect-[9/16] max-h-[60vh] rounded-lg overflow-hidden border border-white/10 bg-black">
+                              <video
+                                src={ad.video}
+                                controls
+                                preload="metadata"
+                                className="w-full h-full object-contain"
+                                playsInline
+                                webkit-playsinline="true"
+                              >
+                                Your browser does not support the video tag.
+                              </video>
+                            </div>
+
+                            <div>
+                              {ad.url ? (
+                                <a
+                                  href={ad.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group"
+                                >
+                                  <p className="text-sm font-medium text-white group-hover:text-purple-400 transition-colors inline-flex items-center gap-1">
+                                    {ad.brand}
+                                    <ExternalLink className="w-3 h-3" />
+                                  </p>
+                                </a>
+                              ) : (
+                                <p className="text-sm font-medium text-white">
+                                  {ad.brand}
+                                </p>
+                              )}
+                              {ad.description && (
+                                <p className="text-xs text-gray-400 mt-1">{ad.description}</p>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      )}
-
-                      <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 bg-black">
-                        <video
-                          src={ad.video}
-                          controls
-                          className="w-full h-full object-contain"
-                          playsInline
-                          webkit-playsinline="true"
-                        >
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-
-                      <div>
-                        {ad.url ? (
-                          <a
-                            href={ad.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group"
-                          >
-                            <p className="text-sm font-medium text-white group-hover:text-purple-400 transition-colors inline-flex items-center gap-1">
-                              {ad.brand}
-                              <ExternalLink className="w-3 h-3" />
-                            </p>
-                          </a>
-                        ) : (
-                          <p className="text-sm font-medium text-white">
-                            {ad.brand}
-                          </p>
-                        )}
-                        {ad.description && (
-                          <p className="text-xs text-gray-400 mt-1">{ad.description}</p>
-                        )}
-                      </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {ads.length > 1 && (
+                    <>
+                      {/* Arrows */}
+                      <button
+                        type="button"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 border border-white/20 flex items-center justify-center text-white hover:bg-black/90 disabled:opacity-40 transition-colors shadow-md"
+                        onClick={() => setMobileAdIndex((prev) => Math.max(0, prev - 1))}
+                        disabled={mobileAdIndex === 0}
+                        aria-label="Previous ad"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <button
+                        type="button"
+                        className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 border border-white/20 flex items-center justify-center text-white hover:bg-black/90 disabled:opacity-40 transition-colors shadow-md"
+                        onClick={() =>
+                          setMobileAdIndex((prev) => Math.min(ads.length - 1, prev + 1))
+                        }
+                        disabled={mobileAdIndex === ads.length - 1}
+                        aria-label="Next ad"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+
+                      {/* Dots */}
+                      <div className="flex justify-center gap-1.5 mt-3">
+                        {ads.map((_, i) => (
+                          <span
+                            key={i}
+                            className={`h-1.5 w-3 rounded-full transition-colors ${
+                              i === mobileAdIndex ? 'bg-purple-400' : 'bg-white/20'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
 
-              {/* Desktop: carousel */}
+              {/* Desktop: carousel (aligned with Favorite Videos) */}
               {isDesktop && (
-                <div className="relative -mx-6 px-6 overflow-hidden">
+                <div className="relative overflow-hidden w-full max-w-[640px] mx-auto">
                   <motion.div
                     ref={adsCarouselRef}
                     drag="x"
@@ -402,6 +557,7 @@ export default function FavoriteVideosAndAds() {
                           <video
                             src={ad.video}
                             controls
+                            preload="metadata"
                             className="w-full h-full object-contain"
                             playsInline
                             webkit-playsinline="true"
@@ -437,19 +593,36 @@ export default function FavoriteVideosAndAds() {
                     ))}
                   </motion.div>
                   
-                  {/* Navigation arrows */}
-                  <button
-                    onClick={() => scrollCarousel('left', 'ads')}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={() => scrollCarousel('right', 'ads')}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
+                  {/* Desktop navigation arrows + page dots (ads) */}
+                  {desktopAdIndex > 0 && (
+                    <button
+                      onClick={() => scrollCarousel('left', 'ads')}
+                      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black border border-white/30 flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                      aria-label="Previous ads"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                  )}
+                  {desktopAdIndex < Math.max(1, Math.ceil(ads.length / 2)) - 1 && (
+                    <button
+                      onClick={() => scrollCarousel('right', 'ads')}
+                      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black border border-white/30 flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                      aria-label="Next ads"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  )}
+
+                  <div className="flex justify-center gap-1.5 mt-3">
+                    {Array.from({ length: Math.max(1, Math.ceil(ads.length / 2)) }).map((_, i) => (
+                      <span
+                        key={i}
+                        className={`h-1.5 w-3 rounded-full transition-colors ${
+                          i === desktopAdIndex ? 'bg-purple-400' : 'bg-white/20'
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
               )}
             </motion.div>

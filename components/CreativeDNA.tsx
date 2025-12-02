@@ -33,10 +33,10 @@ export default function CreativeDNA() {
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
-            Extroverted for the camera, introverted to lock in and get my work done. When something really matters to me it matters; I go all in and will stop at nothing to see it through. 24 hour days, blocking out distractions, attacks from the people around me, if it gets in the way of my goals it's a giant that needs to be slain.
+            Extroverted for the camera, introverted to lock in and get my work done. When something really matters to me it matters; I go all in and will stop at nothing to see it through. 24 hour days, blocking out distractions, attacks from the world around me, if it gets in the way of my goals it's a giant that needs to be slain.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-           Everything I've worked for, benching 405, bench press national record, 60k TikTok, my clothing brand, launching charity karaoke in 25 days, and more have required this level of effort. I kill giants. (I also have a soft side, I have two different modes)
+           Everything I've worked for, benching 405, bench press national record, 60k TikTok, my clothing brand, launching charity karaoke in 25 days, and more have required this level of effort. I kill giants for what I believe in. (I also have a soft side, I have two different modes)
           </p>
         </motion.div>
       </div>
