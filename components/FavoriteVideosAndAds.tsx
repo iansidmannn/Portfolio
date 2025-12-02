@@ -15,6 +15,7 @@ interface FavoriteVideo {
 
 export default function FavoriteVideosAndAds() {
   const [activeTab, setActiveTab] = useState<'videos' | 'ads'>('videos')
+  const [isDesktop, setIsDesktop] = useState(false)
   const videosCarouselRef = useRef<HTMLDivElement>(null)
   const adsCarouselRef = useRef<HTMLDivElement>(null)
   const videosX = useMotionValue(0)
@@ -87,7 +88,17 @@ export default function FavoriteVideosAndAds() {
     },
   ]
 
-  // Update drag constraints when carousel refs are ready
+  // Track desktop vs mobile for layout/interaction
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Update drag constraints when carousel refs are ready (desktop only)
   useEffect(() => {
     const updateConstraints = () => {
       if (videosCarouselRef.current) {
@@ -99,12 +110,14 @@ export default function FavoriteVideosAndAds() {
         setAdsConstraints({ left: maxScroll, right: 0 })
       }
     }
-    
-    // Small delay to ensure DOM is ready
-    setTimeout(updateConstraints, 100)
-    window.addEventListener('resize', updateConstraints)
-    return () => window.removeEventListener('resize', updateConstraints)
-  }, [activeTab])
+
+    if (isDesktop) {
+      // Small delay to ensure DOM is ready
+      setTimeout(updateConstraints, 100)
+      window.addEventListener('resize', updateConstraints)
+      return () => window.removeEventListener('resize', updateConstraints)
+    }
+  }, [activeTab, isDesktop])
 
   const scrollCarousel = (direction: 'left' | 'right', type: 'videos' | 'ads') => {
     const carouselRef = type === 'videos' ? videosCarouselRef : adsCarouselRef
@@ -159,7 +172,7 @@ export default function FavoriteVideosAndAds() {
 
         {/* Content */}
         <div className="min-h-[400px]">
-          {/* Favorite Videos Carousel */}
+          {/* Favorite Videos */}
           {activeTab === 'videos' && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -167,25 +180,13 @@ export default function FavoriteVideosAndAds() {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              <div className="relative overflow-hidden w-full max-w-[640px] mx-auto">
-                <motion.div
-                  ref={videosCarouselRef}
-                  drag="x"
-                  dragConstraints={videosConstraints}
-                  dragElastic={0.1}
-                  style={{ x: videosSpringX }}
-                  className="flex gap-6 cursor-grab active:cursor-grabbing pb-4"
-                >
+              {/* Mobile: stacked cards, no carousel */}
+              {!isDesktop && (
+                <div className="space-y-8">
                   {favoriteVideos.map((video, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.1, duration: 0.3 }}
-                      className="flex-shrink-0 w-[300px] space-y-3"
-                    >
-                      {video.video ? (
-                        <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 mx-auto max-w-[300px] bg-black">
+                    <div key={i} className="space-y-3 max-w-sm mx-auto">
+                      {video.video && (
+                        <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 bg-black">
                           <video
                             src={video.video}
                             controls
@@ -196,26 +197,7 @@ export default function FavoriteVideosAndAds() {
                             Your browser does not support the video tag.
                           </video>
                         </div>
-                      ) : video.thumbnail ? (
-                        <a
-                          href={video.url || '#'}
-                          target={video.url ? '_blank' : undefined}
-                          rel={video.url ? 'noopener noreferrer' : undefined}
-                          className="block group"
-                        >
-                          <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors mx-auto max-w-[300px] bg-black">
-                            <Image
-                              src={video.thumbnail}
-                              alt={video.title || 'Video thumbnail'}
-                              fill
-                              className="object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                              <ExternalLink className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                          </div>
-                        </a>
-                      ) : null}
+                      )}
                       <div>
                         <h4 className="text-white font-semibold mb-1">{video.title}</h4>
                         {video.caption && (
@@ -235,30 +217,87 @@ export default function FavoriteVideosAndAds() {
                           </a>
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
-                </motion.div>
-                
-                {/* Navigation arrows */}
-                <button
-                  onClick={() => scrollCarousel('left', 'videos')}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-colors shadow-lg"
-                  aria-label="Previous videos"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={() => scrollCarousel('right', 'videos')}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-colors shadow-lg"
-                  aria-label="Next videos"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+                </div>
+              )}
+
+              {/* Desktop: carousel showing two at a time */}
+              {isDesktop && (
+                <div className="relative overflow-hidden w-full max-w-[640px] mx-auto">
+                  <motion.div
+                    ref={videosCarouselRef}
+                    drag="x"
+                    dragConstraints={videosConstraints}
+                    dragElastic={0.1}
+                    style={{ x: videosSpringX }}
+                    className="flex gap-6 cursor-grab active:cursor-grabbing pb-4"
+                  >
+                    {favoriteVideos.map((video, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.1, duration: 0.3 }}
+                        className="flex-shrink-0 w-[300px] space-y-3"
+                      >
+                        {video.video && (
+                          <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 mx-auto max-w-[300px] bg-black">
+                            <video
+                              src={video.video}
+                              controls
+                              className="w-full h-full object-contain"
+                              playsInline
+                              muted
+                            >
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                        )}
+                        <div>
+                          <h4 className="text-white font-semibold mb-1">{video.title}</h4>
+                          {video.caption && (
+                            <p className="text-sm text-gray-400 mb-2">{video.caption}</p>
+                          )}
+                          {video.url && (
+                            <a
+                              href={video.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs text-purple-400 hover:text-purple-300 transition-colors"
+                            >
+                              {video.url.includes('youtube.com') || video.url.includes('youtu.be')
+                                ? 'View on YouTube'
+                                : 'View on Instagram'}
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          )}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+
+                  {/* Navigation arrows */}
+                  <button
+                    onClick={() => scrollCarousel('left', 'videos')}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-colors shadow-lg"
+                    aria-label="Previous videos"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => scrollCarousel('right', 'videos')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-colors shadow-lg"
+                    aria-label="Next videos"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
+              )}
             </motion.div>
           )}
 
-          {/* Ads Carousel */}
+          {/* Ads */}
           {activeTab === 'ads' && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -266,24 +305,11 @@ export default function FavoriteVideosAndAds() {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              <div className="relative -mx-6 px-6 overflow-hidden">
-                <motion.div
-                  ref={adsCarouselRef}
-                  drag="x"
-                  dragConstraints={adsConstraints}
-                  dragElastic={0.1}
-                  style={{ x: adsSpringX }}
-                  className="flex gap-6 cursor-grab active:cursor-grabbing pb-4 justify-center"
-                >
+              {/* Mobile: stacked cards, no carousel */}
+              {!isDesktop && (
+                <div className="space-y-8">
                   {ads.map((ad, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.1, duration: 0.3 }}
-                      className="flex-shrink-0 w-[300px] space-y-3"
-                    >
-                      {/* Logo */}
+                    <div key={i} className="space-y-3 max-w-sm mx-auto">
                       {ad.logo && (
                         <div className="flex items-center mb-2">
                           <div className="relative h-8 w-auto">
@@ -298,8 +324,7 @@ export default function FavoriteVideosAndAds() {
                         </div>
                       )}
 
-                      {/* Video */}
-                      <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 mx-auto max-w-[300px] bg-black">
+                      <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 bg-black">
                         <video
                           src={ad.video}
                           controls
@@ -311,7 +336,6 @@ export default function FavoriteVideosAndAds() {
                         </video>
                       </div>
 
-                      {/* Brand Name and Description */}
                       <div>
                         {ad.url ? (
                           <a
@@ -334,24 +358,100 @@ export default function FavoriteVideosAndAds() {
                           <p className="text-xs text-gray-400 mt-1">{ad.description}</p>
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
-                </motion.div>
-                
-                {/* Navigation arrows */}
-                <button
-                  onClick={() => scrollCarousel('left', 'ads')}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={() => scrollCarousel('right', 'ads')}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+                </div>
+              )}
+
+              {/* Desktop: carousel */}
+              {isDesktop && (
+                <div className="relative -mx-6 px-6 overflow-hidden">
+                  <motion.div
+                    ref={adsCarouselRef}
+                    drag="x"
+                    dragConstraints={adsConstraints}
+                    dragElastic={0.1}
+                    style={{ x: adsSpringX }}
+                    className="flex gap-6 cursor-grab active:cursor-grabbing pb-4 justify-center"
+                  >
+                    {ads.map((ad, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.1, duration: 0.3 }}
+                        className="flex-shrink-0 w-[300px] space-y-3"
+                      >
+                        {/* Logo */}
+                        {ad.logo && (
+                          <div className="flex items-center mb-2">
+                            <div className="relative h-8 w-auto">
+                              <Image
+                                src={ad.logo}
+                                alt={ad.brand}
+                                width={120}
+                                height={40}
+                                className="h-8 w-auto object-contain"
+                              />
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Video */}
+                        <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden border border-white/10 mx-auto max-w-[300px] bg-black">
+                          <video
+                            src={ad.video}
+                            controls
+                            className="w-full h-full object-contain"
+                            playsInline
+                            webkit-playsinline="true"
+                          >
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+
+                        {/* Brand Name and Description */}
+                        <div>
+                          {ad.url ? (
+                            <a
+                              href={ad.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group"
+                            >
+                              <p className="text-sm font-medium text-white group-hover:text-purple-400 transition-colors inline-flex items-center gap-1">
+                                {ad.brand}
+                                <ExternalLink className="w-3 h-3" />
+                              </p>
+                            </a>
+                          ) : (
+                            <p className="text-sm font-medium text-white">
+                              {ad.brand}
+                            </p>
+                          )}
+                          {ad.description && (
+                            <p className="text-xs text-gray-400 mt-1">{ad.description}</p>
+                          )}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                  
+                  {/* Navigation arrows */}
+                  <button
+                    onClick={() => scrollCarousel('left', 'ads')}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => scrollCarousel('right', 'ads')}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
+              )}
             </motion.div>
           )}
         </div>

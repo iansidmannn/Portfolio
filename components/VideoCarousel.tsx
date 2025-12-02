@@ -62,6 +62,7 @@ export default function VideoCarousel() {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
+  const [isDesktop, setIsDesktop] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
@@ -72,7 +73,7 @@ export default function VideoCarousel() {
   
   const x = useMotionValue(0)
   
-  // Dynamic scroll speed that can be accelerated
+  // Dynamic scroll speed that can be accelerated (primarily desktop)
   const baseScrollSpeed = 1.5 // Increased from 0.4 for much faster scrolling
   const currentScrollSpeedRef = useRef(baseScrollSpeed)
   const lastScrollTimeRef = useRef(Date.now())
@@ -145,6 +146,12 @@ export default function VideoCarousel() {
   const handleVideoClick = (e: React.MouseEvent, video: Video) => {
     // Don't open modal if user was dragging
     if (isDragging) {
+      e.preventDefault()
+      return
+    }
+    
+    // If no URL, prevent navigation
+    if (!video.url) {
       e.preventDefault()
       return
     }
@@ -287,7 +294,7 @@ export default function VideoCarousel() {
             {[...shuffledVideos, ...shuffledVideos].map((video, index) => (
               <motion.a
                 key={`${video.id}-${index}`}
-                href={video.url}
+                href={video.url || '#'}
                 target={video.platform === 'tiktok' || video.platform === 'instagram' ? undefined : '_blank'}
                 rel={video.platform === 'tiktok' || video.platform === 'instagram' ? undefined : 'noopener noreferrer'}
                 onClick={(e) => handleVideoClick(e, video)}

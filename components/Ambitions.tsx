@@ -76,7 +76,7 @@ export default function Ambitions() {
         >
           <p className="text-lg text-gray-300 leading-relaxed">
            I want to learn from great people & contribute to a powerful team I believe in. Dabbling past viral marketing & perfecting comprehensive marketing is a big goal for me right now.
-            I work better on teams, I'm hungry to learn, if you're a big team let me play for you and prove my worth.
+            I work better on teams, I'm hungry to learn, if you're a powerful team let me play for you and prove my worth.
 
           </p>
         </motion.div>
