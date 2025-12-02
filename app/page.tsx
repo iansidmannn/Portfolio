@@ -8,6 +8,7 @@ import Ambitions from '@/components/Ambitions'
 import FloatingAboutButton from '@/components/FloatingAboutButton'
 import SocialFooter from '@/components/SocialFooter'
 import FavoriteVideosAndAds from '@/components/FavoriteVideosAndAds'
+import CreativeDNA from '@/components/CreativeDNA'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <VideoCarousel />
       <StatsHighlight />
       <ResultsCarousel />
+      <CreativeDNA />
       <FavoriteVideosAndAds />
       <Ambitions />
       <VideoProjects />

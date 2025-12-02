@@ -75,11 +75,8 @@ export default function Ambitions() {
           className="bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm p-8 space-y-4"
         >
           <p className="text-lg text-gray-300 leading-relaxed">
-            At this stage in my career I'm ready to move beyond being "theviralguy". I want to be apart of building a brand, community, and marketing strategy for a team I believe in.
-            I know a lot of the hard to learn pieces when it comes to comprehensive marketing, and I know if given the chance I will crush it at the rest. I work far better for teams then I do alone.
-             On a day to day basis I live and breathe marketing, I take pictures of everything I see that captures my attention - even with the simplest things I'm constantly thinking about attention and content, It's like a sport to me.
-             To me it's not just about the numbers—it's about knowing that something you created resonated with thousands, or millions, of people. I'm obsessed with strategy and pursuing ideas that effect change. Even writing this right now, just thinking about effecting change is pumping me up in the middle of the library. I love the game, I love strategy, and I love being apart of team & creating something.
-
+           I want to learn from great people & contribute to a powerful team I believe in. Dabbling past viral marketing & perfecting comprehensive marketing is a big goal for me right now.
+            I work better on teams, I'm hungry to learn, if you're a big team let me play for you and prove my worth.
 
           </p>
         </motion.div>
