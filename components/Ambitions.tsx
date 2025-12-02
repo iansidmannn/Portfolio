@@ -75,7 +75,7 @@ export default function Ambitions() {
           className="bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm p-8 space-y-4"
         >
           <p className="text-lg text-gray-300 leading-relaxed">
-           I want to learn from great people & contribute to a powerful team I believe in. Dabbling past viral marketing & perfecting comprehensive marketing is a big goal for me right now.
+           I want to learn from great people & contribute to a team I believe in. Dabbling past viral marketing & perfecting comprehensive marketing is a big goal for me right now.
             I work better on teams, I'm hungry to learn, if you're a powerful team let me play for you and prove my worth.
 
           </p>
