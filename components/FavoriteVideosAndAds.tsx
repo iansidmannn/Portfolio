@@ -42,35 +42,35 @@ export default function FavoriteVideosAndAds() {
       title: 'College Campus Videos',
       url: 'https://www.instagram.com/p/CvasSHLrptX/',
       caption:
-        "Good content sometimes takes fearlessness, being uncomfortable. I'd walk around for hours doing stuff like this.",
+        "Good content sometimes takes fearlessness and being uncomfortable. I'd walk around for hours doing stuff like this.",
     },
     {
       video: '/NO KID SLEEPS ON THE FLOOR IN OUR TOWN on Instagram With our bed.mp4',
       title: 'Sleep In Heavenly Peace',
       url: 'https://www.instagram.com/reel/DF8OjWsJlIE/',
       caption:
-        'Love the impact of this organization & all the content this day was freestyle. I came up with this powerful hook up to demonstrate the problem, powerful ideas on the spot is always been a gift of mine (storytelling during is botched)',
+        'Love the impact of this organization, all the content during this recording day was freestyle, and I came up with this powerful hook up to demonstrate the problem. Powerful ideas on the spot has always been a gift of mine (storytelling during is botched)',
     },
     {
       video: '/Instagram (2).mp4',
       title: 'My Favorite Series Idea Ever!',
       url: 'https://www.instagram.com/p/DEdXd_0TLjh/',
       caption:
-        "this series ($100 to $100,000 on yt) means a lot to me and I hope to continue it one day, ALSO it's super viral, genuinely can 100% take off once execution is nailed down",
+        "This series ($100 to $100,000 on youtuve) means a lot to me and I hope to continue it one day. ALSO it's super viral, this will 100% take off once execution is nailed",
     },
     {
       video: '/Charity Karaoke Sing For A Cause on Instagram 40000 Raised.mp4',
       title: 'Charity Karaoke',
       url: 'https://www.instagram.com/charitykaraoke/',
       caption:
-        "I had 20 days to became a face for this event, nothing was planned I didn't know a lot of people, I just had to make it work. The owner was worried about the turnout & we smashed it with my media playing a big role.",
+        "I had 20 days to became a face for this event, nothing was planned I didn't know the people there, I just had to make it work. The owner was worried about the turnout & we smashed it and packed the venue with my media playing a big role.",
     },
     {
       video: '/Better Edit.mp4',
       title: 'Thousand Oaks Street Fair',
       url: 'https://www.instagram.com/p/DBhP4v5qz/?hl=en',
       caption:
-        'Literally got hired at this event day before, but I made it work and filmed creatives like this for multiple charities and sponsors at the event (unposted idk why) (everyone in my hometown knows about this street fair, busiest day of the year)',
+        'Got hired on short notice, day before this big event. I made it work and filmed creatives like this for multiple charities and sponsors at the event (unposted idk why) (everyone in my hometown knows about this street fair, busiest day of the year)',
     },
   ]
 
