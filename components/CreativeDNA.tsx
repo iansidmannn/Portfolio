@@ -29,7 +29,7 @@ export default function CreativeDNA() {
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
-            Time and time again any environment I've been thrown into I've been able to make good content for it. Whether it's creating on the spot for a nonprofit event, or coming up with viral systems for a struggling brand I can do it all.
+            Time and time again any environment I've been thrown into I've been able to make good content for it. Whether it's creating on the spot for a nonprofit event, or coming up with viral systems for a struggling brand I can do it all or I will figure it out.
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
