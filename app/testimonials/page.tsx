@@ -14,15 +14,6 @@ export default function TestimonialsPage() {
     '/IMG_2291.JPG',
   ]
 
-  const results = [
-    '/unamed2 (1).png',
-    '/VIEWS.png',
-    '/views2.png',
-    '/Atom Results.png',
-    '/IMG_3579.PNG',
-    '/Screenshot 2025-11-24 133137.png',
-  ]
-
   return (
     <main className="min-h-screen px-6 py-20">
       <FloatingAboutButton />
@@ -62,7 +53,7 @@ export default function TestimonialsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mb-16 -mt-8"
+          className="mb-32 -mt-8"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
             Video Testimonials
@@ -150,7 +141,7 @@ export default function TestimonialsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mb-20"
+          className="mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
             Testimonials
@@ -177,40 +168,10 @@ export default function TestimonialsPage() {
           </div>
         </motion.div>
 
-        {/* Results Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-            Results
-          </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {results.map((result, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1 + index * 0.1, duration: 0.5 }}
-                className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur overflow-hidden"
-              >
-                <div className="relative w-full aspect-video rounded-lg overflow-hidden">
-                  <Image
-                    src={result}
-                    alt={`Result ${index + 1}`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
       
       {/* Spacer before contact section */}
-      <div className="py-20 md:py-32" />
+      <div className="py-12 md:py-16" />
       
       <SocialFooter />
     </main>

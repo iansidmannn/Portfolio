@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { User, MessageCircle, Star } from 'lucide-react'
+import { User, MessageCircle, Star, Trophy } from 'lucide-react'
 import Link from 'next/link'
 
 export default function FloatingAboutButton() {
@@ -18,6 +18,14 @@ export default function FloatingAboutButton() {
       >
         <User className="w-4 h-4 text-white" />
         <span className="text-sm font-medium text-white">About Me</span>
+      </Link>
+
+      <Link
+        href="/accomplishments"
+        className="group flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300"
+      >
+        <Trophy className="w-4 h-4 text-white" />
+        <span className="text-sm font-medium text-white">Accomplishments</span>
       </Link>
 
       <Link
