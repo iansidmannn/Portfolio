@@ -19,6 +19,8 @@ const accomplishments = [
   'Raised $94,500 For Local Charities/Homeless',
   'Built MVP & Team Of 7 In College To Build Viral AI Models (Startup)',
   '150M+ Views Across All Socials',
+  '$125,000+ Generated From Content & Marketing Strategies',
+  'Fixed 7 Stuck Brands, Low View Accounts I Created 100k Views+ Viral Engines For.',
   '60k Followers On TikTok @gymjunkie69_',
   '30+ Daily Google Reviews For @fitness19gyms',
   '13 Million View Video For A Client',
