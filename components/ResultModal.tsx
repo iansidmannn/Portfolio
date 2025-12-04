@@ -78,6 +78,79 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                 {(() => {
                   const videos = result.videos || (result.video ? [result.video] : []);
                   
+                  // Special case for AI Video Automation - account link inline, video with caption below
+                  if (result.id === '11' && videos.length > 0 && result.learnMore) {
+                    const videoMarker = "This is what it looked like!";
+                    const parts = result.learnMore.split(videoMarker);
+                    const beforeVideo = parts[0] + "This is what it looked like";
+                    const afterVideo = parts.slice(1).join(videoMarker);
+                    
+                    return (
+                      <div className="mb-6 space-y-6">
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1, duration: 0.5 }}
+                          className="prose prose-invert max-w-none"
+                        >
+                          <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                            {beforeVideo}
+                            {result.account && result.accountUrl && (
+                              <> <a
+                                href={result.accountUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-purple-400 hover:text-purple-300 transition-colors"
+                              >
+                                {result.account}
+                              </a>!</>
+                            )}
+                            {!result.account && "!"}
+                          </p>
+                        </motion.div>
+                        
+                        {/* Video with caption below */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2, duration: 0.5 }}
+                          className="space-y-3"
+                        >
+                          {videos.map((video, index) => (
+                            <div key={index} className="space-y-2">
+                              <div className="relative w-full max-w-md mx-auto rounded-xl overflow-hidden border border-white/20 bg-black/50 shadow-lg">
+                                <video
+                                  src={video}
+                                  controls
+                                  className="w-full h-auto"
+                                  playsInline
+                                  preload="none"
+                                >
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                              <p className="text-center text-white/70 text-sm font-medium">Watch My Robot</p>
+                            </div>
+                          ))}
+                        </motion.div>
+                        
+                        {/* Text after video */}
+                        {afterVideo.trim() && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                            className="prose prose-invert max-w-none"
+                          >
+                            <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                              {afterVideo}
+                            </p>
+                          </motion.div>
+                        )}
+                      </div>
+                    );
+                  }
+                  
                   if (videos.length > 0 && result.learnMore) {
                     // Check if learnMore contains "This is what it looked like!"
                     const videoMarker = "This is what it looked like!";
