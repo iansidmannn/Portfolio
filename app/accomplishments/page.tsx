@@ -17,7 +17,7 @@ const accomplishments = [
   '9% Conversion Rate On Shopify & $4,800 Revenue Day @atomwilliamson',
   'One Video: 5,800,000 Views, 282,000 Shares, 193 New Customers',
   'Raised $94,500 For Local Charities/Homeless',
-  'Built MVP & Team Of 7 In College To Build Viral AI Models (Startup)',
+  'Built MVP & Team Of 7 In College To Build AI Models For Going Viral',
   '150M+ Views Across All Socials',
   '$125,000+ Generated From Content & Marketing Strategies',
   'Fixed 7 Stuck Brands, Low View Accounts I Created 100k Views+ Viral Engines For.',
