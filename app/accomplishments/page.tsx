@@ -50,7 +50,7 @@ export default function AccomplishmentsPage() {
   ]
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
       <FloatingAboutButton />
       
       {/* Back button */}
@@ -68,27 +68,27 @@ export default function AccomplishmentsPage() {
         </Link>
       </motion.div>
 
-      <section className="py-16 px-6 pt-24">
+      <section className="py-8 md:py-16 px-4 md:px-6 pt-20 md:pt-24 overflow-x-hidden">
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring' }}
-              className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 mb-6"
+              className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 mb-4 md:mb-6"
             >
-              <Trophy className="w-8 h-8 text-yellow-400" />
+              <Trophy className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-6">
               Accomplishments
             </h1>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="text-sm md:text-lg text-gray-400 max-w-2xl mx-auto px-2">
               A collection of achievements, milestones, and results from my journey
             </p>
           </motion.div>
@@ -98,21 +98,21 @@ export default function AccomplishmentsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mb-20"
+            className="mb-12 md:mb-20"
           >
             <div className="max-w-3xl mx-auto">
-              <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8">
-                <ul className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed">
+              <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-4 md:p-6 lg:p-8">
+                <ul className="space-y-2 md:space-y-3 text-sm md:text-base lg:text-lg text-white/90 leading-relaxed">
                   {accomplishments.map((accomplishment, index) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + index * 0.02, duration: 0.4 }}
-                      className="flex items-start gap-3"
+                      className="flex items-start gap-2 md:gap-3"
                     >
                       <span className="text-white/40 flex-shrink-0">-</span>
-                      <span>{accomplishment}</span>
+                      <span className="break-words">{accomplishment}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -128,13 +128,13 @@ export default function AccomplishmentsPage() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="mb-12"
             >
-              <div className="text-center mb-10">
-                <h2 className="text-4xl md:text-5xl font-bold mb-3 text-white">
+              <div className="text-center mb-6 md:mb-10">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 text-white">
                   Results
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                 {uniqueImages.map((image, index) => {
                   const isLeadsImage = image.includes('Leads To A Dozen Others')
                   const isViralPostImage = image.includes('One Viral Post Dozen Other')
@@ -199,16 +199,16 @@ export default function AccomplishmentsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="mb-20 mt-32 md:mt-1000"
+            className="mb-12 md:mb-20 mt-16 md:mt-32"
           >
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
-                Key Results
-              </h2>
-            </div>
+              <div className="text-center mb-6 md:mb-10">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-white">
+                  Key Results
+                </h2>
+              </div>
             
             {/* Mobile: 2x2 Grid */}
-            <div className="grid grid-cols-2 gap-4 pb-8 md:hidden mb-8">
+            <div className="grid grid-cols-2 gap-2 md:hidden mb-8">
               {results.map((result, index) => (
                 <motion.div
                   key={result.id}
@@ -216,10 +216,10 @@ export default function AccomplishmentsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="group p-4 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 overflow-visible"
+                  className="group p-3 md:p-4 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 overflow-visible"
                 >
                   <div className="mb-2 overflow-visible">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1 leading-normal pb-0.5 overflow-visible">
+                    <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1 leading-normal pb-0.5 overflow-visible">
                       {result.metric}
                     </div>
                     <h3 className="text-sm font-semibold text-white mb-1">

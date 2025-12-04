@@ -54,7 +54,7 @@ For example, with charity karoake I suggested doing giveaways with local busines
     account: '@fitness19gyms',
     accountUrl: 'https://www.instagram.com/fitness19gyms/',
     showAccountLink: false,
-    learnMore: 'The owner approached me and asked me to leave a review & being friends with her I asked If I could help. I created a  NFC card that automatically brought people to the review page (reducing friction), and then told her to tell everyone they get a free snack if they do it. (reducing friction even more and adding incentive, she\'s also very attractive)\n\nThis led to her getting 30+ reviews in one day, now being 254 total reviews, and recieving recgonition from the executive team.',
+    learnMore: 'The owner approached me and asked me to leave a review & being friends with her I asked If I could help. I created a  NFC card that automatically brought people to the review page (reducing friction), and then told her to tell everyone they get a free snack if they do it. (reducing friction even more and adding incentive, she\'s also attractive)\n\nThis led to her getting 30+ reviews in one day, now being 254 total reviews, and recieving recgonition from the executive team.',
     images: ['/f19 logo.png', '/Screenshot 2025-11-24 133137.png'],
   },
   {

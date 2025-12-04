@@ -789,7 +789,7 @@ Peace✌️`,
     summary: [
       'The owner approached me and asked me to leave a review & being friends with her I asked If I could help.',
     ],
-    approach: 'I created a tappable NFC card that automatically brought people to the google review page (reducing friction), and then told her to tell everyone they get a free snack if they do it. (reducing friction even more and adding incentive, she\'s also very attractive)\n\nThis led to her getting 30+ google reviews in one day, now being 254 total reviews, and recieving recgonition from the executive team.',
+    approach: 'I created a tappable NFC card that automatically brought people to the google review page (reducing friction), and then told her to tell everyone they get a free snack if they do it. (reducing friction even more and adding incentive, she\'s also attractive)\n\nThis led to her getting 30+ google reviews in one day, now being 254 total reviews, and recieving recgonition from the executive team.',
     achievements: [
       'Generated 30+ daily reviews with a clever strategy',
       '254 total reviews',
