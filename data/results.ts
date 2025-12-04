@@ -50,7 +50,7 @@ For example, with charity karoake I suggested doing giveaways with local busines
     id: '8',
     title: 'Business Impact',
     metric: '30+ Daily Reviews',
-    description: 'Generated 30+ daily reviews with a clever strategy',
+    description: 'Generated 30+ daily google reviews with a clever strategy',
     account: '@fitness19gyms',
     accountUrl: 'https://www.instagram.com/fitness19gyms/',
     showAccountLink: false,
