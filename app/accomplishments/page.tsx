@@ -20,7 +20,7 @@ const accomplishments = [
   'Built MVP & Team Of 7 In College To Build AI Models For Going Viral',
   '150M+ Views Across All Socials',
   '$125,000+ Generated From Content & Marketing Strategies',
-  'Created 100k Views+ Viral Engines For 7 Different Struggling Accounts.',
+  'Created 100k Views+ Viral Engines For 7 Different Struggling Accounts',
   '60k Followers On TikTok @gymjunkie69_',
   '30+ Daily Google Reviews For @fitness19gyms',
   '13 Million View Video For A Client',
