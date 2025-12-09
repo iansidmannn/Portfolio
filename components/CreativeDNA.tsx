@@ -38,6 +38,9 @@ export default function CreativeDNA() {
           <p className="text-lg text-gray-300 leading-relaxed">
            Everything I've worked for, benching 405, bench press national record, 60k TikTok, my clothing brand, launching charity karaoke in 25 days, and more have required this level of effort. I kill giants for what I believe in.
           </p>
+          <p className="text-lg text-gray-300 leading-relaxed">
+            And right now I'm fucking determined to become one of the greatest growth marketers alive, I'm tired of just being good with viral content I want to do things that actually matter. I will learn to play the game in 5D not 3D.
+          </p>
         </motion.div>
       </div>
     </section>
