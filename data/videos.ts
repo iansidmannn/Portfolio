@@ -113,7 +113,7 @@ export const videos: Video[] = [
     views: 80000,
     platform: 'youtube',
     account: '@iansidmann',
-    accountUrl: 'https://www.youtube.com/@iansidmann',
+    accountUrl: 'https://www.youtube.com/@ian.sidman',
     thumbnail: '/Screenshot 2025-11-23 125701.png',
   },
   {
