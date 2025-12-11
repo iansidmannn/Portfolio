@@ -25,19 +25,19 @@ const stories: Story[] = [
     image: '/baller 2.jpg',
     imagePosition: 'center 40%',
     summary: 'How I built Goofy Garments—my first time taking a bet on a business I believed in.',
-    content: `A project I worked on that I'm really proud of was my clothing brand goofy garments. It was my first real attempt at building a business I believed in and I had no clue what I was doing. I had just arrived at college and at that time I was selling streetwear clothes as a passion project. From the ups and downs of that project I started to piece more and more of a picture how markets worked and responded to content/what current markets existed on social media.
+    content: `A project I worked on that I'm really proud of was my clothing brand goofy garments. It was my first real attempt at building a business I believed in and I had no clue what I was doing. I had just arrived at college and the time I was selling streetwear clothes as a passion project. From the ups and downs of that passion project I started to piece more and more of a picture how markets worked and responded to content/what current markets existed on social media.
 
-About a month or so into college I realized there was a huge gap in the market for funny clothes, the people that were selling them just weren't doing it right, and all these hilarious shirt ideas that aligned with the public consciousness weren't being sold or marketed.
+About a month or so into college I realized there was a huge gap in the market for funny clothes, the people that were selling them just weren't doing it right. So I built the brand that was missing. I took a gamble spent the time to build the store, brought more of my equipment to make clothes from back home to Oregon where I went to school & started cooking up in my college dorm. 
 
-Hence goofy garments was born. I took a gamble spent the time to build the store, brought more of my equipment to make clothes from back home to Oregon where I went to school & started cooking up in my college dorm. What I believed in most was the shirts and my ability to market them which was a new feeling for me. Up until this point all the projects I pursued I guess were kinda unconcious? I started my tiktok in highschool for attention, I did my clothing brand cuz I liked money and the idea of running a business/learning, and getting the USA bench press national record was just insane levels of effort and focus I was doing for myself anyway, but this was an idea I believed in and took a bet on.
+What I believed in most was the shirts and my ability to market them, which was a new feeling for me. Up until this point all the projects I pursued I guess were kinda unconcious? I started my TikTok that got 60k in highschool for attention, I did my clothing brand cuz I liked money and the idea of running a business/learning, and getting the USA bench press national record was just insane levels of effort and focus I was doing for myself anyway, but this was an idea I believed in and took a bet on.
 
-And man, in the first two weeks I hit 2.5m views on Instagram and it was just the best feeling. There's some part of my psyche thats just obsessed with strategy, taking bets, and seeing change in the world and mannnnnnn up until that point nothing scratched the itch anywhere as much as that did. And it didn't stop there, eventually I was able to put out a video that got 5.8m views and 193 new customers, I vividly remember going on a hike with my friends while this video was ripping and just hearing cha ching cha ching cha ching cha ching, it was so many that I gave up on production and found manufacturers haha. But it felt awesome.
+And man, in the first two weeks I hit 2.5m views on Instagram and it was just the best feeling. There's some part of my psyche that's just obsessed with strategy, taking bets, and seeing change in the world. And it didn't stop there, eventually I was able to put out a video that got 5.8m views and 193 new customers, I vividly remember going on a hike with my friends while this video was ripping and just hearing cha ching cha ching cha ching cha ching, it was so many that I gave up on production and found manufacturers. it felt unreal.
 
-Looking back on this I ran this business pretty one dimensionally, make funny content & clothes, try to go viral, when videos blew up I made a lot of sales, and outside of that a little sales here and there from engaging with my audience. If I were to do it again I'd invest a lot more in brand/community building. I think 3 loyal fans are often worth more than 1 million views.
+Looking back on this I ran this business pretty one dimensionally, make funny content & clothes, try to go viral, when videos blew up I made a lot of sales, and outside of that a little sales here and there from engaging with my audience. If I were to do it again I'd invest a lot more in brand/community building and be wayyy more focused on growth versus going viral. I think 3 loyal fans can often be worth more than 1 million views.
 
-Outside of that though this was really the experience that gave me permission to become who I am today, it allowed me to believe I can build something consciously which was something that was always a little grey for me from my upbringing.
+Outside of that, though, this was really the experience that gave me permission to become who I am today; it allowed me to believe I can build something consciously, which was something that was always a little grey for me from my upbringing. Now I know I can kill both in the gym and in business.
 
-Ahhhh I love it. So good :) @goofygarmentshop on instagram btw`,
+@goofygarmentshop on Instagram btw`,
   },
   {
     id: 'training-record',
@@ -46,17 +46,17 @@ Ahhhh I love it. So good :) @goofygarmentshop on instagram btw`,
     imagePosition: 'center 15%',
     images: ['/State%20Record.JPG', '/National%20Record.png'],
     summary: 'How my favorite hobby turned into followers, friends, and a USA national record.',
-    content: `Lifting to me always symbolized freedom in my life, even from my youngest years I could admire a buff dude and just imagine how happy, stable, and easy life must be for them. (Lol the movies got me hard), anyways when I had picked up my first set of weights up at 5, and I loved them I'd use them all the time.
+    content: `Lifting to me always symbolized freedom in my life, even from my youngest years I could admire a buff dude and just imagine how happy, stable, and easy life must be for them. (Lol the movies got me hard), anyways when I had picked up my first set of weights up in 5th grade, and I loved them I'd use them all the time.
 
 But it wasn't until 6th grade, where unfortuantely I got bullied, where I became obsessed with lifting. I wanted to grow fast, strong, bigger then my problems type deal.
 
-Then came seventh grade, I had hacked all the popular kids pokemon go accounts and got them dragonites so I actually was invited into their friend group (massive win for lil dude). I was the butt of the group but I was really happy to have cool friends. Anyways, because I started taking lifting seriously in 6th grade, by seventh grade I was pretty strong and guessss what. People started to compliment me, OHHHH MY GODDDDD. WHATEVER IM DOING DO MORE. that's all my brain could think at the time. People started to come to my house to workout with me, and wanted to hangout with me because of it. It was the best and felt really awesome at the time. This obsession with stregth as a way to self improve would continue into highschool, in highschool we had all the strongest kids in my area in one friend group competeing and pushing one another. (not to flex but by junior year I was the strongest) (okay that was totally a flex my bad)
+Then came seventh grade, I had hacked all the popular kids pokemon go accounts and got them dragonites so I actually was invited into their friend group (massive win for lil dude). I was the butt of the group but I was really happy to have cool friends. Anyways, because I started taking lifting seriously in 6th grade, by seventh grade I was pretty strong and guessss what. People started to compliment me, OHHHH MY GODDDDD. WHATEVER IM DOING DO MORE. that's all my brain could think at the time. People started to come to my house to workout with me, and wanted to hangout with me because of it. It was the best and felt really awesome at the time. This obsession with strength as a way to self improve would continue into highschool, in highschool we had all the strongest kids in my area in one friend group competeing and pushing one another. (not to flex but by junior year I was the strongest in that group, my school, and the whole area) (okay that was totally a flex my bad)
 
 Junior year of highschool my bestfriend Corey tells me that we're both not too far off getting national records, and that brought my obsession to a whole different level.
 
 We trained and programmed really hard, and then we smashed it.
 
-We both walked away with national records on bench press (our most competitve lift) and I also got the state record on squat just cuz lol. I could've lifted more on that day too, I really botched my lifts because I was nervous.
+We both walked away with national records on bench press (our most competitve lift) and I also got the state record on squat just cuz lol. I could've lifted more on that day too, I really botched my lifts because I had a back injury & was a little nervous.
 
 But you know, I guess I'm happy with a national record or whatever.`,
   },
