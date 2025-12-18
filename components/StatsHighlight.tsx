@@ -7,13 +7,13 @@ import { useState } from 'react'
 const stats = [
   {
     id: 'views',
-    value: '150,000,000',
+    value: '250,000,000',
     label: 'Lifetime Views',
     detail: 'Across organic short-form and long-form launches.',
   },
   {
     id: 'brands',
-    value: '7',
+    value: '8',
     label: 'Stuck Brands Past 100K',
     detail: 'Low view accounts I created 100k views+ viral engines for.',
   },

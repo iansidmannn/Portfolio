@@ -13,9 +13,29 @@ export interface Result {
   videoUrl?: string; // External video URL (e.g., Instagram post)
   videoUrls?: string[]; // Array of external video URLs (e.g., Instagram posts)
   videoThumbnails?: string[]; // Array of thumbnail paths for external videos
+  videoViews?: number[]; // Array of view counts for external videos
+  relatedVideos?: Array<{ views: string; url: string }>; // Related videos as text links with view counts
 }
 
 export const results: Result[] = [
+  {
+    id: '13',
+    title: 'Started "Quitting" Trend',
+    metric: '100M+ Views',
+    description: 'Started a viral trend that generated 100M+ views across all creators',
+    learnMore: `As my diabetes content was blowing up I was on the look out for opportunites to grow my brand. I saw a trend of people quitting vaping and connected the dots to do it for my incurable illness, this lead to 4.1m personal views and over 100m views worth of other videos of people "quitting" their incurable illnesses`,
+    videoUrl: 'https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038',
+    videoUrls: ['https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038'],
+    videoThumbnails: ['/Screenshot 2025-11-22 231933.png'],
+    videoViews: [4100000],
+    relatedVideos: [
+      { views: '23 Million Views', url: 'https://www.tiktok.com/@amandawolf0105/video/7052014289615408430' },
+      { views: '16.5 Million Views', url: 'https://www.tiktok.com/@type1alexx/video/7205725439975771435' },
+      { views: '10.4 Million Views', url: 'https://www.tiktok.com/@_carsonscott_' },
+      { views: '8.7 Million Views', url: 'https://www.tiktok.com/@type1alexx/video/7073284229123165482' },
+      { views: '6 Million Views', url: 'https://www.tiktok.com/@kodasteven/video/6949320506109627654' },
+    ],
+  },
   {
     id: '2',
     title: '7 Day Viral Growth',
@@ -82,25 +102,6 @@ For example, with charity karoake I suggested doing giveaways with local busines
     videos: ['/IMG_3001_compressed.mp4'],
   },
   {
-    id: '10',
-    title: 'Cool Results I\'ve Gotten',
-    metric: 'Graphs, Results, & Data',
-    description: 'Ahhh some of my favorite memories to date!',
-    learnMore: 'Here are some of the results I\'ve achieved over the years:',
-    images: [
-      '/unamed2 (1).png',
-      '/VIEWS.png',
-      '/views2.png',
-      '/Atom Results.png',
-      '/IMG_3579.PNG',
-      '/Screenshot 2025-11-24 133137.png',
-      '/Leads To A Dozen Others.png',
-      '/One Viral Post Dozen Other (1).png',
-      '/Worked With/iansidmannn.png',
-      '/goofygarms.png',
-    ],
-  },
-  {
     id: '11',
     title: 'AI Video Automation',
     metric: 'Automated Content',
@@ -140,6 +141,25 @@ If approved zapier would update a spreadsheet that would bill my clients on a mo
 
 I was making money relatively passively with this system.`,
     images: ['/Screenshot 2025-11-27 170806.png'],
+  },
+  {
+    id: '10',
+    title: 'Cool Results I\'ve Gotten',
+    metric: 'Graphs, Results, & Data',
+    description: 'Ahhh some of my favorite memories to date!',
+    learnMore: 'Here are some of the results I\'ve achieved over the years:',
+    images: [
+      '/unamed2 (1).png',
+      '/VIEWS.png',
+      '/views2.png',
+      '/Atom Results.png',
+      '/IMG_3579.PNG',
+      '/Screenshot 2025-11-24 133137.png',
+      '/Leads To A Dozen Others.png',
+      '/One Viral Post Dozen Other (1).png',
+      '/Worked With/iansidmannn.png',
+      '/goofygarms.png',
+    ],
   },
 ];
 

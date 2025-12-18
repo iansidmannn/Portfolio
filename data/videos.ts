@@ -33,7 +33,7 @@ export const videos: Video[] = [
   },
   {
     id: '3',
-    url: 'https://www.tiktok.com/@ianscontentarchive/video/6939996247193292038',
+    url: 'https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038',
     views: 4100000,
     platform: 'tiktok',
     account: '@iantheviralguy',
@@ -112,7 +112,7 @@ export const videos: Video[] = [
     url: 'https://www.youtube.com/shorts/PF8nUXBivdU',
     views: 80000,
     platform: 'youtube',
-    account: '@iansidmann',
+    account: '@iansidman',
     accountUrl: 'https://www.youtube.com/@ian.sidman',
     thumbnail: '/Screenshot 2025-11-23 125701.png',
   },
@@ -121,8 +121,8 @@ export const videos: Video[] = [
     url: 'https://www.instagram.com/p/C011x6XRAGZ/',
     views: 200000,
     platform: 'instagram',
-    account: '@iansidmann',
-    accountUrl: 'https://www.instagram.com/iansidmann',
+    account: '@iantheviralguy',
+    accountUrl: 'https://www.instagram.com/iantheviralguy',
     thumbnail: '/Screenshot 2025-11-23 125919.png',
   },
   {

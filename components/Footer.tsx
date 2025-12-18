@@ -12,7 +12,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-white mb-4">Connect</h3>
             <div className="space-y-2">
               <a
-                href="https://www.youtube.com/@iansidmann"
+                href="https://www.youtube.com/@ian.sidman"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors"
@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Stats</h3>
             <div className="space-y-1 text-gray-400 text-sm">
-              <p>150M+ Total Views</p>
+              <p>250M+ Total Views</p>
               <p>56K+ Followers</p>
               <p>Multiple Viral Series</p>
             </div>

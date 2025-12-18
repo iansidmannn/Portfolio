@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ExternalLink } from 'lucide-react'
+import { X, ExternalLink, Play } from 'lucide-react'
 import Image from 'next/image'
 import { Result } from '@/data/results'
 
@@ -19,6 +19,16 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
     if (url.includes('tiktok.com')) return 'View on TikTok →'
     if (url.includes('instagram.com')) return 'View on Instagram →'
     return 'View →'
+  }
+
+  const formatViews = (views: number): string => {
+    if (views >= 1000000) {
+      return `${(views / 1000000).toFixed(1)}M`
+    }
+    if (views >= 1000) {
+      return `${(views / 1000).toFixed(0)}K`
+    }
+    return views.toString()
   }
 
   return (
@@ -478,6 +488,7 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                   );
                 })()}
 
+
                 {result.learnMore && !result.videos && !result.video && (
                   <div className="mb-6">
                     <div className="prose prose-invert max-w-none">
@@ -569,6 +580,110 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                           </>
                         );
                       })()}
+                    </div>
+                  </div>
+                )}
+
+                {/* Display video thumbnails in carousel style - below text */}
+                {result.videoThumbnails && result.videoThumbnails.length > 0 && (() => {
+                  const videoUrls = result.videoUrls || (result.videoUrl ? [result.videoUrl] : []);
+                  
+                  return (
+                    <div className="mb-6">
+                      <div className="space-y-4">
+                        {result.videoThumbnails.map((thumbnail, index) => {
+                          const videoUrl = videoUrls[index] || result.videoUrl;
+                          const isTikTok = videoUrl?.includes('tiktok.com');
+                          const isInstagram = videoUrl?.includes('instagram.com');
+                          const platform = isTikTok ? 'TikTok' : isInstagram ? 'Instagram' : 'Video';
+                          const views = result.videoViews && result.videoViews[index];
+                          
+                          return (
+                            <motion.a
+                              key={index}
+                              href={videoUrl || '#'}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                              whileHover={{ scale: 1.02, y: -5 }}
+                              className="group relative flex-shrink-0 w-full max-w-xs mx-auto aspect-[9/16] bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 block"
+                            >
+                              {/* Preload placeholder */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30" />
+                              
+                              {/* Video thumbnail */}
+                              <div className="absolute inset-0">
+                                <Image
+                                  src={thumbnail}
+                                  alt={`${platform} video thumbnail`}
+                                  fill
+                                  className="object-cover"
+                                  sizes="(max-width: 768px) 100vw, 320px"
+                                />
+                                {/* Play button overlay */}
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                                  <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Content overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                              
+                              <div className="absolute bottom-0 left-0 right-0 p-6">
+                                <div className="flex items-center justify-between mb-3">
+                                  <span className="text-sm font-semibold text-purple-300">
+                                    {platform}
+                                  </span>
+                                  {views && (
+                                    <span className="text-2xl font-bold text-white">
+                                      {formatViews(views)}
+                                    </span>
+                                  )}
+                                </div>
+                                
+                                <div className="flex items-center gap-2 text-sm text-gray-300">
+                                  <span>View on {platform}</span>
+                                  <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </div>
+                              </div>
+                            </motion.a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })()}
+
+                {/* Related videos as text links - below video thumbnail */}
+                {result.relatedVideos && result.relatedVideos.length > 0 && (
+                  <div className="mb-6">
+                    <div className="space-y-3">
+                      {result.relatedVideos.map((video, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                          className="text-gray-300"
+                        >
+                          <a
+                            href={video.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center gap-2"
+                          >
+                            <span className="font-semibold">{video.views}</span>
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                          <div className="text-sm text-gray-400 break-all mt-1">
+                            {video.url}
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 )}
