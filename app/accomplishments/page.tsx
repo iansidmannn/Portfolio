@@ -13,7 +13,7 @@ import ResultModal from '@/components/ResultModal'
 const accomplishments = [
   'Bench Press National Record And Squat State Record At Age 17',
   'Gained 23,200 Followers & 9 Million Views In 7 Days On My Personal TikTok @gymjunkie69_',
-  'Started 100M View "Quitting" Trend',
+  'Started 100M View "Quitting" Incurable Diseases Trend',
   '@GoofyGarmentShop To 4k/mo Profit',
   '9% Conversion Rate On Shopify & $4,800 Revenue Day @atomwilliamson',
   'One Video: 5,800,000 Views, 282,000 Shares, 193 New Customers',

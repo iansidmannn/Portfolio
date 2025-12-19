@@ -20,10 +20,10 @@ export interface Result {
 export const results: Result[] = [
   {
     id: '13',
-    title: 'Started "Quitting" Trend',
+    title: 'Started "Quitting" Incurable Diseases Trend',
     metric: '100M+ Views',
     description: 'Started a viral trend that generated 100M+ views across all creators',
-    learnMore: `As my diabetes content was blowing up I was on the look out for opportunites to grow my brand. I saw a trend of people quitting vaping and connected the dots to do it for my incurable illness, this lead to 4.1m personal views and over 100m views worth of other videos of people "quitting" their incurable illnesses`,
+    learnMore: `As my diabetes content was blowing up I was on the look out for opportunites to grow my brand. I saw a trend of people quitting vaping and connected the dots to do it for my incurable disease (diabtes), this lead to 4.1m personal views and over 100m views worth of other videos of people "quitting" their incurable diseases`,
     videoUrl: 'https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038',
     videoUrls: ['https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038'],
     videoThumbnails: ['/Screenshot 2025-11-22 231933.png'],
