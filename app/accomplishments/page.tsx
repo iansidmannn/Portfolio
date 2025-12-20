@@ -11,24 +11,12 @@ import { results, Result } from '@/data/results'
 import ResultModal from '@/components/ResultModal'
 
 const accomplishments = [
-  'Bench Press National Record And Squat State Record At Age 17',
-  'Gained 23,200 Followers & 9 Million Views In 7 Days On My Personal TikTok @gymjunkie69_',
-  'Started 100M View "Quitting" Incurable Diseases Trend',
-  '@GoofyGarmentShop To 4k/mo Profit',
-  '9% Conversion Rate On Shopify & $4,800 Revenue Day @atomwilliamson',
-  'One Video: 5,800,000 Views, 282,000 Shares, 193 New Customers',
-  'Raised $94,500 For Local Charities/Homeless',
-  'Built MVP & Team Of 7 In College To Build AI Models For Going Viral',
-  '250M+ Views Across All Socials',
-  '$125,000+ Generated From Content & Marketing Strategies',
-  'Created 100k Views+ Viral Engines For 7 Different Struggling Accounts',
-  '60k Followers On TikTok @gymjunkie69_',
-  '30+ Daily Google Reviews For @fitness19gyms',
-  '13 Million View Video For A Client',
-  'Bench 405 & Squat 545 @ Age 21',
-  'My Work Ethic',
-  'Cancelled A $2,000 Trip To Europe Cuz I Was Passionate About A Project',
-  'One Time I Ate Three 4x4\'s From In & Out',
+  '250+ million organic short-form views.',
+  'usa bench press national record & california squat state record at age 17',
+  'gained 23,200 followers & 9 million views in 7 days @gymjunkie69_',
+  'started 100+ million-view quitting incurable diseases trend',
+  '@goofygarmentshop to 4k/mo profit',
+  '9% conversion rate & $4,800 revenue day @atomwilliamson',
 ]
 
 export default function AccomplishmentsPage() {
@@ -87,7 +75,7 @@ export default function AccomplishmentsPage() {
               <Trophy className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
             </motion.div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-6">
-              Accomplishments
+              Wins
             </h1>
             <p className="text-sm md:text-lg text-gray-400 max-w-2xl mx-auto px-2">
               A collection of achievements, milestones, and results from my journey
