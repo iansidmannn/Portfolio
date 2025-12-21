@@ -4,13 +4,13 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://iansidman.com'),
-  title: "Ian's Portfolio | Growth Marketer With 250M Views",
+  title: "Ian's Portfolio | Growth Marketer 250M Views",
   description: '250M+ views. Viral content creator, brand strategist, and growth marketer.',
   keywords: ['content creator', 'viral marketing', 'growth marketing', 'brand consultant'],
   authors: [{ name: 'Ian Sidman' }],
   openGraph: {
-    title: "Ian's Portfolio | Growth Marketer With 250M Views",
-    description: "Ian's Portfolio | Growth Marketer With 250M Views",
+    title: "Ian's Portfolio | Growth Marketer 250M Views",
+    description: "Ian's Portfolio | Growth Marketer 250M Views",
     type: 'website',
     images: [
       {
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Ian's Portfolio | Growth Marketer With 250M Views",
-    description: "Ian's Portfolio | Growth Marketer With 250M Views",
+    title: "Ian's Portfolio | Growth Marketer 250M Views",
+    description: "Ian's Portfolio | Growth Marketer 250M Views",
     images: ['/coverimg.png'],
   },
   robots: {

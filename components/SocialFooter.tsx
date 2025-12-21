@@ -87,7 +87,7 @@ export default function SocialFooter() {
           >
             <Instagram className="w-6 h-6 md:w-8 md:h-8 text-purple-300 mb-3 md:mb-4" />
             <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Instagram</p>
-            <p className="text-base md:text-xl font-semibold">@iansidmann</p>
+            <p className="text-base md:text-xl font-semibold">@iantheviralguy</p>
             <p className="text-xs text-gray-400 mt-2">DMs are open.</p>
           </motion.a>
         </div>

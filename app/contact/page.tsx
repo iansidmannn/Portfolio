@@ -76,7 +76,7 @@ export default function ContactPage() {
           >
             <Instagram className="w-8 h-8 text-purple-300 mb-4" />
             <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Instagram</p>
-            <p className="text-2xl font-semibold">@iansidmann</p>
+            <p className="text-2xl font-semibold">@ian.sidman</p>
             <p className="text-xs text-gray-400 mt-2">DMs are open and I check them daily.</p>
           </motion.a>
         </div>

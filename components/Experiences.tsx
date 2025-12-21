@@ -203,7 +203,7 @@ export default function Experiences() {
                                             const isThisAccount = /^this account$/i.test(part);
                                             
                                             // Only make "strategy" a link for the iansidmann experience specifically
-                                            if (isStrategy && experience.account === '@iansidmann') {
+                                            if (isStrategy && experience.account === '@ian.sidman') {
                                               return (
                                                 <a
                                                   key={i}
@@ -613,7 +613,7 @@ export default function Experiences() {
                                                       return (
                                                         <a
                                                           key={j}
-                                                          href="https://www.youtube.com/@iansidmann"
+                                                          href="https://www.youtube.com/@ian.sidman"
                                                           target="_blank"
                                                           rel="noopener noreferrer"
                                                           className="text-purple-400 hover:text-purple-300 underline"
