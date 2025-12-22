@@ -25,7 +25,7 @@ export default function CreativeDNA() {
           className="bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm p-8 space-y-6"
         >
           <p className="text-lg text-gray-300 leading-relaxed">
-            Creating viral content is in my DNA. I can pump out good content faster than 99% of creators you'll find anywhere. I can do full creative production on my own, ideating, coordinating, creating, editing, and posting with 5 years of experience enhancing my approach.
+            Creating viral content is in my DNA. I can pump out good content faster than 99% of creators you'll find anywhere. I can do full creative production on my own, ideating, coordinating, creating, editing, and posting with over 12 years of experience enhancing my approach.
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
