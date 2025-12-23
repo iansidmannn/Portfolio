@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, Phone, Instagram, Linkedin, FileText } from 'lucide-react'
+import { ArrowLeft, Instagram, Linkedin, FileText } from 'lucide-react'
 import Link from 'next/link'
 
 export default function ContactPage() {
@@ -31,42 +31,34 @@ export default function ContactPage() {
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
             Contact Ian
           </h1>
-          <p className="text-gray-400 text-lg">
-            Quickest way to reach me is text.
+          <p className="text-gray-400 text-lg mb-8">
+            These are the best ways to contact me
           </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3 mb-12">
-          <motion.a
-            href="mailto:iansidmansells@gmail.com"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur text-white hover:border-white/30 transition-colors"
-          >
-            <Mail className="w-8 h-8 text-purple-300 mb-4" />
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Email</p>
-            <p className="text-lg md:text-xl font-semibold break-words leading-tight">iansidmansells@gmail.com</p>
-          </motion.a>
+        <div className="mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-6">
+            Contact Me
+          </h2>
+        </div>
 
-          <motion.div
+        <div className="grid gap-6 md:grid-cols-2 mb-12 max-w-2xl mx-auto">
+          <motion.a
+            href="https://www.instagram.com/iantheviralguy"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur text-white"
+            className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur text-white hover:border-white/30 transition-colors"
           >
-            <Phone className="w-8 h-8 text-purple-300 mb-4" />
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Phone</p>
-            <a href="tel:8058073320" className="text-2xl font-semibold hover:text-purple-200 transition-colors">
-              909-632-4787
-            </a>
-            <p className="text-xs text-gray-400 mt-2">
-              Calls will get blocked—text me first!
-            </p>
-          </motion.div>
+            <Instagram className="w-8 h-8 text-purple-300 mb-4" />
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Instagram</p>
+            <p className="text-2xl font-semibold">@iantheviralguy</p>
+          </motion.a>
 
           <motion.a
-            href="https://www.instagram.com/iantheviralguy"
+            href="https://www.linkedin.com/in/ian-sidman/"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -74,10 +66,9 @@ export default function ContactPage() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur text-white hover:border-white/30 transition-colors"
           >
-            <Instagram className="w-8 h-8 text-purple-300 mb-4" />
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Instagram</p>
-            <p className="text-2xl font-semibold">@ian.sidman</p>
-            <p className="text-xs text-gray-400 mt-2">DMs are open and I check them daily.</p>
+            <Linkedin className="w-8 h-8 text-blue-300 mb-4" />
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">LinkedIn</p>
+            <p className="text-2xl font-semibold">Ian Sidman</p>
           </motion.a>
         </div>
 
@@ -98,27 +89,6 @@ export default function ContactPage() {
             <div className="text-left">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-1">Resume</p>
               <p className="text-xl font-semibold">View My Resume</p>
-            </div>
-          </motion.a>
-        </motion.div>
-
-        {/* LinkedIn Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="text-center"
-        >
-          <motion.a
-            href="https://www.linkedin.com/in/ian-sidman/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-2xl border-2 border-blue-400/50 bg-blue-500/20 px-8 py-5 backdrop-blur text-white hover:border-blue-400 hover:bg-blue-500/30 transition-all"
-          >
-            <Linkedin className="w-7 h-7 text-blue-300" />
-            <div className="text-left">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-1">LinkedIn</p>
-              <p className="text-xl font-semibold">Connect With Me</p>
             </div>
           </motion.a>
         </motion.div>

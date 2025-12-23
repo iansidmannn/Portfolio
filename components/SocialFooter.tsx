@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Mail, Phone, Instagram, Linkedin, FileText } from 'lucide-react'
+import { Instagram, Linkedin, FileText } from 'lucide-react'
 
 const socials = [
   {
@@ -44,39 +44,32 @@ export default function SocialFooter() {
     <section className="py-12 px-6 border-t border-white/5">
       <div className="container mx-auto max-w-4xl">
         {/* Contact Options */}
-        <div className="grid gap-4 md:grid-cols-3 mb-8 md:mb-12">
+        <div className="mb-6 md:mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+            Contact Me
+          </h2>
+          <p className="text-gray-400 text-center text-sm md:text-base">
+            These are the best ways to reach me
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 mb-8 md:mb-12 max-w-2xl mx-auto">
           <motion.a
-            href="mailto:iansidmansells@gmail.com"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4 md:p-6 backdrop-blur text-white hover:border-white/30 transition-colors"
-          >
-            <Mail className="w-6 h-6 md:w-8 md:h-8 text-purple-300 mb-3 md:mb-4" />
-            <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Email</p>
-            <p className="text-base md:text-lg font-semibold break-words leading-tight">iansidmansells@gmail.com</p>
-          </motion.a>
-
-          <motion.div
+            href="https://www.instagram.com/iantheviralguy"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4 md:p-6 backdrop-blur text-white"
+            className="rounded-2xl border border-white/10 bg-white/5 p-4 md:p-6 backdrop-blur text-white hover:border-white/30 transition-colors"
           >
-            <Phone className="w-6 h-6 md:w-8 md:h-8 text-purple-300 mb-3 md:mb-4" />
-            <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Phone</p>
-            <a href="tel:9096324787" className="text-base md:text-xl font-semibold hover:text-purple-200 transition-colors block">
-            909-632-4787
-            </a>
-            <p className="text-xs text-gray-400 mt-2">
-              Calls will get blocked—text me first!
-            </p>
-          </motion.div>
+            <Instagram className="w-6 h-6 md:w-8 md:h-8 text-purple-300 mb-3 md:mb-4" />
+            <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Instagram</p>
+            <p className="text-base md:text-xl font-semibold">@iantheviralguy</p>
+          </motion.a>
 
           <motion.a
-            href="https://www.instagram.com/iantheviralguy"
+            href="https://www.linkedin.com/in/ian-sidman/"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -85,10 +78,9 @@ export default function SocialFooter() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="rounded-2xl border border-white/10 bg-white/5 p-4 md:p-6 backdrop-blur text-white hover:border-white/30 transition-colors"
           >
-            <Instagram className="w-6 h-6 md:w-8 md:h-8 text-purple-300 mb-3 md:mb-4" />
-            <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Instagram</p>
-            <p className="text-base md:text-xl font-semibold">@iantheviralguy</p>
-            <p className="text-xs text-gray-400 mt-2">DMs are open.</p>
+            <Linkedin className="w-6 h-6 md:w-8 md:h-8 text-blue-300 mb-3 md:mb-4" />
+            <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">LinkedIn</p>
+            <p className="text-base md:text-xl font-semibold">Ian Sidman</p>
           </motion.a>
         </div>
 
