@@ -67,8 +67,8 @@ export default function SocialFooter() {
           >
             <Phone className="w-6 h-6 md:w-8 md:h-8 text-purple-300 mb-3 md:mb-4" />
             <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Phone</p>
-            <a href="tel:8058073320" className="text-base md:text-xl font-semibold hover:text-purple-200 transition-colors block">
-              805-807-3320
+            <a href="tel:9096324787" className="text-base md:text-xl font-semibold hover:text-purple-200 transition-colors block">
+            909-632-4787
             </a>
             <p className="text-xs text-gray-400 mt-2">
               Calls will get blocked—text me first!
