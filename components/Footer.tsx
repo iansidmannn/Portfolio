@@ -21,7 +21,7 @@ export default function Footer() {
                 <ExternalLink className="w-4 h-4" />
               </a>
               <a
-                href="https://www.instagram.com/iansidmann"
+                href="https://www.instagram.com/iantheviralguy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors"

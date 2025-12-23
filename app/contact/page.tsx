@@ -38,7 +38,7 @@ export default function ContactPage() {
 
         <div className="grid gap-6 md:grid-cols-3 mb-12">
           <motion.a
-            href="mailto:iansidman@gmail.com"
+            href="mailto:iansidmansells@gmail.com"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -46,7 +46,7 @@ export default function ContactPage() {
           >
             <Mail className="w-8 h-8 text-purple-300 mb-4" />
             <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Email</p>
-            <p className="text-lg md:text-xl font-semibold break-words leading-tight">iansidman@gmail.com</p>
+            <p className="text-lg md:text-xl font-semibold break-words leading-tight">iansidmansells@gmail.com</p>
           </motion.a>
 
           <motion.div
@@ -58,7 +58,7 @@ export default function ContactPage() {
             <Phone className="w-8 h-8 text-purple-300 mb-4" />
             <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Phone</p>
             <a href="tel:8058073320" className="text-2xl font-semibold hover:text-purple-200 transition-colors">
-              805-807-3320
+              909-632-4787
             </a>
             <p className="text-xs text-gray-400 mt-2">
               Calls will get blocked—text me first!
@@ -66,7 +66,7 @@ export default function ContactPage() {
           </motion.div>
 
           <motion.a
-            href="https://www.instagram.com/iansidmann"
+            href="https://www.instagram.com/iantheviralguy"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}

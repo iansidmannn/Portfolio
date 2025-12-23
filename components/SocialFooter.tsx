@@ -46,7 +46,7 @@ export default function SocialFooter() {
         {/* Contact Options */}
         <div className="grid gap-4 md:grid-cols-3 mb-8 md:mb-12">
           <motion.a
-            href="mailto:iansidman@gmail.com"
+            href="mailto:iansidmansells@gmail.com"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -55,7 +55,7 @@ export default function SocialFooter() {
           >
             <Mail className="w-6 h-6 md:w-8 md:h-8 text-purple-300 mb-3 md:mb-4" />
             <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-2">Email</p>
-            <p className="text-base md:text-lg font-semibold break-words leading-tight">iansidman@gmail.com</p>
+            <p className="text-base md:text-lg font-semibold break-words leading-tight">iansidmansells@gmail.com</p>
           </motion.a>
 
           <motion.div
@@ -76,7 +76,7 @@ export default function SocialFooter() {
           </motion.div>
 
           <motion.a
-            href="https://www.instagram.com/iansidmann"
+            href="https://www.instagram.com/iantheviralguy"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
