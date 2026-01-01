@@ -9,7 +9,7 @@ const stats = [
     id: 'views',
     value: '250,000,000',
     label: 'Lifetime Views',
-    detail: 'All with organic short-form content.',
+    detail: 'Organic short-form content.',
   },
   {
     id: 'brands',
