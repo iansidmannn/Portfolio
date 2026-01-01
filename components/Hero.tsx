@@ -89,6 +89,14 @@ export default function Hero() {
           <span className="text-white">Explore My Work</span>
           <ArrowDown className="w-5 h-5 text-white translate-y-0.5" />
         </motion.button>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+          className="text-xs sm:text-sm text-gray-400 mt-4 max-w-2xl mx-auto"
+        >
+          (certified winner)
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
