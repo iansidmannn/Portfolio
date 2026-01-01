@@ -15,11 +15,11 @@ export default function Home() {
     <main className="min-h-screen">
       <FloatingAboutButton />
       <Hero />
-      <Experiences />
       <VideoCarousel />
       <StatsHighlight />
       <ResultsCarousel />
       <CreativeDNA />
+      <Experiences />
       <FavoriteVideosAndAds />
       <Ambitions />
       <VideoProjects />

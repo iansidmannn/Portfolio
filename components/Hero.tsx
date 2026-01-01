@@ -6,13 +6,13 @@ import Image from 'next/image'
 
 export default function Hero() {
   const scrollToContent = () => {
-    const experiencesSection = document.getElementById('experiences-section')
+    const viralVideosSection = document.getElementById('viral-videos-section')
     
-    if (experiencesSection) {
-      // Get the position of the experiences section
-      const rect = experiencesSection.getBoundingClientRect()
-      // Scroll past the header and purple tabs to the experience cards
-      const scrollPosition = window.scrollY + rect.top - 0
+    if (viralVideosSection) {
+      // Get the position of the viral videos section
+      const rect = viralVideosSection.getBoundingClientRect()
+      // Scroll further down into the viral videos section to show the video carousel
+      const scrollPosition = window.scrollY + rect.top + 100
       
       window.scrollTo({ top: scrollPosition, behavior: 'smooth' })
     } else {

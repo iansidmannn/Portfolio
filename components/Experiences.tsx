@@ -61,8 +61,8 @@ export default function Experiences() {
                   : 'bg-white/5 text-gray-400 border-2 border-white/10 hover:bg-white/10 hover:text-white'
               }`}
             >
-              <span className="md:hidden">Contracting</span>
-              <span className="hidden md:inline">Consulting / Contracting</span>
+              <span className="md:hidden">Consulting</span>
+              <span className="hidden md:inline">Consulting</span>
             </button>
           </div>
         </motion.div>
