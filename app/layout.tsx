@@ -8,15 +8,25 @@ export const metadata: Metadata = {
   description: '250M+ views. Viral content creator, brand strategist, and growth marketer.',
   keywords: ['content creator', 'viral marketing', 'growth marketing', 'brand consultant'],
   authors: [{ name: 'Ian Sidman' }],
+  icons: {
+    icon: [
+      { url: '/next winner.png', sizes: 'any' },
+      { url: '/next winner.png', type: 'image/png', sizes: '32x32' },
+      { url: '/next winner.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: [
+      { url: '/next winner.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: "Ian's Portfolio | Growth Marketer 250M Views",
     description: "Ian's Portfolio | Growth Marketer 250M Views",
     type: 'website',
     images: [
       {
-        url: '/coverimg.png',
+        url: '/next winner.png',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: "Ian's Portfolio",
       },
     ],
@@ -25,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Ian's Portfolio | Growth Marketer 250M Views",
     description: "Ian's Portfolio | Growth Marketer 250M Views",
-    images: ['/coverimg.png'],
+    images: ['/next winner.png'],
   },
   robots: {
     index: true,
