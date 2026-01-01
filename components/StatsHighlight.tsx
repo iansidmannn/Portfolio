@@ -9,13 +9,13 @@ const stats = [
     id: 'views',
     value: '250,000,000',
     label: 'Lifetime Views',
-    detail: 'Across organic short-form and long-form launches.',
+    detail: 'All with organic short-form content.',
   },
   {
     id: 'brands',
-    value: '8',
+    value: '9',
     label: 'Stuck Brands Past 100K',
-    detail: 'Low view accounts I created 100k views+ viral engines for.',
+    detail: 'Built viral content engines for low-view brands, consistently generating 100K+ views per video.',
   },
   {
     id: 'revenue',
