@@ -75,10 +75,8 @@ export default function Ambitions() {
           className="bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm p-8 space-y-4"
         >
           <p className="text-lg text-gray-300 leading-relaxed">
-          Right now I'm intensely focused on getting in a startup & molding my skills to that space.
-           I want to learn from great people & contribute to a team I believe in. Dabbling past viral marketing & perfecting growth marketing is a big goal for me right now.
-            I work better on teams, I'm hungry to learn, if you're a powerful team let me play for you and prove my worth.
-
+          All I want to do is win, I love winning. I love winning. I will win at building massive companies, and I will become one of the greatest growth marketers alive.
+          I have a lot of ideas I'm starting to build, if you believe in me, message me and lets make something happen.
           </p>
         </motion.div>
 
