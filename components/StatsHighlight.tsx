@@ -19,7 +19,7 @@ const stats = [
   },
   {
     id: 'revenue',
-    value: '$125,000+',
+    value: '$470,000+',
     label: 'Revenue Generated Online',
     detail: 'Direct trackable sales from viral content systems & creative marketing strategies.',
   },
