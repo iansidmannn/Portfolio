@@ -44,7 +44,7 @@ export const results: Result[] = [
     account: '@iansidmann',
     accountUrl: 'https://www.tiktok.com/@gymjunkie69_',
     showAccountLink: false, // Don't show separate link, include in description
-    learnMore: 'Honestly this experience taught me so much of what I know about virality.\n\nI saw other videos like this going viral and I was like hmmm, I guess I\'ll give it a go. Funny story, I had to use my dads phone to film the intro and after 2 takes he got pissed, and said you only have one more. This video almost didn\'t happen haha. Anyways.\n\nAfter it blew up, a lot of what was grey became clear to me. Confirming through the comments & dms, me being a buff, good-looking dude, free from the constraints of diabetes was a symbol many diabetics on TikTok deep down needed.\n\nFrom there, I doubled down, I created 2 separate series ideas around this energy that pulled consistently 100k-5m views on average.\n\nThis would lead to me gaining 23,200 followers and 9.3 million views in 7 days.\n\nMain Learning:\n\nIf you can be a symbol that a certain psychographic on TikTok is looking for, you\'ve won the game.\n\nOne viral post always leads to a dozen others.',
+    learnMore: 'I saw other videos like this going viral and I was like hmmm, I guess I\'ll give it a go. Funny story, I had to use my dads phone to film the intro and after 2 takes he got pissed, and said you only have one more. This video almost didn\'t happen haha. Anyways.\n\nAfter it blew up, a lot of what was grey became clear to me. Confirming through the comments & dms, me being a buff, good-looking dude, free from the constraints of diabetes was a symbol many diabetics on TikTok deep down needed.\n\nFrom there, I doubled down, I created 2 separate series ideas around this energy that pulled consistently 100k-5m views on average.\n\nThis would lead to me gaining 23,200 followers and 9.3 million views in 7 days.\n\nMain Learning:\n\nIf you can be a symbol that a certain psychographic on TikTok is looking for, you\'ve won the game.\n\nOne viral post always leads to a dozen others.',
     videos: ['/gymjunkie69_ on TikTok.mp4'],
     videoUrl: 'https://www.tiktok.com/@gymjunkie69_/video/6941544620442602757?_r=1&_t=ZP-91g71kbm698',
     images: ['/views2.png', '/One Viral Post Dozen Other (1).png'],
@@ -54,11 +54,6 @@ export const results: Result[] = [
     title: 'Charity Impact',
     metric: '$94K Raised',
     description: 'Raised $94,000 for charities through content creation',
-    learnMore: `Giving back to the community that's given me so much as I've grown up is very important to me. I've been very blessed to get to be a "face" for multiple local charities and to be able to contribute to my community! I love everyone I work with, and I enjoy playing a role in helping people.
-
-And when I've been given the chance, my suggested strategies have led to higher contributions everywhere I've been!
-
-For example, with charity karoake I suggested doing giveaways with local businesses & building mutually beneficial relationships with them, this got us more sponsors & 100 extra local followers with minimal effort. I also suggested that instead of only allowing "sponsors" we also let everyday people contribute to the event which raised an additional $5,000. That on top of my basic content strategy helped pushed them to a record high of 54,000 dollars raised, and 200 followers gained from simple giveaway collabs.`,
     videos: [
       '/Better Edit.mp4',
       '/Charity Karaoke Sing For A Cause on Instagram 40000 Raised.mp4',
@@ -146,7 +141,7 @@ I was making money relatively passively with this system.`,
     id: '10',
     title: 'Cool Results I\'ve Gotten',
     metric: 'Graphs, Results, & Data',
-    description: 'Ahhh some of my favorite memories to date!',
+    description: 'Some of my favorite wins to date.',
     learnMore: 'Here are some of the results I\'ve achieved over the years:',
     images: [
       '/unamed2 (1).png',
