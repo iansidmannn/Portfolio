@@ -99,23 +99,23 @@ export default function Hero() {
           {['/f19 logo.png', '/brick logo.png', '/smylelabs logo.png', '/wealthconlogo.png', '/ck logo.png', '/pf logo2.png', '/nba-logo-transparent.png', '/dexcom.png'].map((src, index) => {
             const isNBA = src === '/nba-logo-transparent.png'
             return (
-              <motion.div
-                key={src}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
+            <motion.div
+              key={src}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
                 className={`relative ${isNBA ? 'h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16' : 'h-9 w-28 sm:h-10 sm:w-32 md:h-11 md:w-36'}`}
-              >
-                <Image
-                  src={src}
-                  alt="Partner logo"
-                  fill
-                  sizes="120px"
-                  className="object-contain opacity-70"
-                  priority
-                  fetchPriority="high"
-                />
-              </motion.div>
+            >
+              <Image
+                src={src}
+                alt="Partner logo"
+                fill
+                sizes="120px"
+                className="object-contain opacity-70"
+                priority
+                fetchPriority="high"
+              />
+            </motion.div>
             )
           })}
         </motion.div>
