@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   authors: [{ name: 'Ian Sidman' }],
   icons: {
     icon: [
-      { url: '/next winner.png', sizes: 'any' },
-      { url: '/next winner.png', type: 'image/png', sizes: '32x32' },
-      { url: '/next winner.png', type: 'image/png', sizes: '16x16' },
+      { url: `${siteUrl}/nextwinner.png`, sizes: 'any' },
+      { url: `${siteUrl}/nextwinner.png`, type: 'image/png', sizes: '32x32' },
+      { url: `${siteUrl}/nextwinner.png`, type: 'image/png', sizes: '16x16' },
     ],
     apple: [
-      { url: '/next winner.png', sizes: '180x180', type: 'image/png' },
+      { url: `${siteUrl}/nextwinner.png`, sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Ian's Portfolio",
     images: [
       {
-        url: '/next winner.png',
+        url: `${siteUrl}/nextwinner.png`,
         width: 1200,
         height: 1200,
         alt: "Ian's Portfolio",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Ian's Portfolio | Growth Marketer 250M Views",
     description: '250M+ views. Viral content creator, brand strategist, and growth marketer.',
-    images: ['/next winner.png'],
+    images: [`${siteUrl}/nextwinner.png`],
   },
   robots: {
     index: true,
