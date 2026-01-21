@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Ian's Portfolio | Growth Marketer 250M Views",
   description: '250M+ views. Viral content creator, brand strategist, and growth marketer.',
-  keywords: ['content creator', 'viral marketing', 'growth marketing', 'brand consultant'],
+  keywords: ['content creator', 'viral marketing', 'growth marketing', 'growth hacker', 'startups', 'startup grwowth'],
   authors: [{ name: 'Ian Sidman' }],
   icons: {
     icon: [
