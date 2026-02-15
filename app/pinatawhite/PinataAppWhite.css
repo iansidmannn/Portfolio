@@ -1,0 +1,527 @@
+.app-white {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  position: relative;
+}
+
+/* Logo Header - Swift UI style */
+.logo-header-white {
+  padding: 2rem 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo-container-white {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  line-height: 0.9;
+}
+
+.logo-text-white {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--lime-green);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 20px rgba(51, 255, 0, 0.4);
+  line-height: 0.95;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+/* Video Section - Swift UI card style */
+.video-section-white {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem 1.5rem 0.5rem;
+  min-height: 0;
+}
+
+.video-container-ready-white {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-indicator-white {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+}
+
+.status-dot-white {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--lime-green);
+  box-shadow: 0 0 8px rgba(51, 255, 0, 0.8);
+  animation: pulse-white 2s ease-in-out infinite;
+}
+
+@keyframes pulse-white {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.status-text-white {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--lime-green);
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.video-wrapper-white {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: var(--gray-200);
+  box-shadow: var(--shadow-xl);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  animation: fadeIn-white 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-wrapper-white.video-ready-white {
+  border: 2px solid rgba(51, 255, 0, 0.3);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(51, 255, 0, 0.2);
+}
+
+.video-wrapper-white:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl), 0 0 40px rgba(51, 255, 0, 0.3);
+  border-color: rgba(51, 255, 0, 0.5);
+}
+
+.power-glow-white {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 24px;
+  background: linear-gradient(45deg, 
+    rgba(51, 255, 0, 0.1) 0%, 
+    rgba(51, 255, 0, 0.05) 50%, 
+    rgba(51, 255, 0, 0.1) 100%);
+  opacity: 0;
+  animation: glow-pulse-white 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes glow-pulse-white {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.video-player-white {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: var(--gray-100);
+}
+
+.play-overlay-white {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+  transition: opacity 0.2s ease;
+  gap: 0.4rem;
+  padding-bottom: 1rem;
+}
+
+.play-button-white {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(51, 255, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  box-shadow: 0 4px 16px rgba(51, 255, 0, 0.5), 
+              0 0 0 3px rgba(51, 255, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: play-button-pulse-white 2s ease-in-out infinite;
+}
+
+@keyframes play-button-pulse-white {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(51, 255, 0, 0.5), 
+                0 0 0 3px rgba(51, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(51, 255, 0, 0.6), 
+                0 0 0 5px rgba(51, 255, 0, 0.3);
+  }
+}
+
+.play-button-white:hover {
+  transform: scale(1.1);
+  animation: none;
+  box-shadow: 0 8px 32px rgba(51, 255, 0, 0.7), 
+              0 0 0 8px rgba(51, 255, 0, 0.4);
+}
+
+.play-button-white svg {
+  margin-left: 3px;
+  width: 18px;
+  height: 18px;
+}
+
+.play-hint-white {
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Empty State - Swift UI style */
+.empty-video-state-white {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray-200);
+  border-radius: 24px;
+  border: 2px dashed var(--gray-300);
+  padding: 3rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.empty-icon-white {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: float-white 3s ease-in-out infinite;
+}
+
+@keyframes float-white {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.empty-title-white {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.empty-subtitle-white {
+  font-size: 1rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* App Store Button Section */
+.app-store-section-white {
+  margin-top: 2.5rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.app-store-button-white {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 0.625rem 0.875rem;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(51, 255, 0, 0.2);
+  width: fit-content;
+}
+
+.app-store-button-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(51, 255, 0, 0.2);
+  background-color: #f9f9f9;
+  border-color: rgba(51, 255, 0, 0.4);
+}
+
+.apple-logo-white {
+  width: 22px;
+  height: 22px;
+  fill: var(--lime-green);
+  flex-shrink: 0;
+}
+
+.app-store-text-white {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.app-store-line1-white {
+  font-size: 0.6rem;
+  color: var(--lime-green);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-store-line2-white {
+  font-size: 1rem;
+  color: var(--lime-green);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Button Footer - Swift UI style */
+.button-footer-white {
+  padding: 1.5rem 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-video-button-white {
+  background-color: var(--lime-green);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  padding: 1.125rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(51, 255, 0, 0.3);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.add-video-button-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(51, 255, 0, 0.4);
+  background-color: #3aff0f;
+}
+
+.add-video-button-white:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 16px rgba(51, 255, 0, 0.3);
+}
+
+.button-text-white {
+  display: inline-block;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn-white {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-text-white {
+    font-size: 3.5rem;
+    letter-spacing: 0.06em;
+  }
+
+  .video-section-white {
+    padding: 1.5rem 1rem;
+  }
+
+  .video-container-ready-white {
+    max-width: 85%;
+    width: 85%;
+  }
+
+  .video-wrapper-white,
+  .empty-video-state-white {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .status-indicator-white {
+    margin-bottom: 0.5rem;
+  }
+
+  .status-text-white {
+    font-size: 0.65rem;
+  }
+
+  .empty-video-state-white {
+    padding: 2rem 1.5rem;
+  }
+
+  .empty-icon-white {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .empty-title-white {
+    font-size: 1.5rem;
+  }
+
+  .empty-subtitle-white {
+    font-size: 0.9rem;
+  }
+
+  .add-video-button-white {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .app-store-section-white {
+    padding: 0.5rem 1rem 0;
+  }
+
+  .app-store-button-white {
+    padding: 0.5rem 0.75rem;
+    gap: 0.625rem;
+  }
+
+  .apple-logo-white {
+    width: 20px;
+    height: 20px;
+  }
+
+  .app-store-line1-white {
+    font-size: 0.55rem;
+  }
+
+  .app-store-line2-white {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-header-white {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .logo-text-white {
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .video-section-white {
+    padding: 1.5rem 1rem;
+  }
+
+  .video-container-ready-white {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .video-wrapper-white,
+  .empty-video-state-white {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .play-overlay-white {
+    padding-bottom: 0.75rem;
+    gap: 0.3rem;
+  }
+
+  .play-button-white {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 3px 12px rgba(51, 255, 0, 0.5), 
+                0 0 0 2px rgba(51, 255, 0, 0.2);
+  }
+
+  .play-button-white svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .play-hint-white {
+    font-size: 0.65rem;
+  }
+
+  .app-store-button-white {
+    padding: 0.5rem 0.625rem;
+    gap: 0.5rem;
+  }
+
+  .apple-logo-white {
+    width: 18px;
+    height: 18px;
+  }
+
+  .app-store-line1-white {
+    font-size: 0.5rem;
+  }
+
+  .app-store-line2-white {
+    font-size: 0.8rem;
+  }
+}
