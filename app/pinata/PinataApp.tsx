@@ -84,8 +84,6 @@ export default function PinataApp() {
                 onPause={handlePause}
                 onEnded={handleEnded}
                 loop
-                controls={false}
-                playsInline
               />
               {!isPlaying && (
                 <div className="play-overlay">
