@@ -10,9 +10,48 @@
 .logo-header-white {
   padding: 2rem 1.5rem 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   z-index: 10;
+  position: relative;
+}
+
+.header-button-white {
+  background-color: var(--gray-200);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.header-button-white:hover {
+  background-color: var(--gray-300);
+  transform: scale(1.05);
+}
+
+.header-button-white:active {
+  transform: scale(0.95);
+}
+
+.header-button-white svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+.header-button-close-white {
+  margin-right: auto;
+}
+
+.header-button-share-white {
+  margin-left: auto;
 }
 
 .logo-container-white {
@@ -60,7 +99,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
   opacity: 0.9;
 }
 
@@ -212,10 +251,10 @@
   font-size: 0.5rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Empty State - Swift UI style */
@@ -464,6 +503,16 @@
 @media (max-width: 480px) {
   .logo-header-white {
     padding: 1.5rem 1rem 1rem;
+  }
+
+  .header-button-white {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-button-white svg {
+    width: 18px;
+    height: 18px;
   }
 
   .logo-text-white {

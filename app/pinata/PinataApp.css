@@ -4,15 +4,57 @@
   flex-direction: column;
   background-color: var(--black);
   position: relative;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 20px 20px;
 }
 
 /* Logo Header - Swift UI style */
 .logo-header {
   padding: 2rem 1.5rem 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   z-index: 10;
+  position: relative;
+}
+
+.header-button {
+  background-color: var(--gray-700);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.header-button:hover {
+  background-color: var(--gray-600);
+  transform: scale(1.05);
+}
+
+.header-button:active {
+  transform: scale(0.95);
+}
+
+.header-button svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+.header-button-close {
+  margin-right: auto;
+}
+
+.header-button-share {
+  margin-left: auto;
 }
 
 .logo-container {
@@ -60,7 +102,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
   opacity: 0.9;
 }
 
@@ -109,8 +151,8 @@
 }
 
 .video-wrapper.video-ready {
-  border: 2px solid rgba(51, 255, 0, 0.3);
-  box-shadow: var(--shadow-xl), 0 0 30px rgba(51, 255, 0, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(51, 255, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .video-wrapper:hover {
@@ -464,6 +506,16 @@
 @media (max-width: 480px) {
   .logo-header {
     padding: 1.5rem 1rem 1rem;
+  }
+
+  .header-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-button svg {
+    width: 18px;
+    height: 18px;
   }
 
   .logo-text {
