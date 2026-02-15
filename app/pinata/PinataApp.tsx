@@ -18,6 +18,13 @@ export default function PinataApp() {
     }
   }, [videoFile])
 
+  useEffect(() => {
+    if (videoUrl && videoRef.current) {
+      // Force video to load on mobile
+      videoRef.current.load()
+    }
+  }, [videoUrl])
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file && file.type.startsWith('video/')) {
@@ -83,6 +90,8 @@ export default function PinataApp() {
                 onPlay={handlePlay}
                 onPause={handlePause}
                 onEnded={handleEnded}
+                preload="metadata"
+                playsInline
                 loop
               />
               {!isPlaying && (
