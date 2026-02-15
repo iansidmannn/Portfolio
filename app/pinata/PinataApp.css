@@ -108,6 +108,10 @@
   animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.video-wrapper .video-player {
+  pointer-events: none;
+}
+
 .video-wrapper.video-ready {
   border: 2px solid rgba(51, 255, 0, 0.3);
   box-shadow: var(--shadow-xl), 0 0 30px rgba(51, 255, 0, 0.2);
@@ -152,6 +156,47 @@
   background-color: var(--gray-900);
 }
 
+/* Hide native video controls completely */
+.video-player::-webkit-media-controls {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-current-time-display {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-mute-button {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
+
+.video-player::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}
+
 .play-overlay {
   position: absolute;
   top: 0;
@@ -166,6 +211,8 @@
   transition: opacity 0.2s ease;
   gap: 0.4rem;
   padding-bottom: 1rem;
+  z-index: 10;
+  pointer-events: none;
 }
 
 .play-button {
