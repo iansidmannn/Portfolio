@@ -27,110 +27,23 @@ export default function ResultsCarousel() {
     }
   }, [])
   return (
-    <section id="results-section" className="py-12 px-6 -mt-8 relative">
-      {/* Animated connection element - points to key results */}
-      <div className="absolute top-0 left-0 right-0 h-40 md:h-48 pointer-events-none hidden md:block" style={{ zIndex: 1 }}>
-        <div className="relative w-full h-full overflow-hidden">
-          {/* Left flow - diagonal to leftmost result */}
-          <motion.div
-            className="absolute left-[27.666%] top-0"
-            style={{
-              width: '2px',
-              height: '192px',
-              transform: 'rotate(20deg)',
-              transformOrigin: 'top center',
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-400/50 via-purple-400/30 to-transparent" />
-            {[...Array(4)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 rounded-full bg-purple-400/70 blur-[2px]"
-                style={{
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                }}
-                animate={{
-                  y: [0, 180],
-                  opacity: [0, 1, 1, 0],
-                  scale: [0.5, 1, 0.8, 0],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  delay: i * 0.6,
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </motion.div>
-
-          {/* Center flow - straight down to center result */}
-          <motion.div
-            className="absolute left-1/2 -translate-x-1/2 top-0 w-0.5"
-            style={{ height: '192px' }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-400/40 via-blue-400/30 to-transparent" />
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2.5 h-2.5 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 blur-[2px]"
-                style={{
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                }}
-                animate={{
-                  y: [0, 180],
-                  opacity: [0, 1, 1, 0],
-                  scale: [0.5, 1.2, 1, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: i * 0.4,
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </motion.div>
-
-          {/* Right flow - diagonal to rightmost result */}
-          <motion.div
-            className="absolute right-[27.666%] top-0"
-            style={{
-              width: '2px',
-              height: '192px',
-              transform: 'rotate(-20deg)',
-              transformOrigin: 'top center',
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-400/50 via-blue-400/30 to-transparent" />
-            {[...Array(4)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 rounded-full bg-blue-400/70 blur-[2px]"
-                style={{
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                }}
-                animate={{
-                  y: [0, 180],
-                  opacity: [0, 1, 1, 0],
-                  scale: [0.5, 1, 0.8, 0],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  delay: i * 0.6 + 0.3,
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </motion.div>
-        </div>
+    <section id="results-section" className="py-24 px-6 sm:px-8 lg:px-12 border-t border-white/10">
+      <div className="container mx-auto max-w-6xl mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <p className="text-sm uppercase tracking-[0.2em] text-gray-400 mb-3">Notable Results</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Key Achievements
+          </h2>
+        </motion.div>
       </div>
       
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-6xl">
         {/* Mobile: 2x2 Grid */}
         <div className="grid grid-cols-2 gap-4 pb-8 md:hidden">
           {results.map((result, index) => (
@@ -191,20 +104,17 @@ export default function ResultsCarousel() {
           ))}
         </div>
 
-        {/* Desktop: Horizontal Scroll/Center */}
-        <div className="overflow-x-auto overflow-y-visible pb-8 -mx-6 px-6 md:pt-40 md:overflow-x-visible hidden md:block">
-          <div className="flex flex-wrap gap-6 md:justify-center md:py-4">
+        {/* Desktop: Grid Layout */}
+        <div className="container mx-auto max-w-6xl pb-8 hidden md:block">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {results.map((result, index) => (
-              <>
-                {index === 4 && <div className="basis-full"></div>}
                 <motion.div
                   key={result.id}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  className="group flex-shrink-0 w-72 p-6 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 md:origin-center overflow-visible"
+                  className="group p-6 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 overflow-visible"
                 >
                 <div className="mb-3 overflow-visible">
                   <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1.5 leading-normal pb-1 overflow-visible">
@@ -267,7 +177,6 @@ export default function ResultsCarousel() {
                   Learn More →
                 </button>
               </motion.div>
-              </>
             ))}
           </div>
         </div>

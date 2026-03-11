@@ -25,27 +25,23 @@ export default function CreativeDNA() {
           className="bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm p-8 space-y-6"
         >
           <p className="text-lg text-gray-300 leading-relaxed">
-            I love winning. Growth hacking and owning attention is in my DNA & finding growth channels is my crack.
+            I figure out what makes things spread, and I build systems around it.
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
-            I have strong content intuition with 12 years of experience & 270 million views.
+            At Piñata Farms, took TikTok from 0 to 11.5M organic views in 5 days. Grew app store search downloads 300%. Built every growth channel from scratch — UGC, TikTok search, Reddit, tutorial content — all converting to downloads.
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
-            Extroverted for the camera, introverted to lock in and get my work done.
+            Before that: founded a clothing brand in college, scaled to $4k profit/mo in 5 months. Grew a TikTok to 60k. Set the USA bench press national record at 17.
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
-            I kill giants for what I believe in, nothing gets in my way. 
+            I have 300M+ views across brands, startups, and my own content. Built a system that generates 30M views and $8k/mo.
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
-            Everything I've worked for, benching 405, bench press national record, 60k TikTok, my clothing brand, launching charity karaoke in 25 days, and more have required this level of effort.
-          </p>
-          
-          <p className="text-lg text-gray-300 leading-relaxed">
-            I win this game at the highest level & I will be one of the greatest growth marketers alive.
+            <a href="https://www.tiktok.com/@nfl/video/7597937372512259383" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">NFL</a> and <a href="https://www.tiktok.com/@brooklynnets/video/7592784195068431629" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">NBA</a> have featured content I've created.
           </p>
         </motion.div>
       </div>

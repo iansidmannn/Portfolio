@@ -255,16 +255,16 @@ export default function VideoCarousel() {
   }, [shuffledVideos])
 
   return (
-    <section id="viral-videos-section" className="pt-32 pb-8 px-6">
+    <section id="viral-videos-section" className="pt-32 pb-16 px-6 sm:px-8 lg:px-12 border-t border-white/10">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
+          className="mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             Viral Videos
           </h2>
         </motion.div>

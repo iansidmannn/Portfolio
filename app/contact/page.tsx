@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowLeft, Instagram, Linkedin, FileText } from 'lucide-react'
+import { ArrowLeft, Instagram, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 
 export default function ContactPage() {
@@ -36,13 +36,7 @@ export default function ContactPage() {
           </p>
         </motion.div>
 
-        <div className="mb-8 max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-6">
-            Contact Me
-          </h2>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 mb-12 max-w-2xl mx-auto">
+        <div className="grid gap-6 md:grid-cols-2 max-w-2xl mx-auto">
           <motion.a
             href="https://www.instagram.com/iantheviralguy"
             target="_blank"
@@ -71,27 +65,6 @@ export default function ContactPage() {
             <p className="text-2xl font-semibold">Ian Sidman</p>
           </motion.a>
         </div>
-
-        {/* Resume Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="mb-12 text-center"
-        >
-          <motion.a
-            href="/Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-2xl border-2 border-purple-400/50 bg-purple-500/20 px-8 py-5 backdrop-blur text-white hover:border-purple-400 hover:bg-purple-500/30 transition-all"
-          >
-            <FileText className="w-7 h-7 text-purple-300" />
-            <div className="text-left">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-1">Resume</p>
-              <p className="text-xl font-semibold">View My Resume</p>
-            </div>
-          </motion.a>
-        </motion.div>
       </div>
     </main>
   )

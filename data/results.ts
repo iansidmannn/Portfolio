@@ -52,14 +52,21 @@ export const results: Result[] = [
   {
     id: '7',
     title: 'Charity Impact',
-    metric: '$94K Raised',
-    description: 'Raised $94,000 for charities through content creation',
+    metric: '$54K Raised',
+    description: 'Raised $54,000 for charities through content creation — our most successful year',
     videos: [
       '/Better Edit.mp4',
       '/Charity Karaoke Sing For A Cause on Instagram 40000 Raised.mp4',
       '/NO KID SLEEPS ON THE FLOOR IN OUR TOWN on Instagram With our bed.mp4',
     ],
     videoUrl: 'https://www.instagram.com/reel/DF8OjWsJlIE/',
+  },
+  {
+    id: '14',
+    title: 'Piñata Farms Growth',
+    metric: '11.5M Views in 5 Days',
+    description: 'Took TikTok from 0 to 11.5M organic views in 5 days. Grew app store search downloads 300%',
+    learnMore: 'Built every growth channel from scratch — UGC, TikTok search, Reddit, tutorial content — all converting to downloads. Scaled viral content distribution to 50M+ views across TikTok, Reddit, YouTube, and Instagram. Built custom automation tools to multiply inputs.',
   },
   {
     id: '8',

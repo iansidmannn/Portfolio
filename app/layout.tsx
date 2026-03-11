@@ -6,9 +6,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iansidman.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Ian's Portfolio | Growth Marketer 250M Views",
-  description: '250M+ views. Viral content creator, brand strategist, and growth marketer.',
-  keywords: ['content creator', 'viral marketing', 'growth marketing', 'growth hacker', 'startups', 'startup grwowth'],
+  title: "Ian Sidman | Growth Operator | 300M+ Views",
+  description: 'Growth Operator @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated | USA Bench Press National Record',
+  keywords: ['growth operator', 'growth marketing', 'viral content', 'content strategy', 'startup growth', 'growth systems'],
   authors: [{ name: 'Ian Sidman' }],
   icons: {
     icon: [
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Ian's Portfolio | Growth Marketer 250M Views",
-    description: '250M+ views. Viral content creator, brand strategist, and growth marketer.',
+    title: "Ian Sidman | Growth Operator | 300M+ Views",
+    description: 'Growth Operator @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated',
     type: 'website',
     url: siteUrl,
-    siteName: "Ian's Portfolio",
+    siteName: "Ian Sidman",
     images: [
       {
         url: `${siteUrl}/nextwinner.png`,
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Ian's Portfolio | Growth Marketer 250M Views",
-    description: '250M+ views. Viral content creator, brand strategist, and growth marketer.',
+    title: "Ian Sidman | Growth Operator | 300M+ Views",
+    description: 'Growth Operator @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated',
     images: [`${siteUrl}/nextwinner.png`],
   },
   robots: {

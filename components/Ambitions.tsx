@@ -63,7 +63,7 @@ export default function Ambitions() {
             <Sparkles className="w-6 h-6 text-purple-400" />
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My Next Moves
+            What's Next
           </h2>
         </motion.div>
 
@@ -75,8 +75,10 @@ export default function Ambitions() {
           className="bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm p-8 space-y-4"
         >
           <p className="text-lg text-gray-300 leading-relaxed">
-          All I want to do is win, I love winning. I love winning. I love winning. I will win at building massive companies, and I will bewh one of the greatest growth marketers alive.
-          I have a lot of ideas I'm starting to build, if you believe in me, message me and lets make something happen.
+            Building scalable growth systems. Scaling brands. Creating viral content engines that convert.
+          </p>
+          <p className="text-lg text-gray-300 leading-relaxed">
+            Focused on working with founders and operators who are winning at the highest level.
           </p>
         </motion.div>
 
