@@ -5,8 +5,9 @@ const nextConfig = {
     unoptimized: true, // Required for static export
     formats: ['image/avif', 'image/webp'], // Prefer modern formats
   },
-  // For Cloudflare Pages static deployment
-  output: 'export',
+  // Note: output: 'export' is removed for dev mode compatibility
+  // Add it back only when building for production static export
+  // output: 'export', // Uncomment only for production builds
   trailingSlash: true,
   // Optimization
   poweredByHeader: false,

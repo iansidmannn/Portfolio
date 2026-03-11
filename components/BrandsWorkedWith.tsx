@@ -119,15 +119,6 @@ export default function BrandsWorkedWith() {
                     style={{ objectPosition: 'center top' }}
                   />
                 </div>
-              ) : brand.logo ? (
-                <div className="relative w-full h-full bg-white">
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    fill
-                    className="object-contain p-3"
-                  />
-                </div>
               ) : (
                 <div className="w-full h-full bg-white flex items-center justify-center">
                   <span className="text-xs text-gray-500 font-medium">
