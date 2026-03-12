@@ -138,11 +138,15 @@ export default function LinksPage() {
                 if (audioRef.current) {
                   // If paused, play; if playing, pause
                   if (audioRef.current.paused) {
+                    // Always restart from beginning when (re)playing
+                    audioRef.current.currentTime = 0
                     audioRef.current.volume = 0.1 // keep track at reduced volume
                     await audioRef.current.play()
                     setHasStartedAudio(true)
                   } else {
+                    // Pause and reset to start so next play begins from the beginning
                     audioRef.current.pause()
+                    audioRef.current.currentTime = 0
                   }
                 }
               } catch (e) {
