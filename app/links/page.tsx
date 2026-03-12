@@ -12,7 +12,7 @@ export default function LinksPage() {
       url: 'https://www.linkedin.com/in/ian-sidman',
       icon: Linkedin,
       iconBg: 'bg-blue-500',
-      subtitle: 'Growth Operator • 300M Views',
+      subtitle: 'Startup Growth • 300M Views',
     },
     {
       id: 'tiktok',
@@ -30,6 +30,15 @@ export default function LinksPage() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
       
+      {/* Background audio – expects /public/final-countdown-instrumental.mp3
+          Note: Some browsers may still block autoplay with sound until user interaction. */}
+      <audio
+        src="/final-countdown-instrumental.mp3"
+        loop
+        autoPlay
+        className="hidden"
+      />
+
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
         <div className="w-full max-w-md space-y-8">
           {/* Profile Picture */}
