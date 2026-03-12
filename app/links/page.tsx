@@ -131,27 +131,27 @@ export default function LinksPage() {
       </div>
 
       {/* Subtle Apple-style play track control (not the main focus) */}
-      {!hasStartedAudio && (
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.4 }}
-          onClick={async () => {
-            try {
-              if (audioRef.current) {
-                audioRef.current.volume = 0.4 // slightly quieter than default 1.0
-                await audioRef.current.play()
-              }
-              setHasStartedAudio(true)
-            } catch (e) {
-              console.error('Audio play blocked', e)
+      <motion.button
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.4 }}
+        onClick={async () => {
+          try {
+            if (audioRef.current) {
+              audioRef.current.volume = 0.25 // a bit quieter
+              await audioRef.current.play()
             }
-          }}
-          className="fixed bottom-20 inset-x-0 mx-auto w-max px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs text-gray-200 shadow-lg shadow-black/40 hover:bg-white/10 hover:border-white/30 transition-colors z-30"
-        >
-          <span className="opacity-80">Play track</span>
-        </motion.button>
-      )}
+            setHasStartedAudio(true)
+          } catch (e) {
+            console.error('Audio play blocked', e)
+          }
+        }}
+        className="fixed bottom-20 inset-x-0 mx-auto w-max px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs text-gray-200 shadow-lg shadow-black/40 hover:bg-white/10 hover:border-white/30 transition-colors z-30"
+      >
+        <span className="opacity-80">
+          {hasStartedAudio ? 'Play track' : 'Play track'}
+        </span>
+      </motion.button>
     </div>
   )
 }
