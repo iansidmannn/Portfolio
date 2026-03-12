@@ -34,10 +34,10 @@ export default function LinksPage() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
       
-      {/* Background audio – expects the file at /public/final countdown.MP3 */}
+      {/* Background audio – expects the file at /public/final count down 2.MP3 */}
       <audio
         ref={audioRef}
-        src="/final%20countdown.MP3"
+        src="/final%20count%20down%202.MP3"
         loop
         className="hidden"
       />
