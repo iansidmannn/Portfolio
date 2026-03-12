@@ -182,6 +182,21 @@ export default function ResultsCarousel() {
         </div>
       </div>
 
+      {/* Note at the end */}
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-center mt-12"
+        >
+          <p className="text-gray-400 text-sm italic">
+            and more i cant talk about yet
+          </p>
+        </motion.div>
+      </div>
+
       <ResultModal
         result={selectedResult}
         isOpen={isModalOpen}

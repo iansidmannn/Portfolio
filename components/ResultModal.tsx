@@ -21,6 +21,58 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
     return 'View →'
   }
 
+  // Parse learnMore text and render links
+  const renderLearnMoreWithLinks = (text: string) => {
+    // Match markdown-style links [text](url) or HTML links <a href="url">text</a>
+    const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+    const htmlLinkRegex = /<a href="([^"]+)">([^<]+)<\/a>/g
+    
+    // First handle HTML links
+    let processedText = text.replace(htmlLinkRegex, (match, url, linkText) => {
+      return `[${linkText}](${url})`
+    })
+    
+    // Then convert markdown links to React elements
+    const parts: (string | JSX.Element)[] = []
+    let lastIndex = 0
+    let match
+    let hasLinks = false
+    
+    // Reset regex lastIndex
+    markdownLinkRegex.lastIndex = 0
+    
+    while ((match = markdownLinkRegex.exec(processedText)) !== null) {
+      hasLinks = true
+      // Add text before the link
+      if (match.index > lastIndex) {
+        parts.push(processedText.substring(lastIndex, match.index))
+      }
+      
+      // Add the link as a React element
+      parts.push(
+        <a
+          key={match.index}
+          href={match[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-purple-400 hover:text-purple-300 transition-colors"
+        >
+          {match[1]}
+        </a>
+      )
+      
+      lastIndex = markdownLinkRegex.lastIndex
+    }
+    
+    // Add remaining text
+    if (lastIndex < processedText.length) {
+      parts.push(processedText.substring(lastIndex))
+    }
+    
+    // If no links found, return the original text as a string
+    return hasLinks ? parts : text
+  }
+
   const formatViews = (views: number): string => {
     if (views >= 1000000) {
       return `${(views / 1000000).toFixed(1)}M`
@@ -423,9 +475,9 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                             return (
                               <>
                                 <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                                  {result.learnMore}
+                                  {renderLearnMoreWithLinks(result.learnMore)}
                                 </p>
-                                {result.account && result.accountUrl && (
+                                {result.account && result.accountUrl && result.showAccountLink !== false && (
                                   <p className="text-gray-300 leading-relaxed mt-4">
                                     Account:{' '}
                                     <a
@@ -561,9 +613,9 @@ export default function ResultModal({ result, isOpen, onClose }: ResultModalProp
                         return (
                           <>
                             <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                              {result.learnMore}
+                              {renderLearnMoreWithLinks(result.learnMore)}
                             </p>
-                            {result.account && result.accountUrl && (
+                            {result.account && result.accountUrl && result.showAccountLink !== false && (
                               <p className="text-gray-300 leading-relaxed mt-4">
                                 Account:{' '}
                                 <a
