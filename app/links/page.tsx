@@ -136,7 +136,7 @@ export default function LinksPage() {
             onClick={async () => {
               try {
                 if (audioRef.current) {
-                  audioRef.current.volume = 0.25 // a bit quieter
+                  audioRef.current.volume = 0.1 // ~40% of previous 0.25 volume
                   await audioRef.current.play()
                 }
                 setHasStartedAudio(true)
