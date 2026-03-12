@@ -7,7 +7,7 @@ import { Linkedin, TrendingUp, Users, DollarSign } from 'lucide-react'
 
 export default function LinksPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [hasStartedAudio, setHasStartedAudio] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   const links = [
     {
@@ -136,17 +136,22 @@ export default function LinksPage() {
             onClick={async () => {
               try {
                 if (audioRef.current) {
-                  audioRef.current.volume = 0.1 // ~40% of previous 0.25 volume
-                  await audioRef.current.play()
+                  audioRef.current.volume = 0.1 // keep volume reduced
+                  if (audioRef.current.paused) {
+                    await audioRef.current.play()
+                    setIsPlaying(true)
+                  } else {
+                    audioRef.current.pause()
+                    setIsPlaying(false)
+                  }
                 }
-                setHasStartedAudio(true)
               } catch (e) {
                 console.error('Audio play blocked', e)
               }
             }}
             className="mt-8 mx-auto w-max px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs text-gray-200 shadow-lg shadow-black/40 hover:bg-white/10 hover:border-white/30 transition-colors"
           >
-            <span className="opacity-80">Play track</span>
+            <span className="opacity-80">{isPlaying ? 'Pause track' : 'Play track'}</span>
           </motion.button>
         </div>
       </div>
