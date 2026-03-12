@@ -138,7 +138,10 @@ export default function LinksPage() {
           transition={{ delay: 0.6, duration: 0.4 }}
           onClick={async () => {
             try {
-              await audioRef.current?.play()
+              if (audioRef.current) {
+                audioRef.current.volume = 0.4 // slightly quieter than default 1.0
+                await audioRef.current.play()
+              }
               setHasStartedAudio(true)
             } catch (e) {
               console.error('Audio play blocked', e)
