@@ -1,10 +1,14 @@
 'use client'
 
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Linkedin, TrendingUp, Users, DollarSign } from 'lucide-react'
 
 export default function LinksPage() {
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [hasStartedAudio, setHasStartedAudio] = useState(false)
+
   const links = [
     {
       id: 'linkedin',
@@ -30,12 +34,11 @@ export default function LinksPage() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
       
-      {/* Background audio – expects /public/final-countdown-instrumental.mp3
-          Note: Some browsers may still block autoplay with sound until user interaction. */}
+      {/* Background audio – expects /public/final-countdown-instrumental.mp3 */}
       <audio
+        ref={audioRef}
         src="/final-countdown-instrumental.mp3"
         loop
-        autoPlay
         className="hidden"
       />
 
@@ -126,6 +129,26 @@ export default function LinksPage() {
           </div>
         </div>
       </div>
+
+      {/* Subtle Apple-style play track control (not the main focus) */}
+      {!hasStartedAudio && (
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.4 }}
+          onClick={async () => {
+            try {
+              await audioRef.current?.play()
+              setHasStartedAudio(true)
+            } catch (e) {
+              console.error('Audio play blocked', e)
+            }
+          }}
+          className="fixed bottom-6 inset-x-0 mx-auto w-max px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs text-gray-200 shadow-lg shadow-black/40 hover:bg-white/10 hover:border-white/30 transition-colors"
+        >
+          <span className="opacity-80">Play track</span>
+        </motion.button>
+      )}
     </div>
   )
 }
