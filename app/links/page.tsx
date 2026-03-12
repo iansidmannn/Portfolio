@@ -7,7 +7,7 @@ import { Linkedin, TrendingUp, Users, DollarSign } from 'lucide-react'
 
 export default function LinksPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [hasStartedAudio, setHasStartedAudio] = useState(false)
 
   const links = [
     {
@@ -34,10 +34,10 @@ export default function LinksPage() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
       
-      {/* Background audio – expects the file at /public/final count down 2.MP3 */}
+      {/* Background audio – expects the file at /public/finalcountdown4.MP3 */}
       <audio
         ref={audioRef}
-        src="/final%20count%20down%202.MP3"
+        src="/finalcountdown4.MP3"
         loop
         className="hidden"
       />
@@ -136,13 +136,13 @@ export default function LinksPage() {
             onClick={async () => {
               try {
                 if (audioRef.current) {
-                  audioRef.current.volume = 0.1 // keep volume reduced
+                  // If paused, play; if playing, pause
                   if (audioRef.current.paused) {
+                    audioRef.current.volume = 0.1 // keep track at reduced volume
                     await audioRef.current.play()
-                    setIsPlaying(true)
+                    setHasStartedAudio(true)
                   } else {
                     audioRef.current.pause()
-                    setIsPlaying(false)
                   }
                 }
               } catch (e) {
@@ -151,7 +151,7 @@ export default function LinksPage() {
             }}
             className="mt-8 mx-auto w-max px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs text-gray-200 shadow-lg shadow-black/40 hover:bg-white/10 hover:border-white/30 transition-colors"
           >
-            <span className="opacity-80">{isPlaying ? 'Pause track' : 'Play track'}</span>
+            <span className="opacity-80">Play track</span>
           </motion.button>
         </div>
       </div>
