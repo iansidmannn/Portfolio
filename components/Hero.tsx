@@ -53,7 +53,7 @@ export default function Hero() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light tracking-tight"
               >
-                Growth Operator
+                Organic Distribution
               </motion.p>
             </div>
 

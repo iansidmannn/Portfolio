@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero'
 import CurrentWork from '@/components/CurrentWork'
 import ResultsCarousel from '@/components/ResultsCarousel'
+import Before from '@/components/Before'
 import FloatingAboutButton from '@/components/FloatingAboutButton'
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <FloatingAboutButton />
       <Hero />
       <CurrentWork />
+      <Before />
       <ResultsCarousel />
     </main>
   )

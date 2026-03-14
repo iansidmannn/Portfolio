@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iansidman.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Ian Sidman | Growth Operator | 300M+ Views",
-  description: 'Growth Operator @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated | USA Bench Press National Record',
-  keywords: ['growth operator', 'growth marketing', 'viral content', 'content strategy', 'startup growth', 'growth systems'],
+  title: "Ian Sidman | Organic Distribution | 300M+ Views",
+  description: 'Organic Distribution @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated | USA Bench Press National Record',
+  keywords: ['organic distribution', 'growth marketing', 'viral content', 'content strategy', 'startup growth', 'growth systems'],
   authors: [{ name: 'Ian Sidman' }],
   icons: {
     icon: [
@@ -22,8 +21,8 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Ian Sidman | Growth Operator | 300M+ Views",
-    description: 'Growth Operator @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated',
+    title: "Ian Sidman | Organic Distribution | 300M+ Views",
+    description: 'Organic Distribution @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated',
     type: 'website',
     url: siteUrl,
     siteName: "Ian Sidman",
@@ -40,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Ian Sidman | Growth Operator | 300M+ Views",
-    description: 'Growth Operator @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated',
+    title: "Ian Sidman | Organic Distribution | 300M+ Views",
+    description: 'Organic Distribution @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $470K+ Revenue Generated',
     images: [`${siteUrl}/nextwinner.png`],
   },
   robots: {
@@ -61,7 +60,6 @@ export default function RootLayout({
         <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
         <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
         {children}
-        <Analytics />
       </body>
     </html>
   )

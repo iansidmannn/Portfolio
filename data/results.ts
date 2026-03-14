@@ -60,7 +60,7 @@ export const results: Result[] = [
     id: '14',
     title: 'Piñata Farms Growth',
     metric: '11.5M Views in 5 Days',
-    description: 'Took TikTok from 0 to 11.5M organic views in 5 days. Grew app store search downloads 300%',
+    description: 'Took TikTok from 0 → 11.5M organic views in 5 days. Grew app store search downloads 300%',
     learnMore: 'Built every growth channel from scratch — UGC, TikTok search, Reddit, tutorial content — all converting to downloads. Scaled viral content distribution to 50M+ views across TikTok, Reddit, YouTube, and Instagram. Built custom automation tools to multiply inputs.',
   },
   {

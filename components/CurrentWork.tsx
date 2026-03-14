@@ -35,7 +35,7 @@ export default function CurrentWork() {
               Organic Views in 5 Days
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Took TikTok from 0 to 11.5M organic views in 5 days. Scaled viral content distribution to 50M+ views across TikTok, Instagram, Facebook, Reddit, and YouTube.
+              Took TikTok from 0 → 11.5M organic views in 5 days. Scaled viral content distribution to 50M+ views across TikTok, Instagram, Facebook, Reddit, and YouTube.
             </p>
           </motion.div>
 

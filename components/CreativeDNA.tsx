@@ -29,7 +29,7 @@ export default function CreativeDNA() {
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
-            At Piñata Farms, took TikTok from 0 to 11.5M organic views in 5 days. Grew app store search downloads 300%. Built every growth channel from scratch — UGC, TikTok search, Reddit, tutorial content — all converting to downloads.
+            At Piñata Farms, took TikTok from 0 → 11.5M organic views in 5 days. Grew app store search downloads 300%. Built every growth channel from scratch — UGC, TikTok search, Reddit, tutorial content — all converting to downloads.
           </p>
           
           <p className="text-lg text-gray-300 leading-relaxed">
