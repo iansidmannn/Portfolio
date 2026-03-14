@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iansidman.com'
@@ -60,6 +61,7 @@ export default function RootLayout({
         <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
         <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
         {children}
+        <Analytics />
       </body>
     </html>
   )
