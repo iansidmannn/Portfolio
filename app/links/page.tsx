@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Linkedin, TrendingUp, Users, DollarSign } from 'lucide-react'
+import { Linkedin } from 'lucide-react'
 
 export default function LinksPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -25,6 +25,15 @@ export default function LinksPage() {
       icon: null, // TikTok logo will be SVG
       iconBg: 'bg-black',
       subtitle: '@gymjunkie69_ • 53.7K Followers',
+    },
+    {
+      id: 'portfolio',
+      name: 'Ian Sidman',
+      url: 'https://iansidman.com',
+      icon: null,
+      iconBg: 'bg-gradient-to-br from-violet-500 to-purple-600',
+      subtitle: '0→11.5M views in 5 days · $470K revenue · 9 brands',
+      imageSrc: '/adjusted pfp.png',
     },
   ]
 
@@ -91,7 +100,17 @@ export default function LinksPage() {
               >
                 {/* Icon */}
                 <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${link.iconBg} flex items-center justify-center`}>
-                  {link.id === 'linkedin' ? (
+                  {link.id === 'portfolio' && link.imageSrc ? (
+                    <div className="relative w-10 h-10 rounded-lg overflow-hidden">
+                      <Image
+                        src={link.imageSrc}
+                        alt={`${link.name} cover`}
+                        fill
+                        className="object-cover"
+                        sizes="40px"
+                      />
+                    </div>
+                  ) : link.id === 'linkedin' ? (
                     <Linkedin className="w-6 h-6 text-white" />
                   ) : (
                     // TikTok Logo SVG
