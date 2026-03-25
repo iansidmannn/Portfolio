@@ -33,7 +33,7 @@ export default function LinksPage() {
       icon: null,
       iconBg: 'bg-gradient-to-br from-violet-500 to-purple-600',
       subtitle: '0→11.5M views in 5 days · $470K revenue · 9 brands',
-      imageSrc: '/adjusted pfp.png',
+      imageSrc: '/Gemini_Generated_Image_wcqhm6wcqhm6wcqh.jpg',
     },
   ]
 
@@ -106,7 +106,7 @@ export default function LinksPage() {
                         src={link.imageSrc}
                         alt={`${link.name} cover`}
                         fill
-                        className="object-cover"
+                        className="object-cover scale-110"
                         sizes="40px"
                       />
                     </div>
