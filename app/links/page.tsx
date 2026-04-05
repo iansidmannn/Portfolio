@@ -16,7 +16,7 @@ export default function LinksPage() {
       url: 'https://www.linkedin.com/in/ian-sidman',
       icon: Linkedin,
       iconBg: 'bg-blue-500',
-      subtitle: 'Startup Growth • 300M Views',
+      subtitle: 'Organic Distribution • 300M Views',
     },
     {
       id: 'tiktok',

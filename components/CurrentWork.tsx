@@ -54,7 +54,7 @@ export default function CurrentWork() {
               App Store Search Growth
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Grew app store search downloads 300%. Built every growth channel from scratch — UGC, TikTok search, Reddit, tutorial content — all converting to downloads. Built custom automation tools to multiply inputs.
+              Grew app store search downloads 300%. Built every growth channel from scratch — UGC, TikTok search, Reddit, tutorial content — all converting to over 35,000 downloads. Built AI agents to multiply inputs.
             </p>
           </motion.div>
         </div>

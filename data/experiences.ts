@@ -66,6 +66,29 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    id: 'pinata-farms',
+    title: 'Pinata Farms',
+    account: '@pinatafarm',
+    accountUrl: 'https://pinatafarm.com',
+    workType: 'Consumer App',
+    // followers intentionally omitted
+    // image intentionally omitted
+    category: 'consulting',
+    summary: [
+      'Pinata Farms is a consumer meme-video app. I focused on organic distribution and conversion paths to drive installs.',
+    ],
+    achievements: [
+      'Drove 35,000+ app downloads',
+      'Built acquisition via organic distribution and creator-style content',
+    ],
+    videos: [
+      {
+        url: 'https://pinatafarm.com/download',
+        title: 'Download Pinata Farms',
+      },
+    ],
+  },
+  {
     id: 'personal-brand',
     title: 'My Personal Brand',
     account: '@iansidmann',
