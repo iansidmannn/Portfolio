@@ -78,7 +78,7 @@ export const experiences: Experience[] = [
       'Pinata Farms is a consumer meme-video app. I focused on organic distribution and conversion paths to drive installs.',
     ],
     achievements: [
-      'Drove 35,000+ app downloads',
+      'Drove 68,000+ app downloads',
       'Built acquisition via organic distribution and creator-style content',
     ],
     videos: [

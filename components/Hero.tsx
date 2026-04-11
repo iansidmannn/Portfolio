@@ -151,7 +151,7 @@ export default function Hero() {
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] text-gray-400 uppercase tracking-wider">Users</span>
-                    <span className="text-sm font-bold text-white">+12K</span>
+                    <span className="text-sm font-bold text-white">+18K</span>
                   </div>
                   <div className="relative h-1.5 bg-white/5 rounded-full overflow-hidden">
                     <motion.div
@@ -183,7 +183,7 @@ export default function Hero() {
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] text-gray-400 uppercase tracking-wider">Profit</span>
-                    <span className="text-sm font-bold text-white">$8.5K</span>
+                    <span className="text-sm font-bold text-white">$11K</span>
                   </div>
                   <div className="relative h-1.5 bg-white/5 rounded-full overflow-hidden">
                     <motion.div
@@ -220,7 +220,7 @@ export default function Hero() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-gray-400 uppercase tracking-wider">Users</span>
-                  <span className="text-base font-bold text-white">+12,000</span>
+                  <span className="text-base font-bold text-white">+18,000</span>
                 </div>
                 <div className="relative h-2 bg-white/5 rounded-full overflow-hidden">
                   <motion.div
@@ -252,7 +252,7 @@ export default function Hero() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-gray-400 uppercase tracking-wider">Profit</span>
-                  <span className="text-base font-bold text-white">$8.5K</span>
+                  <span className="text-base font-bold text-white">$11K</span>
                 </div>
                 <div className="relative h-2 bg-white/5 rounded-full overflow-hidden">
                   <motion.div
