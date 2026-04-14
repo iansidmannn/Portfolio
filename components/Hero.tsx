@@ -220,7 +220,7 @@ export default function Hero() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-gray-400 uppercase tracking-wider">Users</span>
-                  <span className="text-base font-bold text-white">+18,000</span>
+                  <span className="text-base font-bold text-white">+18K</span>
                 </div>
                 <div className="relative h-2 bg-white/5 rounded-full overflow-hidden">
                   <motion.div
