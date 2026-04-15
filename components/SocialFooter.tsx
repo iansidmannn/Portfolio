@@ -93,7 +93,7 @@ export default function SocialFooter() {
           className="mb-8 md:mb-12 text-center"
         >
           <motion.a
-            href="/Resume.pdf"
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 rounded-2xl border-2 border-purple-400/50 bg-purple-500/20 px-6 py-4 backdrop-blur text-white hover:border-purple-400 hover:bg-purple-500/30 transition-all"
