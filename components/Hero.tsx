@@ -89,7 +89,7 @@ export default function Hero() {
                   <DollarSign className="w-6 h-6 text-green-400" />
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-white">$470K+</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">$200K+</div>
                   <div className="text-xs text-gray-400 uppercase tracking-wider">Revenue</div>
                 </div>
               </div>

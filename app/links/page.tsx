@@ -32,7 +32,7 @@ export default function LinksPage() {
       url: 'https://iansidman.com',
       icon: null,
       iconBg: 'bg-gradient-to-br from-violet-500 to-purple-600',
-      subtitle: '0→11.5M views in 5 days · $470K revenue · 9 brands',
+      subtitle: '0→11.5M views in 5 days · $200K revenue · 9 brands',
       imageSrc: '/gemmy.jpg',
     },
   ]

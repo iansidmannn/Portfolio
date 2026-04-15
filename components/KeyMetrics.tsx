@@ -14,7 +14,7 @@ const metrics = [
     detail: 'Built viral content systems for stuck brands',
   },
   {
-    value: '$470K+',
+    value: '$200K+',
     label: 'Revenue Generated',
     detail: 'Direct trackable sales from growth systems',
   },
