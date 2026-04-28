@@ -45,7 +45,7 @@ export default function Home() {
           <p>About six months ago I joined Piñata Farms.</p>
 
           <p>
-            Since then: I&apos;m currently averaging 13,000 downloads a month as their first organic hire.
+            Since then: I&apos;m averaging 13,000 downloads a month as their first organic hire.
           </p>
 
           <p>
