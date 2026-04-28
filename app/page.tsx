@@ -27,7 +27,7 @@ export default function Home() {
           <p>Hi, my name is Ian.</p>
 
           <p>
-            I have 650 million organic short form views across brands, startups, and things I&apos;ve started.
+            I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
           </p>
 
           <p>
@@ -49,7 +49,7 @@ export default function Home() {
           </p>
 
           <p>
-            I&apos;ve created 2 viral formats that actually convert, identified &amp; launched a new feature that got 17,000 organic downloads in its first month, and our content has been featured by multiple teams in the NFL, NHL, and the NBA.
+            I&apos;ve created 2 viral formats that convert, identified &amp; launched a new feature that got 17,000 organic downloads in its first month, and our content has been featured by multiple teams in the NFL, NHL, and the NBA.
           </p>
 
           <p>
