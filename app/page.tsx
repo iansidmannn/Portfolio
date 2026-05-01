@@ -1,8 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Home() {
+  const [showRecord, setShowRecord] = useState(false)
+
   return (
     <main className="min-h-screen flex items-center justify-center px-6 py-24 sm:py-0 relative">
       <motion.a
@@ -42,22 +46,22 @@ export default function Home() {
             I&apos;ve cracked viral formats for 11 different brands, taking each of them past 100K views for their first time.
           </p>
 
-          <p>About six months ago I joined Piñata Farms.</p>
+          <p>About six months ago I joined <a href="https://www.pinatafarm.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Piñata Farms</a>.</p>
 
           <p>
             Since then: I&apos;m averaging 13,000 downloads a month as their first organic hire.
           </p>
 
           <p>
-            I&apos;ve created 2 viral formats that convert, identified &amp; launched a new feature that got 17,000 organic downloads in its first month, and our content has been featured by multiple teams in the NFL, NHL, and the NBA.
+            I&apos;ve created <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">5 viral formats that convert</a>, identified &amp; launched a new feature that got 17,000 organic downloads in its first month, and our content has been <a href="https://www.tiktok.com/music/original-sound-7589742642620123935" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">featured by multiple teams in the NFL, NHL, and the NBA</a>.
           </p>
 
           <p>
-            Before that: I grew my TikTok to 60k, built a <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">clothing brand</a> from my college dorm to $4k/mo profit in 3 months, and got the USA bench press national record at 17.
+            Before that: I grew my <a href="https://www.tiktok.com/@gymjunkie69_" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">TikTok to 60k</a>, built a <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">clothing brand</a> from my college dorm to $4k/mo profit in 3 months, and got the USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
           </p>
 
           <p className="text-white font-medium pt-2">
-            What I&apos;m focused on now: viral video formats that convert. The overlap of viral mechanics and commerce.
+            What I&apos;m focused on now: The overlap of viral videos and commerce.
           </p>
 
           <p>
@@ -72,6 +76,40 @@ export default function Home() {
           </p>
         </div>
       </motion.div>
+      <AnimatePresence>
+        {showRecord && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-6"
+            onClick={() => setShowRecord(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative max-w-lg w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowRecord(false)}
+                className="absolute -top-10 right-0 text-gray-400 hover:text-white transition-colors text-sm cursor-pointer"
+              >
+                Close
+              </button>
+              <Image
+                src="/National Record.png"
+                alt="USA Bench Press National Record"
+                width={800}
+                height={600}
+                className="w-full h-auto rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   )
 }
