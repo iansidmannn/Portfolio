@@ -9,9 +9,9 @@ const metrics = [
     detail: 'Across brands, startups, and personal content',
   },
   {
-    value: '9',
-    label: 'Brands Scaled Past 100K',
-    detail: 'Built viral content systems for stuck brands',
+    value: '22',
+    label: 'Repeatable Viral Formats',
+    detail: 'Proven structures you can run again—not one-off luck',
   },
   {
     value: '$200K+',

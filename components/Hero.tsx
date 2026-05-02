@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { TrendingUp, Users, DollarSign } from 'lucide-react'
+import { TrendingUp, Layers, DollarSign } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -76,11 +76,13 @@ export default function Hero() {
               
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/30 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-blue-400" />
+                  <Layers className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-white">9</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wider">Brands Scaled</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">22</div>
+                  <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider leading-tight">
+                    Repeatable viral formats
+                  </div>
                 </div>
               </div>
               

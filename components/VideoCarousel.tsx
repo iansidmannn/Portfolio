@@ -1,45 +1,36 @@
 'use client'
 
-import { useState, useRef, useEffect, useMemo } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { useState, useRef, useEffect, useMemo, useCallback } from 'react'
+import { motion, useMotionValue } from 'framer-motion'
 import { ExternalLink, Play } from 'lucide-react'
 import Image from 'next/image'
 import { videos, Video } from '@/data/videos'
 import VideoModal from './VideoModal'
 
-// Shuffle array function (Fisher-Yates)
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array]
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
   return shuffled
 }
 
-// Create shuffled videos array while keeping 2nd and 3rd in place
 function createShuffledVideos(originalVideos: Video[]): Video[] {
   if (originalVideos.length < 3) return originalVideos
-  
-  // Keep second and third videos
+
   const second = originalVideos[1]
   const third = originalVideos[2]
-  
-  // Get all other videos (excluding 2nd and 3rd)
-  const otherVideos = [
-    originalVideos[0],
-    ...originalVideos.slice(3)
-  ]
-  
-  // Shuffle the other videos
+
+  const otherVideos = [originalVideos[0], ...originalVideos.slice(3)]
+
   const shuffledOthers = shuffleArray(otherVideos)
-  
-  // Reconstruct: first shuffled, then 2nd, 3rd, then rest of shuffled
+
   return [
     shuffledOthers[0],
     second,
     third,
-    ...shuffledOthers.slice(1)
+    ...shuffledOthers.slice(1),
   ]
 }
 
@@ -53,334 +44,278 @@ function formatViews(views: number): string {
   return views.toString()
 }
 
-interface DragBounds {
-  left: number
-  right: number
+function splitIntoTwoLanes(vs: Video[]): [Video[], Video[]] {
+  const a = vs.filter((_, i) => i % 2 === 0)
+  const b = vs.filter((_, i) => i % 2 === 1)
+  if (b.length === 0) {
+    const half = Math.ceil(vs.length / 2)
+    return [vs.slice(0, half), vs.slice(half)]
+  }
+  return [a, b]
 }
 
-export default function VideoCarousel() {
-  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+/** Same px/frame for both rows so lanes don’t drift apart */
+const MARQUEE_SPEED_PX = 1.15
+
+function VideoCard({
+  video,
+  index,
+  laneLen,
+  onVideoClick,
+}: {
+  video: Video
+  index: number
+  laneLen: number
+  onVideoClick: (e: React.MouseEvent, video: Video) => void
+}) {
+  const eager = index < 3 || (index >= laneLen && index < laneLen + 3)
+
+  return (
+    <motion.a
+      href={video.url || '#'}
+      target={video.platform === 'tiktok' || video.platform === 'instagram' ? undefined : '_blank'}
+      rel={
+        video.platform === 'tiktok' || video.platform === 'instagram'
+          ? undefined
+          : 'noopener noreferrer'
+      }
+      onClick={(e) => onVideoClick(e, video)}
+      whileHover={{ scale: 1.04, y: -4 }}
+      className="group relative flex h-[14.5rem] w-[10.75rem] shrink-0 select-none overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-sm transition-all duration-300 hover:border-white/25 sm:h-[16.5rem] sm:w-[12.25rem] md:h-[18rem] md:w-[13.5rem]"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30" />
+
+      {video.thumbnail ? (
+        <div className="absolute inset-0">
+          <Image
+            src={video.thumbnail}
+            alt={`${video.platform} video thumbnail`}
+            fill
+            className="object-cover"
+            style={{ objectPosition: video.thumbnailPosition || 'center' }}
+            sizes="(max-width: 768px) 172px, 220px"
+            priority={eager}
+            loading={eager ? 'eager' : 'lazy'}
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform group-hover:scale-110 sm:h-14 sm:w-14">
+              <Play className="ml-0.5 h-6 w-6 text-white sm:h-7 sm:w-7" fill="white" />
+            </div>
+          </div>
+        </div>
+      ) : video.video ? (
+        <div className="absolute inset-0">
+          <video src={video.video} className="h-full w-full object-cover" muted playsInline preload="none" />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform group-hover:scale-110 sm:h-14 sm:w-14">
+              <Play className="ml-0.5 h-6 w-6 text-white sm:h-7 sm:w-7" fill="white" />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-600/30 to-blue-600/30">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform group-hover:scale-110 sm:h-14 sm:w-14">
+            <Play className="ml-0.5 h-6 w-6 text-white sm:h-7 sm:w-7" fill="white" />
+          </div>
+        </div>
+      )}
+
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-black/82 via-black/35 to-transparent px-3 pb-10 pt-3 sm:px-4 sm:pt-3.5" />
+
+      <div className="pointer-events-none absolute left-0 right-0 top-0 z-20 px-3 pt-3 sm:px-4 sm:pt-3.5">
+        <div className="mb-1 flex items-start justify-between gap-2">
+          <span className="text-[11px] font-semibold text-purple-300 sm:text-xs">
+            {video.platform === 'instagram'
+              ? 'Instagram'
+              : video.platform === 'tiktok'
+                ? 'TikTok'
+                : 'YouTube'}
+          </span>
+          <span className="text-right text-base font-bold tabular-nums leading-none text-white sm:text-lg md:text-xl">
+            {formatViews(video.views)}
+          </span>
+        </div>
+        <div className="flex min-w-0 items-center gap-1.5 pr-0.5 text-[11px] text-gray-200 sm:text-xs">
+          <span className="truncate">{video.account}</span>
+          <ExternalLink className="h-3 w-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
+        </div>
+      </div>
+      {video.takenDown && (
+        <span className="pointer-events-none absolute bottom-2 left-2 z-30 rounded-md border border-white/10 bg-black/70 px-1.5 py-0.5 text-[10px] text-gray-200 backdrop-blur-sm">
+          (taken down)
+        </span>
+      )}
+    </motion.a>
+  )
+}
+
+function MarqueeLane({
+  laneVideos,
+  speed,
+  paused,
+  gapClass,
+  onVideoClick,
+}: {
+  laneVideos: Video[]
+  speed: number
+  paused: boolean
+  gapClass: string
+  onVideoClick: (e: React.MouseEvent, video: Video) => void
+}) {
   const carouselRef = useRef<HTMLDivElement>(null)
-  const [isDesktop, setIsDesktop] = useState(false)
-  const [isDragging, setIsDragging] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const [isPaused, setIsPaused] = useState(false)
-  const [dragBounds, setDragBounds] = useState<DragBounds>({ left: 0, right: 0 })
-  
-  // Create shuffled videos array (memoized to prevent re-shuffling on every render)
-  const shuffledVideos = useMemo(() => createShuffledVideos(videos), [])
-  
   const x = useMotionValue(0)
-  
-  // Dynamic scroll speed that can be accelerated (primarily desktop)
-  const baseScrollSpeed = 1.5 // Increased from 0.4 for much faster scrolling
-  const currentScrollSpeedRef = useRef(baseScrollSpeed)
-  const lastScrollTimeRef = useRef(Date.now())
-  const speedBoostRef = useRef(0) // Additional speed boost from user scrolling
-  
-  // Auto-scroll animation with proper infinite loop
   const scrollPositionRef = useRef(0)
   const animationRef = useRef<number | null>(null)
-  
-  // Gradually decay speed boost over time
-  useEffect(() => {
-    const decayInterval = setInterval(() => {
-      const timeSinceLastScroll = Date.now() - lastScrollTimeRef.current
-      
-      // Decay speed boost if no scrolling for 100ms
-      if (timeSinceLastScroll > 100 && speedBoostRef.current > 0) {
-        speedBoostRef.current = Math.max(0, speedBoostRef.current - 0.1)
-        currentScrollSpeedRef.current = baseScrollSpeed + speedBoostRef.current
-      }
-    }, 50) // Check every 50ms
-    
-    return () => clearInterval(decayInterval)
-  }, [])
+
+  const loop = useMemo(() => [...laneVideos, ...laneVideos], [laneVideos])
+  const laneLen = laneVideos.length
 
   useEffect(() => {
-    if (isPaused || isDragging || isHovered || !carouselRef.current) {
+    if (paused || !carouselRef.current) {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
         animationRef.current = null
       }
       return
     }
-    
+
     const animate = () => {
-      if (!carouselRef.current || isPaused || isDragging || isHovered) return
-      
+      if (!carouselRef.current || paused) return
+
       const container = carouselRef.current
       const totalWidth = container.scrollWidth
-      const visibleWidth = container.clientWidth
-      const singleSetWidth = totalWidth / 2 // Since we duplicate, half is one full set
-      
-      if (singleSetWidth > 0 && visibleWidth > 0) {
-        // Use dynamic scroll speed (base + boost)
-        const scrollSpeed = currentScrollSpeedRef.current
-        scrollPositionRef.current += scrollSpeed
-        
-        // Seamless infinite loop using modulo - keeps position within first set
-        // Since content is duplicated, this creates invisible seamless loop
+      const singleSetWidth = totalWidth / 2
+
+      if (singleSetWidth > 0) {
+        scrollPositionRef.current += speed
         if (scrollPositionRef.current >= singleSetWidth) {
           scrollPositionRef.current = scrollPositionRef.current % singleSetWidth
         }
-        
-        // Always update x - the modulo ensures it stays within bounds
         x.set(-scrollPositionRef.current)
       }
-      
+
       animationRef.current = requestAnimationFrame(animate)
     }
-    
+
     animationRef.current = requestAnimationFrame(animate)
-    
+
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
         animationRef.current = null
       }
     }
-  }, [isPaused, isDragging, isHovered, x])
+  }, [paused, speed, x, laneLen])
 
-  const handleVideoClick = (e: React.MouseEvent, video: Video) => {
-    // Don't open modal if user was dragging
-    if (isDragging) {
-      e.preventDefault()
-      return
-    }
-    
-    // If no URL, prevent navigation
+  return (
+    <div className="relative overflow-hidden py-1">
+      <motion.div
+        ref={carouselRef}
+        style={{ x }}
+        className={`flex ${gapClass} w-max cursor-default pb-4 pt-1 scrollbar-hide`}
+      >
+        {loop.map((video, index) => (
+          <VideoCard
+            key={`${video.id}-${index}`}
+            video={video}
+            index={index}
+            laneLen={laneLen}
+            onVideoClick={onVideoClick}
+          />
+        ))}
+      </motion.div>
+    </div>
+  )
+}
+
+export default function VideoCarousel({
+  lead = false,
+  embedded = false,
+}: {
+  lead?: boolean
+  embedded?: boolean
+}) {
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [hoveredLane, setHoveredLane] = useState<'top' | 'bottom' | null>(null)
+
+  const shuffledVideos = useMemo(() => createShuffledVideos(videos), [])
+  const [laneTop, laneBottom] = useMemo(() => splitIntoTwoLanes(shuffledVideos), [shuffledVideos])
+
+  const modalOpenPause = isModalOpen
+  const topPaused = modalOpenPause || hoveredLane === 'top'
+  const bottomPaused = modalOpenPause || hoveredLane === 'bottom'
+
+  const handleVideoClick = useCallback((e: React.MouseEvent, video: Video) => {
     if (!video.url) {
       e.preventDefault()
       return
     }
-    
     if (video.platform === 'tiktok' || video.platform === 'instagram') {
       e.preventDefault()
       setSelectedVideo(video)
       setIsModalOpen(true)
     }
-    // For other platforms, let the default link behavior work
-  }
-
-  // Calculate drag constraints
-  useEffect(() => {
-    if (carouselRef.current) {
-      const maxScroll = -(carouselRef.current.scrollWidth - carouselRef.current.clientWidth)
-      // Set initial constraints
-    }
   }, [])
 
-  const handleDrag = (event: any, info: any) => {
-    setIsDragging(true)
-    setIsPaused(true)
-    
-    // Detect if dragging right (positive velocity = dragging right)
-    if (info.velocity.x > 0) {
-      // User is dragging right, boost scroll speed
-      const boost = Math.min(info.velocity.x * 0.01, 2.0) // Cap boost at 2.0
-      speedBoostRef.current = boost
-      currentScrollSpeedRef.current = baseScrollSpeed + boost
-      lastScrollTimeRef.current = Date.now()
-    }
-  }
-
-  const handleDragEnd = (event: any, info: any) => {
-    setIsDragging(false)
-    
-    // Add momentum based on velocity
-    if (carouselRef.current) {
-      const maxScroll = carouselRef.current.scrollWidth - carouselRef.current.clientWidth
-      const currentX = -x.get()
-      const velocity = info.velocity.x
-      
-      // If dragging right (positive velocity), boost speed instead of just momentum
-      if (velocity > 0) {
-        const boost = Math.min(velocity * 0.01, 2.0)
-        speedBoostRef.current = boost
-        currentScrollSpeedRef.current = baseScrollSpeed + boost
-        lastScrollTimeRef.current = Date.now()
-      }
-      
-      // Apply momentum (convert velocity to positive scroll position)
-      const momentum = Math.abs(velocity * 0.1)
-      let newX = currentX + momentum
-      
-      // Constrain to bounds
-      newX = Math.max(0, Math.min(maxScroll, newX))
-      
-      // Update the ref to match
-      scrollPositionRef.current = newX
-      x.set(-newX)
-      
-      // Resume auto-scroll after a short delay
-      setTimeout(() => {
-        setIsPaused(false)
-      }, 2000)
-    }
-  }
-
-  // Handle wheel scrolling to detect right scroll
-  const handleWheel = (e: React.WheelEvent) => {
-    if (!carouselRef.current) return
-    
-    // Detect horizontal scroll (deltaX > 0 means scrolling right)
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-      if (e.deltaX > 0) {
-        // Scrolling right - boost speed
-        e.preventDefault()
-        const boost = Math.min(e.deltaX * 0.01, 2.0)
-        speedBoostRef.current = Math.max(speedBoostRef.current, boost)
-        currentScrollSpeedRef.current = baseScrollSpeed + speedBoostRef.current
-        lastScrollTimeRef.current = Date.now()
-        
-        // Also manually scroll a bit
-        scrollPositionRef.current += e.deltaX * 0.5
-        x.set(-scrollPositionRef.current)
-      }
-    }
-  }
-
-  // The animate function handles all scrolling and reset logic
-
-  useEffect(() => {
-    if (carouselRef.current) {
-      const singleSetWidth = carouselRef.current.scrollWidth / 2
-      setDragBounds({
-        left: -singleSetWidth,
-        right: 0,
-      })
-    }
-  }, [shuffledVideos])
-
   return (
-    <section id="viral-videos-section" className="pt-32 pb-16 px-6 sm:px-8 lg:px-12 border-t border-white/10">
+    <section
+      id={embedded ? undefined : 'viral-videos-section'}
+      className={
+        embedded
+          ? 'px-0 pb-2'
+          : `px-6 sm:px-8 lg:px-12 ${lead ? 'pt-5 sm:pt-7 pb-8 sm:pb-10' : 'border-t border-white/10 pt-32 pb-16'}`
+      }
+    >
       <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Viral Videos
-          </h2>
-        </motion.div>
-
-        <div 
-          className="relative -mx-6 px-6 overflow-hidden"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        {!embedded ? (
           <motion.div
-            ref={carouselRef}
-            drag="x"
-            dragConstraints={dragBounds}
-            dragElastic={0.2}
-            onDrag={handleDrag}
-            onDragEnd={handleDragEnd}
-            onWheel={handleWheel}
-            style={{ 
-              x: x,
-              WebkitOverflowScrolling: 'touch',
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-            }}
-            className="flex gap-6 cursor-grab active:cursor-grabbing overflow-x-visible overflow-y-visible pb-8 md:pt-4 scrollbar-hide"
+            initial={{ opacity: 0, y: 20 }}
+            {...(lead
+              ? {
+                  animate: { opacity: 1, y: 0 },
+                  transition: { duration: 0.55 },
+                }
+              : {
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true },
+                  transition: { duration: 0.6 },
+                })}
+            className={lead ? 'mb-6 sm:mb-8 text-center' : 'mb-16 text-center'}
           >
-            {/* Duplicate videos to create seamless loop */}
-            {[...shuffledVideos, ...shuffledVideos].map((video, index) => (
-              <motion.a
-                key={`${video.id}-${index}`}
-                href={video.url || '#'}
-                target={video.platform === 'tiktok' || video.platform === 'instagram' ? undefined : '_blank'}
-                rel={video.platform === 'tiktok' || video.platform === 'instagram' ? undefined : 'noopener noreferrer'}
-                onClick={(e) => handleVideoClick(e, video)}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group relative flex-shrink-0 w-[22rem] h-[28rem] md:w-[25rem] md:h-[32rem] bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 md:origin-center select-none"
-              >
-                {/* Preload placeholder to prevent black flash */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30" />
-                
-                {/* Video thumbnail */}
-                {video.thumbnail ? (
-                  <div className="absolute inset-0">
-                    <Image
-                      src={video.thumbnail}
-                      alt={`${video.platform} video thumbnail`}
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: video.thumbnailPosition || 'center' }}
-                      sizes="352px"
-                      priority={index < 4 || (index >= videos.length && index < videos.length + 4)}
-                      loading={index < 4 || (index >= videos.length && index < videos.length + 4) ? 'eager' : 'lazy'}
-                    />
-                    {/* Play button overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                      <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-10 h-10 text-white ml-1" fill="white" />
-                      </div>
-                    </div>
-                  </div>
-                ) : video.video ? (
-                  <div className="absolute inset-0">
-                    <video
-                      src={video.video}
-                      className="w-full h-full object-cover"
-                      muted
-                      playsInline
-                      preload="none"
-                    />
-                    {/* Play button overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                      <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-10 h-10 text-white ml-1" fill="white" />
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-blue-600/30 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
-                    </div>
-                  </div>
-                )}
-
-                {/* Content overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold text-purple-300">
-                      {video.platform === 'instagram' ? 'Instagram' : video.platform === 'tiktok' ? 'TikTok' : 'YouTube'}
-                    </span>
-                    <span className="text-2xl font-bold text-white">
-                      {formatViews(video.views)}
-                    </span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2 text-sm text-gray-300">
-                    <span>{video.account}</span>
-                    <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  
-                  {video.takenDown && (
-                    <div className="absolute bottom-4 right-4">
-                      <span className="text-xs text-gray-400 bg-black/60 px-2 py-1 rounded backdrop-blur-sm">
-                        (taken down)
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </motion.a>
-            ))}
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+              Viral Videos
+            </h2>
           </motion.div>
-          
-          {/* Scroll hint gradient */}
-          <div className="absolute left-0 top-0 bottom-8 w-24 bg-gradient-to-r from-black via-black/50 to-transparent pointer-events-none z-10 md:hidden" />
-          <div className="absolute right-0 top-0 bottom-8 w-24 bg-gradient-to-l from-black via-black/50 to-transparent pointer-events-none z-10 md:hidden" />
+        ) : null}
+
+        <div
+          className={`relative ${embedded ? 'mx-0 px-0' : '-mx-6 px-6'}`}
+          onMouseLeave={() => setHoveredLane(null)}
+        >
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <div onMouseEnter={() => setHoveredLane('top')}>
+              <MarqueeLane
+                laneVideos={laneTop}
+                speed={MARQUEE_SPEED_PX}
+                paused={topPaused}
+                gapClass="gap-3 sm:gap-4 md:gap-5"
+                onVideoClick={handleVideoClick}
+              />
+            </div>
+            <div onMouseEnter={() => setHoveredLane('bottom')}>
+              <MarqueeLane
+                laneVideos={laneBottom}
+                speed={MARQUEE_SPEED_PX}
+                paused={bottomPaused}
+                gapClass="gap-3 sm:gap-4 md:gap-5"
+                onVideoClick={handleVideoClick}
+              />
+            </div>
+          </div>
+
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-black via-black/45 to-transparent sm:w-20 md:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black via-black/45 to-transparent sm:w-20 md:w-24" />
         </div>
       </div>
 
@@ -392,4 +327,3 @@ export default function VideoCarousel() {
     </section>
   )
 }
-

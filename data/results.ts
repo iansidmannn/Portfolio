@@ -23,7 +23,9 @@ export const results: Result[] = [
     title: 'Started "Quitting" Incurable Diseases Trend',
     metric: '100M+ Views',
     description: 'Started a viral trend that generated 100M+ views across all creators',
-    learnMore: `As my diabetes content was blowing up I was on the look out for opportunites to grow my brand. I saw a trend of people quitting vaping and connected the dots to do it for my incurable disease (diabetes), this lead to 4.1m personal views and over 100m views worth of other videos of people "quitting" their incurable diseases (beyond diabetes)`,
+    learnMore: `I saw a video trend of people quitting vaping by putting their vapes in water. Then I saw diabetes as a trending topic on TikTok at the time. I decided to combine the two trends—I made a video where I "quit" diabetes by dropping my insulin pump in water—effectively killing it. That hit 4.1 million views.
+
+Hundreds of other creators jumped in across asthma, diabetes, cancer, Crohn's, MS, and other illnesses; multiple clips broke 10 million views each. The whole wave crossed north of 100 million views across everyone who jumped on the format.`,
     videoUrl: 'https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038',
     videoUrls: ['https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038'],
     videoThumbnails: ['/Screenshot 2025-11-22 231933.png'],
@@ -78,7 +80,7 @@ export const results: Result[] = [
     id: '3',
     title: 'Single Video Revenue',
     metric: '$5,000',
-    description: 'One video generated 5.8M views, 282K shares, and 193 new customers',
+    description: '$5,000 & 193 new customers from one video — plus 5.8M views & 282K shares',
     account: '@goofygarmentshop',
     accountUrl: 'https://www.instagram.com/goofygarmentshop/',
     showAccountLink: false, // Don't show separate link, include in description

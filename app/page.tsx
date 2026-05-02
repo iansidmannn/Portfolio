@@ -35,7 +35,7 @@ export default function Home() {
           </p>
 
           <p>
-            I was the man behind the <a href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">fake news pranks</a> on TikTok &amp; Instagram (300 million views).
+            I was behind the <a href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">fake news pranks</a> on TikTok—300 million views and counting.
           </p>
 
           <p>
@@ -43,7 +43,7 @@ export default function Home() {
           </p>
 
           <p>
-            I&apos;ve cracked 22 viral short-form video formats, taking 11 different brands past 100K view videos on organic for their first time.
+            I&apos;ve cracked 22 viral short-form video formats, taking over 20 different brands past 100K view videos on organic for their first time.
           </p>
 
           <p>About six months ago I joined <a href="https://www.pinatafarm.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Piñata Farms</a>.</p>
@@ -72,6 +72,15 @@ export default function Home() {
               className="text-gray-500 hover:text-gray-300 transition-colors duration-200"
             >
               More on LinkedIn &rarr;
+            </a>
+          </p>
+
+          <p>
+            <a
+              href="/portfolio/"
+              className="text-gray-500 hover:text-gray-300 transition-colors duration-200"
+            >
+              More on my Portfolio &rarr;
             </a>
           </p>
         </div>

@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iansidman.com'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Ian Sidman | Organic Operator | 650M Views",
-  description: 'Organic Distribution @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $200K+ Revenue Generated | USA Bench Press National Record',
+  description: 'Organic Distribution @ Piñata Farms | 300M+ Views | 22 Repeatable Viral Formats | 20+ Brands Past 100K | $200K+ Revenue Generated | USA Bench Press National Record',
   keywords: ['organic distribution', 'growth marketing', 'viral content', 'content strategy', 'startup growth', 'growth systems'],
   authors: [{ name: 'Ian Sidman' }],
   icons: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Ian Sidman | Organic Operator | 650M Views",
-    description: 'Organic Distribution @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $200K+ Revenue Generated',
+    description: 'Organic Distribution @ Piñata Farms | 300M+ Views | Built 20+ Brands Past 100K | $200K+ Revenue Generated',
     type: 'website',
     url: siteUrl,
     siteName: "Ian Sidman",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Ian Sidman | Organic Operator | 650M Views",
-    description: 'Organic Distribution @ Piñata Farms | 300M+ Views | Built 9 Brands Past 100K | $200K+ Revenue Generated',
+    description: 'Organic Distribution @ Piñata Farms | 300M+ Views | 22 Repeatable Viral Formats | Scaled 20+ Brands Past 100K | $200K+ Revenue Generated',
     images: [`${siteUrl}/nextwinner.png`],
   },
   robots: {

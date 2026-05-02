@@ -7,15 +7,15 @@ import { useState } from 'react'
 const stats = [
   {
     id: 'views',
-    value: '250,000,000',
+    value: '650,000,000',
     label: 'Lifetime Views',
     detail: 'Organic short-form content.',
   },
   {
-    id: 'brands',
-    value: '9',
-    label: 'Stuck Brands Past 100K',
-    detail: 'Built viral content engines for low-view brands, consistently generating 100K+ views per video.',
+    id: 'formats',
+    value: '22',
+    label: 'Repeatable Viral Video Formats',
+    detail: 'A codified playbook of viral short-form structures—reuse, adapt, and scale across channels and categories.',
   },
   {
     id: 'revenue',

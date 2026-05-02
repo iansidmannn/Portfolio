@@ -92,25 +92,28 @@ export default function OldHero() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-28 flex flex-wrap items-center justify-center gap-8 opacity-50 hover:opacity-80 transition-opacity"
         >
-          {['/f19 logo.png', '/brick logo.png', '/smylelabs logo.png', '/shp logo.png', '/ck logo.png'].map((src, index) => (
-            <motion.div
-              key={src}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
-              className="relative h-9 w-28 sm:h-10 sm:w-32 md:h-11 md:w-36"
-            >
-              <Image
-                src={src}
-                alt="Partner logo"
-                fill
-                sizes="120px"
-                className="object-contain opacity-70"
-                priority
-                fetchPriority="high"
-              />
-            </motion.div>
-          ))}
+          {['/f19 logo.png', '/brick logo.png', '/smylelabs logo.png', '/wealthconlogo.png', '/ck logo.png', '/pf logo2.png', '/nba-logo-transparent.png', '/dexcom.png', '/NHL-Logo.png', '/nflz.png'].map((src, index) => {
+            const isSquareLogo = src === '/nba-logo-transparent.png' || src === '/NHL-Logo.png' || src === '/nflz.png'
+            return (
+              <motion.div
+                key={src}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
+                className={`relative ${isSquareLogo ? 'h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14' : 'h-9 w-28 sm:h-10 sm:w-32 md:h-11 md:w-36'}`}
+              >
+                <Image
+                  src={src}
+                  alt="Partner logo"
+                  fill
+                  sizes="120px"
+                  className="object-contain opacity-70"
+                  priority
+                  fetchPriority="high"
+                />
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
 

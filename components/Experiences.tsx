@@ -89,8 +89,8 @@ export default function Experiences() {
                     </span>
                   </div>
 
-                  {/* Profile Image - Top portion showing profile pic and stats */}
-                  <div className="flex-1 flex items-center justify-center w-full px-2">
+                  {/* Profile Image */}
+                  <div className="flex-1 flex items-start justify-center w-full px-2 pt-4">
                     {experience.image ? (
                       <div className="relative w-full max-w-[200px] aspect-[3/2] rounded-xl overflow-hidden bg-white">
                         <Image
@@ -98,7 +98,7 @@ export default function Experiences() {
                           alt={experience.account}
                           fill
                           className="object-cover"
-                          style={{ objectPosition: experience.imagePosition || 'center top' }}
+                          style={{ objectPosition: experience.imagePosition || 'center top', transform: experience.imageScale ? `scale(${experience.imageScale})` : undefined }}
                         />
                       </div>
                     ) : (
@@ -110,11 +110,16 @@ export default function Experiences() {
                     )}
                   </div>
 
-                  {/* Account Name */}
+                  {/* Account Name + Subtext */}
                   <div className="absolute bottom-4 left-4 right-4 text-center">
                     <p className="text-sm font-medium text-white truncate">
                       {experience.account}
                     </p>
+                    {experience.subtext ? (
+                      <p className="mt-1 text-[10px] leading-snug text-gray-400 line-clamp-2">
+                        {experience.subtext}
+                      </p>
+                    ) : null}
                   </div>
 
                   {/* Expand Indicator */}

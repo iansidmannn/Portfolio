@@ -15,7 +15,7 @@ const accomplishments = [
   'USA bench press national record & California squat state record at age 17',
   'Took Piñata Farms TikTok from 0 to 11.5M organic views in 5 days',
   'Grew app store search downloads 300% at Piñata Farms',
-  'Built 9 brands past 100K views for their first time',
+  'Cracked 22 repeatable viral formats; scaled 20+ brands past 100K views for their first time',
   'Started 100M+ view "quitting incurable diseases" trend',
   'Gained 23,200 followers & 9 million views in 7 days @gymjunkie69_',
   'Scaled clothing brand to $4k profit/mo in 5 months',

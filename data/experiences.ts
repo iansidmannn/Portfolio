@@ -29,6 +29,7 @@ export interface SummaryImage {
 export interface Experience {
   id: string;
   title: string;
+  subtext?: string; // Short caption shown on the tile under the account
   account: string;
   accountUrl?: string;
   summary?: string | string[]; // Summary text - can be a string or array of paragraphs for easier editing
@@ -58,6 +59,7 @@ export interface Experience {
   contentExamples?: string[];
   image?: string; // Optional profile/account image
   imagePosition?: string; // CSS object-position value for fine-tuning image display
+  imageScale?: number; // CSS scale value for zooming into the image (e.g., 1.3)
   workType?: string; // Short label like "Personal Brand", "Clothing Brand", etc.
   followers?: number; // Follower count for sorting (in actual numbers, e.g., 1200000 for 1.2M)
   category?: 'mine' | 'consulting'; // Category for section separation
@@ -67,30 +69,64 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: 'pinata-farms',
-    title: 'Pinata Farms',
-    account: '@pinatafarm',
-    accountUrl: 'https://pinatafarm.com',
-    workType: 'Consumer App',
-    // followers intentionally omitted
-    // image intentionally omitted
-    category: 'consulting',
+    title: 'Piñata Farms',
+    subtext: '0 → 11.5M views in 5 days, 60K downloads. Featured by NFL, NBA, NHL.',
+    account: '@trypinatafarms',
+    accountUrl: 'https://www.tiktok.com/@trypinatafarms',
+    workType: 'AI Consumer App',
+    followers: 50000,
+    image: '/IMG_9927 (1).PNG',
+    imagePosition: 'center 42%',
+    imageScale: 1.17,
+    category: 'mine',
     summary: [
-      'Pinata Farms is a consumer meme-video app. I focused on organic distribution and conversion paths to drive installs.',
+      'Piñata Farms is a consumer meme-video app. As the solo organic operator, I identified & launched a new feature averaging 13,000 downloads/month, backed by 5 repeatable viral video formats that all convert at varying percentages.',
     ],
     achievements: [
-      'Drove 68,000+ app downloads',
-      'Built acquisition via organic distribution and creator-style content',
+      'Drove 68,000+ app downloads via organic distribution',
+      '13,000 downloads/month on identified feature',
+      'Built 5 repeatable viral formats that convert to installs',
+      'Engineered a viral sound now at 150M+ views across TikTok & Instagram',
+      'Picked up by 8 NFL teams, multiple NBA & NHL teams',
+      '11.5M views in first 5 days from 0',
     ],
     videos: [
       {
-        url: 'https://pinatafarm.com/download',
-        title: 'Download Pinata Farms',
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7589361240795925791',
+        title: '1.8M views',
+        thumbnail: '/pinata-thumb-30.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7588601726475701535',
+        title: '892K views',
+        thumbnail: '/pinata-thumb-31.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7603177692879490335',
+        title: '873K views',
+        thumbnail: '/pinata-thumb-32.jpg',
       },
     ],
   },
   {
+    id: 'eppy-vlogs',
+    title: 'Eppy Vlogs',
+    subtext: 'Created an extremely high-engagement viral video format.',
+    account: '@eppy.vlogs',
+    accountUrl: 'https://www.tiktok.com/@eppy.vlogs',
+    workType: 'Experimental Brand',
+    followers: 40000,
+    image: '/IMG_9928 (1).PNG',
+    imagePosition: 'center 45%',
+    imageScale: 1.12,
+    category: 'mine',
+    summary: [],
+    achievements: [],
+  },
+  {
     id: 'personal-brand',
     title: 'My Personal Brand',
+    subtext: 'Created 3 viral series that consistently got 100K–5M views.',
     account: '@iansidmann',
     accountUrl: 'https://www.tiktok.com/@gymjunkie69_',
     workType: 'Personal Brand',
@@ -98,9 +134,9 @@ export const experiences: Experience[] = [
     image: '/Worked With 2/iansidmannn (1).png',
     category: 'mine',
     summary: [
-      'This was a highschool passion project, I always told my friends I\'d blow up on tiktok. When I finally got one I had something to prove haha. I became a health, fitness, and diabetes creator',
+      'Built a 60K-follower TikTok from scratch as a health, fitness, and diabetes creator. Cracked 3 repeatable viral formats that consistently pulled 100K-5M views per video.',
     ],
-    approach: 'I made my account and it didn\'t go as expected, I was jacked, good looking, but in the first 3-4 months I got nothing, I had gained ~1,000 followers but I was struggling. I was mainly a health and fitness creator, but I started to post very unique content just to see what I\'d get back, and I discovered that people particularly like me talking about my diabetes.\n\nI started averaging 10-30k views per video which blew my mind at the time, then I was able to find this strategy and the rest was history ... +23,200 followers and + 9.3M views in one week. I created three viral engines (series) on this page that consitently got 100k-5m views and loved every moment of it, this was really a golden era for me on social media that started my whole career',
+    approach: 'Spent 3-4 months testing content with minimal traction (~1K followers). Identified an underserved psychographic — diabetics on TikTok who resonated with my identity as a fit, confident person living with Type 1. Doubled down on that signal.\n\nResult: +23,200 followers and 9.3M views in 7 days. Built 3 viral series (repeatable formats) that consistently generated 100K-5M views. 30M total views across the account. This is where I learned how viral content systems work.',
     videos: [
       {
         url: 'https://www.tiktok.com/@ianscontentarchive/video/6941544620442602757',
@@ -146,7 +182,7 @@ export const experiences: Experience[] = [
     ],
     achievements: [
       'Created 3 separate series averaging 100k-5M views',
-      '30 million total views',
+      '35 million total views',
       'Gained 9,300,000 views & 23,200 followers in 7 days',
       '60,000 followers',
     ],
@@ -155,6 +191,7 @@ export const experiences: Experience[] = [
   {
     id: 'clothing-brand-1',
     title: 'My First Clothing Brand',
+    subtext: 'Passion project in high school. One video hit 400K.',
     account: '@garmentgarageshop',
     accountUrl: 'https://www.instagram.com/garmentgarageshop/',
     workType: 'Clothing Brand',
@@ -162,9 +199,7 @@ export const experiences: Experience[] = [
     image: '/garm new.png',
     category: 'mine',
     summary: [
-      'I couldn\'t find the clothes I wanted so I decided to make them myself.',
-      'Learned how, and people quickly asked me to make stuff for them. I vividly remember getting $35 from my friend Nick for making a pair of overalls, and I was like holy f* this is insane money I gotta launch something.',
-      'Then I learned how to build websites/do shopify & garmentgarage was born',
+      'Self-taught the entire stack — design, production, Shopify, and content — to build a custom clothing brand from scratch. Identified unmet demand, shipped product, and ran organic distribution.',
     ],
     summaryImages: [
       {
@@ -189,11 +224,11 @@ export const experiences: Experience[] = [
         thumbnail: '/Screenshot 2025-11-23 130510.png',
       },
     ],
-    approach: 'Self-taught Adobe Premiere Pro, Photoshop, web development, Shopify, custom clothing creation, and graphic design. Noticed marketing trends to consistently create attention-grabbing videos. Experimented with paid ads and collaborated with TikTok account.',
+    approach: 'Self-taught Premiere Pro, Photoshop, Shopify, web dev, and graphic design. Built organic content engine that averaged 2-10K views per post. Experimented with paid acquisition and cross-platform distribution via TikTok.',
     achievements: [
-      'Self-taught entire business stack from scratch',
-      'Averaged 2-10k views on brand account',
-      'Successfully launched and marketed own business',
+      'Built entire business stack from zero',
+      '2-10K avg views on organic content',
+      'End-to-end: product, store, content, distribution',
     ],
     pictureMemories: [
       {
@@ -217,6 +252,7 @@ export const experiences: Experience[] = [
   {
     id: 'clothing-brand-2',
     title: 'My Second Clothing Brand',
+    subtext: '2.5M views on Instagram in 2 weeks of launch.',
     account: '@goofygarmentshop',
     accountUrl: 'https://www.instagram.com/goofygarmentshop/',
     workType: 'Clothing Brand',
@@ -224,7 +260,7 @@ export const experiences: Experience[] = [
     image: '/goofnew.png',
     category: 'mine',
     summary: [
-      'This was my first real jab at running a business I believed in. Goofygarments is a funny clothing brand I started in college and individually marketed on instagram.',
+      'Gen Z humor apparel brand I built in college. Identified a gap in the market, launched on Shopify, and scaled to $4K/mo profit in 3 months through organic Instagram distribution.',
     ],
     videos: [
       {
@@ -243,7 +279,7 @@ export const experiences: Experience[] = [
         thumbnail: '/Screenshot 2025-11-22 232643.png',
       },
     ],
-    approach: 'I noticed there was unmet demand for this type of clothing, so I decided to take it on & build a brand in this space, launched my store with shopify & within 2 weeks of innovating I hit 2.5 million views. Doubled down on what worked and came up with unique strategies to increase customer loyalty. Pretty quickly handmaking these shirts ended up taking hours out of my day so I figured out how to outsource production to grow the business. I ran this store pretty one dimensonally, make funny content & clothes, try to go viral, when videos blew up I made a lot of sales, and outside of that a little sales here and there from engaging with my audience. I made one video that got 5,800,000 views, 282,000 shares, and got me 193 new customers ($5,000 in sales), I\'ll post that below. Eventually, I gave the business to a friend to run for 50% while I pursued bigger ideas.',
+    approach: 'Spotted unmet demand in Gen Z humor apparel. Launched on Shopify and hit 2.5M views in the first 2 weeks. Doubled down on what worked — built repeatable content formats, scaled production by outsourcing manufacturing, and drove customer retention through audience engagement.\n\nOne video: 5.8M views, 282K shares, 193 new customers, $5K in revenue. Scaled to 4M monthly views and $15K profit in 5 months. Eventually handed operations to a partner to pursue higher-leverage opportunities.',
     approachVideo: {
       video: '/GOOFY GARMENTS on Instagram Guess I wont be getting bullied anym.mp4',
       label: '5.8M views @goofygarmentshop $5,000',
@@ -273,6 +309,7 @@ export const experiences: Experience[] = [
   {
     id: 'ai-content',
     title: 'AI Generated Content',
+    subtext: 'Fully automated content production in 2023, before agents existed.',
     account: '@success_archives',
     accountUrl: 'https://www.instagram.com/success_archives/',
     workType: 'AI Content',
@@ -280,7 +317,7 @@ export const experiences: Experience[] = [
     image: '/Worked With 2/IMG_3072.PNG', // spot 13: image 3
     category: 'mine',
     summary: [
-      'I had no projects at this time and I saw this account was blowing up, reverse engineered his videos, and decided to automate it. success_archives was born',
+      'Reverse-engineered a trending content format and built an automated pipeline to produce it at scale. Built an AI agent before they were a thing.',
     ],
     videos: [
       {
@@ -292,7 +329,7 @@ export const experiences: Experience[] = [
         thumbnail: '/Screenshot 2025-11-25 185538.png',
       },
     ],
-    approach: 'Automated high-quality AI video generation using ChatGPT, Power Automate, Kaiber AI, Excel, and ElevenLabs. Created system to produce 10 videos in 1-2 hours with minimal manual labor.\n\nJust tried to mirror',
+    approach: 'Built an end-to-end automated content pipeline using ChatGPT, Power Automate, Kaiber AI, Excel, and ElevenLabs. System produced 10 videos in 1-2 hours with minimal manual input — automated prompt generation, video generation, quote scraping, and asset organization.',
     approachAccount: {
       handle: '@timelessmanliness',
       url: 'https://www.instagram.com/timelessmanliness/',
@@ -303,12 +340,13 @@ export const experiences: Experience[] = [
     },
     achievements: [
       'Fully automated content creation pipeline',
-      'High-quality output with minimal effort',
+      '10 videos per 1-2 hours of work',
     ],
   },
   {
     id: 'charity-karaoke',
     title: 'Charity Karaoke',
+    subtext: 'Grew donations 25% through shareable social media content.',
     account: '@charitykaraoke',
     accountUrl: 'https://www.instagram.com/charitykaraoke/',
     workType: 'Charity Event',
@@ -362,6 +400,7 @@ export const experiences: Experience[] = [
   {
     id: 'sleep-heavenly-peace',
     title: 'Sleep In Heavenly Peace',
+    subtext: 'Created engaging content that outlines the problem.',
     account: '@shpbeds',
     accountUrl: 'https://www.instagram.com/shpbeds/',
     summary: ['Sleep in Heavenly Peace is an organization that builds beds for kids that sleep on the floor. I met the owner of the local chapter of SHP and they brought me on the team and I ended up creating content for the whole organization'],
@@ -411,6 +450,7 @@ https://www.instagram.com/shpventuracoe/reels/`,
   {
     id: 'sarah',
     title: 'Sarah (Personal Brand)',
+    subtext: "Worked together to uncover a format that's gotten her 50M views.",
     account: '@sarahfishersousa',
     accountUrl: 'https://www.instagram.com/sarahfishersousa/',
     workType: 'Personal Brand',
@@ -447,6 +487,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'snappy-feet',
     title: 'Snappy Feet',
+    subtext: '~1K views → 100K views after one consulting call. Consistent 10K-view videos too.',
     account: '@shopsnappyfeet',
     accountUrl: '#',
     workType: 'Ecommerce',
@@ -475,6 +516,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'open-park',
     title: 'Open Park',
+    subtext: '100xed views on their account after one strategy call.',
     account: '@openparkus',
     accountUrl: 'https://www.instagram.com/openparkus/',
     workType: 'Local Business',
@@ -499,6 +541,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'tostreetfair',
     title: 'To Street Fair',
+    subtext: 'Made content for the event day-of.',
     account: '@thousandoaksrotarystreetfair',
     accountUrl: 'https://www.instagram.com/thousandoaksrotarystreetfair/',
     workType: 'Non-Profit',
@@ -520,6 +563,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'red-as-color',
     title: 'RedAsTheColor',
+    subtext: 'Helped film many videos.',
     account: '@redasthecolor',
     accountUrl: 'https://www.youtube.com/@redasthecolor',
     workType: 'Car Creator',
@@ -534,10 +578,53 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
       'Event filming at WealthCon',
     ],
   },
+  {
+    id: 'tandem-diabetes',
+    title: 'Tandem Diabetes Care',
+    subtext: 'Created multiple videos with millions of views with their products.',
+    account: '@tandemdiabetes',
+    accountUrl: 'https://www.tandemdiabetes.com/',
+    workType: 'Medical Devices',
+    followers: 0,
+    image: '/IMG_9930.PNG',
+    imagePosition: 'center 42%',
+    imageScale: 1.17,
+    category: 'consulting',
+    commitment: 'Organic & creator consulting',
+    summary: [
+      'Tandem makes insulin pumps and connected software for people living with diabetes. Consulted their team on organic social and narratives that reflect real life with T1D.',
+    ],
+    achievements: [
+      'Organic social direction',
+      'Creator-aligned messaging',
+    ],
+  },
+  {
+    id: 'dexcom-consult',
+    title: 'Dexcom',
+    subtext: 'Created multiple videos with millions of views — got sponsored.',
+    account: '@dexcom',
+    accountUrl: 'https://www.dexcom.com/',
+    workType: 'Medical Devices',
+    followers: 0,
+    image: '/IMG_9929.PNG',
+    imagePosition: 'center 42%',
+    imageScale: 1.17,
+    category: 'consulting',
+    commitment: 'Organic & creator consulting',
+    summary: [
+      'Dexcom leads in continuous glucose monitoring. Consulted on short-form storytelling that lands with people who live with diabetes every day.',
+    ],
+    achievements: [
+      'Short-form framing & angles',
+      'Community-grounded narratives',
+    ],
+  },
   // Big Creator Consulting
   {
     id: 'atom-williamson',
     title: 'Atom Williamson',
+    subtext: 'Run the business side + videos. 9% conversion rate on store launch day.',
     account: '@atomwilliamsonn',
     workType: 'Fitness Creator',
     followers: 600000,
@@ -583,6 +670,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'ryan-blourchi',
     title: 'Ryan Blourchi',
+    subtext: 'Helped film and acted in many viral videos.',
     account: '@ryanblourchi',
     accountUrl: 'https://www.tiktok.com/@ryanblourchi',
     workType: 'Anime Creator',
@@ -608,6 +696,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'dr-spice',
     title: 'Dr. Spice',
+    subtext: 'Helped film and refine the strategy that took him past 100K.',
     account: '@drspice24',
     accountUrl: 'https://www.tiktok.com/@drspice24',
     workType: 'Self-Improvement Creator',
@@ -626,6 +715,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'tommy-brown',
     title: 'Tommy Brown',
+    subtext: 'Helped film many videos.',
     account: '@tommyybrown_',
     accountUrl: 'https://www.instagram.com/tommyybrown_/',
     workType: 'Fitness Creator',
@@ -643,6 +733,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'get-brick',
     title: 'Get Brick',
+    subtext: "Created a paid ad that's still #1 on their website after a year.",
     account: '@getbrick',
     accountUrl: 'https://getbrick.app/',
     summary: ['Brick is an industry leading productivty device that I use all the time. They liked my energy/content & contracted me for an ad'],
@@ -664,6 +755,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'smyle',
     title: 'Smyle',
+    subtext: 'Lead shortform content strategy for a new product (later killed).',
     account: '@smylelabs',
     accountUrl: 'https://www.instagram.com/smylelabs/',
     workType: 'Smoking Brand',
@@ -697,6 +789,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'conejo-awards',
     title: 'Conejo Awards',
+    subtext: 'Came up with a series that got them 150K views/month.',
     account: '@conejoawards',
     accountUrl: 'https://www.youtube.com/@ConejoAward',
     workType: 'Local Business',
@@ -788,6 +881,7 @@ Peace✌️`,
   {
     id: 'ivan-casiano',
     title: 'Ivan Casiano',
+    subtext: 'Cool client from my old editing agency.',
     account: '@mr.ivancasiano',
     accountUrl: 'https://www.instagram.com/mr.ivancasiano/',
     workType: 'Real Estate Creator',
@@ -803,6 +897,7 @@ Peace✌️`,
   {
     id: 'fitness19gyms',
     title: 'Fitness 19 Gyms',
+    subtext: '30+ daily Google reviews through a clever strategy.',
     account: '@fitness19gyms',
     accountUrl: 'https://www.instagram.com/fitness19gyms/',
     workType: 'Gym/Fitness Brand',
@@ -863,12 +958,12 @@ export const myExperiences = (() => {
   const insertIndex = result.findIndex(exp => (exp.followers ?? 0) < goofyFollowers);
   const finalInsertIndex = insertIndex >= 0 ? insertIndex : result.length;
   
-  if (garmentGarage && goofyGarments) {
-    result.splice(finalInsertIndex, 0, garmentGarage, goofyGarments);
-  } else if (garmentGarage) {
-    result.splice(finalInsertIndex, 0, garmentGarage);
+  if (goofyGarments && garmentGarage) {
+    result.splice(finalInsertIndex, 0, goofyGarments, garmentGarage);
   } else if (goofyGarments) {
     result.splice(finalInsertIndex, 0, goofyGarments);
+  } else if (garmentGarage) {
+    result.splice(finalInsertIndex, 0, garmentGarage);
   }
   
   return result;
@@ -894,10 +989,14 @@ export const consultingExperiences = (() => {
   const openPark = all.find(exp => exp.id === 'open-park');
   const toStreetFair = all.find(exp => exp.id === 'tostreetfair');
   const redAsColor = all.find(exp => exp.id === 'red-as-color');
+  const tandemDiabetes = all.find(exp => exp.id === 'tandem-diabetes');
+  const dexcomConsult = all.find(exp => exp.id === 'dexcom-consult');
   
   // Remove them from the sorted list
   const withoutPriority = all.filter(exp => 
     exp.id !== 'get-brick' &&
+    exp.id !== 'tandem-diabetes' &&
+    exp.id !== 'dexcom-consult' &&
     exp.id !== 'charity-karaoke' &&
     exp.id !== 'atom-williamson' &&
     exp.id !== 'conejo-awards' &&
@@ -912,47 +1011,55 @@ export const consultingExperiences = (() => {
   // Build result with custom positions:
   // Position 0-1: Top followers (Smyle, Ryan Blourchi, etc.)
   // Position 2: Get Brick
-  // Position 3: Charity Karaoke
-  // Position 4: Atom Williamson
-  // Position 5: Conejo Awards
-  // Position 6: Sleep In Heavenly Peace
-  // Position 7: Sarah
-  // Position 8: Snappy Feet
-  // Position 9: Open Park
-  // Position 10: To Street Fair
-  // Position 11: RedAsTheColor
+  // Position 3-4: Tandem, Dexcom
+  // Position 5: Charity Karaoke
+  // Position 6: Atom Williamson
+  // Position 7: Conejo Awards
+  // Position 8: Sleep In Heavenly Peace
+  // Position 9: Sarah
+  // Position 10: Snappy Feet
+  // Position 11: Open Park
+  // Position 12: To Street Fair
+  // Position 13: RedAsTheColor
   // Rest: Other experiences sorted by followers
   const result = [...withoutPriority];
   
   if (getBrick) {
     result.splice(2, 0, getBrick);
   }
+  if (tandemDiabetes && dexcomConsult) {
+    result.splice(3, 0, tandemDiabetes, dexcomConsult);
+  } else if (tandemDiabetes) {
+    result.splice(3, 0, tandemDiabetes);
+  } else if (dexcomConsult) {
+    result.splice(3, 0, dexcomConsult);
+  }
   if (charityKaraoke) {
-    result.splice(3, 0, charityKaraoke);
+    result.splice(5, 0, charityKaraoke);
   }
   if (atomWilliamson) {
-    result.splice(4, 0, atomWilliamson);
+    result.splice(6, 0, atomWilliamson);
   }
   if (conejoAwards) {
-    result.splice(5, 0, conejoAwards);
+    result.splice(7, 0, conejoAwards);
   }
   if (sleepHeavenlyPeace) {
-    result.splice(6, 0, sleepHeavenlyPeace);
+    result.splice(8, 0, sleepHeavenlyPeace);
   }
   if (sarah) {
-    result.splice(7, 0, sarah);
+    result.splice(9, 0, sarah);
   }
   if (snappyFeet) {
-    result.splice(8, 0, snappyFeet);
+    result.splice(10, 0, snappyFeet);
   }
   if (openPark) {
-    result.splice(9, 0, openPark);
+    result.splice(11, 0, openPark);
   }
   if (toStreetFair) {
-    result.splice(10, 0, toStreetFair);
+    result.splice(12, 0, toStreetFair);
   }
   if (redAsColor) {
-    result.splice(11, 0, redAsColor);
+    result.splice(13, 0, redAsColor);
   }
   
   return result;
