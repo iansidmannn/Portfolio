@@ -30,6 +30,10 @@ export default function Home() {
         <div className="space-y-6 text-[15px] sm:text-base text-gray-300 leading-relaxed">
           <p>Hi, my name is Ian.</p>
 
+          <p className="text-white font-medium">
+            What I&apos;m focused on now: creating viral videos that convert for startups.
+          </p>
+
           <p>
             I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
           </p>
@@ -43,7 +47,7 @@ export default function Home() {
           </p>
 
           <p>
-            I&apos;ve cracked 22 viral short-form video formats, taking over 20 different brands past 100K view videos on organic for their first time.
+            I&apos;ve cracked 22 viral short-form video formats, taking 11 different brands past 100K view videos on organic for their first time.
           </p>
 
           <p>About six months ago I joined <a href="https://www.pinatafarm.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Piñata Farms</a>.</p>
@@ -58,10 +62,6 @@ export default function Home() {
 
           <p>
             Before that: I grew my <a href="https://www.tiktok.com/@gymjunkie69_" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">TikTok to 60k</a>, built a <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">clothing brand</a> from my college dorm to $4k/mo profit in 3 months, and got the USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
-          </p>
-
-          <p className="text-white font-medium pt-2">
-            What I&apos;m focused on now: The overlap of viral videos and commerce.
           </p>
 
           <p>
