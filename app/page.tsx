@@ -43,13 +43,13 @@ export default function Home() {
           </p>
 
           <p>
-            I&apos;ve cracked viral formats for 11 different brands, taking each of them past 100K views for their first time.
+            I&apos;ve cracked 22 viral short-form video formats, taking 11 different brands past 100K organic view videos for their first time.
           </p>
 
           <p>About six months ago I joined <a href="https://www.pinatafarm.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Piñata Farms</a>.</p>
 
           <p>
-            Since then: I&apos;m averaging 13,000 downloads a month as their first organic hire.
+            Since then: I&apos;m averaging 13,000 downloads a month as their first successful organic hire.
           </p>
 
           <p>
