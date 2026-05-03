@@ -46,22 +46,10 @@ export default function Home() {
             And back in high school I started a trend of people <a href="https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">&ldquo;quitting&rdquo;</a> their incurable illnesses (100 million views).
           </p>
 
-          <p>
-            I&apos;ve cracked 22 viral short-form video formats, taking 11 different brands past 100K view videos on organic for their first time.
-          </p>
-
           <p>About six months ago I joined <a href="https://www.pinatafarm.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Piñata Farms</a>.</p>
 
           <p>
-            Since then: I&apos;m averaging 13,000 downloads a month as their first successful organic hire.
-          </p>
-
-          <p>
-            I identified, <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">launched</a>, and marketed a new feature that got 17,000 organic downloads in the first month.
-          </p>
-
-          <p>
-            Behind that is <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">5 repeatable viral video formats</a> all converting at varying percentages.
+            I identified, <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">launched</a>, and marketed a new feature that got 17,000 organic downloads in the first month. Behind that is <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">5 viral formats</a> I came up with that all still convert at varying percentages.
           </p>
 
           <p>

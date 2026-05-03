@@ -18,16 +18,8 @@ export default function WhereImValuable() {
           </p>
           <p>
             You already have a distribution team — you just need someone to
-            create viral content that converts.
-          </p>
-          <p>
-            I&apos;m able to reverse engineer any demographic &amp; make engaging
-            content for them on social.
-          </p>
-          <p>
-            For the right team I can do full creative production — viral ideas,
-            filming, editing, coordinating, brand storytelling / identity, and
-            execution of campaigns.
+            create viral content that converts. I can build distribution myself
+            if needed.
           </p>
         </motion.div>
       </div>
