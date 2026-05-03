@@ -61,7 +61,11 @@ export default function Home() {
           </p>
 
           <p>
-            I&apos;m happy to help people market &amp; find formats for their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a> if you&apos;re building something cool.
+            In my career I&apos;ve created 22x repeatable viral content formats for brands, taking 11 brands past 100k view videos on organic for their first time.
+          </p>
+
+          <p>
+            I&apos;m happy to help people market &amp; find formats that convert for their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a> if you&apos;re building something cool.
           </p>
 
           <p>
