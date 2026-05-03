@@ -30,6 +30,10 @@ export default function Home() {
         <div className="space-y-6 text-[15px] sm:text-base text-gray-300 leading-relaxed">
           <p>Hi, my name is Ian.</p>
 
+          <p>
+            I&apos;ve been reverse engineering markets since I was 13, when I made my first $2,000 trading items on Rocket League.
+          </p>
+
           <p className="text-white font-medium">
             What I&apos;m focused on now: creating viral videos that convert for startups.
           </p>
@@ -39,7 +43,7 @@ export default function Home() {
           </p>
 
           <p>
-            I was behind the <a href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">fake news pranks</a> on TikTok—300 million views and counting.
+            I was behind the <a href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">fake news prank trend</a> on TikTok—300 million views and counting.
           </p>
 
           <p>
@@ -62,6 +66,10 @@ export default function Home() {
 
           <p>
             Before that: I grew my <a href="https://www.tiktok.com/@gymjunkie69_" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">TikTok to 60k</a>, built a <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">clothing brand</a> from my college dorm to $4k/mo profit in 3 months, and got the USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
+          </p>
+
+          <p className="pt-2">
+            If you&apos;re building &amp; want to scale organic. hmu.
           </p>
 
           <p>
