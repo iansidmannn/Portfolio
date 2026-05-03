@@ -35,7 +35,7 @@ export default function Home() {
           </p>
 
           <p className="text-white font-medium">
-            What I&apos;m focused on now: creating viral videos that convert for startups.
+            Now I&apos;m focused on creating viral videos that convert for startups.
           </p>
 
           <p>
