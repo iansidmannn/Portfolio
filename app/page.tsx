@@ -69,7 +69,7 @@ export default function Home() {
           </p>
 
           <p>
-            I&apos;m happy to help point people in the right direction for their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">linkedin</a> if you want to grow with organic.
+            I&apos;m happy to help people with their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">linkedin</a> if you want to grow with organic.
           </p>
 
           <p>
