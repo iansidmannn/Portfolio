@@ -43,7 +43,7 @@ export default function Home() {
           </p>
 
           <p>
-            I was behind the <a href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">fake news prank trend</a> on TikTok—300 million views and counting.
+            I was behind the <a href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">fake news prank trend</a> on TikTok (300 million views and counting).
           </p>
 
           <p>
