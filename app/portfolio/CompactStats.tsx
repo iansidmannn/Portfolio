@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export const portfolioStats = [
   { value: '650M+', label: 'Organic Short-Form\nViews' },
-  { value: '22', label: 'Repeatable Viral Video Formats' },
+  { value: '3', label: 'Trends Over 100M\nViews' },
   { value: '$200K+', label: 'Revenue Generated' },
 ] as const
 
