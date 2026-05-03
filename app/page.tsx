@@ -35,7 +35,7 @@ export default function Home() {
           </p>
 
           <p>
-            Now I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
+            Now I&apos;ve built two products with 6-7 figure launches and I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
           </p>
 
           <p>
