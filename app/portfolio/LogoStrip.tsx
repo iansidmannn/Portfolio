@@ -73,15 +73,6 @@ export default function LogoStrip({
       className="py-10 px-6"
     >
       <div className="container mx-auto max-w-4xl">
-        <p className="mb-6 text-center text-xs text-gray-500">
-          Organizations in{' '}
-          <a
-            href="#portfolio-experiences"
-            className="text-gray-400 underline underline-offset-2 transition-colors hover:text-gray-300"
-          >
-            Experiences
-          </a>
-        </p>
         <LogoGrid size="default" />
       </div>
     </motion.section>

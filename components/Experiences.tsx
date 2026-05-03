@@ -5,6 +5,7 @@ import { ExternalLink, ChevronDown, X } from 'lucide-react'
 import { useState } from 'react'
 import Image from 'next/image'
 import { myExperiences, consultingExperiences, type Experience } from '@/data/experiences'
+import LogoStrip from '@/app/portfolio/LogoStrip'
 
 export default function Experiences() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
@@ -67,8 +68,10 @@ export default function Experiences() {
           </div>
         </motion.div>
 
+        <LogoStrip placement="belowStats" />
+
         {/* Experiences Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {currentExperiences.map((experience, index) => {
             const isExpanded = expandedId === experience.id
 

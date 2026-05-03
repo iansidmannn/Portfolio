@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import {
@@ -35,7 +35,8 @@ const tileActive =
   'border-violet-400/55 bg-violet-500/[0.12] shadow-[0_0_24px_-10px_rgba(139,92,246,0.55)]'
 
 export default function PortfolioOperatorSections() {
-  const [open, setOpen] = useState<MenuId | null>(null)
+  const [open, setOpen] = useState<MenuId | null>('viral')
+  const isInitialMount = useRef(true)
 
   const toggle = (id: MenuId) => setOpen((prev) => (prev === id ? null : id))
 
@@ -50,7 +51,10 @@ export default function PortfolioOperatorSections() {
   }, [])
 
   useEffect(() => {
-    if (!open) return
+    if (isInitialMount.current) {
+      isInitialMount.current = false
+      return
+    }
     const panelId = MENU.find((m) => m.id === open)?.panelId
     if (!panelId) return undefined
 

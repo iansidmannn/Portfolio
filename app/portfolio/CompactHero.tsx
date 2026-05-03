@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { PortfolioStatsStrip } from './CompactStats'
-import LogoStrip from './LogoStrip'
 
 export default function CompactHero() {
   return (
@@ -41,7 +40,6 @@ export default function CompactHero() {
         </motion.h1>
 
         <PortfolioStatsStrip className="mt-5 sm:mt-6 max-w-none" />
-        <LogoStrip placement="belowStats" />
       </div>
     </section>
   )
