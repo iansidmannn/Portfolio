@@ -35,7 +35,7 @@ export default function Home() {
           </p>
 
           <p>
-            I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
+            Now I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
           </p>
 
           <p>
@@ -65,11 +65,11 @@ export default function Home() {
           </p>
 
           <p className="text-white font-medium pt-2">
-            Now I&apos;m focused on viral videos that convert for startups. I made 5 for my recent company with the best format getting 100k+ views multiple times &amp; converting 4%.
+            Now I&apos;m focused on viral videos that convert for startups. I made 5 for my recent company — the best format getting ~100k views consistently &amp; converting at 4%.
           </p>
 
           <p>
-            I&apos;m happy to help people with their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">linkedin</a> if you want to grow with organic.
+            I&apos;m happy to help people market &amp; find formats for their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a> if you&apos;re building something cool.
           </p>
 
           <p>
