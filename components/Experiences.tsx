@@ -83,19 +83,19 @@ export default function Experiences() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05, duration: 0.5 }}
                   onClick={() => setExpandedId(isExpanded ? null : experience.id)}
-                  className="w-full group relative bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm overflow-hidden hover:border-white/30 transition-all duration-300 aspect-square flex flex-col items-center justify-center p-6"
+                  className="w-full group relative bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-white/10 backdrop-blur-sm overflow-hidden hover:border-white/30 transition-all duration-300 aspect-[3/4] sm:aspect-square flex flex-col items-center justify-center p-3 sm:p-6"
                 >
                   {/* Work Type Label */}
-                  <div className="absolute top-4 left-4 right-4">
-                    <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">
+                  <div className="absolute top-4 left-3 right-3 sm:top-6 sm:left-6 sm:right-6">
+                    <span className="text-[9px] sm:text-xs font-semibold text-purple-400 uppercase tracking-wide leading-tight line-clamp-2">
                       {experience.workType || experience.title}
                     </span>
                   </div>
 
                   {/* Profile Image */}
-                  <div className="flex-1 flex items-start justify-center w-full px-2 pt-4">
+                  <div className="flex-1 flex items-start justify-center w-full px-2 pt-8 sm:pt-4">
                     {experience.image ? (
-                      <div className="relative w-full max-w-[200px] aspect-[3/2] rounded-xl overflow-hidden bg-white">
+                      <div className="relative w-full max-w-[72px] sm:max-w-[200px] aspect-[3/2] rounded-xl overflow-hidden bg-white">
                         <Image
                           src={experience.image}
                           alt={experience.account}
@@ -105,7 +105,7 @@ export default function Experiences() {
                         />
                       </div>
                     ) : (
-                      <div className="w-full max-w-[200px] aspect-[3/2] rounded-xl bg-white flex items-center justify-center">
+                      <div className="w-full max-w-[72px] sm:max-w-[200px] aspect-[3/2] rounded-xl bg-white flex items-center justify-center">
                         <span className="text-sm text-gray-500 font-medium">
                           Profile Deleted
                         </span>
@@ -114,12 +114,12 @@ export default function Experiences() {
                   </div>
 
                   {/* Account Name + Subtext */}
-                  <div className="absolute bottom-4 left-4 right-4 text-center">
-                    <p className="text-sm font-medium text-white truncate">
+                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 text-center">
+                    <p className="text-[11px] sm:text-sm font-medium text-white truncate">
                       {experience.account}
                     </p>
                     {experience.subtext ? (
-                      <p className="mt-1 text-[10px] leading-snug text-gray-400 line-clamp-2">
+                      <p className="mt-0.5 sm:mt-1 text-[9px] sm:text-[10px] leading-snug text-gray-400 line-clamp-2">
                         {experience.subtext}
                       </p>
                     ) : null}

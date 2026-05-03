@@ -99,7 +99,7 @@ export const otherConsulting: ConsultingClient[] = [
     name: 'Snappy Feet',
     followers: 'N/A',
     accountUrl: '',
-    description: 'Ecommerce brand. One call optimized online store and corrected social media strategy. Next video got 100K+ views (from 1k avg)',
+    description: 'Ecommerce brand. Optimized online store and corrected social media strategy. Next video hit 100K views after a strategy call, went from ~1K views a video → ~15K.',
     work: [
       'Store optimization',
       'Social media strategy correction',

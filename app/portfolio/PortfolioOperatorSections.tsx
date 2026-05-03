@@ -20,12 +20,13 @@ type MenuId = 'viral' | 'revenue' | 'trends' | 'experiences'
 const MENU: Array<{
   id: MenuId
   title: string
+  shortTitle?: string
   Icon: LucideIcon
   panelId: string
 }> = [
   { id: 'viral', title: 'Viral Videos', Icon: Clapperboard, panelId: 'menu-panel-viral' },
-  { id: 'trends', title: "Trends I've Started", Icon: TrendingUp, panelId: 'menu-panel-trends' },
-  { id: 'revenue', title: 'Revenue (GTM)', Icon: DollarSign, panelId: 'menu-panel-revenue' },
+  { id: 'trends', title: "Trends I've Started", shortTitle: 'Trends', Icon: TrendingUp, panelId: 'menu-panel-trends' },
+  { id: 'revenue', title: 'Revenue (GTM)', shortTitle: 'Revenue', Icon: DollarSign, panelId: 'menu-panel-revenue' },
   { id: 'experiences', title: 'Experiences', Icon: Briefcase, panelId: 'menu-panel-experiences' },
 ]
 
@@ -87,7 +88,7 @@ export default function PortfolioOperatorSections() {
     >
       <div className="relative z-[1] container mx-auto max-w-5xl">
         <div className="grid grid-cols-4 gap-1.5 sm:gap-3">
-          {MENU.map(({ id, title, Icon, panelId }) => {
+          {MENU.map(({ id, title, shortTitle, Icon, panelId }) => {
             const isOpen = open === id
 
             return (
@@ -97,13 +98,14 @@ export default function PortfolioOperatorSections() {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => toggle(id)}
-                  className={`flex min-h-[4.1rem] w-full flex-col items-center justify-center gap-0.5 rounded-lg border px-1 py-2 text-center transition-all sm:min-h-[3.85rem] sm:gap-1.5 sm:rounded-xl sm:px-3 sm:py-3 ${
+                  className={`flex h-[4.1rem] w-full flex-col items-center justify-center gap-0.5 rounded-lg border px-1 py-2 text-center transition-all sm:h-[3.85rem] sm:gap-1.5 sm:rounded-xl sm:px-3 sm:py-3 ${
                     isOpen ? tileActive : tileInactive
                   }`}
                 >
                   <Icon className="h-3.5 w-3.5 shrink-0 text-gray-400" aria-hidden strokeWidth={2} />
                   <span className="px-0.5 text-[10px] font-semibold leading-tight tracking-tight text-white sm:text-[13px]">
-                    {title}
+                    <span className="sm:hidden">{shortTitle ?? title}</span>
+                    <span className="hidden sm:inline">{title}</span>
                   </span>
                   <ChevronDown
                     className={`h-3 w-3 shrink-0 text-gray-500 transition-transform duration-200 sm:h-3.5 sm:w-3.5 ${

@@ -487,7 +487,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'snappy-feet',
     title: 'Snappy Feet',
-    subtext: '~1K views → 100K views after one consulting call. Consistent 10K-view videos too.',
+    subtext: 'Next video hit 100K views after a strategy call, went from ~1K views a video → ~15K.',
     account: '@shopsnappyfeet',
     accountUrl: '#',
     workType: 'Ecommerce',
@@ -496,7 +496,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     category: 'consulting',
     commitment: 'Strategy consultation',
     summary: ['The owner called me and asked for my advice on their store because they were stuck at ~1-5k views. After our call, the next video posted got 103k views and they consistently got ~10k+ views.'],
-    approach: 'Ecommerce brand. One call optimized online store and corrected social media strategy. Next video got 100K+ views (from 1k avg).',
+    approach: 'Ecommerce brand. Optimized online store and corrected social media strategy. Next video hit 100K views after a strategy call, went from ~1K views a video → ~15K.',
     pictureMemories: [
       {
         image: '/Screenshot 2025-11-23 230855.png',
