@@ -61,7 +61,7 @@ export default function Home() {
           </p>
 
           <p>
-            I&apos;ve created <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">5 viral formats that convert</a>, identified &amp; launched a new feature that got 17,000 organic downloads in its first month, and our content has been <a href="https://www.tiktok.com/music/original-sound-7589742642620123935" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">featured by multiple teams in the NFL, NHL, and the NBA</a>.
+            I&apos;ve created <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">5 viral formats that convert</a>, identified &amp; launched a new feature that got <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">17,000 organic downloads in its first month</a>, and our content has been <a href="https://www.tiktok.com/music/original-sound-7589742642620123935" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">featured by multiple teams in the NFL, NHL, and the NBA</a>.
           </p>
 
           <p>
