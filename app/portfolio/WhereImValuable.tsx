@@ -18,7 +18,7 @@ export default function WhereImValuable() {
           </p>
           <p>
             You already have a distribution team — you just need someone to
-            invent the strategies that convert.
+            create viral content that converts.
           </p>
           <p>
             I&apos;m able to reverse engineer any demographic &amp; make engaging

@@ -34,10 +34,6 @@ export default function Home() {
             I&apos;ve been reverse engineering markets since I was 13, when I made my first $2,000 trading items on Rocket League.
           </p>
 
-          <p className="text-white font-medium">
-            Now I&apos;m focused on creating viral videos that convert for startups.
-          </p>
-
           <p>
             I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
           </p>
@@ -68,8 +64,12 @@ export default function Home() {
             Before that: I grew my <a href="https://www.tiktok.com/@gymjunkie69_" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">TikTok to 60k</a>, built a <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">clothing brand</a> from my college dorm to $4k/mo profit in 3 months, and got the USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
           </p>
 
-          <p className="pt-2">
-            If you&apos;re building &amp; want to scale organic. hmu.
+          <p className="text-white font-medium pt-2">
+            Now I&apos;m focused on viral videos that convert for startups. I made 5 for my recent company with the best format getting 100k+ views multiple times &amp; converting 4%.
+          </p>
+
+          <p>
+            I&apos;m happy to help point people in the right direction for their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">linkedin</a> if you want to grow with organic.
           </p>
 
           <p>
