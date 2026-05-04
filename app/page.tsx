@@ -46,10 +46,8 @@ export default function Home() {
             And back in high school I started a trend of people <a href="https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">&ldquo;quitting&rdquo;</a> their incurable illnesses (100 million views).
           </p>
 
-          <p>About six months ago I joined <a href="https://www.pinatafarm.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Piñata Farms</a>.</p>
-
           <p>
-            I identified, <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">launched</a>, and marketed a new feature that got 17,000 organic downloads in the first month. Behind that is <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">5 viral formats</a> I came up with that all still convert at varying percentages.
+            More recently I took the AI Consumer App I&apos;m working at from 0 → 11.5M organic views in 5 days. I identified, <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">launched</a>, and marketed a new feature that I pulled in 17,000 organic downloads for in the first month.
           </p>
 
           <p>
@@ -57,11 +55,11 @@ export default function Home() {
           </p>
 
           <p className="text-white font-medium pt-2">
-            Now I&apos;m focused on viral videos that convert for startups. I made 5 for my recent company — the best format getting ~100k views consistently &amp; converting at 4%.
+            Now I&apos;m looking to build my next thing, or help startups market their products.
           </p>
 
           <p>
-            I&apos;m happy to help people market &amp; find formats for their products. Message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a> if you&apos;re building something cool.
+            If you&apos;re a builder or you&apos;re building something cool message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a>.
           </p>
 
           <p>

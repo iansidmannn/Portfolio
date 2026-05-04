@@ -18,7 +18,7 @@ export default function WhereImValuable() {
           </p>
           <p>
             You already have a distribution team — you just need someone to
-            create viral content that converts. I can build distribution myself
+            create content that converts. I can build distribution myself
             if needed.
           </p>
         </motion.div>
