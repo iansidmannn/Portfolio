@@ -49,10 +49,6 @@ export default function Home() {
             USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
           </p>
 
-          <p className="text-white font-medium pt-2">
-            Now I&apos;m looking to build my next thing.
-          </p>
-
           <p>
             <a
               href="https://www.linkedin.com/in/ian-sidman/"
