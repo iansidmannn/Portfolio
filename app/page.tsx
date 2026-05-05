@@ -41,12 +41,12 @@ export default function Home() {
           </p>
 
           <p>
-            Across my career I&apos;ve grown 6 different accounts by moving on opportunities I saw, and I&apos;ve started 3 trends with over 100M views each. See more of my work <a href="/portfolio/" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">here</a>.
+            I&apos;ve created 6 viral brands by moving on opportunities I saw, and I&apos;ve started 3 trends with over 100M views each. See more <a href="/portfolio/" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">here</a>.
           </p>
 
           <p>
             Before that:<br />
-            Grew my <a href="https://www.tiktok.com/@gymjunkie69_" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">TikTok to 60K</a>. Clothing brand from my dorm to $4K/mo profit in 3 months. USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
+            USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
           </p>
 
           <p className="text-white font-medium pt-2">
