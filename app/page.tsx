@@ -35,7 +35,7 @@ export default function Home() {
           </p>
 
           <p>
-            Recently:<br />
+            Recent Projects:<br />
             <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">PiñataFarms AI</a> — grew 60,000 users through content<br />
             <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Goofy Garments</a> — 1,100 unique customers through content
           </p>
@@ -45,8 +45,7 @@ export default function Home() {
           </p>
 
           <p>
-            Before that:<br />
-            USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
+            Before that: USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
           </p>
 
           <p>
