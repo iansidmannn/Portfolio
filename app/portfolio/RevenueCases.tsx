@@ -68,7 +68,7 @@ const cases: RevenueCase[] = [
     tag: 'GTM 0→1',
     title: '60,000 Downloads From Hacking A Prank',
     metric: '60,000+',
-    metricLabel: 'app downloads from tutorials, and still growing',
+    metricLabel: 'app downloads from content, and still growing',
     thumbnails: [
       {
         src: '/trends/trend-rev-tutorials-trypinatafarms-7594994877037825311.jpg',
@@ -91,7 +91,7 @@ const cases: RevenueCase[] = [
       },
     ],
     expandedContent:
-      "Saw an emerging trend on TikTok, built our app around it, and funneled customers to our app by ranking #1 on TikTok search and in TikTok comment sections. Eventually customers started doing the referrals for us.\n\n6,000 downloads in 3 days of launch. 17,000 downloads in the first month via organic TikTok.\n\nAfter making the fake news prank accessible to everyone and marketing it well — over 2.5 million views on tutorials — the trend grew from 60M views to over 300M views, and it's still actively growing.\n\nMy tutorials have captured 60,000 downloads and still continue to capture downloads to this day.",
+      "Saw an emerging trend on TikTok, built our app around it, and funneled customers to our app by ranking #1 on TikTok search and in TikTok comment sections. Eventually customers started doing the referrals for us.\n\n6,000 downloads in 3 days of launch. 17,000 downloads in the first month via organic TikTok.\n\nAfter making the fake news prank accessible to everyone and marketing it well — over 2.5 million views on tutorials — the trend grew from 60M views to over 300M views, and it's still actively growing.\n\nMy tutorials have captured 50,000 downloads and still continue to capture downloads to this day.",
     links: [
       { label: 'Piñata Farms (the app)', url: 'https://www.tiktok.com/@trypinatafarms' },
     ],

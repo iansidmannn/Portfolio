@@ -41,7 +41,7 @@ const keyMoments: KeyMoment[] = [
     metric: '300M+',
     metricLabel: 'Views On TikTok & Instagram',
     expandedContent:
-      'Saw an emerging trend on TikTok, built our app around it, and funneled customers to our app by ranking #1 on TikTok search and in TikTok comment sections. Eventually customers started doing the referrals for us. 6,000 downloads in 3 days of launch. 17,000 downloads in the first month via organic TikTok (GTM).\n\nAfter making the fake news prank accessible to everyone and marketing it well—over 2.5 million views on tutorials—the trend grew from 60M views to over 300M views, and it\'s still actively growing.\n\nMy tutorials have captured 60,000 downloads and still continue to capture downloads to this day.',
+      'Saw an emerging trend on TikTok, built our app around it, and funneled customers to our app by ranking #1 on TikTok search and in TikTok comment sections. Eventually customers started doing the referrals for us. 6,000 downloads in 3 days of launch. 17,000 downloads in the first month via organic TikTok (GTM).\n\nAfter making the fake news prank accessible to everyone and marketing it well—over 2.5 million views on tutorials—the trend grew from 60M views to over 300M views, and it\'s still actively growing.\n\nMy tutorials have captured 50,000 downloads and still continue to capture downloads to this day.',
     links: [
       { label: 'See the Trend', url: 'https://www.tiktok.com/@nimrashamid/video/7589053163232054558' },
     ],
