@@ -55,7 +55,7 @@ export default function Home() {
           </p>
 
           <p className="text-white font-medium pt-2">
-            Now I&apos;m looking to build my next thing, or help startups market their products.
+            Now I&apos;m looking to build my next thing.
           </p>
 
           <p>
