@@ -31,7 +31,7 @@ const cases: RevenueCase[] = [
   {
     id: 'twenty-two-k-profit',
     tag: 'GTM 0→1',
-    title: '$22K Profit From One Video Format',
+    title: '$22K Profit From One Idea',
     metric: '$22,000',
     metricLabel: '$5,000 & 193 new customers from one video',
     thumbnails: [
