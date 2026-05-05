@@ -111,7 +111,7 @@ export const experiences: Experience[] = [
   {
     id: 'eppy-vlogs',
     title: 'Eppy Vlogs',
-    subtext: 'Created an extremely high-engagement viral video format.',
+    subtext: 'Created a viral brand that captured attention from a viral trend.',
     account: '@eppy.vlogs',
     accountUrl: 'https://www.tiktok.com/@eppy.vlogs',
     workType: 'Experimental Brand',
@@ -733,7 +733,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'get-brick',
     title: 'Get Brick',
-    subtext: "Created a paid ad that's still #1 on their website after a year.",
+    subtext: "Created a paid ad that's still #1 on their website.",
     account: '@getbrick',
     accountUrl: 'https://getbrick.app/',
     summary: ['Brick is an industry leading productivty device that I use all the time. They liked my energy/content & contracted me for an ad'],
