@@ -47,7 +47,7 @@ export default function Home() {
           </p>
 
           <p>
-            More recently I took the AI Consumer App I&apos;m working at from 0 → 11.5M organic views in 5 days. I identified, <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">launched</a>, and marketed a new feature that I pulled in 17,000 organic downloads for in the first month.
+            Recently I took the AI Consumer App I&apos;m working at from 0 → 11.5M organic views in 5 days. Then I <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">launched</a> a feature &amp; grew it to 60,000 users through content.
           </p>
 
           <p>
@@ -59,7 +59,7 @@ export default function Home() {
           </p>
 
           <p>
-            If you&apos;re a builder or you&apos;re building something cool message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a>.
+            If you&apos;re a builder message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a>.
           </p>
 
           <p>
