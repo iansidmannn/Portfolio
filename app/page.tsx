@@ -47,7 +47,7 @@ export default function Home() {
           </p>
 
           <p>
-            Recently I took the AI Consumer App I&apos;m working at from 0 → 11.5M organic views in 5 days. Then I <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">launched</a> a feature &amp; grew it to 60,000 users through content.
+            Recently I took the AI Consumer App I&apos;m working at from 0 → 11.5M organic views in 5 days. Then I launched a feature &amp; grew it to 60,000 users <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">through content</a>.
           </p>
 
           <p>
@@ -55,11 +55,7 @@ export default function Home() {
           </p>
 
           <p className="text-white font-medium pt-2">
-            Now I&apos;m looking to build my next thing.
-          </p>
-
-          <p>
-            If you&apos;re a builder message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a>.
+            Now I&apos;m looking to build my next thing. If you&apos;re a builder message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a>.
           </p>
 
           <p>
