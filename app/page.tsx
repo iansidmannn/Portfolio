@@ -55,7 +55,7 @@ export default function Home() {
           </p>
 
           <p className="text-white font-medium pt-2">
-            Now I&apos;m looking to build my next thing. If you&apos;re a builder message me on <a href="https://www.linkedin.com/in/ian-sidman/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">LinkedIn</a>.
+            Now I&apos;m looking to build my next thing.
           </p>
 
           <p>
