@@ -80,7 +80,8 @@ export const experiences: Experience[] = [
     imageScale: 1.17,
     category: 'mine',
     summary: [
-      'Piñata Farms is a consumer meme-video app. As the solo organic operator, I identified & launched a new feature averaging 13,000 downloads/month, backed by 5 repeatable viral video formats that all convert at varying percentages.',
+      'Have you seen the fake news prank on TikTok where people are putting their family on the news and being like "oh my god is that you??" That was me. At Piñata Farms I identified, launched, and marketed the fake news prank feature and gained 17,000 downloads in our first month. Behind that was 5 repeatable viral video formats that all convert at varying percentages.',
+      'I grew their TikTok from 0 to 11K followers in a few months. My organic content brought in 60,000 downloads which fueled the trend from 60M views to over 350M views. I started a viral sound that got 150M views and was used by multiple teams in the NFL, NBA, & NHL. And I created a viral video format that converted a high % of viewers to paying users that\'s still running.',
     ],
     achievements: [
       'Drove 68,000+ app downloads via organic distribution',
@@ -106,6 +107,41 @@ export const experiences: Experience[] = [
         title: '873K views',
         thumbnail: '/pinata-thumb-32.jpg',
       },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7613614608271674654',
+        title: '858K views',
+        thumbnail: '/pinata-thumb-33.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7594994877037825311',
+        title: '804K views',
+        thumbnail: '/pinata-thumb-34.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7589742736874704158',
+        title: '787K views',
+        thumbnail: '/pinata-thumb-35.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7590134012195245342',
+        title: '755K views',
+        thumbnail: '/pinata-thumb-36.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7616873184838651167',
+        title: '631K views',
+        thumbnail: '/pinata-thumb-37.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7606903390194470175',
+        title: '567K views',
+        thumbnail: '/pinata-thumb-38.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@trypinatafarms/video/7608407775885970718',
+        title: '464K views',
+        thumbnail: '/pinata-thumb-39.jpg',
+      },
     ],
   },
   {
@@ -120,7 +156,21 @@ export const experiences: Experience[] = [
     imagePosition: 'center 45%',
     imageScale: 1.12,
     category: 'mine',
-    summary: [],
+    summary: [
+      'I saw a viral trend/topic on TikTok about this guy. I studied the content and the types of people watching it, then made content that would engage them. A few videos hit 100K views and each video had a crazy view → follower ratio. The best getting 124,000 views and 4,000 followers (~3%). Gained 5K followers in less than 8 hours of effort.',
+    ],
+    videos: [
+      {
+        url: 'https://www.tiktok.com/@eppy.vlogs/video/7616198135672474911',
+        title: '124K views',
+        thumbnail: '/eppy-thumb-43.jpg',
+      },
+      {
+        url: 'https://www.tiktok.com/@eppy.vlogs/video/7612765751778266398',
+        title: '74K views',
+        thumbnail: '/eppy-thumb-44.jpg',
+      },
+    ],
     achievements: [],
   },
   {
@@ -134,7 +184,8 @@ export const experiences: Experience[] = [
     image: '/Worked With 2/iansidmannn (1).png',
     category: 'mine',
     summary: [
-      'Built a 60K-follower TikTok from scratch as a health, fitness, and diabetes creator. Cracked 3 repeatable viral formats that consistently pulled 100K-5M views per video.',
+      'Spent 3-4 months testing content with minimal traction (~1K followers). Then I saw a video trend of people quitting vaping by dunking their vapes in water. Diabetes was also a viral topic at the time. I decided to combine the two trends—I made a video where I quit diabetes by dropping my insulin pump in water—effectively killing it. That post hit 4.1 million views.',
+      'Hundreds of other creators piled on with asthma, diabetes, cancer, Crohn\'s, MS—you name it. Multiple spinoffs passed 10 million views each. Altogether the trend blew past 100M views across everyone who joined in. In that same week, I uncovered 2 other viral formats related to diabetes with a similar strategy. During that 7 day period I gained 23,200 followers and 9.3M views. This is where I learned how viral content systems worked. I stopped posting not too long after, account gained 35M Views Total & 60,000 followers.',
     ],
     approach: 'Spent 3-4 months testing content with minimal traction (~1K followers). Identified an underserved psychographic — diabetics on TikTok who resonated with my identity as a fit, confident person living with Type 1. Doubled down on that signal.\n\nResult: +23,200 followers and 9.3M views in 7 days. Built 3 viral series (repeatable formats) that consistently generated 100K-5M views. 30M total views across the account. This is where I learned how viral content systems work.',
     videos: [

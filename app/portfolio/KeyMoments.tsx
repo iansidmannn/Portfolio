@@ -112,29 +112,49 @@ const keyMoments: KeyMoment[] = [
     metric: '150M+',
     metricLabel: 'Views On TikTok & Instagram',
     expandedContent:
-      `Twenty-four hours after identifying our first viral video format for Piñata Farms we already had over a million views.
+      `8 different NFL teams just used my sound on TikTok. Here's the psychology behind why it spread.
 
-Apparently, boomers love stupid AI news.
+For context, I recently cracked a viral format for Piñata Farms bringing in 500,000 views a day.
 
-"Breaking news, if you don't get gasoline for your car it will eventually run out of gas." That one hit 1.8 million views 🤣.
+They were AI news reports that said stuff like: "Breaking news, if you don't get gasoline for your car it will eventually run out of gas."
 
-Anyways, I wanted to test how much audio was driving virality on these clips.
+Anyways, I wanted to test how much the audio played a role in the virality of these videos.
 
-So I came up with a shareable script: "This just in, scientists now confirm the person receiving this video is mad cute. Have a great day cutie <3"
+Here's the truth about that: people share experiences, not videos.
 
-I re-prompted the voice multiple times to get the pacing and pitch right, added fitting background music, and shipped it.
+You send a video to a friend because you want to bond with them over it. You feel an emotion, you want to feel it with them. That's it.
 
-What happened next was insane: twenty-four hours later a user posted with the sound—and it was basically just snow on a hike—that clip did 4.6 million views.
+So if you're able to make a script that achieves that effect across multiple cohorts of people, you're already 5 steps ahead. This was mine:
 
-A few days later the Brooklyn Nets used it and landed about 6 million views, then more teams piled in across the NBA, NFL, and NHL (including the official NFL TikTok account).
+"This just in, scientists now confirm the person receiving this video is mad cute. Have a great day cutie <3"
 
-I couldn't help but join in. I posted something random on my personal account and pulled 152K views 🤣.
+A friend could share this to a friend, a lover to a lover, a stranger to a stranger, someone to their crush, etc.
+
+What's amazing about TikTok is that people can hide behind the experiences they're sharing. Saying you're mad cute to someone in person is way more risky than sending a news broadcast implying you're saying it. It allows people to explore new territory in their relationships, which is beautiful — and on the creator end it allows things to be shared faster.
+
+So I had that working in my favor. The final piece was to turn it into an emotional experience.
+
+Have you ever wondered why TikTok makes music sound better? Or why movies always use music for emotional scenes?
+
+It's because emotions carry a magnet that makes people cement things to their memory. Those magnets are the reference points people use to share things. You aren't actually sharing the video — you're sharing the magnet. "hey you're cute."
+
+To get a similar effect in my silly little news video, I re-prompted the audio until it had perfect pacing, pitch, and background music. Until it looked & felt like a movie scene.
+
+So now I had a script that was shareable across multiple cohorts of people, audio that made it feel real, and one happy accident:
+
+It worked against pretty much any video background you put it on.
+
+A user posted with the sound just showing some snow on a hike — 4.6 million views, 232,000 shares.
+
+I posted an old sunset clip on my personal page and got 142K views.
+
+A few days later the NBA team "The Brooklyn Nets" used it and got 6 million views — and shortly after, tons of teams across the NBA, NFL, and NHL piled on.
 
 The sound is now at over 150 million views across Instagram and TikTok.
 
-It was pretty cool watching a mini economy form around audio I'd engineered—but I had to kill it. As Piñata's solo organic operator I only had time for revenue-driving work.
+It's cool seeing a mini economy form around a sound I engineered.
 
-Later that same month I identified and launched a feature that grabbed 6,000 organic downloads in three days—but that's a story for another time 😁`,
+If you want to claim some free views for whatever you're building, here's a link to the sound 🔥`,
     links: [
       { label: 'See The Sound', url: 'https://lnkd.in/gTiJa97M' },
     ],

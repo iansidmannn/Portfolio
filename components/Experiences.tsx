@@ -204,11 +204,13 @@ export default function Experiences() {
                                       
                                       return (
                                         <p key={paraIdx} className="text-gray-300 leading-relaxed">
-                                          {paragraph.split(/\b(strategy|this account)\b/i).map((part, i, arr) => {
+                                          {paragraph.split(/\b(strategy|this account|the fake news prank|viral sound)\b/i).map((part, i, arr) => {
                                             if (i === 0) return <span key={i}>{part}</span>;
                                             // Check if this part is "strategy" (case-insensitive)
                                             const isStrategy = /^strategy$/i.test(part);
                                             const isThisAccount = /^this account$/i.test(part);
+                                            const isFakeNewsPrank = /^the fake news prank$/i.test(part);
+                                            const isViralSound = /^viral sound$/i.test(part);
                                             
                                             // Only make "strategy" a link for the iansidmann experience specifically
                                             if (isStrategy && experience.account === '@ian.sidman') {
@@ -248,7 +250,34 @@ export default function Experiences() {
                                                 </a>
                                               );
                                             }
-                                            
+
+                                            // Pinata Farms summary links
+                                            if (isFakeNewsPrank && experience.id === 'pinata-farms') {
+                                              return (
+                                                <a
+                                                  key={i}
+                                                  href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558"
+                                                  target="_blank"
+                                                  rel="noopener noreferrer"
+                                                  className="text-purple-400 hover:text-purple-300 underline cursor-pointer"
+                                                >
+                                                  {part}
+                                                </a>
+                                              );
+                                            }
+                                            if (isViralSound && experience.id === 'pinata-farms') {
+                                              return (
+                                                <a
+                                                  key={i}
+                                                  href="https://www.tiktok.com/music/original-sound-7589742642620123935"
+                                                  target="_blank"
+                                                  rel="noopener noreferrer"
+                                                  className="text-purple-400 hover:text-purple-300 underline cursor-pointer"
+                                                >
+                                                  {part}
+                                                </a>
+                                              );
+                                            }
                                             return <span key={i}>{part}</span>;
                                           })}
                                         </p>
