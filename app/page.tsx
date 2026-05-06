@@ -35,17 +35,27 @@ export default function Home() {
           </p>
 
           <p>
-            Recent Projects:<br />
-            <a href="https://www.tiktok.com/@trypinatafarms" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">PiñataFarms AI</a> — grew 60,000 users through content<br />
-            <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">Goofy Garments</a> — 1,100 unique customers through content
+            Now I&apos;ve built two products with 6-7 figure launches and I have 650 million organic short form views across brands, startups, and trends I&apos;ve started.
           </p>
 
           <p>
-            Created 6x viral brands by moving on market trends, and I&apos;ve started 3 trends on TikTok with over 100M views each.
+            I was behind the <a href="https://www.tiktok.com/@nimrashamid/video/7589053163232054558" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">fake news prank trend</a> on TikTok (300 million views and counting).
           </p>
 
           <p>
-            Before that: USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
+            And back in high school I started a trend of people <a href="https://www.tiktok.com/@gymjunkie69_/video/6939996247193292038" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">&ldquo;quitting&rdquo;</a> their incurable illnesses (100 million views).
+          </p>
+
+          <p>
+            Recently I took the AI Consumer App I&apos;m working at from 0 → 11.5M organic views in 5 days. Then I launched a feature &amp; grew it to 60,000 users <a href="https://www.tiktok.com/@trypinatafarms/video/7594994877037825311" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">through content</a>.
+          </p>
+
+          <p>
+            Before that: I grew my <a href="https://www.tiktok.com/@gymjunkie69_" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">TikTok to 60k</a>, built a <a href="https://www.instagram.com/goofygarmentshop/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">clothing brand</a> from my college dorm to $4k/mo profit in 3 months, and got the USA bench press <button onClick={() => setShowRecord(true)} className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200 cursor-pointer">national record</button> at 17.
+          </p>
+
+          <p className="text-white font-medium pt-2">
+            Now I&apos;m looking to build my next thing.
           </p>
 
           <p>
