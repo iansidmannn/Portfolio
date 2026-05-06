@@ -41,7 +41,7 @@ export default function Home() {
           </p>
 
           <p>
-            Created 6x viral brands by moving on market trends, and I&apos;ve started 3 trends on TikTok with over 100M views each. See more <a href="/portfolio/" className="underline decoration-gray-600 hover:decoration-gray-400 transition-colors duration-200">here</a>.
+            Created 6x viral brands by moving on market trends, and I&apos;ve started 3 trends on TikTok with over 100M views each.
           </p>
 
           <p>
