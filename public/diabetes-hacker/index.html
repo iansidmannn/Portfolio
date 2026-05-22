@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diabetes Hacker — See what every meal does to your blood sugar</title>
+<meta name="description" content="An iOS app for diabetics. See what every meal does to your blood sugar.">
+<meta property="og:title" content="Diabetes Hacker">
+<meta property="og:description" content="See what every meal does to your blood sugar.">
+<meta property="og:type" content="website">
+
+<style>
+  :root {
+    --green:        #33B866;
+    --green-dark:   #1A8C47;
+    --green-light:  #D9F5E0;
+    --bg:           #FFFFFF;
+    --border:       #E6F2EA;
+    --text:         #121919;
+    --text-dim:     #5A6666;
+    --text-faint:   #97A3A3;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+  }
+
+  .wrap {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 28px 22px 60px;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 56px;
+  }
+  .logo {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  /* HERO */
+  h1 {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0 0 28px;
+  }
+  h1 .accent { color: var(--green-dark); }
+
+  /* EMAIL FORM */
+  form.signup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  form.signup input[type="email"] {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 17px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s ease;
+    font-family: inherit;
+    -webkit-appearance: none;
+  }
+  form.signup input[type="email"]:focus {
+    border-color: var(--green);
+  }
+  form.signup button {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+    background: var(--green-dark);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.15s ease;
+    font-family: inherit;
+  }
+  form.signup button:hover { background: #156B37; }
+  form.signup button:active { transform: scale(0.98); }
+
+  .form-note {
+    font-size: 13px;
+    color: var(--text-faint);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .success-msg {
+    display: none;
+    padding: 16px 18px;
+    background: var(--green-light);
+    border-radius: 14px;
+    color: var(--green-dark);
+    font-weight: 600;
+    text-align: center;
+  }
+  .success-msg.show { display: block; }
+
+  /* SCREENS — vertically stacked, big */
+  .screens {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .phone {
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--green-light);
+    display: block;
+  }
+  .phone img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (min-width: 520px) {
+    .wrap { padding-top: 48px; }
+    h1 { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <img class="logo" src="icon.png" alt="Diabetes Hacker">
+    <div class="brand">Diabetes Hacker</div>
+  </header>
+
+  <h1>See what every meal does to your <span class="accent">blood sugar</span>.</h1>
+
+  <div class="success-msg" id="successMsg">Thanks. We'll email you when it's live.</div>
+
+  <!--
+    Wire to Formspree (or similar). Replace YOUR_FORMSPREE_URL with your real endpoint.
+    https://formspree.io
+  -->
+  <form class="signup" id="signupForm" action="YOUR_FORMSPREE_URL" method="POST">
+    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit">Notify me</button>
+  </form>
+  <div class="form-note">Coming to iOS. No spam.</div>
+
+  <section class="screens">
+    <div class="phone"><img src="screens/1-log.png" alt=""></div>
+    <div class="phone"><img src="screens/2-curve.png" alt=""></div>
+    <div class="phone"><img src="screens/3-journal.png" alt=""></div>
+  </section>
+
+</div>
+
+<script>
+  const form = document.getElementById('signupForm');
+  const success = document.getElementById('successMsg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      if (form.action.includes('YOUR_FORMSPREE_URL')) {
+        form.style.display = 'none';
+        document.querySelector('.form-note').style.display = 'none';
+        success.classList.add('show');
+        return;
+      }
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.querySelector('.form-note').style.display = 'none';
+        success.classList.add('show');
+      } else {
+        alert('Something went wrong. Please email viralbuildersllc@gmail.com');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please email viralbuildersllc@gmail.com');
+    }
+  });
+</script>
+
+</body>
+</html>
