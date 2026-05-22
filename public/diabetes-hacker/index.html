@@ -239,7 +239,7 @@
   <img class="logo" src="icon.png" alt="Diabetes Hacker">
   <h1>See what <span class="hl">every meal</span> does to your blood sugar.</h1>
 
-  <form class="capture" id="form1" action="https://script.google.com/macros/s/AKfycbxMbdRbpcBySGJqH5cmAk-XqHqEV4ST-jjNsrWjQLy5ZvhJZSCtBa4uQXS34-RZ_dXB/exec" method="POST">
+  <form class="capture" id="form1" action="/api/waitlist" method="POST">
     <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" inputmode="email">
     <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
     <input type="hidden" name="source" value="hero">
@@ -270,7 +270,7 @@
     </svg>
     Coming soon to the App Store.
   </h2>
-  <form class="capture" id="form2" action="https://script.google.com/macros/s/AKfycbxMbdRbpcBySGJqH5cmAk-XqHqEV4ST-jjNsrWjQLy5ZvhJZSCtBa4uQXS34-RZ_dXB/exec" method="POST">
+  <form class="capture" id="form2" action="/api/waitlist" method="POST">
     <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" inputmode="email">
     <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
     <input type="hidden" name="source" value="closer">
@@ -293,21 +293,16 @@
       e.preventDefault();
       const data = new FormData(f);
       try {
-        // Preview mode — not yet wired to real endpoint
-        if (f.action.includes('https://script.google.com/macros/s/AKfycbxMbdRbpcBySGJqH5cmAk-XqHqEV4ST-jjNsrWjQLy5ZvhJZSCtBa4uQXS34-RZ_dXB/exec')) {
+        const res = await fetch(f.action, { method: 'POST', body: data });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.ok !== false) {
           f.style.display = 'none';
           ok.classList.add('show');
-          return;
+        } else if (json.error === 'invalid email') {
+          alert('Please enter a valid email address.');
+        } else {
+          alert('Something went wrong. Please email viralbuildersllc@gmail.com');
         }
-        // Apps Script doesn't reliably return CORS headers, so fire-and-forget
-        // via no-cors. We can't read the response, but the POST still arrives.
-        await fetch(f.action, {
-          method: 'POST',
-          body: data,
-          mode: 'no-cors'
-        });
-        f.style.display = 'none';
-        ok.classList.add('show');
       } catch (err) {
         alert('Something went wrong. Please email viralbuildersllc@gmail.com');
       }
