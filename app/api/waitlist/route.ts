@@ -1,17 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Server-only: uses service_role to bypass RLS for inserts.
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Force dynamic — this is a runtime endpoint, never statically rendered.
+export const dynamic = 'force-dynamic';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
+
+function getSupabase() {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) {
+    throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
+  }
+  return createClient(url, key);
+}
 
 export async function OPTIONS() {
   return NextResponse.json({}, { headers: CORS_HEADERS });
@@ -48,6 +54,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const supabase = getSupabase();
     const { error } = await supabase
       .from('waitlist')
       .insert({ email: email.toLowerCase(), source });
