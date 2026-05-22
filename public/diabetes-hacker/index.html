@@ -2,215 +2,271 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Diabetes Hacker — See what every meal does to your blood sugar</title>
-<meta name="description" content="An iOS app for diabetics. See what every meal does to your blood sugar.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Diabetes Hacker — Join the waitlist</title>
+<meta name="description" content="See what every meal does to your blood sugar. Join the Diabetes Hacker waitlist.">
 <meta property="og:title" content="Diabetes Hacker">
 <meta property="og:description" content="See what every meal does to your blood sugar.">
-<meta property="og:type" content="website">
 
 <style>
   :root {
     --green:        #33B866;
     --green-dark:   #1A8C47;
-    --green-light:  #D9F5E0;
-    --bg:           #FFFFFF;
-    --border:       #E6F2EA;
-    --text:         #121919;
-    --text-dim:     #5A6666;
-    --text-faint:   #97A3A3;
+    --green-soft:   #E8F6EE;
+    --green-tint:   #F3FAF6;
+    --ink:          #13201A;
+    --muted:        #5C6B63;
+    --line:         rgba(0, 0, 0, 0.08);
   }
 
-  * { box-sizing: border-box; }
-
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.4;
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.5;
+    overflow-x: hidden;
   }
-
-  .wrap {
-    max-width: 440px;
-    margin: 0 auto;
-    padding: 28px 22px 60px;
-  }
-
-  /* HEADER */
-  header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 56px;
-  }
-  .logo {
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    object-fit: cover;
-    display: block;
-  }
-  .brand {
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: -0.01em;
-  }
+  .wrap { max-width: 460px; margin: 0 auto; padding: 0 24px; }
 
   /* HERO */
-  h1 {
-    font-size: 38px;
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin: 0 0 28px;
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(env(safe-area-inset-top) + 24px) 0 36px;
   }
-  h1 .accent { color: var(--green-dark); }
+  .logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    display: block;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.18;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    max-width: 340px;
+    margin-bottom: 32px;
+  }
+  .hero h1 .hl { color: var(--green-dark); }
 
   /* EMAIL FORM */
-  form.signup {
+  form.capture {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 8px;
-  }
-  form.signup input[type="email"] {
     width: 100%;
-    padding: 16px 18px;
-    font-size: 17px;
-    border: 1px solid var(--border);
+    max-width: 340px;
+  }
+  .capture input[type=email] {
+    width: 100%;
+    height: 54px;
+    border: 1.5px solid var(--line);
     border-radius: 14px;
-    background: var(--bg);
-    color: var(--text);
+    padding: 0 18px;
+    font-size: 17px;
+    color: var(--ink);
+    background: #fff;
     outline: none;
     transition: border-color 0.15s ease;
+    text-align: center;
     font-family: inherit;
     -webkit-appearance: none;
   }
-  form.signup input[type="email"]:focus {
-    border-color: var(--green);
-  }
-  form.signup button {
+  .capture input[type=email]:focus { border-color: var(--green); }
+  .capture button {
     width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: 700;
-    color: white;
-    background: var(--green-dark);
+    height: 54px;
     border: none;
     border-radius: 14px;
     cursor: pointer;
-    transition: transform 0.1s ease, background 0.15s ease;
+    background: var(--green-dark);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    transition: transform 0.08s ease, background 0.15s ease;
     font-family: inherit;
   }
-  form.signup button:hover { background: #156B37; }
-  form.signup button:active { transform: scale(0.98); }
+  .capture button:hover { background: #156B37; }
+  .capture button:active { transform: scale(0.98); }
 
-  .form-note {
-    font-size: 13px;
-    color: var(--text-faint);
-    text-align: center;
-    margin-top: 4px;
-  }
-
-  .success-msg {
+  .success {
     display: none;
-    padding: 16px 18px;
-    background: var(--green-light);
+    background: var(--green-soft);
     border-radius: 14px;
+    padding: 16px;
+    text-align: center;
     color: var(--green-dark);
     font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    max-width: 340px;
+  }
+  .success.show { display: block; }
+
+  /* EXPLAINER */
+  .explain {
+    padding: 24px 0 12px;
+  }
+  .step {
+    margin-bottom: 56px;
     text-align: center;
   }
-  .success-msg.show { display: block; }
-
-  /* SCREENS — vertically stacked, big */
-  .screens {
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
+  .step .kicker {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
   }
-  .phone {
+  .step h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .step p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 320px;
+    margin: 0 auto 24px;
+  }
+  .step .phone {
     width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
     border-radius: 28px;
     overflow: hidden;
-    background: var(--green-light);
     display: block;
   }
-  .phone img {
+  .step .phone img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  @media (min-width: 520px) {
-    .wrap { padding-top: 48px; }
-    h1 { font-size: 44px; }
+  /* CLOSER */
+  .closer {
+    background: var(--green-tint);
+    border-radius: 24px;
+    padding: 36px 24px;
+    text-align: center;
+    margin: 12px 0 36px;
+  }
+  .closer h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .closer form.capture { margin: 0 auto; }
+
+  /* FOOTER */
+  footer {
+    padding: 4px 0 calc(env(safe-area-inset-bottom) + 32px);
+    text-align: center;
+  }
+  footer .disc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 340px;
+    margin: 0 auto;
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<!-- HERO -->
+<section class="hero wrap">
+  <img class="logo" src="icon.png" alt="Diabetes Hacker">
+  <h1>See what <span class="hl">every meal</span> does to your blood sugar.</h1>
 
-  <header>
-    <img class="logo" src="icon.png" alt="Diabetes Hacker">
-    <div class="brand">Diabetes Hacker</div>
-  </header>
-
-  <h1>See what every meal does to your <span class="accent">blood sugar</span>.</h1>
-
-  <div class="success-msg" id="successMsg">Thanks. We'll email you when it's live.</div>
-
-  <!--
-    Wire to Formspree (or similar). Replace YOUR_FORMSPREE_URL with your real endpoint.
-    https://formspree.io
-  -->
-  <form class="signup" id="signupForm" action="YOUR_FORMSPREE_URL" method="POST">
-    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
-    <button type="submit">Notify me</button>
+  <form class="capture" id="form1" action="YOUR_FORMSPREE_URL" method="POST">
+    <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" inputmode="email">
+    <button type="submit">Join the waitlist</button>
   </form>
-  <div class="form-note">Coming to iOS. No spam.</div>
+  <div class="success" id="ok1">You're on the waitlist.</div>
+</section>
 
-  <section class="screens">
+<!-- EXPLAINER -->
+<section class="explain wrap">
+  <div class="step">
+    <div class="kicker">Step 1 · Log it</div>
+    <h2>Snap the meal, tap save.</h2>
+    <p>Photo, what you ate, your bolus. Two taps and you're done.</p>
     <div class="phone"><img src="screens/1-log.png" alt=""></div>
-    <div class="phone"><img src="screens/2-curve.png" alt=""></div>
-    <div class="phone"><img src="screens/3-journal.png" alt=""></div>
-  </section>
+  </div>
 
-</div>
+  <div class="step">
+    <div class="kicker">Step 2 · See the curve</div>
+    <h2>Watch the 3-hour follow-up.</h2>
+    <p>Your glucose, charted from the moment you ate. The spike, the dip, the recovery — for that exact food.</p>
+    <div class="phone"><img src="screens/2-curve.png" alt=""></div>
+  </div>
+
+  <div class="step">
+    <div class="kicker">Step 3 · Find your patterns</div>
+    <h2>Build your food playbook.</h2>
+    <p>Every meal stacks up in a searchable journal. Find your spike foods, find your flat foods.</p>
+    <div class="phone"><img src="screens/3-journal.png" alt=""></div>
+  </div>
+</section>
+
+<!-- CLOSER -->
+<section class="closer wrap">
+  <h2>Be first in line.</h2>
+  <form class="capture" id="form2" action="YOUR_FORMSPREE_URL" method="POST">
+    <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" inputmode="email">
+    <button type="submit">Join the waitlist</button>
+  </form>
+  <div class="success" id="ok2">You're on the waitlist.</div>
+</section>
+
+<footer class="wrap">
+  <p class="disc">Diabetes Hacker is a personal logging tool, not a medical device. It does not diagnose, treat, or recommend insulin doses.</p>
+</footer>
 
 <script>
-  const form = document.getElementById('signupForm');
-  const success = document.getElementById('successMsg');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    try {
-      if (form.action.includes('YOUR_FORMSPREE_URL')) {
-        form.style.display = 'none';
-        document.querySelector('.form-note').style.display = 'none';
-        success.classList.add('show');
-        return;
-      }
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.style.display = 'none';
-        document.querySelector('.form-note').style.display = 'none';
-        success.classList.add('show');
-      } else {
+  function wire(formId, okId) {
+    const f = document.getElementById(formId);
+    const ok = document.getElementById(okId);
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(f);
+      try {
+        if (f.action.includes('YOUR_FORMSPREE_URL')) {
+          f.style.display = 'none';
+          ok.classList.add('show');
+          return;
+        }
+        const res = await fetch(f.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          f.style.display = 'none';
+          ok.classList.add('show');
+        } else {
+          alert('Something went wrong. Please email viralbuildersllc@gmail.com');
+        }
+      } catch (err) {
         alert('Something went wrong. Please email viralbuildersllc@gmail.com');
       }
-    } catch (err) {
-      alert('Something went wrong. Please email viralbuildersllc@gmail.com');
-    }
-  });
+    });
+  }
+  wire('form1', 'ok1');
+  wire('form2', 'ok2');
 </script>
 
 </body>
