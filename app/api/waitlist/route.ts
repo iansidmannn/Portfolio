@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
       }
       console.error('Supabase insert error:', error);
       return NextResponse.json(
-        { ok: false, error: 'storage error' },
+        { ok: false, error: 'storage error', detail: error.message, code: error.code, hint: error.hint },
         { status: 500, headers: CORS_HEADERS }
       );
     }
