@@ -115,6 +115,14 @@
   }
   .capture button:hover { background: #156B37; }
   .capture button:active { transform: scale(0.98); }
+  .honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 
   .success {
     display: none;
@@ -130,9 +138,10 @@
   }
   .success.show { display: block; }
 
+
   /* EXPLAINER — 3 phones in a row */
   .explain {
-    padding: 16px 0 24px;
+    padding: 16px 0 72px;
     text-align: center;
   }
   .phone-row {
@@ -195,7 +204,8 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     margin-bottom: 22px;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
   }
@@ -229,8 +239,10 @@
   <img class="logo" src="icon.png" alt="Diabetes Hacker">
   <h1>See what <span class="hl">every meal</span> does to your blood sugar.</h1>
 
-  <form class="capture" id="form1" action="YOUR_FORMSPREE_URL" method="POST">
+  <form class="capture" id="form1" action="https://script.google.com/macros/s/AKfycbxqYO-ahljg1h028N05tegXf84lXPMfFIipRqV-0i7ojE3Ob1E5ZwfHdmKEk2hqzePb/exec" method="POST">
     <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" inputmode="email">
+    <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="source" value="hero">
     <button type="submit">Notify me</button>
   </form>
   <div class="success" id="ok1">Thanks. We'll email you when it's live.</div>
@@ -258,15 +270,19 @@
     </svg>
     Coming soon to the App Store.
   </h2>
-  <form class="capture" id="form2" action="YOUR_FORMSPREE_URL" method="POST">
+  <form class="capture" id="form2" action="https://script.google.com/macros/s/AKfycbxqYO-ahljg1h028N05tegXf84lXPMfFIipRqV-0i7ojE3Ob1E5ZwfHdmKEk2hqzePb/exec" method="POST">
     <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" inputmode="email">
+    <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="source" value="closer">
     <button type="submit">Notify me</button>
   </form>
   <div class="success" id="ok2">Thanks. We'll email you when it's live.</div>
 </section>
 
 <footer class="wrap">
+  <p class="disc">By signing up, you agree to receive emails regarding the release of Diabetes Hacker.</p>
   <p class="disc">Diabetes Hacker is a personal logging tool, not a medical device. It does not diagnose, treat, or recommend insulin doses.</p>
+  <p class="disc"><span style="color: var(--green-dark); font-weight: 600;">#diabetesmaxx</span></p>
 </footer>
 
 <script>
@@ -277,22 +293,21 @@
       e.preventDefault();
       const data = new FormData(f);
       try {
-        if (f.action.includes('YOUR_FORMSPREE_URL')) {
+        // Preview mode — not yet wired to real endpoint
+        if (f.action.includes('https://script.google.com/macros/s/AKfycbxqYO-ahljg1h028N05tegXf84lXPMfFIipRqV-0i7ojE3Ob1E5ZwfHdmKEk2hqzePb/exec')) {
           f.style.display = 'none';
           ok.classList.add('show');
           return;
         }
-        const res = await fetch(f.action, {
+        // Apps Script doesn't reliably return CORS headers, so fire-and-forget
+        // via no-cors. We can't read the response, but the POST still arrives.
+        await fetch(f.action, {
           method: 'POST',
           body: data,
-          headers: { 'Accept': 'application/json' }
+          mode: 'no-cors'
         });
-        if (res.ok) {
-          f.style.display = 'none';
-          ok.classList.add('show');
-        } else {
-          alert('Something went wrong. Please email viralbuildersllc@gmail.com');
-        }
+        f.style.display = 'none';
+        ok.classList.add('show');
       } catch (err) {
         alert('Something went wrong. Please email viralbuildersllc@gmail.com');
       }
