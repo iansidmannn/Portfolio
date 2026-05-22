@@ -73,10 +73,10 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ ok: true }, { headers: CORS_HEADERS });
-  } catch (err) {
+  } catch (err: any) {
     console.error('Waitlist route error:', err);
     return NextResponse.json(
-      { ok: false, error: 'server error' },
+      { ok: false, error: 'server error', detail: err?.message || String(err) },
       { status: 500, headers: CORS_HEADERS }
     );
   }
