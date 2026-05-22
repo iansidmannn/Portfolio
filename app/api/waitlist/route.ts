@@ -67,16 +67,16 @@ export async function POST(req: NextRequest) {
       }
       console.error('Supabase insert error:', error);
       return NextResponse.json(
-        { ok: false, error: 'storage error', detail: error.message, code: error.code, hint: error.hint },
+        { ok: false, error: 'storage error' },
         { status: 500, headers: CORS_HEADERS }
       );
     }
 
     return NextResponse.json({ ok: true }, { headers: CORS_HEADERS });
-  } catch (err: any) {
+  } catch (err) {
     console.error('Waitlist route error:', err);
     return NextResponse.json(
-      { ok: false, error: 'server error', detail: err?.message || String(err) },
+      { ok: false, error: 'server error' },
       { status: 500, headers: CORS_HEADERS }
     );
   }
