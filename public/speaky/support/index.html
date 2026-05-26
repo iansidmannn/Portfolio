@@ -45,9 +45,11 @@
   .nav{margin-bottom:32px;font-size:14px;}
   .nav a{text-decoration:none;color:var(--purple-dark);}
   .nav a:hover{text-decoration:underline;}
+  .head{display:flex;align-items:center;gap:14px;margin-bottom:32px;}
+  .head .logo{width:42px;height:42px;border-radius:10px;flex-shrink:0;}
+  .head h1{margin:0;}
   .contact-block{
-    margin-top:48px;padding-top:32px;border-top:1px solid var(--line);
-    text-align:center;
+    margin-top:48px;text-align:center;
   }
   .contact-block p{
     font-size:15px;color:var(--muted);margin-bottom:16px;line-height:1.55;
@@ -67,17 +69,17 @@
 
 <p class="nav"><a href="../">← Back to Speaky</a></p>
 
-<h1>Support</h1>
+<div class="head">
+  <img class="logo" src="../icon.png" alt="Speaky">
+  <h1>Support</h1>
+</div>
 
 <details>
-  <summary>The voice is mispronouncing a name. How do I fix it?</summary>
-  <p>Works for any name — your character's, your own, a friend's. Spell it the way it <em>sounds</em>, not the way it's actually spelled. The voice engine reads what it sees, so unusual spellings trip it up.</p>
+  <summary>Speaky's mispronouncing my name. How do I fix it?</summary>
+  <p>Spell it the way it <em>sounds</em> in Settings — not the way it's actually spelled.</p>
   <div class="ex">
-    <strong>Examples:</strong><br>
-    "Aoife" → <strong>EE-fa</strong> or <strong>Eefa</strong><br>
-    "Siobhan" → <strong>Shi-VON</strong> or <strong>Shavon</strong><br>
-    Your name is "Sean" but it says "Seen" → type it <strong>Shawn</strong><br>
-    Sound-it-out spellings always win.
+    <strong>Example:</strong><br>
+    Your name is <strong>Sean</strong> but Speaky pronounces it like "seen." Type it as <strong>Shawn</strong> instead.
   </div>
 </details>
 
@@ -88,7 +90,12 @@
 
 <details>
   <summary>How do I get more talk time?</summary>
-  <p>Every plan refills monthly. You can also buy a one-time top-up of minutes anytime from the Settings screen — no commitment.</p>
+  <p>Every plan refills monthly from your purchase date. You can also buy a one-time top-up of minutes anytime from the Settings screen — no commitment.</p>
+</details>
+
+<details>
+  <summary>My characters lost their memory?</summary>
+  <p>Any time you toggle memory mode on or off, the memory wipes. If you didn't touch that, it's just because our characters can only hold so much at once.</p>
 </details>
 
 <details>
@@ -103,11 +110,11 @@
 
 <details>
   <summary>Can I delete my account and data?</summary>
-  <p>Yes. Open Settings → Account → Delete account. Everything tied to you (characters, usage, conversation history) is removed.</p>
+  <p>Yes — open Settings → Account → Delete account. That wipes the server-side stuff (your account, usage, subscription). The rest — characters, memory, conversation history — lives on your phone, so it sticks around until you uninstall the app.</p>
 </details>
 
 <div class="contact-block">
-  <p>Still stuck? Email us — please include the app name (Speaky) in your subject so we can help fast.</p>
+  <p>If you're still stuck you can email us viralbuildersllc@gmail.com with speaky in the subject line.</p>
   <a class="btn" href="mailto:viralbuildersllc@gmail.com?subject=Speaky%20%E2%80%94%20">Contact Viral Builders</a>
 </div>
 

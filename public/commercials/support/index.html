@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Commercial</title>
+<style>
+  :root{
+    --bg:#000;
+    --ink:#fff;
+    --line:rgba(255,255,255,0.14);
+    --muted:rgba(255,255,255,0.65);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px;
+    padding:48px 24px 80px;
+  }
+  .wrap{max-width:520px;margin:0 auto;}
+  .head{display:flex;align-items:center;gap:14px;margin-bottom:32px;}
+  .head .logo{
+    width:48px;height:48px;border-radius:11px;flex-shrink:0;
+    border:1.5px solid #3A3A3D;
+  }
+  .head h1{margin:0;}
+  h1{font-size:28px;letter-spacing:-0.02em;}
+  details{
+    border-bottom:1px solid var(--line);padding:16px 0;
+  }
+  details:first-of-type{border-top:1px solid var(--line);}
+  summary{
+    list-style:none;cursor:pointer;font-size:16px;font-weight:600;
+    display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";font-weight:600;font-size:20px;line-height:1;flex-shrink:0;
+  }
+  details[open] summary::after{content:"–";}
+  details p{font-size:15px;color:var(--muted);margin-top:10px;line-height:1.6;}
+  details p a{color:var(--ink);}
+  .nav{margin-bottom:24px;font-size:14px;}
+  .nav a{text-decoration:none;color:var(--muted);}
+  .contact{
+    margin-top:40px;text-align:center;
+  }
+  .contact p{font-size:15px;color:var(--muted);margin-bottom:16px;line-height:1.55;}
+  .contact a.btn{
+    display:inline-block;
+    background:#fff;color:#000;text-decoration:none;
+    font-weight:600;font-size:15px;
+    padding:12px 24px;border-radius:999px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="nav"><a href="../">← Back</a></p>
+
+<div class="head">
+  <img class="logo" src="../icon.png" alt="Commercial">
+  <h1>Support</h1>
+</div>
+
+<details>
+  <summary>I picked 1 ad but I'm watching 2?</summary>
+  <p>Yeah, Google does that sometimes — they pack two short videos into a single ad slot (they call it an "ad pod"). We can't really stop them.</p>
+</details>
+
+<details>
+  <summary>How do I change the number of ads?</summary>
+  <p>It's at the top of the home screen — but to change it, you'll need to unlock your apps first. That's on purpose, to prevent people from getting their apps back early.</p>
+</details>
+
+<details>
+  <summary>How do I change which apps are blocked?</summary>
+  <p>They're listed at the bottom of the home screen — but to adjust them, you'll need to watch your ads first. Same reason as above, to prevent people from unblocking apps without doing the work.</p>
+</details>
+
+<details>
+  <summary>Is Commercial watching what I do?</summary>
+  <p>No! Everything is stored on your iPhone. Nothing about your activity ever leaves your phone. <a href="../privacy/">Privacy Policy</a> has the full breakdown.</p>
+</details>
+
+<details>
+  <summary>How do I delete my data?</summary>
+  <p>There's no account to delete — everything lives on your phone. If you uninstall the app, it all goes with it.</p>
+</details>
+
+<div class="contact">
+  <p>If you're still stuck you can email us viralbuildersllc@gmail.com with commercial in the subject line.</p>
+  <a class="btn" href="mailto:viralbuildersllc@gmail.com?subject=Commercial%20%E2%80%94%20">Contact Viral Builders</a>
+</div>
+
+</div>
+</body>
+</html>
