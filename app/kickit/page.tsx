@@ -184,16 +184,10 @@ function Closer() {
   return (
     <div className="text-center mb-14">
       <h2
-        className="text-[28px] font-black tracking-tight leading-[1.15] mb-2"
-        style={{ color: INK }}
-      >
-        The more friends you have,
-      </h2>
-      <h2
         className="text-[28px] font-black tracking-tight leading-[1.15] mb-7"
         style={{ color: INK }}
       >
-        the more you'll never be bored.
+        You'll never be bored again.
       </h2>
       <a
         href={APP_STORE_URL}
