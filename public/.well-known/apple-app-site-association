@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TB53H8X69P.com.viralbuilders.kickit"],
+        "components": [
+          { "/": "/kickit/h/*", "comment": "Hangout invite" },
+          { "/": "/kickit/g/*", "comment": "Group invite" },
+          { "/": "/kickit/u/*", "comment": "Friend handle add" }
+        ]
+      }
+    ]
+  }
+}
