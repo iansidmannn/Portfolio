@@ -1,10 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-
-// Placeholder until the App Store listing exists. Swap to the real
-// apps.apple.com URL once KickIt is live.
-const APP_STORE_URL = 'https://apps.apple.com/us/app/kickit'
+import { APP_STORE_URL, KICKIT_TAGLINE } from './config'
 
 type Props = {
   emoji: string
@@ -42,8 +39,8 @@ export default function InstallCard({ emoji, headline, subhead }: Props) {
           Already have the app? It should open automatically.
         </p>
 
-        <div className="mt-16 text-xs text-gray-600 tracking-widest font-semibold">
-          KICKIT · HANG WITH FRIENDS, RIGHT NOW
+        <div className="mt-16 text-xs text-gray-600 tracking-widest font-semibold uppercase">
+          KickIt · {KICKIT_TAGLINE}
         </div>
       </div>
     </div>
