@@ -13,10 +13,24 @@ export default function InstallCard({ emoji, headline, subhead }: Props) {
   // Deferred deep-link bridge: copy the current URL to the clipboard so
   // KickIt's first-launch paste detector can route the user back to the
   // intended hangout / group / friend after install.
+  //
+  // Plus: auto-redirect to the App Store on iOS after a brief beat.
+  // iOS intercepts the universal link BEFORE this JS runs when KickIt
+  // is installed, so we only reach this timer for users without the
+  // app — they get bounced straight to the listing instead of having
+  // to tap "Get KickIt". Desktop / Android stay on the marketing page.
   useEffect(() => {
+    if (typeof window === 'undefined') return
     try {
       navigator.clipboard?.writeText(window.location.href).catch(() => {})
     } catch {}
+    const ua = navigator.userAgent || ''
+    const isIOS = /iPhone|iPad|iPod/.test(ua)
+    if (!isIOS) return
+    const timer = setTimeout(() => {
+      window.location.href = APP_STORE_URL
+    }, 1500)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
