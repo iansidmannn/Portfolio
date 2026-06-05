@@ -37,7 +37,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: calc(env(safe-area-inset-top) + 56px) 0 56px;
+    padding: calc(env(safe-area-inset-top) + 56px) 0 44px;
   }
   .logo {
     width: 64px;
@@ -45,26 +45,6 @@
     border-radius: 16px;
     display: block;
     margin-bottom: 22px;
-  }
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--green-soft);
-    color: var(--green-dark);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 999px;
-    margin-bottom: 16px;
-    letter-spacing: 0.01em;
-  }
-  .pill::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--green);
   }
   .hero h1 {
     font-size: 28px;
@@ -76,45 +56,6 @@
   }
   .hero h1 .hl { color: var(--green-dark); }
 
-  /* EMAIL FORM */
-  form.capture {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 340px;
-  }
-  .capture input[type=email] {
-    width: 100%;
-    height: 54px;
-    border: 1.5px solid var(--line);
-    border-radius: 14px;
-    padding: 0 18px;
-    font-size: 17px;
-    color: var(--ink);
-    background: #fff;
-    outline: none;
-    transition: border-color 0.15s ease;
-    text-align: center;
-    font-family: inherit;
-    -webkit-appearance: none;
-  }
-  .capture input[type=email]:focus { border-color: var(--green); }
-  .capture button {
-    width: 100%;
-    height: 54px;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    background: var(--green-dark);
-    color: #fff;
-    font-size: 17px;
-    font-weight: 700;
-    transition: transform 0.08s ease, background 0.15s ease;
-    font-family: inherit;
-  }
-  .capture button:hover { background: #156B37; }
-  .capture button:active { transform: scale(0.98); }
   .cta {
     display: inline-flex;
     align-items: center;
@@ -135,34 +76,64 @@
   .cta:hover { background: #156B37; }
   .cta:active { transform: scale(0.98); }
   .cta .apple { display: block; flex-shrink: 0; }
-  .honeypot {
-    position: absolute !important;
-    left: -9999px !important;
-    width: 1px !important;
-    height: 1px !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
 
-  .success {
-    display: none;
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: var(--green-soft);
-    border-radius: 14px;
-    padding: 16px;
-    text-align: center;
     color: var(--green-dark);
+    font-size: 12px;
     font-weight: 600;
-    font-size: 16px;
-    width: 100%;
-    max-width: 340px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.01em;
   }
-  .success.show { display: block; }
+  .pill::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
 
-
-  /* EXPLAINER — 3 phones in a row */
-  .explain {
-    padding: 16px 0 72px;
+  /* EXPLAINER — swipeable phones */
+  .explain { max-width: 460px; margin: 0 auto; padding: 4px 24px 52px; }
+  .swiper {
+    display: flex;
+    align-items: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    transition: height 0.3s ease;
+  }
+  .swiper::-webkit-scrollbar { display: none; }
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
     text-align: center;
+    padding: 0;
+  }
+  .slide-head {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .fun-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .fun-title .hl { color: var(--green-dark); }
+  .slide-sub {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 14px;
   }
   .phone-row {
     display: flex;
@@ -192,13 +163,154 @@
     display: block;
   }
 
+  /* swipe controls */
+  .swipe-foot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .swipe-dots { display: flex; gap: 7px; }
+  .swipe-dots .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--line);
+    cursor: pointer;
+    transition: background 0.2s ease, width 0.2s ease;
+  }
+  .swipe-dots .dot.active { background: var(--green-dark); width: 18px; border-radius: 4px; }
+  .swipe-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    color: var(--green-dark);
+    cursor: pointer;
+    padding: 0;
+    transition: border-color 0.15s ease, transform 0.08s ease, opacity 0.15s ease;
+  }
+  .swipe-arrow svg { width: 18px; height: 18px; }
+  .swipe-arrow:hover { border-color: var(--green); }
+  .swipe-arrow:active { transform: scale(0.94); }
+  .swipe-arrow:disabled { opacity: 0.3; cursor: default; }
+  .swipe-hint {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    transition: opacity 0.25s ease;
+  }
+  .swipe-hint .arrow { display: inline-block; animation: nudge 1.3s ease-in-out infinite; }
+  @keyframes nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+
+  /* MESSAGE SLIDE */
+  .msg-box {
+    background: var(--green-tint);
+    border: 1px solid var(--green-soft);
+    border-radius: 18px;
+    padding: 24px 22px;
+    text-align: left;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .msg-box p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .msg-box p:last-child { margin-bottom: 0; }
+  .msg-box p strong { color: var(--green-dark); }
+  .msg-box .msg-sign { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-top: 8px; }
+
+  /* REVIEW REEL (slide 4) */
+  .review-card {
+    position: relative;
+    width: 210px;
+    max-width: 70%;
+    aspect-ratio: 9 / 16;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #0e1410;
+    box-shadow: 0 18px 40px rgba(31, 120, 75, 0.18);
+    margin: 0 auto;
+  }
+  .review-card video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .rv-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 11px 12px 24px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0) 100%);
+    text-align: left;
+    pointer-events: none;
+  }
+  .rv-stars { color: #FFC233; font-size: 13px; letter-spacing: 2px; margin-bottom: 6px; }
+  .rv-quote {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.36;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+  }
+  .rv-quote .hl { color: #7CE0A0; }
+  .rv-h {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255,255,255,0.92);
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    pointer-events: auto;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+  .rv-h svg { width: 11px; height: 11px; flex-shrink: 0; }
+  .rv-h:hover { text-decoration: underline; }
+
+  /* FOOTER follow handles */
+  .foot-follow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 24px;
+  }
+  .foot-follow a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-dark);
+    text-decoration: none;
+  }
+  .foot-follow a:hover { text-decoration: underline; }
+  .foot-follow svg { width: 15px; height: 15px; flex-shrink: 0; }
+
   /* CLOSER */
   .closer {
     background: var(--green-tint);
     border-radius: 24px;
     padding: 36px 24px;
     text-align: center;
-    margin: 12px auto 36px;
+    margin: 40px auto 36px;
   }
   .app-row {
     display: inline-flex;
@@ -235,37 +347,54 @@
     display: block;
     transform: translateY(-1px);
   }
-  .closer form.capture { margin: 0 auto; }
+  .closer .cta { margin: 0 auto; }
 
   /* FOOTER */
   footer {
-    padding: 4px 0 calc(env(safe-area-inset-bottom) + 32px);
+    padding: 8px 0 calc(env(safe-area-inset-bottom) + 36px);
     text-align: center;
   }
+  .foot-social {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .foot-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--green-soft);
+    color: var(--green-dark);
+    transition: background 0.15s ease, transform 0.08s ease;
+  }
+  .foot-social a:hover { background: #d7eede; }
+  .foot-social a:active { transform: scale(0.94); }
+  .foot-social svg { width: 21px; height: 21px; }
+  .foot-links {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 18px;
+  }
+  .foot-links a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-dark);
+    text-decoration: none;
+  }
+  .foot-links a:hover { text-decoration: underline; }
   footer .disc {
     font-size: 12px;
     color: var(--muted);
-    line-height: 1.6;
-    max-width: 340px;
-    margin: 0 auto 10px;
+    line-height: 1.7;
+    max-width: 320px;
+    margin: 0 auto;
   }
-  footer .disc:last-child { margin-bottom: 0; }
-  footer .foot-links {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 18px;
-  }
-  footer .foot-links a {
-    color: var(--green-dark);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  footer .foot-links a:hover { text-decoration: underline; }
-  footer .foot-links .dot {
-    margin: 0 8px;
-    color: var(--muted);
-    opacity: 0.5;
-  }
+  footer .disc .hash { color: var(--green-dark); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -283,13 +412,67 @@
   </a>
 </section>
 
-<!-- EXPLAINER — 3 phones side by side -->
-<section class="explain wrap">
-  <div class="pill">Connects with Dexcom Share</div>
-  <div class="phone-row">
-    <div class="phone"><div class="scr"><img src="screens/1-log.png" alt=""></div></div>
-    <div class="phone"><div class="scr"><img src="screens/2-curve.png" alt=""></div></div>
-    <div class="phone"><div class="scr"><img src="screens/3-journal.png" alt=""></div></div>
+<!-- EXPLAINER — swipeable phones -->
+<section class="explain">
+  <div class="swiper" id="phoneSwiper">
+    <div class="slide">
+      <div class="slide-head"><div class="pill">Connects with Dexcom Share</div></div>
+      <div class="phone-row">
+        <div class="phone"><div class="scr"><img src="screens/1-log.png" alt="Log a meal"></div></div>
+        <div class="phone"><div class="scr"><img src="screens/2-curve.png" alt="Watch the curve"></div></div>
+        <div class="phone"><div class="scr"><img src="screens/3-journal.png" alt="Meal journal"></div></div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-head"><h2 class="fun-title">Let's make diabetes <span class="hl">fun!</span></h2></div>
+      <div class="phone-row">
+        <div class="phone"><div class="scr"><img src="screens/home.png" alt="Live blood sugar"></div></div>
+        <div class="phone"><div class="scr"><img src="screens/wins.png" alt="Time in range and wins"></div></div>
+        <div class="phone"><div class="scr"><img src="screens/curve.png" alt="Your meal curve"></div></div>
+      </div>
+      <p class="slide-sub">Compete with your friends.</p>
+    </div>
+    <div class="slide">
+      <div class="slide-head"><h2 class="fun-title">Real results</h2></div>
+      <div class="review-card">
+        <video controls playsinline preload="metadata" poster="videos/ian-poster.jpg">
+          <source src="videos/ian.mp4" type="video/mp4">
+        </video>
+        <div class="rv-overlay">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-quote"><span class="hl">73%</span> to <span class="hl">92.6%</span> in range. If you're ever pissed at your blood sugar, try it!</p>
+          <a class="rv-h" href="https://www.tiktok.com/@gymjunkie69_" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.27v13.05a2.59 2.59 0 0 1-2.59 2.51 2.59 2.59 0 1 1 .73-5.07v-3.34a5.93 5.93 0 0 0-.73-.05 5.92 5.92 0 1 0 5.92 5.92V9.01a7.55 7.55 0 0 0 4.41 1.41V7.15a4.28 4.28 0 0 1-3.41-1.33z"/>
+            </svg>@Ian Sid | Diabetes &amp; Lifestyle
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-head"><h2 class="fun-title">Why I made this</h2></div>
+      <div class="msg-box">
+        <p>I just moved out and my numbers were super jumpy, <strong>and preventing me from doing what I loved</strong>. So I made an app for myself that tracked my meals &amp; my blood sugar.</p>
+        <p>After seeing my numbers improve so much (without carb counting!) I decided to make it free for everyone else to use.</p>
+        <p>If you use it, tell me how you feel! I really want to make this app special for everyone.</p>
+        <p class="msg-sign">— Ian, Diabetes Hacker</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="swipe-foot">
+    <button class="swipe-arrow" id="swipePrev" aria-label="Previous" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="swipe-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <button class="swipe-arrow" id="swipeNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
 </section>
 
@@ -314,18 +497,77 @@
 </section>
 
 <footer class="wrap">
-  <p class="disc">Diabetes Hacker is a personal logging tool, not a medical device. It does not diagnose, treat, or recommend insulin doses.</p>
-  <p class="disc"><span style="color: var(--green-dark); font-weight: 600;">#diabetesmaxx</span></p>
-  <p class="foot-links">
+  <div class="foot-social">
+    <a href="https://www.instagram.com/diabeteshacker.app/" target="_blank" rel="noopener" aria-label="Diabetes Hacker on Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
+      </svg>
+    </a>
+    <a href="https://www.tiktok.com/@diabeteshacker.app" target="_blank" rel="noopener" aria-label="Diabetes Hacker on TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.27v13.05a2.59 2.59 0 0 1-2.59 2.51 2.59 2.59 0 1 1 .73-5.07v-3.34a5.93 5.93 0 0 0-.73-.05 5.92 5.92 0 1 0 5.92 5.92V9.01a7.55 7.55 0 0 0 4.41 1.41V7.15a4.28 4.28 0 0 1-3.41-1.33z"/>
+      </svg>
+    </a>
+  </div>
+
+  <nav class="foot-links">
     <a href="/diabetes-hacker/support/">Support</a>
-    <span class="dot">·</span>
     <a href="/diabetes-hacker/privacy/">Privacy</a>
-    <span class="dot">·</span>
     <a href="/diabetes-hacker/terms/">Terms</a>
-    <span class="dot">·</span>
-    © Viral Builders
-  </p>
+  </nav>
+
+  <p class="disc">Diabetes Hacker is a personal logging tool, not a medical device. It does not diagnose, treat, or recommend insulin doses. <span class="hash">#diabetesmaxx</span><br>© Viral Builders</p>
 </footer>
+
+<script>
+  (function () {
+    var sw = document.getElementById('phoneSwiper');
+    if (!sw) return;
+    var dots = Array.prototype.slice.call(document.querySelectorAll('.swipe-dots .dot'));
+    var slides = Array.prototype.slice.call(sw.querySelectorAll('.slide'));
+    var prev = document.getElementById('swipePrev');
+    var next = document.getElementById('swipeNext');
+    var count = dots.length;
+
+    function index() { return Math.round(sw.scrollLeft / sw.clientWidth); }
+    function goTo(i) {
+      i = Math.max(0, Math.min(count - 1, i));
+      sw.scrollTo({ left: i * sw.clientWidth, behavior: 'smooth' });
+    }
+    function setHeight() {
+      var i = index();
+      var h;
+      if (i >= 2) {
+        // hold the height across the Real results + Why I made this slides
+        h = Math.max(
+          slides[2] ? slides[2].offsetHeight : 0,
+          slides[3] ? slides[3].offsetHeight : 0
+        );
+      } else {
+        h = slides[i] ? slides[i].offsetHeight : 0;
+      }
+      if (h) sw.style.height = h + 'px';
+    }
+    function sync() {
+      var i = index();
+      dots.forEach(function (d, n) { d.classList.toggle('active', n === i); });
+      if (prev) prev.disabled = i <= 0;
+      if (next) next.disabled = i >= count - 1;
+      setHeight();
+    }
+
+    sw.addEventListener('scroll', sync, { passive: true });
+    if (prev) prev.addEventListener('click', function () { goTo(index() - 1); });
+    if (next) next.addEventListener('click', function () { goTo(index() + 1); });
+    dots.forEach(function (d, n) { d.addEventListener('click', function () { goTo(n); }); });
+    window.addEventListener('resize', sync);
+    window.addEventListener('load', sync);
+    Array.prototype.forEach.call(sw.querySelectorAll('img'), function (img) {
+      img.addEventListener('load', setHeight);
+    });
+    sync();
+  })();
+</script>
 
 </body>
 </html>
