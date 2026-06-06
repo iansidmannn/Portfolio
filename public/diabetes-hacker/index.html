@@ -107,7 +107,6 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    transition: height 0.3s ease;
   }
   .swiper::-webkit-scrollbar { display: none; }
   .slide {
@@ -216,7 +215,7 @@
     border-radius: 18px;
     padding: 24px 22px;
     text-align: left;
-    min-height: 360px;
+    min-height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -234,8 +233,8 @@
   /* REVIEW REEL (slide 4) */
   .review-card {
     position: relative;
-    width: 210px;
-    max-width: 70%;
+    width: 185px;
+    max-width: 64%;
     aspect-ratio: 9 / 16;
     border-radius: 22px;
     overflow: hidden;
@@ -312,8 +311,13 @@
     padding: 36px 24px;
     text-align: center;
     margin: 40px auto 36px;
-    min-height: 240px;
   }
+  .closer-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 16px;
+  }
+  .closer-sub strong { color: var(--green-dark); }
   .app-row {
     display: inline-flex;
     align-items: center;
@@ -478,7 +482,7 @@
       <div class="slide-head"><h2 class="fun-title">Why I made this</h2></div>
       <div class="msg-box">
         <p>I just moved out and my numbers were super jumpy, <strong>and preventing me from doing what I loved</strong>. So I made an app for myself that tracked my meals &amp; my blood sugar.</p>
-        <p>After seeing my numbers improve so much (without carb counting!) I decided to make it free for everyone else to use.</p>
+        <p>After seeing my numbers improve so much (without carb counting!) I decided to make it free for everyone else to use!</p>
         <p>If you use it, tell me how you feel! I really want to make this app special for everyone.</p>
         <p class="msg-sign">— Ian, Diabetes Hacker</p>
       </div>
@@ -519,16 +523,7 @@
     </svg>
     Install on the App Store
   </a>
-</section>
-
-<!-- COMMUNITY -->
-<section class="community wrap">
-  <div class="community-card">
-    <p class="community-text">By the way — Diabetes Hacker is <strong>free</strong>.</p>
-    <a class="appstore-badge" href="https://apps.apple.com/us/app/diabetes-hacker-log-meals/id6770661711" target="_blank" rel="noopener" aria-label="Download on the App Store">
-      <img src="appstore-badge.svg" alt="Download on the App Store">
-    </a>
-  </div>
+  <p class="closer-sub">By the way — Diabetes Hacker is <strong>free</strong>.</p>
 </section>
 
 <footer class="wrap">
@@ -570,17 +565,12 @@
       i = Math.max(0, Math.min(count - 1, i));
       sw.scrollTo({ left: i * sw.clientWidth, behavior: 'smooth' });
     }
+    // Lock the slider to the tallest slide so it never resizes mid-swipe
+    // (no pop / "loading" grow, and the height never fights the snap).
     function setHeight() {
-      var i = index();
-      var h;
-      if (i >= 2) {
-        // hold the height across the Real results + Why I made this slides
-        h = Math.max(
-          slides[2] ? slides[2].offsetHeight : 0,
-          slides[3] ? slides[3].offsetHeight : 0
-        );
-      } else {
-        h = slides[i] ? slides[i].offsetHeight : 0;
+      var h = 0;
+      for (var n = 0; n < slides.length; n++) {
+        if (slides[n]) h = Math.max(h, slides[n].offsetHeight);
       }
       if (h) sw.style.height = h + 'px';
     }
@@ -590,25 +580,18 @@
       if (prev) prev.disabled = i <= 0;
       if (next) next.disabled = i >= count - 1;
     }
-    // Only resize the swiper once the swipe settles, so it doesn't fight the snap.
-    var hTimer;
-    function onScroll() {
-      syncControls();
-      clearTimeout(hTimer);
-      hTimer = setTimeout(setHeight, 140);
-    }
 
-    sw.addEventListener('scroll', onScroll, { passive: true });
+    sw.addEventListener('scroll', syncControls, { passive: true });
     if (prev) prev.addEventListener('click', function () { goTo(index() - 1); });
     if (next) next.addEventListener('click', function () { goTo(index() + 1); });
     dots.forEach(function (d, n) { d.addEventListener('click', function () { goTo(n); }); });
-    window.addEventListener('resize', function () { syncControls(); setHeight(); });
-    window.addEventListener('load', function () { syncControls(); setHeight(); });
+    window.addEventListener('resize', function () { setHeight(); syncControls(); });
+    window.addEventListener('load', setHeight);
     Array.prototype.forEach.call(sw.querySelectorAll('img'), function (img) {
       img.addEventListener('load', setHeight);
     });
-    syncControls();
     setHeight();
+    syncControls();
   })();
 </script>
 
