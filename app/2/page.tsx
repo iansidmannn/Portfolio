@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
-export default function Home1() {
+export default function Home2() {
   const [showRecord, setShowRecord] = useState(false)
 
   return (
