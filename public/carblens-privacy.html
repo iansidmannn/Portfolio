@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Privacy Policy — CarbLens</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --green:#33B866; --ink:#121A1A; --muted:#666; --line:#E5EBE8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  .effective {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 40px 0 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 24px 0 8px;
+    color: var(--ink);
+  }
+  p { margin: 12px 0; }
+  ul { margin: 12px 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  strong { font-weight: 700; }
+  a { color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.92em; background: #F3F7F4; padding: 1px 6px; border-radius: 4px; }
+  @media print {
+    main { padding: 32px; max-width: none; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Privacy Policy — CarbLens</h1>
+<p class="effective"><strong>Effective Date:</strong> July 22, 2026</p>
+
+<p>Short version: we try to keep almost everything on your device, we don't sell your data, and we don't run ads. Below is the full picture in plain English so you know exactly what leaves your phone and why.</p>
+
+<p>"We," "us," and "our" mean Viral Builders. "You" means you.</p>
+
+<h2>1. What we collect</h2>
+
+<h3>Stuff that stays on your device</h3>
+<p>CarbLens keeps most of your data locally on your iPhone using Apple's built-in storage (SwiftData + the iOS Keychain):</p>
+<ul>
+  <li>Meal log entries — food photos, notes, carbs / insulin / glucose at time of log, and timestamps</li>
+  <li>Your settings and preferences</li>
+  <li>If you connect a CGM: your service login (Dexcom Share username + password, Abbott LibreLinkUp email + password, etc.) — kept in the iOS Keychain, which is hardware-encrypted on modern iPhones</li>
+</ul>
+<p>This data doesn't leave your device unless you actively share it (the Share / Export feature, or sending a meal to a friend inside CarbLens) or unless the app is calling your CGM provider on your behalf.</p>
+
+<h3>Stuff that goes to our servers when you use social features</h3>
+<p>If you make an account and use the community side of the app (friends, group chats, leaderboards, sharing logs), we store the minimum needed to make that work:</p>
+<ul>
+  <li>Your CarbLens account: a display name, an @handle, a friend code, an optional avatar and short bio, and — if you sign in with Apple or Google — the anonymized user ID your provider gives us. We don't get your Apple/Google password.</li>
+  <li>Anything you post inside the app: chat messages, log summaries you choose to share into groups or DMs, reactions, group membership.</li>
+  <li>Aggregate wellbeing stats that make the game work: your time-in-range percentage (today + last 30 days) and your logging streak. This is derived from your CGM readings on your device and then pushed as summary numbers.</li>
+  <li>Basic session metadata: whether you're premium, notification tokens (so we can send push notifications you asked for), and error logs that help us fix crashes.</li>
+</ul>
+<p>We store this on Supabase (our backend). We only ever pull the specific fields we need to render a feature.</p>
+
+<h3>Location (only if you turn on "near you")</h3>
+<p>Off until you turn it on. When you do, we save your rough location (about 1 km accuracy — never your exact spot) and your city, so we can show you diabetics within ~100 miles. It only updates when you use the feature again. No background tracking. Other users only ever see your city and rough distance.</p>
+
+<h3>Stuff the AI sees</h3>
+<p>When you take a photo of a meal and ask CarbLens to analyze it, the photo (and any hint you type) is sent to our AI provider (currently Anthropic's Claude API) to generate the carb / macro estimate. The image is used only for the immediate analysis. We don't build advertising profiles from it.</p>
+<p>When you ask CarbLens a question, your question goes to the same AI provider along with a summary of your recent numbers — current BG, time-in-range, averages by time of day, recent boluses and how they went, recent meals / lows / highs. Summaries only, never your full reading history, and only for that one answer.</p>
+
+<h3>CGM data</h3>
+<p>If you connect a CGM service, the app sends your credentials directly to that provider to authenticate and pull your live glucose data:</p>
+<ul>
+  <li><strong>Dexcom Share</strong> — see <a href="https://www.dexcom.com/policies/privacy-policy">Dexcom's Privacy Policy</a></li>
+  <li><strong>Abbott LibreLinkUp / FreeStyle Libre</strong> — see <a href="https://www.libreview.com/privacy-policy">Abbott's Privacy Notice</a></li>
+</ul>
+<p>The raw glucose readings we pull stay on your device by default. We do compute and store a <strong>daily time-in-range summary</strong> (one integer per day) on our servers so the friends/leaderboard side of the app can work — that summary is essentially "you were 78% in range on July 12." Individual per-reading BG values aren't uploaded.</p>
+<p>When you take part in the daily / weekly / monthly battle features with friends or groups, the app posts automated summary messages into those chats on your behalf — for example, "Ian took the day · 92% to 87%" for a daily battle result, or "Ian had the best month · 87% TIR" for a monthly champion post. <strong>Those posts include your daily or 30-day TIR percentage and are visible to the people in that chat.</strong> They're derived from the daily summaries described above, not raw readings.</p>
+
+<h3>Pre-launch email signups (this website)</h3>
+<p>If you drop your email on iansidman.com to be notified when CarbLens launches or gets updates, we store that email through a third-party email service to send you a launch note. We don't sell or share it. You can unsubscribe from any email we send, or write to viralbuildersllc@gmail.com to be removed.</p>
+
+<h2>2. Why we use it</h2>
+<p>Just to make the app work. Specifically:</p>
+<ul>
+  <li>Show your history, streaks, and in-range percentage</li>
+  <li>Let you log meals and get an AI carb estimate</li>
+  <li>Fetch glucose readings from your CGM</li>
+  <li>Deliver messages between you and friends, and in groups you join</li>
+  <li>Send you the notifications you turned on</li>
+  <li>Fix bugs when the app crashes</li>
+</ul>
+<p>We do NOT:</p>
+<ul>
+  <li>Sell your personal info</li>
+  <li>Rent it out to marketers</li>
+  <li>Run advertising SDKs</li>
+  <li>Feed your data into training our own AI models</li>
+  <li>Look at your data unless we're actively debugging a bug you reported (and even then, we look at as little as we need)</li>
+</ul>
+
+<h2>3. Who we share it with</h2>
+<p>Only these:</p>
+<ul>
+  <li><strong>Your CGM provider</strong> (Dexcom / Abbott / etc.) — to fetch your readings when you use that feature</li>
+  <li><strong>Our AI provider</strong> (Anthropic Claude) — for the immediate analysis / answer, one request at a time. Anthropic doesn't train on this data per its enterprise agreement with us.</li>
+  <li><strong>Supabase</strong> — our backend and database host</li>
+  <li><strong>Apple / Google</strong> — for sign-in (Sign in with Apple, Sign in with Google) and push notifications</li>
+  <li><strong>Law enforcement, but only if legally required</strong> — and we'll push back on anything that looks overbroad</li>
+</ul>
+<p>Nobody else. No brokers, no ad networks, no analytics vendors we haven't listed.</p>
+
+<h2>4. Friends, groups, and what other users can see</h2>
+<p>If you use the community features, other users you're connected with can see:</p>
+<ul>
+  <li>Your display name, @handle, avatar, and bio</li>
+  <li>Messages you send them in DMs or groups you share</li>
+  <li>Log summaries you share into a chat — including the meal photo, food title, and carb estimate for meals</li>
+  <li>Your time-in-range percentage (today + 30-day rolling) — this is the whole point of the friends leaderboard</li>
+  <li><strong>Automated battle recap messages</strong> posted in chats on your behalf: daily winner posts ("Ian took the day · 92% to 87%"), weekly recaps ("Ian won the week · 5-2"), monthly champion announcements ("Ian had the best month · 87% TIR"). These fire from the daily/weekly/monthly cycle — you don't tap Send.</li>
+  <li><strong>Battle stats</strong> in a shared friend or group leaderboard — daily wins, monthly-crown count, current streak, longest streak</li>
+  <li><strong>Optional BG-state chirps</strong> you can turn on ("Ian is stuck low — someone check on him"). These are OFF by default and only fire if you explicitly enable them in Settings → Notifications → "Share BG chirps with friends."</li>
+</ul>
+
+<h3>Public / world-wide surfaces</h3>
+<p>If you keep your account <strong>public</strong> (default) and <strong>diabetes-data-public</strong> (default), your 30-day TIR and rank are visible more broadly than your friends. Specifically:</p>
+<ul>
+  <li><strong>The world leaderboard</strong> — up to 5,000+ users ranked by 30-day TIR. Requires at least 3 qualifying days (~12h of CGM coverage each) to appear.</li>
+  <li><strong>World champion of the week</strong> — whoever holds #1 on the world board on Monday morning gets a "Sarah is world champion this week" pill on every other user's Home screen for the week.</li>
+  <li><strong>Monthly medals</strong> — if you finish in the top 100 for a calendar month, we stamp a permanent gold / silver / bronze medal onto your profile card and other users can see it there.</li>
+  <li><strong>Rank on your profile card</strong> — anyone who taps your profile can see "🌍 #47 in the world" alongside your name.</li>
+</ul>
+<p>You can turn all of this off by flipping <strong>"Diabetes data public"</strong> off in Settings → Your Profile (that hides your TIR chart, wins, rank line, world-board eligibility, and medal shelf from everyone who isn't already a friend), or by setting your account to <strong>private</strong> (<code>is_public = false</code>), which hides you from strangers entirely.</p>
+<p>They can NOT see:</p>
+<ul>
+  <li>Your raw glucose readings</li>
+  <li>Your notes, insulin doses, or personal medical details</li>
+  <li>Your account settings</li>
+</ul>
+<p>If you want stronger privacy, you can:</p>
+<ul>
+  <li>Remove a friend at any time (Settings → Friends)</li>
+  <li>Leave any group</li>
+  <li>Mute an individual DM (bell icon in the chat header) — silences push AND badge; in-app chat still delivers</li>
+  <li>Turn off any notification category in Settings → Notifications (Direct messages / Group messages / Friend logs / BG chirps / Weekly recap)</li>
+  <li>Flip <strong>"Diabetes data public"</strong> off to hide the world-board / medals / rank line from non-friends</li>
+  <li>Flip your account to <strong>private</strong> to hide from everyone who isn't already a friend</li>
+  <li>Delete your account (below)</li>
+</ul>
+
+<h2>5. Kids</h2>
+<p>CarbLens isn't directed at kids under 13. We don't knowingly collect data from anyone under 13. If you're a parent and think your child gave us data, email us and we'll delete it.</p>
+
+<h2>6. Your controls</h2>
+<ul>
+  <li><strong>See it</strong> — most of it is visible right in the app (your profile, your logs, your friends, your groups). If you want anything else, email us and we'll export it for you.</li>
+  <li><strong>Fix it</strong> — you can edit profile info from Settings.</li>
+  <li><strong>Delete it</strong> — you can delete individual meals, leave groups, remove friends, or nuke your entire account from Settings → Delete Account. Account deletion removes your profile, messages, and stored TIR summaries. Meal logs that never left your device are wiped when you delete the app.</li>
+  <li><strong>Disconnect your CGM</strong> — clears your CGM credentials from the iOS Keychain. Do this any time from Settings.</li>
+  <li><strong>CCPA / GDPR</strong> — if you're in California or the EU, you have specific rights (access, deletion, portability, objection to processing, etc.). Email us and we'll walk you through it.</li>
+</ul>
+
+<h2>7. How we protect it</h2>
+<ul>
+  <li>Local data: iOS sandboxing + at-rest encryption</li>
+  <li>Credentials: iOS Keychain (hardware-encrypted)</li>
+  <li>In transit: HTTPS / TLS to every backend and provider</li>
+  <li>Server side: row-level security so users only see their own rows (or rows friends have shared with them). Standard hardening on Supabase (encrypted at rest, audit logs, private schemas for sensitive fields).</li>
+</ul>
+<p>No system is perfect. If we ever have a security incident that materially affects you, we'll let you know as required by law.</p>
+
+<h2>8. Where we're based, where the data goes</h2>
+<p>Viral Builders is based in the United States. Our backend (Supabase) and AI provider (Anthropic) also run out of the U.S. If you use CarbLens from outside the U.S., your data will be transferred to and processed in the U.S. Using the app means you're OK with that.</p>
+
+<h2>9. Not medical advice</h2>
+<p>CarbLens is a logging + tracking tool. It's not a medical device, and nothing in it — carb estimates, dose suggestions, Ask CarbLens answers — is medical advice. Always work with a qualified healthcare professional for diabetes management decisions.</p>
+
+<h2>10. Changes</h2>
+<p>We may update this policy. When we change something material, we'll update the Effective Date at the top and, when it matters, we'll try to give you notice inside the app.</p>
+
+<h2>11. Contact</h2>
+<p>Questions, requests, complaints, "hey I want to see everything you have on me" — <strong><a href="mailto:viralbuildersllc@gmail.com">viralbuildersllc@gmail.com</a></strong></p>
+
+</main>
+</body>
+</html>

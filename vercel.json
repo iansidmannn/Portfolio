@@ -7,5 +7,15 @@
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/diabetes-hacker", "destination": "/carblens", "permanent": true },
+    { "source": "/diabetes-hacker/:path*", "destination": "/carblens/:path*", "permanent": true },
+    { "source": "/diabetes-hacker-privacy.html", "destination": "/carblens-privacy.html", "permanent": true },
+    { "source": "/diabetes-hacker-privacy.pdf", "destination": "/carblens-privacy.pdf", "permanent": true },
+    { "source": "/diabetes-hacker-terms.html", "destination": "/carblens-terms.html", "permanent": true },
+    { "source": "/diabetes-hacker-terms.pdf", "destination": "/carblens-terms.pdf", "permanent": true },
+    { "source": "/diabetes-hacker-support.html", "destination": "/carblens-support.html", "permanent": true },
+    { "source": "/diabetes-hacker-support.pdf", "destination": "/carblens-support.pdf", "permanent": true }
   ]
 }

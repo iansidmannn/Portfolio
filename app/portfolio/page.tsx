@@ -21,8 +21,8 @@ export default function PortfolioPage() {
       <PortfolioOperatorSections />
       <WhereImValuable />
 
-      {/* Push below the fold — Other Videos shouldn’t appear on initial landing */}
-      <div className="pt-[min(52vh,40rem)] sm:pt-[min(55vh,44rem)]">
+      {/* All main sections are stacked above, so Other Videos sits naturally last */}
+      <div className="pt-16 sm:pt-20">
         <OtherVideos />
       </div>
     </main>
