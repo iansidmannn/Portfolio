@@ -9,8 +9,10 @@
     }
   ],
   "redirects": [
-    { "source": "/diabetes-hacker", "destination": "/carblens", "permanent": true },
-    { "source": "/diabetes-hacker/:path*", "destination": "/carblens/:path*", "permanent": true },
+    { "source": "/diabetes-hacker", "destination": "/carblens/", "permanent": true },
+    { "source": "/diabetes-hacker/", "destination": "/carblens/", "permanent": true },
+    { "source": "/diabetes-hacker/:path+/", "destination": "/carblens/:path+/", "permanent": true },
+    { "source": "/diabetes-hacker/:path+", "destination": "/carblens/:path+", "permanent": true },
     { "source": "/diabetes-hacker-privacy.html", "destination": "/carblens-privacy.html", "permanent": true },
     { "source": "/diabetes-hacker-privacy.pdf", "destination": "/carblens-privacy.pdf", "permanent": true },
     { "source": "/diabetes-hacker-terms.html", "destination": "/carblens-terms.html", "permanent": true },
