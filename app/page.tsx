@@ -95,15 +95,23 @@ const fade = (delay: number) => ({
 export default function Home() {
   return (
     <main className="min-h-screen px-6 pb-28 pt-40 sm:pt-48">
-      {/* Contact */}
-      <a
-        href="https://www.linkedin.com/in/ian-sidman/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed right-6 top-6 z-50 text-sm text-gray-500 transition-colors duration-200 hover:text-gray-300"
-      >
-        Contact
-      </a>
+      {/* Top nav */}
+      <div className="fixed right-6 top-6 z-50 flex items-center gap-5 text-sm">
+        <a
+          href="/portfolio"
+          className="text-gray-500 transition-colors duration-200 hover:text-gray-300"
+        >
+          Portfolio
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ian-sidman/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-500 transition-colors duration-200 hover:text-gray-300"
+        >
+          Contact
+        </a>
+      </div>
 
       <div className="mx-auto w-full max-w-3xl">
         {/* Name */}
@@ -261,6 +269,12 @@ export default function Home() {
           {...fade(0.1)}
           className="mt-20 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500"
         >
+          <a
+            href="/portfolio"
+            className="transition-colors duration-200 hover:text-gray-300"
+          >
+            Portfolio &rarr;
+          </a>
           <a
             href="https://www.linkedin.com/in/ian-sidman/"
             target="_blank"
