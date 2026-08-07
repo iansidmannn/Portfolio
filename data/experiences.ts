@@ -302,7 +302,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 'clothing-brand-2',
-    title: 'My Second Clothing Brand',
+    title: 'Goofy Garments',
     subtext: '2.5M views on Instagram in 2 weeks of launch.',
     account: '@goofygarmentshop',
     accountUrl: 'https://www.instagram.com/goofygarmentshop/',
