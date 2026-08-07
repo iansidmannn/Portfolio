@@ -50,26 +50,6 @@ const NOW = [
     glow: 'rgba(52,211,153,0.45)',
     ring: 'rgba(52,211,153,0.35)',
   },
-  {
-    name: 'Commercial',
-    tagline: 'Free focus for students.',
-    icon: '/commercials/icon.png',
-    screen: '/commercials/screens/tap-card.png',
-    href: 'https://apps.apple.com/us/app/commercial-screentime-control/id6767307253',
-    accent: 'from-zinc-300/20 to-zinc-500/20',
-    glow: 'rgba(212,212,216,0.40)',
-    ring: 'rgba(212,212,216,0.30)',
-  },
-  {
-    name: 'KickIt',
-    tagline: 'All plans happen today.',
-    icon: '/kickit/icon.png',
-    screen: '/kickit/screens/map.png',
-    href: '#',
-    accent: 'from-blue-400/30 to-indigo-500/30',
-    glow: 'rgba(96,165,250,0.45)',
-    ring: 'rgba(96,165,250,0.35)',
-  },
 ]
 
 const PAST = [
