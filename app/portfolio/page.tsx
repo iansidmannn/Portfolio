@@ -1,3 +1,4 @@
+import ScrollToTop from './ScrollToTop'
 import CompactHero from './CompactHero'
 import PortfolioOperatorSections from './PortfolioOperatorSections'
 import ExperiencesStrip from './ExperiencesStrip'
@@ -17,6 +18,7 @@ export default function PortfolioPage() {
         backgroundSize: '100% 100%',
       }}
     >
+      <ScrollToTop />
       <FloatingAboutButton />
       <CompactHero />
       <PortfolioOperatorSections />

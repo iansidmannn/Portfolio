@@ -20,38 +20,40 @@ export default function ExperiencesStrip() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
           {picks.map((exp) => (
             <Link
               key={exp.id}
               href="/experiences"
-              className="group overflow-hidden rounded-xl border border-white/10 bg-black/50 transition-all hover:border-white/25 hover:bg-white/[0.05]"
+              className="group relative flex flex-col items-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-3 backdrop-blur-sm transition-all duration-300 hover:border-white/30 sm:p-4"
             >
-              {exp.image ? (
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={exp.image}
-                    alt={exp.title}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 240px"
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                    style={{
-                      objectPosition: exp.imagePosition ?? 'center',
-                      transform: exp.imageScale ? `scale(${exp.imageScale})` : undefined,
-                    }}
-                  />
-                </div>
-              ) : (
-                <div className="aspect-[4/3] w-full bg-white/[0.04]" />
-              )}
-              <div className="p-3">
-                <p className="truncate text-sm font-semibold text-white">{exp.title}</p>
-                {exp.workType ? (
-                  <p className="mt-0.5 truncate text-[11px] uppercase tracking-wide text-gray-500">
-                    {exp.workType}
-                  </p>
-                ) : null}
+              <span className="w-full truncate text-[9px] font-semibold uppercase tracking-wide text-purple-400 sm:text-[10px]">
+                {exp.workType || exp.title}
+              </span>
+
+              <div className="mt-3 flex w-full justify-center">
+                {exp.image ? (
+                  <div className="relative aspect-[3/2] w-full max-w-[110px] overflow-hidden rounded-xl bg-white sm:max-w-[140px]">
+                    <Image
+                      src={exp.image}
+                      alt={exp.title}
+                      fill
+                      sizes="140px"
+                      className="object-cover"
+                      style={{
+                        objectPosition: exp.imagePosition || 'center top',
+                        transform: exp.imageScale ? `scale(${exp.imageScale})` : undefined,
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div className="aspect-[3/2] w-full max-w-[110px] rounded-xl bg-white/[0.06] sm:max-w-[140px]" />
+                )}
               </div>
+
+              <p className="mt-3 w-full truncate text-center text-xs font-medium text-white sm:text-sm">
+                {exp.title}
+              </p>
             </Link>
           ))}
         </div>
