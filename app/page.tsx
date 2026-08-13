@@ -31,18 +31,8 @@ function AppStoreButton({ href, glow }: { href: string; glow: string }) {
 
 const NOW = [
   {
-    name: 'Speaky AI',
-    tagline: 'Bring your toys to life.',
-    icon: '/speaky/icon.png',
-    screen: '/speaky/screens/1-imagine.png',
-    href: 'https://apps.apple.com/us/app/speaky-ai-bring-toys-to-life/id6770660840',
-    accent: 'from-pink-400/30 to-purple-500/30',
-    glow: 'rgba(192,132,252,0.45)',
-    ring: 'rgba(192,132,252,0.35)',
-  },
-  {
     name: 'CarbLens',
-    tagline: 'Log meals. Dose smarter.',
+    tagline: 'Blood Sugar & Meal Tracker AI',
     icon: '/carblens/icon.png',
     screen: '/carblens/screens/home.png',
     href: 'https://apps.apple.com/us/app/id6770661711',
@@ -136,7 +126,7 @@ export default function Home() {
         </motion.div>
 
         {/* NOW — apps */}
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-sm gap-6">
           {NOW.map((app, i) => (
             <motion.div
               key={app.name}
