@@ -125,8 +125,8 @@ export default function Home() {
           </h1>
         </motion.div>
 
-        {/* NOW — apps */}
-        <div className="mx-auto grid w-full max-w-sm gap-6">
+        {/* NOW — the app + the account behind it */}
+        <div className="grid gap-6 sm:grid-cols-2">
           {NOW.map((app, i) => (
             <motion.div
               key={app.name}
@@ -173,36 +173,78 @@ export default function Home() {
               </div>
             </motion.div>
           ))}
-        </div>
 
-        {/* TikTok */}
-        <motion.a
-          {...fade(0.2)}
-          href="https://www.tiktok.com/@gymjunkie69_"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-6 flex items-center gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-5 transition-colors duration-200 hover:bg-white/[0.06]"
-        >
-          <span className="relative shrink-0">
-            <Image
-              src="/tiktok-pfp.jpg"
-              alt="Ian Sidman"
-              width={56}
-              height={56}
-              className="h-14 w-14 rounded-full object-cover ring-1 ring-white/15"
-            />
-            <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-black ring-2 ring-[#0a0a0a]">
-              <svg viewBox="0 0 448 512" className="h-3 w-3 fill-white">
-                <path d={TIKTOK_PATH} />
-              </svg>
-            </span>
-          </span>
-          <span className="min-w-0 flex-1">
-            <span className="block truncate font-semibold text-white">Ian Sid | Diabetes &amp; Lifestyle</span>
-            <span className="block text-sm text-gray-400">@gymjunkie69_</span>
-          </span>
-          <span className="text-gray-600 transition-colors group-hover:text-gray-300">&rarr;</span>
-        </motion.a>
+          {/* Ian Sid — the account CarbLens grows from */}
+          <motion.div
+            {...fade(0.2)}
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6"
+          >
+            <div className="pointer-events-none absolute -top-24 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-gradient-to-b from-cyan-400/20 to-rose-500/20 blur-3xl" />
+            <div className="relative flex h-full flex-col">
+              <div className="flex items-center gap-3">
+                <span className="relative shrink-0">
+                  <Image
+                    src="/tiktok-pfp.jpg"
+                    alt="Ian Sidman"
+                    width={56}
+                    height={56}
+                    className="h-14 w-14 rounded-full object-cover ring-1 ring-white/15"
+                  />
+                  <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-black ring-2 ring-[#0a0a0a]">
+                    <svg viewBox="0 0 448 512" className="h-3 w-3 fill-white">
+                      <path d={TIKTOK_PATH} />
+                    </svg>
+                  </span>
+                </span>
+                <div>
+                  <h2 className="text-lg font-semibold text-white">Ian Sid</h2>
+                  <p className="text-sm text-gray-400">Diabetes &amp; Lifestyle</p>
+                </div>
+              </div>
+
+              <div className="flex flex-1 flex-col items-center justify-center py-8">
+                <div
+                  className="relative h-40 w-40 overflow-hidden rounded-full ring-1 ring-white/15"
+                  style={{ boxShadow: '0 20px 60px -20px rgba(94,234,212,0.4)' }}
+                >
+                  <Image
+                    src="/tiktok-pfp.jpg"
+                    alt="Ian Sidman"
+                    fill
+                    sizes="160px"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-5 font-semibold text-white">@gymjunkie69_</p>
+                <div className="mt-3 flex gap-6 text-center">
+                  <div>
+                    <p className="text-lg font-bold text-white">60K</p>
+                    <p className="text-xs text-gray-500">followers</p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-white">35M+</p>
+                    <p className="text-xs text-gray-500">views</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-center">
+                <a
+                  href="https://www.tiktok.com/@gymjunkie69_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-xl bg-white px-4 py-2.5 text-black transition-transform duration-200 hover:scale-[1.03]"
+                  style={{ boxShadow: '0 8px 30px -8px rgba(94,234,212,0.45)' }}
+                >
+                  <svg viewBox="0 0 448 512" className="h-5 w-5 fill-black">
+                    <path d={TIKTOK_PATH} />
+                  </svg>
+                  <span className="text-base font-semibold">Follow on TikTok</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         {/* PAST */}
         <motion.div {...fade(0.1)} className="mb-6 mt-20">
