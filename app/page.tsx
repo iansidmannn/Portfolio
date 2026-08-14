@@ -197,7 +197,7 @@ export default function Home() {
                   </span>
                 </span>
                 <div>
-                  <h2 className="text-lg font-semibold text-white">Ian Sid</h2>
+                  <h2 className="text-lg font-semibold text-white">Ian Sidman</h2>
                   <p className="text-sm text-gray-400">Diabetes &amp; Lifestyle</p>
                 </div>
               </div>
