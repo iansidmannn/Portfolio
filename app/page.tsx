@@ -35,7 +35,7 @@ const NOW = [
     tagline: 'Blood Sugar & Meal Tracker AI',
     icon: '/carblens/icon.png',
     screen: '/carblens/screens/home.png',
-    href: 'https://apps.apple.com/us/app/id6770661711',
+    href: 'https://carblensapp.com',
     accent: 'from-emerald-400/30 to-green-600/30',
     glow: 'rgba(52,211,153,0.45)',
     ring: 'rgba(52,211,153,0.35)',
