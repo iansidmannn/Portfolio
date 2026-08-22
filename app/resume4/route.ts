@@ -312,3 +312,5 @@ export async function GET() {
   });
 }
 
+
+// Cache-bust 2026-08-22: a stale build-cache output was serving an old HTML page at /resume4.
