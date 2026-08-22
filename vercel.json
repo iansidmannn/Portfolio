@@ -9,8 +9,6 @@
     }
   ],
   "redirects": [
-    { "source": "/resume", "destination": "/Resume.pdf", "permanent": false },
-    { "source": "/resume/", "destination": "/Resume.pdf", "permanent": false },
     { "source": "/carblens/privacy", "destination": "https://carblensapp.com/privacy/", "permanent": true },
     { "source": "/carblens/privacy/", "destination": "https://carblensapp.com/privacy/", "permanent": true },
     { "source": "/carblens/terms", "destination": "https://carblensapp.com/terms/", "permanent": true },
