@@ -1,7 +1,6 @@
 import ScrollToTop from './ScrollToTop'
 import CompactHero from './CompactHero'
 import PortfolioOperatorSections from './PortfolioOperatorSections'
-import ExperiencesStrip from './ExperiencesStrip'
 import WhereImValuable from './WhereImValuable'
 import OtherVideos from './OtherVideos'
 import FloatingAboutButton from '@/components/FloatingAboutButton'
@@ -22,7 +21,6 @@ export default function PortfolioPage() {
       <FloatingAboutButton />
       <CompactHero />
       <PortfolioOperatorSections />
-      <ExperiencesStrip />
       <WhereImValuable />
 
       {/* Push below the fold — Other Videos shouldn’t appear on initial landing */}
