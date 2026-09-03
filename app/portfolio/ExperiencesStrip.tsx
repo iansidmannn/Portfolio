@@ -1,9 +1,24 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import { myExperiences, consultingExperiences } from '@/data/experiences'
+import { experiences } from '@/data/experiences'
 
-const picks = [...myExperiences.slice(0, 4), ...consultingExperiences.slice(0, 4)]
+// Hand-picked for a tech / performance-marketing reader, best first.
+// Order matters — the first four are what a hiring manager sees before scrolling.
+const PICK_IDS = [
+  'pinata-farms', // AI consumer app: 0 → 11.5M views in 5 days, 60K downloads
+  'clothing-brand-2', // Owned the whole funnel: product → content → revenue
+  'atom-williamson', // 9% conversion rate — pure CRO
+  'dexcom-consult', // Real medtech brand, millions of views, earned a sponsorship
+  'personal-brand', // Repeatable viral series, not one lucky hit
+  'ai-content', // Automated content production before agents existed
+  'fitness19gyms', // 30+ daily Google reviews from one clever mechanic
+  'snappy-feet', // Ecommerce lift: ~1K → ~15K views a video
+]
+
+const picks = PICK_IDS.map((id) => experiences.find((e) => e.id === id)).filter(
+  (e): e is NonNullable<typeof e> => Boolean(e),
+)
 
 export default function ExperiencesStrip() {
   return (
@@ -25,7 +40,7 @@ export default function ExperiencesStrip() {
             <Link
               key={exp.id}
               href="/experiences"
-              className="group relative flex flex-col items-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-3 backdrop-blur-sm transition-all duration-300 hover:border-white/30 sm:p-4"
+              className="group relative flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-3 backdrop-blur-sm transition-all duration-300 hover:border-white/30 sm:p-4"
             >
               <span className="w-full truncate text-[9px] font-semibold uppercase tracking-wide text-purple-400 sm:text-[10px]">
                 {exp.workType || exp.title}
@@ -54,6 +69,13 @@ export default function ExperiencesStrip() {
               <p className="mt-3 w-full truncate text-center text-xs font-medium text-white sm:text-sm">
                 {exp.title}
               </p>
+
+              {/* The commentary is the part that actually sells the work */}
+              {exp.subtext && (
+                <p className="mt-1.5 line-clamp-3 text-center text-[11px] leading-snug text-gray-400 sm:text-xs">
+                  {exp.subtext}
+                </p>
+              )}
             </Link>
           ))}
         </div>

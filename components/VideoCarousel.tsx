@@ -54,8 +54,10 @@ function splitIntoTwoLanes(vs: Video[]): [Video[], Video[]] {
   return [a, b]
 }
 
-/** Same px/frame for both rows so lanes don’t drift apart */
-const MARQUEE_SPEED_PX = 1.15
+/** Same px/frame for both rows so lanes don’t drift apart.
+ *  Slow on purpose: two lanes sliding together reads as busy, and you
+ *  can't process a card that crosses the screen in three seconds. */
+const MARQUEE_SPEED_PX = 0.42
 
 function VideoCard({
   video,
@@ -238,11 +240,20 @@ export default function VideoCarousel({
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hoveredLane, setHoveredLane] = useState<'top' | 'bottom' | null>(null)
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const sync = () => setReducedMotion(mq.matches)
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
 
   const shuffledVideos = useMemo(() => createShuffledVideos(videos), [])
   const [laneTop, laneBottom] = useMemo(() => splitIntoTwoLanes(shuffledVideos), [shuffledVideos])
 
-  const modalOpenPause = isModalOpen
+  const modalOpenPause = isModalOpen || reducedMotion
   const topPaused = modalOpenPause || hoveredLane === 'top'
   const bottomPaused = modalOpenPause || hoveredLane === 'bottom'
 

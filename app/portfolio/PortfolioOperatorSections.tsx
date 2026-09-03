@@ -36,7 +36,9 @@ const tileActive =
   'border-violet-400/55 bg-violet-500/[0.12] shadow-[0_0_24px_-10px_rgba(139,92,246,0.55)]'
 
 export default function PortfolioOperatorSections() {
-  const [open, setOpen] = useState<MenuId | null>('viral')
+  // Landing stays calm: nothing auto-expands. Viral Videos (and the rest)
+  // open on tap — the carousel is one click away, not in your face on arrival.
+  const [open, setOpen] = useState<MenuId | null>(null)
   const isInitialMount = useRef(true)
 
   const toggle = (id: MenuId) => setOpen((prev) => (prev === id ? null : id))

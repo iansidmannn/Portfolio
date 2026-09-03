@@ -538,7 +538,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'snappy-feet',
     title: 'Snappy Feet',
-    subtext: 'Next video hit 100K views after a strategy call, went from ~1K views a video → ~15K.',
+    subtext: 'Next video hit 100K views after a call, went from ~1K views a video → ~15K.',
     account: '@shopsnappyfeet',
     accountUrl: '#',
     workType: 'Ecommerce',
@@ -547,7 +547,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     category: 'consulting',
     commitment: 'Strategy consultation',
     summary: ['The owner called me and asked for my advice on their store because they were stuck at ~1-5k views. After our call, the next video posted got 103k views and they consistently got ~10k+ views.'],
-    approach: 'Ecommerce brand. Optimized online store and corrected social media strategy. Next video hit 100K views after a strategy call, went from ~1K views a video → ~15K.',
+    approach: 'Ecommerce brand. Optimized online store and corrected social media strategy. Next video hit 100K views after a call, went from ~1K views a video → ~15K.',
     pictureMemories: [
       {
         image: '/Screenshot 2025-11-23 230855.png',
@@ -567,7 +567,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'open-park',
     title: 'Open Park',
-    subtext: '100xed views on their account after one strategy call.',
+    subtext: '100xed views on their account after one call.',
     account: '@openparkus',
     accountUrl: 'https://www.instagram.com/openparkus/',
     workType: 'Local Business',
@@ -592,7 +592,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'tostreetfair',
     title: 'To Street Fair',
-    subtext: 'Made content for the event day-of.',
+    subtext: 'Made content during event day with different vendors.',
     account: '@thousandoaksrotarystreetfair',
     accountUrl: 'https://www.instagram.com/thousandoaksrotarystreetfair/',
     workType: 'Non-Profit',
@@ -600,7 +600,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     image: '/Worked With 2/IMG_3078.PNG',
     category: 'consulting',
     commitment: 'Non-profit organization',
-    approach: 'Content creation and social media strategy for nonprofit organization.',
+    approach: 'Made content during event day with different vendors.',
     videos: [
       {
         url: '#',
@@ -675,7 +675,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'atom-williamson',
     title: 'Atom Williamson',
-    subtext: 'Run the business side + videos. 9% conversion rate on store launch day.',
+    subtext: 'Ran the business side + videos. 9% conversion rate on store launch day.',
     account: '@atomwilliamsonn',
     workType: 'Fitness Creator',
     followers: 600000,
@@ -747,7 +747,7 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
   {
     id: 'dr-spice',
     title: 'Dr. Spice',
-    subtext: 'Helped film and refine the strategy that took him past 100K.',
+    subtext: 'Helped film & ideate several videos.',
     account: '@drspice24',
     accountUrl: 'https://www.tiktok.com/@drspice24',
     workType: 'Self-Improvement Creator',
@@ -756,11 +756,10 @@ Among weekly calls & sharing my viral strategies with her, I created semi freque
     imagePosition: 'center 1%',
     category: 'consulting',
     commitment: 'Strategy and filming support',
-    approach: 'Provided content strategy feedback that helped grow from 80K to 100K followers, also assisted with filming.',
+    approach: 'Helped film and ideate several videos while he grew from 80K to 100K followers.',
     achievements: [
-      'Content strategy development',
-      'Growth from 80K to 100K followers',
-      'Video filming assistance',
+      'Ideated video concepts',
+      'Filmed several videos',
     ],
   },
   {
