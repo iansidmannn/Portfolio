@@ -15,6 +15,9 @@ import {
 import VideoCarousel from '@/components/VideoCarousel'
 import KeyMoments from './KeyMoments'
 import RevenueCases from './RevenueCases'
+import ExperiencesStrip from './ExperiencesStrip'
+import WhereImValuable from './WhereImValuable'
+import OtherVideos from './OtherVideos'
 
 type MenuId = 'viral' | 'revenue' | 'trends'
 
@@ -73,7 +76,12 @@ export default function PortfolioOperatorSections() {
     }
   }, [open])
 
+  // Everything below the tiles belongs to the landing state. Once you're
+  // reading Trends or Revenue, it's just noise hanging off the panel.
+  const showLanding = open !== 'trends' && open !== 'revenue'
+
   return (
+    <>
     <section
       aria-label="Portfolio overview"
       className="relative px-4 pb-12 pt-9 sm:px-6 md:pb-14 md:pt-10"
@@ -176,5 +184,18 @@ export default function PortfolioOperatorSections() {
         </AnimatePresence>
       </div>
     </section>
+
+    {showLanding && (
+      <>
+        <ExperiencesStrip />
+        <WhereImValuable />
+
+        {/* Push below the fold — Other Videos shouldn’t appear on initial landing */}
+        <div className="pt-[min(52vh,40rem)] sm:pt-[min(55vh,44rem)]">
+          <OtherVideos />
+        </div>
+      </>
+    )}
+    </>
   )
 }
