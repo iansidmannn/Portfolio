@@ -162,7 +162,7 @@ export default function KeyMoments({ embedded = false }: { embedded?: boolean })
     <section
       className={
         embedded
-          ? 'py-6 px-0 border-0'
+          ? 'py-3 px-0 border-0'
           : 'py-24 px-6 sm:px-8 lg:px-12 border-t border-white/10'
       }
     >
@@ -207,12 +207,12 @@ export default function KeyMoments({ embedded = false }: { embedded?: boolean })
                   className={`h-1 w-full bg-gradient-to-r ${moment.accentFrom} ${moment.accentTo}`}
                 />
 
-                <div className="p-6 md:p-8">
-                  <h3 className="text-lg md:text-xl font-semibold text-white mb-5">
+                <div className={embedded ? 'p-4 md:p-5' : 'p-6 md:p-8'}>
+                  <h3 className={`font-semibold text-white ${embedded ? 'text-base md:text-lg mb-3' : 'text-lg md:text-xl mb-5'}`}>
                     {moment.title}
                   </h3>
                   {moment.description ? (
-                    <p className="text-gray-400 text-sm leading-relaxed mb-5">{moment.description}</p>
+                    <p className={`text-gray-400 leading-relaxed ${embedded ? 'text-[13px] mb-3' : 'text-sm mb-5'}`}>{moment.description}</p>
                   ) : null}
 
                   {showLeagues ? (
@@ -236,7 +236,7 @@ export default function KeyMoments({ embedded = false }: { embedded?: boolean })
                           : visibleThumbs.length === 4
                             ? 'grid-cols-2 sm:grid-cols-4'
                             : 'grid-cols-3'
-                      }`}
+                      } ${embedded && !effectiveWide ? 'max-w-[17rem]' : ''}`}
                     >
                       {visibleThumbs.map((t) => (
                         <a
@@ -261,11 +261,27 @@ export default function KeyMoments({ embedded = false }: { embedded?: boolean })
                                 Original
                               </span>
                             ) : null}
-                            <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-end justify-between">
-                              <span className="text-base md:text-lg font-bold text-white drop-shadow leading-none">
+                            {/* Smaller tiles inside a panel: stack so the handle
+                                stays readable instead of truncating to "@.." */}
+                            <div
+                              className={`absolute bottom-1.5 left-1.5 right-1.5 ${
+                                embedded
+                                  ? 'flex flex-col items-start gap-0'
+                                  : 'flex items-end justify-between'
+                              }`}
+                            >
+                              <span
+                                className={`font-bold text-white drop-shadow leading-none ${
+                                  embedded ? 'text-sm' : 'text-base md:text-lg'
+                                }`}
+                              >
                                 {t.viewLabel}
                               </span>
-                              <span className="text-[10px] text-white/70 truncate ml-1">
+                              <span
+                                className={`text-white/70 truncate max-w-full ${
+                                  embedded ? 'text-[9px]' : 'text-[10px] ml-1'
+                                }`}
+                              >
                                 {t.handle}
                               </span>
                             </div>
@@ -295,7 +311,7 @@ export default function KeyMoments({ embedded = false }: { embedded?: boolean })
                     </button>
                   ) : null}
 
-                  <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${moment.accentFrom} ${moment.accentTo} bg-clip-text text-transparent leading-tight pb-0.5`}>
+                  <div className={`font-bold bg-gradient-to-r ${moment.accentFrom} ${moment.accentTo} bg-clip-text text-transparent leading-tight pb-0.5 ${embedded ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>
                     {moment.metric}
                   </div>
                   <p className="text-sm text-gray-400 mb-4">{moment.metricLabel}</p>

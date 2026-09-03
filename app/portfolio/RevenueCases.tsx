@@ -140,7 +140,7 @@ export default function RevenueCases({ embedded = false }: { embedded?: boolean 
     <section
       className={
         embedded
-          ? 'py-6 px-0 border-0'
+          ? 'py-3 px-0 border-0'
           : 'py-24 px-6 sm:px-8 lg:px-12 border-t border-white/10'
       }
     >
@@ -174,7 +174,7 @@ export default function RevenueCases({ embedded = false }: { embedded?: boolean 
                   className={`h-1 w-full bg-gradient-to-r ${c.accentFrom} ${c.accentTo}`}
                 />
 
-                <div className="p-6 md:p-8">
+                <div className={embedded ? 'p-4 md:p-5' : 'p-6 md:p-8'}>
                   {c.tag ? (
                     <span className={`inline-flex items-center mb-3 rounded-full bg-gradient-to-r ${c.accentFrom} ${c.accentTo} px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white shadow-sm`}>
                       {c.tag}
@@ -189,13 +189,13 @@ export default function RevenueCases({ embedded = false }: { embedded?: boolean 
 
                   {c.thumbnails && c.thumbnails.length > 0 ? (
                     <div
-                      className={`grid gap-2 mb-5 ${
+                      className={`grid gap-2 ${embedded ? 'mb-3' : 'mb-5'} ${
                         c.thumbnails.length === 1
                           ? 'grid-cols-1 max-w-[8.5rem] sm:max-w-[9.5rem]'
                           : c.thumbnails.length === 2
                             ? 'grid-cols-2'
                             : 'grid-cols-3'
-                      }`}
+                      } ${embedded && c.thumbnails.length > 1 ? 'max-w-[17rem]' : ''}`}
                     >
                       {c.thumbnails.map((t) => (
                         <a
@@ -220,11 +220,25 @@ export default function RevenueCases({ embedded = false }: { embedded?: boolean 
                                 Original
                               </span>
                             ) : null}
-                            <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-end justify-between">
-                              <span className="text-base md:text-lg font-bold text-white drop-shadow leading-none">
+                            <div
+                              className={`absolute bottom-1.5 left-1.5 right-1.5 ${
+                                embedded
+                                  ? 'flex flex-col items-start gap-0'
+                                  : 'flex items-end justify-between'
+                              }`}
+                            >
+                              <span
+                                className={`font-bold text-white drop-shadow leading-none ${
+                                  embedded ? 'text-sm' : 'text-base md:text-lg'
+                                }`}
+                              >
                                 {t.viewLabel}
                               </span>
-                              <span className="text-[10px] text-white/70 truncate ml-1">
+                              <span
+                                className={`text-white/70 truncate max-w-full ${
+                                  embedded ? 'text-[9px]' : 'text-[10px] ml-1'
+                                }`}
+                              >
                                 {t.handle}
                               </span>
                             </div>

@@ -134,7 +134,7 @@ export default function PortfolioOperatorSections() {
               transition={{ duration: 0.2, ease: 'easeOut' }}
               className="mt-4 scroll-mt-24 overflow-hidden rounded-xl border border-white/[0.1] bg-black/55 sm:mt-5"
             >
-              <div className="px-1 py-4 sm:px-3 sm:py-6">
+              <div className="px-1 py-2.5 sm:px-3 sm:py-4">
                 <VideoCarousel lead embedded />
               </div>
             </motion.div>
@@ -151,7 +151,7 @@ export default function PortfolioOperatorSections() {
               transition={{ duration: 0.2, ease: 'easeOut' }}
               className="mt-4 scroll-mt-24 overflow-hidden rounded-xl border border-white/[0.1] bg-black/55 sm:mt-5"
             >
-              <div className="px-2 py-5 sm:px-4 sm:py-7">
+              <div className="px-2 py-3 sm:px-4 sm:py-4">
                 <KeyMoments embedded />
               </div>
             </motion.div>
@@ -168,7 +168,7 @@ export default function PortfolioOperatorSections() {
               transition={{ duration: 0.2, ease: 'easeOut' }}
               className="mt-4 scroll-mt-24 overflow-hidden rounded-xl border border-white/[0.1] bg-black/55 sm:mt-5"
             >
-              <div className="px-2 py-5 sm:px-4 sm:py-7">
+              <div className="px-2 py-3 sm:px-4 sm:py-4">
                 <RevenueCases embedded />
               </div>
             </motion.div>

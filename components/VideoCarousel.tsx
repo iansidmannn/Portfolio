@@ -83,7 +83,7 @@ function VideoCard({
       }
       onClick={(e) => onVideoClick(e, video)}
       whileHover={{ scale: 1.04, y: -4 }}
-      className="group relative flex h-[14.5rem] w-[10.75rem] shrink-0 select-none overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-sm transition-all duration-300 hover:border-white/25 sm:h-[16.5rem] sm:w-[12.25rem] md:h-[18rem] md:w-[13.5rem]"
+      className="group relative flex h-[12.25rem] w-[9rem] shrink-0 select-none overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-sm transition-all duration-300 hover:border-white/25 sm:h-[13.75rem] sm:w-[10.25rem] md:h-[15rem] md:w-[11.25rem]"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30" />
 
