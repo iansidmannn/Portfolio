@@ -64,7 +64,7 @@ const allVideos: VideoItem[] = [
     title: 'Piñata Farms — Top 8 Fake News Pranks',
     url: 'https://www.youtube.com/watch?v=j2uRwcV7Ct8',
     caption:
-      '~20k views on YouTube long-form. Built end-to-end with Claude Code: pulled clips, edited, posted.',
+      '~67K views on YouTube long-form. I gave Claude one specific prompt on how to edit it and the AI one-shotted the whole thing, thumbnail included.',
   },
   {
     thumbnail: '/other-yt-kAHhqy4WMEY.jpg',
