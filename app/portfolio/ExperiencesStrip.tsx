@@ -26,13 +26,9 @@ const PICK_IDS = [
   'atom-williamson', // 9% conversion rate — pure CRO
   'dexcom-consult', // Real medtech brand, millions of views, earned a sponsorship
   'personal-brand', // Repeatable viral series, not one lucky hit
-  'ai-content', // Automated content production before agents existed
+  'eppy-vlogs', // Built a viral brand off a trend
   'fitness19gyms', // 30+ daily Google reviews from one clever mechanic
   'snappy-feet', // Ecommerce lift: ~1K → ~15K views a video
-  'eppy-vlogs', // Built a viral brand off a trend
-  'open-park', // 100x'd their views off one call
-  'conejo-awards', // A series that kept producing 150K views/month
-  'sarah', // Found the format that took her to 50M views
 ]
 
 const picks = PICK_IDS.map((id) => experiences.find((e) => e.id === id)).filter(
