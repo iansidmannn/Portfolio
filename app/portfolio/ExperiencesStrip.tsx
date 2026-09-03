@@ -5,6 +5,21 @@ import { experiences } from '@/data/experiences'
 
 // Hand-picked for a tech / performance-marketing reader, best first.
 // Order matters — the first four are what a hiring manager sees before scrolling.
+// Home-only logo line. Deliberately local to this file so the real
+// /experiences page keeps its own logo treatment untouched.
+const LOGOS: { src: string; label: string }[] = [
+  { src: '/f19 logo.png', label: 'Fitness 19' },
+  { src: '/brick logo.png', label: 'Brick' },
+  { src: '/smylelabs logo.png', label: 'Smyle Labs' },
+  { src: '/wealthconlogo.png', label: 'WealthCon' },
+  { src: '/ck logo.png', label: 'Charity Karaoke' },
+  { src: '/pf logo2.png', label: 'Piñata Farms' },
+  { src: '/dexcom.png', label: 'Dexcom' },
+  { src: '/nflz.png', label: 'NFL' },
+  { src: '/nba-logo-transparent.png', label: 'NBA' },
+  { src: '/NHL-Logo.png', label: 'NHL' },
+]
+
 const PICK_IDS = [
   'pinata-farms', // AI consumer app: 0 → 11.5M views in 5 days, 60K downloads
   'clothing-brand-2', // Owned the whole funnel: product → content → revenue
@@ -14,6 +29,10 @@ const PICK_IDS = [
   'ai-content', // Automated content production before agents existed
   'fitness19gyms', // 30+ daily Google reviews from one clever mechanic
   'snappy-feet', // Ecommerce lift: ~1K → ~15K views a video
+  'eppy-vlogs', // Built a viral brand off a trend
+  'open-park', // 100x'd their views off one call
+  'conejo-awards', // A series that kept producing 150K views/month
+  'sarah', // Found the format that took her to 50M views
 ]
 
 const picks = PICK_IDS.map((id) => experiences.find((e) => e.id === id)).filter(
@@ -22,7 +41,7 @@ const picks = PICK_IDS.map((id) => experiences.find((e) => e.id === id)).filter(
 
 export default function ExperiencesStrip() {
   return (
-    <section aria-label="Experiences" className="relative px-4 pb-4 sm:px-6">
+    <section aria-label="Experiences" className="relative px-4 pb-16 sm:px-6 sm:pb-20">
       <div className="relative z-[1] container mx-auto max-w-5xl">
         <div className="mb-4 flex items-baseline justify-between">
           <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Experiences</h2>
@@ -78,6 +97,31 @@ export default function ExperiencesStrip() {
               )}
             </Link>
           ))}
+        </div>
+
+        {/* Who the work was for, in one quiet line */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:mt-9 sm:gap-x-6">
+          {LOGOS.map(({ src, label }) => (
+            <div key={src} className="relative h-6 w-[3.25rem] shrink-0 sm:h-7 sm:w-[4rem]">
+              <Image
+                src={src}
+                alt={label}
+                fill
+                sizes="64px"
+                className="object-contain opacity-45 transition-opacity hover:opacity-70"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-5 flex justify-center sm:mt-6">
+          <Link
+            href="/experiences"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-gray-200 transition-colors hover:border-white/30 hover:bg-white/[0.08] hover:text-white"
+          >
+            See more experiences
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
         </div>
       </div>
     </section>
