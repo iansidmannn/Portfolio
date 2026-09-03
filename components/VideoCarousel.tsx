@@ -253,9 +253,12 @@ export default function VideoCarousel({
   const shuffledVideos = useMemo(() => createShuffledVideos(videos), [])
   const [laneTop, laneBottom] = useMemo(() => splitIntoTwoLanes(shuffledVideos), [shuffledVideos])
 
+  // Both lanes move as one: hovering either row stops both, so they never
+  // drift out of step with each other.
   const modalOpenPause = isModalOpen || reducedMotion
-  const topPaused = modalOpenPause || hoveredLane === 'top'
-  const bottomPaused = modalOpenPause || hoveredLane === 'bottom'
+  const anyHover = hoveredLane !== null
+  const topPaused = modalOpenPause || anyHover
+  const bottomPaused = modalOpenPause || anyHover
 
   const handleVideoClick = useCallback((e: React.MouseEvent, video: Video) => {
     if (!video.url) {
