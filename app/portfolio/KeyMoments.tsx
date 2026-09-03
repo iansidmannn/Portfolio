@@ -179,7 +179,7 @@ export default function KeyMoments({ embedded = false }: { embedded?: boolean })
           </motion.div>
         ) : null}
 
-        <div className={`grid md:grid-cols-2 ${embedded ? 'gap-4 md:gap-5' : 'gap-6'}`}>
+        <div className={`grid ${embedded ? 'md:grid-cols-3 gap-3 md:gap-4' : 'md:grid-cols-2 gap-6'}`}>
           {keyMoments.map((moment, index) => {
             const isExpanded = expandedId === moment.id
             const totalThumbs = moment.thumbnails?.length || 0

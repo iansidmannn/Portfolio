@@ -157,7 +157,7 @@ export default function RevenueCases({ embedded = false }: { embedded?: boolean 
           </motion.div>
         ) : null}
 
-        <div className={`grid md:grid-cols-2 ${embedded ? 'gap-4 md:gap-5' : 'gap-6'}`}>
+        <div className={`grid ${embedded ? 'md:grid-cols-3 gap-3 md:gap-4' : 'md:grid-cols-2 gap-6'}`}>
           {cases.map((c, index) => {
             const isExpanded = expandedId === c.id
 
